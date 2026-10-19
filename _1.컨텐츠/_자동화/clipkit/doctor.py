@@ -15,6 +15,8 @@ ROWS = [
     ('scenedetect', 'pip', 'scenedetect', 'pip install scenedetect opencv-python-headless', 'scene_cuts 컷 후보'),
     ('deface', 'pip', 'deface', 'pip install deface', 'face_boxes 얼굴 상자'),
     ('faster-whisper', 'pip', 'faster_whisper', 'pip install faster-whisper  (선택 — whisper-cli 대신, 단어 시각)', 'stt'),
+    ('auto-editor', 'exe', lambda: bool(shutil.which('auto-editor')), 'pip install auto-editor  (첫 실행 때 GitHub 에서 실행 파일 받음)', 'trim_idle 화면 녹화 군더더기'),
+    ('depthflow', 'pip', 'depthflow', 'pip install depthflow  (선택 — torch 1GB+, 첫 실행 때 Hugging Face 모델)', 'depth_motion 사진 패럴랙스'),
     ('whisper-cli', 'exe', lambda: os.path.exists(os.path.expandvars(r"%USERPROFILE%\tools\whisper\Release\whisper-cli.exe")), '지금 쓰는 whisper.cpp — 경로 stt.WH', 'stt(cli)'),
     ('ggml-medium', 'file', lambda: os.path.exists(os.path.expandvars(r"%USERPROFILE%\.claude\models\ggml-medium.bin")), 'stt.MD 경로', 'stt(cli)'),
     ('faster-whisper 모델', 'file', lambda: os.path.exists(os.path.join(os.environ.get('CLIP_FW_MODEL') or os.path.expandvars(r"%USERPROFILE%\.claude\models\faster-whisper-medium"), 'model.bin')), 'python stt.py pull  (선택)', 'stt(fw) · narr_words 단어 시각'),
