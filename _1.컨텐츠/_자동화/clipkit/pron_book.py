@@ -2,7 +2,7 @@
 #   장부: clipkit\pron_book.json   (낱말 · 들린 말 · 횟수 · 바꾼 말 · 메모)
 #   쌓기: narr_pick.py 가 녹음마다 받아쓰기와 자막을 맞춰 보고, 어긋난 낱말을 자동으로 더한다(kind=stt)
 #         사용자가 귀로 지적한 건 add 로 더한다(kind=user — 더 무겁게 본다)
-#   쓰기: 녹음 전에 python pron_book.py check <narration\EP\script.txt>  (qa_clip ③-4 도 부른다)
+#   쓰기: 녹음 전에 python pron_book.py check <narration\EP\script.txt>  (qa_clip ③-4 도 부른다) — 장부 + 꼴(PATTERNS) + 소리 검사(G2P·품사, 10/19 최초 검사)
 #
 #   python pron_book.py check <script.txt>
 #   python pron_book.py add <낱말> --heard 들린말 --fix 바꾼말 --note "메모"
@@ -26,6 +26,90 @@ PATTERNS = [
     (r'출발편', '모호: 복귀편 이야기 중엔 출발편=어느 쪽? → 「가는 편」「오는 편」'),
     (r'읽어 줄', '모호(비유): 무엇을 읽어 주나 → 「작품 이야기를 들려줄」'),
 ]
+
+
+# ── 소리 검사 — 최초 검사(2026.10.19 사용자 결정: 「기존 형식에 큰 영향은 안 주니까 최초 검사로」) ──
+#   녹음 전에 대본 글자만 보고 「다른 낱말로 들릴 자리」를 찾는다. 받아쓰기(narr_pick)는 녹음한 뒤에만 잡고, 뜻이 다르게 들리는 줄은 못 잡는다(10/11 「사고 재고」).
+#   ① 아라비아 숫자: 「2편」→「이편」(7-0 ④ 숫자는 한글로) — 발음형을 같이 보여 준다 (g2pkiwi)
+#   ② 짧은 동사: 「사고·재고·가고…」를 형태소 분석기가 명사로 읽으면 Kevin 도 그렇게 읽기 쉽다 (kiwipiepy 품사)
+#   ③ 연음 참고: 「산 영상은」→「사녕상은」처럼 받침이 다음 말 첫소리로 넘어가는 자리 — 자연스러운 게 대부분이라 건수에 안 넣고 한 줄로만 보여 준다
+#   g2pkiwi·kiwipiepy 가 없으면 이 검사만 건너뛰고 한 줄 알린다:  pip install g2pkiwi kiwipiepy
+SHORT_VERBS = ('사고', '재고', '가고', '쓰고', '타고', '차고', '자고', '보고')
+_G = None
+
+
+def _g2p():
+    """(G2p, Kiwi) 를 한 번만 만든다. 없으면 False."""
+    global _G
+    if _G is not None:
+        return _G
+    try:
+        import kiwipiepy
+        _Kiwi = kiwipiepy.Kiwi
+
+        class _KiwiAny(_Kiwi):
+            # g2pkiwi 는 model_type='sbg' 로 고정 — 그 모델이 안 깔려 있으면(kiwipiepy_model 0.24 는 cong 만) 기본 모델로
+            def __init__(self, *a, **k):
+                try:
+                    super().__init__(*a, **k)
+                except OSError:
+                    k.pop('model_type', None); super().__init__(*a, **k)
+        kiwipiepy.Kiwi = _KiwiAny
+        os.environ.setdefault('NLTK_ALLOW_PROXIED_URLOPEN', '1')   # 영어 낱말 사전(cmudict) 첫 내려받기 — 프록시 환경에서 nltk 가 거부하는 것 풀기
+        import g2pkiwi
+        from g2pkiwi.utils import kiwi
+        _G = (g2pkiwi.G2p(), kiwi)
+    except Exception as e:
+        print('소리 검사 건너뜀 — g2pkiwi·kiwipiepy 필요(pip install g2pkiwi kiwipiepy): %s' % e)
+        _G = False
+    return _G
+
+
+def _jong(ch):
+    o = ord(ch) - 0xAC00
+    return (o % 28) if 0 <= o < 11172 else 0
+
+
+def _cho(ch):
+    o = ord(ch) - 0xAC00
+    return (o // 588) if 0 <= o < 11172 else -1
+
+
+def sound_check(line):
+    """한 줄의 소리 경고 [(낱말, 들린 말, 메모)] — ①②. 연음(③)은 liaison() 이 따로."""
+    g = _g2p()
+    if not g:
+        return []
+    g2p, kiwi = g; out = []
+    for mm in re.finditer(r'\d[\d,.]*\s*[가-힣]+', line):
+        out.append((mm.group(0), g2p(mm.group(0)), '아라비아 숫자 — 소리로는 이렇게 읽힌다(「2편」→「이편」). 7-0 ④ 숫자는 한글로'))
+    for t in kiwi.tokenize(line):
+        if t.form in SHORT_VERBS and t.tag.startswith('NN'):
+            out.append((t.form, '', '분석기가 명사(%s)로 읽음 — 「사고=accident」「재고=창고 물건」으로 들린다. 무엇을·어떻게를 붙여 풀기(6-1-2)' % t.tag))
+    return out
+
+
+def liaison(line):
+    """받침이 다음 말로 넘어가는 자리 [(「쓴 말」, 「들리는 말」)] — 참고용."""
+    g = _g2p()
+    if not g:
+        return []
+    g2p = g[0]; w = line.split(); p = g2p(line).split(); out = []
+    if len(w) != len(p):
+        return out
+    for i in range(len(w) - 1):
+        a, b, pa, pb = w[i], w[i + 1], p[i], p[i + 1]
+        if not (a and b and pa and pb) or not re.search('[가-힣]$', a) or not re.match('[가-힣]', b):
+            continue
+        if _jong(a[-1]) and not _jong(pa[-1]) and _cho(b[0]) == 11 and _cho(pb[0]) != 11:   # 받침이 넘어가 다음 말의 「ㅇ」 첫소리를 채움
+            out.append(('%s %s' % (a, b), '%s%s' % (pa, pb)))
+    return out
+
+
+def liaison_note(lines):
+    """대본 전체의 연음 참고를 한 줄로."""
+    got = [(n, a, b) for n, line in enumerate(lines) for a, b in liaison(line)]
+    return '연음 참고 %d곳: ' % len(got) + ' · '.join('n%02d 「%s」→「%s」' % x for x in got) if got else '연음 참고 없음'
 
 
 def load():
@@ -99,6 +183,8 @@ def check(lines, min_count=1):
         for rx, msg in PATTERNS:
             for mm in re.finditer(rx, line):
                 out.append((n, mm.group(0), '', msg))
+        for w, heard, msg in sound_check(line):   # 소리 검사(10/19)
+            out.append((n, w, heard, msg))
     return out
 
 
@@ -109,6 +195,7 @@ if __name__ == '__main__':
         res = check(lines)
         for n, w, heard, tip in res:
             print('n%02d  「%s」%s  %s' % (n, w, ('  들린 말: ' + heard) if heard else '', tip))
+        print(liaison_note(lines))
         print('발음 주의 %d건' % len(res))
     elif cmd == 'add':
         a = sys.argv[2:]; word = a[0]

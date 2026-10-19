@@ -6,7 +6,8 @@
 #  ④ 호칭(선수·감독) — 화면 글 + 내레이션 대본          tactics.check_honorifics
 #  ⑤ 내레이션: 장면마다 파일·12초 이하·대본 줄 수       파일 검사
 #  ⑥ 완성본 길이 90초 이하                               out\*.mp4
-#  ⑦ --stt: 받아쓰기를 대본 옆에 나란히(귀 대신 눈으로)  check_narration.py
+#  ⑦ 음량: 빌드된 내레이션 줄마다 −14 LUFS ±1 · 완성본 트루피크   tactics.lufs (10/19)
+#  ⑧ --stt: 받아쓰기를 대본 옆에 나란히(귀 대신 눈으로)  check_narration.py
 # 준비물(클립 폴더): pub_<logNo>.txt(발행본 — getpub.py) · narration\<EP>\script.txt(대본, 한 줄 = nXX 하나)
 # 장면 스크립트에 PLAYERS = [...] · COACHES = [...] 를 적어 두면 호칭 검사에 쓴다
 import os, re, sys, glob, subprocess, importlib.util
@@ -68,12 +69,13 @@ if script:
         fails.append('같은 말 반복 — 대사를 바꿔 다시 녹음')
 
 if script:
-    print('\n== ③-4 발음 장부(clipkit\\pron_book.json — 지침 6-1-3, 경고만)')
+    print('\n== ③-4 발음 장부 + 소리 검사(clipkit\\pron_book.json — 지침 6-1-3 · G2P·품사 10/19, 경고만)')
     import pron_book
     pw = pron_book.check([l for l in script if l])
     for n, w, heard, tip in pw:
         print('n%02d  「%s」%s  %s' % (n, w, ('  들린 말: ' + heard) if heard else '', tip))
-    print('발음 주의 %d건 — 받아쓰기(⑦)와 귀로 확인' % len(pw))
+    print(pron_book.liaison_note([l for l in script if l]))
+    print('발음 주의 %d건 — 받아쓰기(⑧)와 귀로 확인' % len(pw))
 
 print('\n== ④ 호칭')
 if T.check_honorifics(m.SCENES, getattr(m, 'PLAYERS', ()), getattr(m, 'COACHES', ()), script):
@@ -116,8 +118,27 @@ if out_name and os.path.exists(mp4):
 else:
     print('아직 빌드 전')
 
+print('\n== ⑦ 음량(줄마다 %.0f LUFS ±1 · 완성본 트루피크 ≤ -1.0 dBTP — EBU R128, 10/19)' % T.LOUD[0])
+bw = sorted(glob.glob(os.path.join(base, '_build', ep or '', 'n[0-9][0-9].wav')))
+if bw:
+    for f in bw:
+        lm = T.lufs(f); off = lm['i'] - T.LOUD[0]
+        print('%s %.1f LUFS (TP %.1f)%s' % (os.path.basename(f), lm['i'], lm['tp'], '  ← 1dB 넘게 벗어남' if abs(off) > 1 else ''))
+        if abs(off) > 1:
+            fails.append('%s 음량 %.1f LUFS — 빌드 다시(narr_proc 이 맞춰야 정상)' % (os.path.basename(f), lm['i']))
+else:
+    vals = [(os.path.basename(f), T.lufs(f)['i']) for f in vf]
+    if vals:
+        lo, hi = min(v for _, v in vals), max(v for _, v in vals)
+        print('빌드 전 원본 %d줄: %.1f ~ %.1f LUFS (차이 %.1f dB) — 빌드 때 narr_proc 이 줄마다 %.0f 으로 맞춘다. 빌드 뒤 다시 검산' % (len(vals), lo, hi, hi - lo, T.LOUD[0]))
+if out_name and os.path.exists(mp4):
+    lm = T.lufs(mp4)
+    print('완성본 %.1f LUFS · 트루피크 %.1f dBTP' % (lm['i'], lm['tp']))
+    if lm['tp'] > -1.0:
+        fails.append('완성본 트루피크 %.1f dBTP — 효과음·내레이션이 겹쳐 찌그러질 수 있음' % lm['tp'])
+
 if '--stt' in sys.argv:
-    print('\n== ⑦ 받아쓰기(대본과 나란히 — 숫자는 아라비아로 나온다)')
+    print('\n== ⑧ 받아쓰기(대본과 나란히 — 숫자는 아라비아로 나온다)')
     import tempfile, shutil
     tmp = tempfile.mkdtemp(); os.makedirs(os.path.join(tmp, 'narration'))
     for f in glob.glob(os.path.join(nd, 'n[0-9][0-9].mp3')):

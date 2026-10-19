@@ -26,6 +26,7 @@ PY0, PY1 = 560, 1600   # 경기장이 차지하는 화면 세로 구간
 NARR_LEAD = 0.15
 XF = 0.12
 TEMPO = 1.08
+LOUD = (-14.0, -1.5, 11.0)   # 내레이션 줄마다 맞출 통합 음량 LUFS·트루피크 dBTP·LRA(EBU R128). 10/19 측정: 완성본을 한 번에 맞추면 줄 사이 7dB 차이가 그대로 남는다 → 줄마다
 MAX_STRETCH = 1.35  # 움직임은 최대 1.35배까지만 늘린다(더 느리면 늘어져 보임) — 나머지는 끝 상태로 멈춤
 SFX_VOL = {'whoosh': 0.32, 'ding': 0.28, 'kick': 0.5}
 _fonts = {}
@@ -303,11 +304,36 @@ def narr_gaps(q):
     return [(a, b) for a, b in zip(st, en) if a > 0.05 and b < total - 0.05]
 
 
+def lufs(path):
+    """통합 음량 측정(loudnorm 1차) → dict(i, tp, lra, thresh, offset). narr_proc 의 2차 보정과 qa_clip ⑦ 이 쓴다."""
+    import json
+    r = subprocess.run(['ffmpeg', '-hide_banner', '-i', path, '-af', 'loudnorm=I=%s:TP=%s:LRA=%s:print_format=json' % LOUD, '-f', 'null', '-'],
+                       capture_output=True, text=True, encoding='utf-8', errors='replace')
+    m = json.loads(r.stderr[r.stderr.rfind('{'):])
+    return {k: float(m[v]) for k, v in (('i', 'input_i'), ('tp', 'input_tp'), ('lra', 'input_lra'), ('thresh', 'input_thresh'), ('offset', 'target_offset'))}
+
+
+def loudnorm(src, dst):
+    """두 번 돌리기(측정 → 선형 보정) — 줄마다 같은 크기(LOUD). 샘플레이트는 원본 그대로(loudnorm 은 192k 로 바꿔 버린다)."""
+    m = lufs(src)
+    if m['i'] < -70:   # 거의 무음 — 보정하면 잡음만 커진다
+        shutil.copy(src, dst); return dst
+    import wave
+    with wave.open(src, 'rb') as w:
+        rate = w.getframerate()
+    run(['ffmpeg', '-y', '-v', 'error', '-i', src, '-af',
+         'loudnorm=I=%s:TP=%s:LRA=%s' % LOUD + ':measured_I=%(i)s:measured_TP=%(tp)s:measured_LRA=%(lra)s:measured_thresh=%(thresh)s:offset=%(offset)s:linear=true' % m,
+         '-ar', str(rate), dst])
+    return dst
+
+
 def narr_proc(p, q, breath=None):
-    """내레이션 처리(긴 묵음 줄이기 + TEMPO) → q(wav). breath=[(n, 초)] : n번째(0부터) 말 사이 틈을 그 길이로 늘린다
+    """내레이션 처리(긴 묵음 줄이기 + TEMPO + 줄별 음량 보정) → q(wav). breath=[(n, 초)] : n번째(0부터) 말 사이 틈을 그 길이로 늘린다
     (10/11 사용자: 「반팔이야? 외투야? / 내가 간 나흘은」 사이가 빠르다 → 0.5초 쉼). shorts.prep 도 이걸 써서 자막 시간이 맞는다."""
+    q0 = q[:-4] + '_raw.wav'
     run(['ffmpeg', '-y', '-v', 'error', '-i', p, '-af',
-         f'silenceremove=stop_periods=-1:stop_duration=0.3:stop_threshold=-40dB:stop_silence=0,atempo={TEMPO}', q])
+         f'silenceremove=stop_periods=-1:stop_duration=0.3:stop_threshold=-40dB:stop_silence=0,atempo={TEMPO}', q0])
+    loudnorm(q0, q)   # 줄마다 LOUD 로(10/19) — 그 뒤 breath 묵음을 넣는다
     if not breath:
         return q
     gaps = narr_gaps(q)
