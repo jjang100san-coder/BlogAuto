@@ -5,8 +5,6 @@
 #   → 가장 높은 것을 narration\<EP>\nXX.mp3 로 복사, 표를 출력
 #   일치율 0.92 미만 또는 남는 끊김이 있으면 「확인 필요」 — 그 줄만 삐 소리로 이어 _build\narr_check.mp3 (사용자가 귀로)
 import os, re, sys, glob, shutil, subprocess, tempfile, difflib, importlib.util
-WH = r"C:\Users\user\tools\whisper\Release\whisper-cli.exe"
-MD = r"C:\Users\user\.claude\models\ggml-medium.bin"
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 path = os.path.abspath(sys.argv[1]); base = os.path.dirname(path)
@@ -26,11 +24,11 @@ td = os.path.join(nd, 'takes')
 norm = lambda s: re.sub(r'[\s,.?!·~「」"\'()]', '', s).replace('밀리', 'mm').replace('센티', 'cm')
 
 
+import stt as _stt   # 엔진(whisper-cli / faster-whisper)은 stt.py 가 고른다(10/19) — 출력 꼴은 예전 그대로
+
+
 def stt(f):
-    w = os.path.join(tempfile.gettempdir(), 'np_x_%d.wav' % os.getpid())   # 이름 고정이면 두 클립을 같이 돌릴 때 받아쓰기가 섞인다(10/14 CA·BK)
-    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', f, '-ar', '16000', '-ac', '1', w])
-    r = subprocess.run([WH, '-m', MD, '-l', 'ko', '-nt', '-f', w], capture_output=True, text=True, encoding='utf-8', errors='replace')
-    return ' '.join(l.strip() for l in r.stdout.splitlines() if l.strip())
+    return _stt.transcribe(f)
 
 
 def pauses(f):

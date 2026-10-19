@@ -334,6 +334,7 @@ def narr_proc(p, q, breath=None):
     run(['ffmpeg', '-y', '-v', 'error', '-i', p, '-af',
          f'silenceremove=stop_periods=-1:stop_duration=0.3:stop_threshold=-40dB:stop_silence=0,atempo={TEMPO}', q0])
     loudnorm(q0, q)   # 줄마다 LOUD 로(10/19) — 그 뒤 breath 묵음을 넣는다
+    os.remove(q0)
     if not breath:
         return q
     gaps = narr_gaps(q)

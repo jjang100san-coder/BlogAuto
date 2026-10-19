@@ -3,8 +3,8 @@
 #   → narration\n*.mp3 를 whisper(medium, 한국어)로 받아써서 길이와 함께 출력. 끝에 대본에 없는 말이 붙었는지 눈으로 본다
 import sys, os, re, glob, subprocess, tempfile
 
-WH = r"C:\Users\user\tools\whisper\Release\whisper-cli.exe"
-MD = r"C:\Users\user\.claude\models\ggml-medium.bin"
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'clipkit'))
+import stt   # 엔진(whisper-cli / faster-whisper)은 clipkit\stt.py 가 고른다(10/19)
 
 
 def media_dur(path):
@@ -21,9 +21,7 @@ def main(clip_dir):
     w = os.path.join(tmp, "x.wav")
     for f in sorted(glob.glob(os.path.join(clip_dir, "narration", "n[0-9][0-9].mp3"))):
         d = media_dur(f)
-        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", f, "-ar", "16000", "-ac", "1", w])
-        r = subprocess.run([WH, "-m", MD, "-l", "ko", "-f", w], capture_output=True, text=True, encoding="utf-8", errors="replace")
-        lines = [l.strip() for l in r.stdout.splitlines() if l.strip()]
+        lines = [stt.transcribe(f)]
         flag = " !!12초 초과" if d > 12 else ""
         print("%s  %.1f초%s" % (os.path.basename(f), d, flag))
         for l in lines:

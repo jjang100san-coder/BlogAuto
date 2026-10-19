@@ -219,6 +219,45 @@ def _chunks(s):
     return [_wrap2(p) for p in units(s)]
 
 
+def _caps_from_words(chunks, words, lead, d):
+    """단어 시각(narr_words.py → nXX.words.json)으로 자막 덩어리 시작 시각을 잡는다(10/19).
+    받아쓰기 글자열과 자막 글자열을 맞춰(SequenceMatcher) 덩어리 첫 글자가 어느 단어에 떨어지는지 본다. 못 맞추면 None → 비례 배분."""
+    import difflib
+    N = lambda s: re.sub(r'[\s,.?!·~「」"\'()\n]', '', s)
+    wtext, starts = '', []
+    for a, b, w in words:
+        for _ in N(w):
+            starts.append(a)
+        wtext += N(w)
+    cap = N(''.join(chunks))
+    if not wtext or not cap:
+        return None
+    sm = difflib.SequenceMatcher(None, cap, wtext, autojunk=False)
+    if sm.ratio() < 0.6:
+        return None
+    pos2w = {}
+    for op, i1, i2, j1, j2 in sm.get_opcodes():
+        if op == 'equal':
+            for k in range(i2 - i1):
+                pos2w[i1 + k] = j1 + k
+    out, off = [], 0
+    for c in chunks:
+        n = len(N(c)); j = next((pos2w[k] for k in range(off, off + n) if k in pos2w), None)
+        t = (starts[j] if j is not None and j < len(starts) else None)
+        out.append([t, c]); off += n
+    if out[0][0] is None:
+        out[0][0] = 0.0
+    for k in range(1, len(out)):   # 못 맞춘 덩어리는 앞뒤 사이로
+        if out[k][0] is None:
+            nxt = next((out[m][0] for m in range(k + 1, len(out)) if out[m][0] is not None), d)
+            out[k][0] = (out[k - 1][0] + nxt) / 2
+    caps = []
+    for k, (t, c) in enumerate(out):
+        t1 = out[k + 1][0] if k + 1 < len(out) else d
+        caps.append((lead + max(0.0, t - 0.05), lead + t1 + 0.05, c))
+    return caps
+
+
 def prep(scenes, base, ep):
     """장면 길이를 내레이션 + 0.45초 이상으로 늘리고(tactics 의 tscale 늘림을 막아 자막 시간이 맞게), 말 자막을 나눠 단다."""
     for i, sc in enumerate(scenes):
@@ -230,14 +269,28 @@ def prep(scenes, base, ep):
             sc['dur'] = max(sc['dur'], round(d + T.NARR_LEAD + TAIL, 2))
             if sc.get('cap'):
                 ch = _chunks(sc['cap'])
-                tot = sum(len(c) for c in ch) or 1
-                t = T.NARR_LEAD
-                for c in ch:
-                    span = d * len(c) / tot
-                    sc['_caps'].append((t, t + span + 0.05, c)); t += span
+                wj = p[:-4] + '.words.json'   # narr_words.py 가 만든 단어 시각(10/19) — 있으면 그걸로, 없으면 비례 배분
+                got = None
+                if os.path.exists(wj):
+                    try:
+                        import json
+                        got = _caps_from_words(ch, json.load(open(wj, encoding='utf-8')), T.NARR_LEAD, d)
+                    except Exception as e:
+                        print('words.json 못 씀(%s) — 비례 배분으로: %s' % (e, wj))
+                if got:
+                    sc['_caps'] = got
+                    continue_prop = False
+                else:
+                    continue_prop = True
+                if continue_prop:
+                    tot = sum(len(c) for c in ch) or 1
+                    t = T.NARR_LEAD
+                    for c in ch:
+                        span = d * len(c) / tot
+                        sc['_caps'].append((t, t + span + 0.05, c)); t += span
                 # 자막 경계를 가까운 말 틈(0.6초 안)으로 당긴다 — 쉼(breath) 뒤 자막이 미리 뜨지 않게(10/11)
                 mids = [T.NARR_LEAD + (a + b) / 2 for a, b in _gaps.get(p, [])]
-                for j in range(1, len(sc['_caps'])):
+                for j in (range(1, len(sc['_caps'])) if continue_prop else ()):   # 단어 시각으로 잡았으면 틈으로 안 당긴다(10/19)
                     t0 = sc['_caps'][j][0]
                     near = min(mids, key=lambda m: abs(m - t0), default=None)
                     if near is not None and abs(near - t0) < 0.6 and near > sc['_caps'][j - 1][0] + 0.3:
