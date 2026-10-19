@@ -1,0 +1,2 @@
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/여행_컨텐츠/양식 셋업 전/여행-25년 하코다테/clip/_build/_beep.wav'
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/여행_컨텐츠/양식 셋업 전/여행-25년 하코다테/clip/_build/_chk04.wav'

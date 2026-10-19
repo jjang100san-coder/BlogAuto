@@ -1,0 +1,10 @@
+    55835  korea-japan-final-preview/images/05_korea.png
+    73556  korea-japan-final-preview/images/04_january.png
+    65622  korea-japan-final-preview/images/02_route.png
+   104698  korea-japan-final-preview/images/03_minutes.png
+    88803  korea-japan-final-preview/images/07_watch.png
+    45311  korea-japan-final-preview/images/01_thumb.png
+   102104  korea-japan-final-preview/images/06_plans.png
+    14460  korea-japan-final-preview/source_notes_minutes.md
+    25050  korea-japan-final-preview/draft_korea_japan_final_preview.md
+    30268  korea-japan-final-preview/source_notes_japan_media.md

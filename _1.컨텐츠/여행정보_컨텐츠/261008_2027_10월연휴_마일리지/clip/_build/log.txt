@@ -1,0 +1,8 @@
+scene 0 9.23 s
+scene 1 8.32 s
+scene 2 10.06 s
+scene 3 9.6 s
+scene 4 6.8 s
+scene 5 5.66 s
+scene 6 6.26 s
+done C:\Users\user\Desktop\Blog\_1.컨텐츠\여행정보_컨텐츠\261008_2027_10월연휴_마일리지\clip\out\oct2027_award_clip.mp4 55.2s

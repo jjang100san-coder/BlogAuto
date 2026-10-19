@@ -1,0 +1,37 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'NK';src:url('file:///C:/Windows/Fonts/NotoSansKR-VF.ttf');font-weight:100 900}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#FAF7F2;--card:#FFFFFF;--ink:#1E2330;--ink2:#4A5163;--muted:#8A8F9C;--line:#E7E1D6;
+ --pre:#3D62AE;--pre-l:#E6ECF8;--ons:#D07A22;--ons-l:#FBEBDA;--red:#C8463C;--red-l:#F9E3E0;--ok:#2F8F5B;--ok-l:#E2F1E8;--sand:#F3EBDD}
+html,body{width:1350px;height:1338px}
+body{font-family:'NK',sans-serif;background:var(--bg);color:var(--ink);position:relative;overflow:hidden;-webkit-font-smoothing:antialiased}
+.stage{position:absolute;left:70px;right:70px;top:250px;bottom:263px}
+.card{background:var(--card);border-radius:30px;box-shadow:0 2px 0 rgba(30,35,48,.04),0 16px 40px rgba(30,35,48,.09);border:1px solid #EFE9DF}
+.pill{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:10px 22px;font-weight:800}
+.big{font-weight:900;letter-spacing:-.03em;line-height:1}
+.mut{color:var(--muted)}
+.ab{position:absolute}
+.icon3d{object-fit:contain;filter:drop-shadow(0 14px 18px rgba(30,35,48,.16))}
+svg.i{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dots{background-image:radial-gradient(#E9E2D5 1.6px,transparent 1.6px);background-size:26px 26px}
+.now{font-size:44px;font-weight:900;background:var(--ink);color:#fff;border-radius:16px;padding:10px 20px}
+.flag{left:1000px;top:330px;font-size:80px;color:var(--ok)}.ll{font-size:42px;font-weight:900;white-space:nowrap}</style></head><body class="dots"><div class="stage"><div class="card ab" style="inset:0">
+<svg class="ab" style="inset:0" width="1210" height="825">
+<path id="pu" d="M180 430 C 450 360, 700 260, 960 230" fill="none" stroke="#C8463C" stroke-width="12" stroke-linecap="round"/>
+<path id="pd" d="M180 430 C 450 520, 700 620, 960 560" fill="none" stroke="#3D62AE" stroke-width="12" stroke-linecap="round"/>
+<line x1="980" y1="140" x2="980" y2="700" stroke="#2F8F5B" stroke-width="8" stroke-dasharray="14 12"/></svg>
+<div class="ab now" style="left:70px;top:390px">지금</div>
+<div class="ab flag big" id="fl">2028</div>
+<div class="ab ll" id="lu" style="left:330px;top:200px;color:#C8463C">반대편: 그 사이엔 오른다</div>
+<div class="ab ll" id="ld" style="left:330px;top:620px;color:#3D62AE">LH 사장: 많이 낮아질 수 있다</div>
+<div class="ab big" id="sm" style="left:50%;bottom:40px;font-size:56px;white-space:nowrap">도착은 같고, 길이 다르다</div></div></div><script>
+const E=u=>u<=0?0:u>=1?1:u*u*(3-2*u);
+const P=(t,a,b)=>E((t-a)/(b-a));
+const K=u=>u<=0?0:u>=1?1:(u<.6?E(u/.6)*1.12:1.12-.12*E((u-.6)/.4));
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const num=(x,d=0)=>x.toLocaleString('ko-KR',{minimumFractionDigits:d,maximumFractionDigits:d});
+const sgn=(x,d=1)=>(x>0?'+':x<0?'−':'')+Math.abs(x).toFixed(d);
+const U=document.getElementById('pu'),D=document.getElementById('pd'),nu=U.getTotalLength(),nd=D.getTotalLength();U.style.strokeDasharray=nu;D.style.strokeDasharray=nd;
+function F(t){U.style.strokeDashoffset=nu*(1-P(t,.3,2.0));D.style.strokeDashoffset=nd*(1-P(t,.6,2.3));
+$('#lu').style.opacity=P(t,1.0,1.4);$('#ld').style.opacity=P(t,1.4,1.8);$('#fl').style.transform=`scale(${K(P(t,2.2,2.6))})`;
+const s=P(t,3.0,3.4);$('#sm').style.opacity=s;$('#sm').style.transform=`translateX(-50%) translateY(${(1-s)*30}px)`}</script></body></html>

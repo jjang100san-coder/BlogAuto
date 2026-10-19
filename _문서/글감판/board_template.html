@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+</head>
+<body>
+<title>걷고읽고떠나고 글감판</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* 레이아웃: 위 고정 띠(이름·검색·탭) → 갈래 색인 → 갈래별 글감 목록 / 필요한 API 탭은 준비 상태별 표 */
+:root{
+  --paper:#F3F5F7; --sheet:#FFFFFF; --ink:#17202B; --ink2:#4E5A68; --ink3:#86919D; --rule:#D7DDE3;
+  --accent:#2C5A85; --accent-soft:#E1EAF3;
+  --st-now:#2F7A55; --st-now-soft:#DEEFE5;
+  --st-apply:#A86A12; --st-apply-soft:#F6EBD6;
+  --st-join:#B24C3A; --st-join-soft:#F6E1DC;
+  --st-src:#5F6B78; --st-src-soft:#E8ECF0;
+  --star:#C99A1C;
+  --display:"Do Hyeon","Noto Sans KR","Apple SD Gothic Neo",sans-serif;
+  --body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#12171D; --sheet:#1A2129; --ink:#E6EBF0; --ink2:#AAB5C1; --ink3:#77838F; --rule:#2D3742;
+  --accent:#7FB0DD; --accent-soft:#1E3247;
+  --st-now:#6CC495; --st-now-soft:#173326; --st-apply:#E2AA55; --st-apply-soft:#3A2C14;
+  --st-join:#E88C79; --st-join-soft:#3C201B; --st-src:#A3AEBA; --st-src-soft:#252E37; --star:#E8C25A; color-scheme:dark; }}
+:root[data-theme="dark"]{
+  --paper:#12171D; --sheet:#1A2129; --ink:#E6EBF0; --ink2:#AAB5C1; --ink3:#77838F; --rule:#2D3742;
+  --accent:#7FB0DD; --accent-soft:#1E3247;
+  --st-now:#6CC495; --st-now-soft:#173326; --st-apply:#E2AA55; --st-apply-soft:#3A2C14;
+  --st-join:#E88C79; --st-join-soft:#3C201B; --st-src:#A3AEBA; --st-src-soft:#252E37; --star:#E8C25A; color-scheme:dark; }
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;margin:0}
+.wrap{max-width:1100px;margin:0 auto;padding-inline:16px;padding-block:0 56px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--rule)}
+.bar .in{max-width:1100px;margin:0 auto;padding-inline:16px;padding-block:12px 0;display:grid;gap:10px}
+.brand{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.brand h1{font-family:var(--display);font-weight:400;font-size:26px;margin:0;letter-spacing:.01em;text-wrap:balance}
+.brand .meta{font-family:var(--mono);font-size:12px;color:var(--ink3)}
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tools input[type=search]{flex:1 1 220px;min-width:0;font:inherit;padding:8px 12px;border:1px solid var(--rule);border-radius:8px;background:var(--sheet);color:var(--ink)}
+.tools input:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tabs{display:flex;gap:2px}
+.tab{appearance:none;border:0;background:none;font:inherit;font-weight:700;color:var(--ink2);padding:9px 14px;border-bottom:3px solid transparent;cursor:pointer}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.chip{appearance:none;font:inherit;font-size:13px;border:1px solid var(--rule);background:var(--sheet);color:var(--ink2);padding:5px 11px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip .n{font-family:var(--mono);font-size:11px;opacity:.75;margin-left:4px}
+.filters{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:14px 0 6px}
+.filters .lab{font-size:12px;color:var(--ink3);margin-right:2px}
+.groups{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 2px}
+.groups .chip{font-weight:600}
+.index{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 4px}
+.ghead{margin:28px 0 6px;padding-top:14px;border-top:2px solid var(--ink)}
+.ghead h1{font-size:19px;margin:0}
+.ghead p{margin:4px 0 0;color:var(--ink3);font-size:13px}
+.summary{display:flex;gap:18px;flex-wrap:wrap;margin:16px 0 4px;font-size:13px;color:var(--ink2)}
+.summary b{font-family:var(--mono);font-size:20px;color:var(--ink);font-weight:500;margin-right:4px;font-variant-numeric:tabular-nums}
+section.cat{margin-top:26px}
+section.cat h2{font-family:var(--display);font-weight:400;font-size:22px;margin:0;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+section.cat h2 .n{font-family:var(--mono);font-size:13px;color:var(--ink3)}
+section.cat .desc{font-size:13px;color:var(--ink3);margin:2px 0 8px}
+ul.items{list-style:none;margin:0;padding:0;background:var(--sheet);border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+li.item{display:grid;grid-template-columns:28px 1fr auto;gap:10px;padding:10px 14px;border-top:1px solid var(--rule);align-items:start}
+li.item:first-child{border-top:0}
+li.item .t{font-weight:700;line-height:1.4}
+li.item .m{font-size:13px;color:var(--ink2);margin-top:2px}
+li.item .apis{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+li.item .body{min-width:0}
+.star{appearance:none;border:0;background:none;cursor:pointer;font-size:18px;line-height:1;color:var(--ink3);padding:2px 0 0}
+.star[aria-pressed="true"]{color:var(--star)}
+.need{font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;margin-top:2px}
+.need.바로{background:var(--st-now-soft);color:var(--st-now)} .need.신청{background:var(--st-apply-soft);color:var(--st-apply)} .need.가입{background:var(--st-join-soft);color:var(--st-join)}
+.badge{appearance:none;font:inherit;font-size:11.5px;border:0;padding:2px 8px;border-radius:6px;cursor:pointer;text-align:left}
+.badge.연결됨{background:var(--st-now-soft);color:var(--st-now)} .badge.신청{background:var(--st-apply-soft);color:var(--st-apply)}
+.badge.가입{background:var(--st-join-soft);color:var(--st-join)} .badge.원문{background:var(--st-src-soft);color:var(--st-src)}
+.empty{padding:28px 16px;text-align:center;color:var(--ink3)}
+/* API 탭 */
+.apisec{margin-top:24px}
+.apisec h2{font-family:var(--display);font-weight:400;font-size:22px;margin:0 0 4px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.apisec h2 .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.apisec .how{font-size:13px;color:var(--ink2);margin:0 0 10px;max-width:68ch}
+.tw{overflow-x:auto;background:var(--sheet);border:1px solid var(--rule);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:9px 12px;border-top:1px solid var(--rule);vertical-align:top}
+th{font-size:12px;color:var(--ink3);font-weight:500;border-top:0;letter-spacing:.04em}
+td.where{font-family:var(--mono);font-size:12.5px;color:var(--ink2);white-space:normal;overflow-wrap:anywhere;line-height:1.5}
+td.nm{min-width:16ch;max-width:30ch}
+@media (min-width:700px){td.nm{min-width:22ch}}
+td.cnt{font-family:var(--mono);text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.st{color:var(--star);width:24px}
+tr.hl td{background:var(--accent-soft)}
+details.uses summary{cursor:pointer;color:var(--accent);font-size:13px}
+details.uses ul{margin:6px 0 0;padding-left:18px;font-size:13px;color:var(--ink2)}
+.note{font-size:13px;color:var(--ink3);margin-top:28px;max-width:70ch}
+@media (max-width:600px){
+  .brand h1{font-size:22px}
+  li.item{grid-template-columns:24px 1fr;}
+  li.item .need{grid-column:2;justify-self:start;margin-top:4px}
+  td.where{white-space:normal}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+
+<div class="bar"><div class="in">
+  <div class="brand"><h1>걷고읽고떠나고 글감판</h1><span class="meta" id="meta"></span></div>
+  <div class="tools">
+    <input type="search" id="q" placeholder="글감·메모·자료 이름으로 찾기" aria-label="검색">
+  </div>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-ideas" aria-selected="true" data-view="ideas">글감</button>
+    <button class="tab" role="tab" id="tab-apis" aria-selected="false" data-view="apis">필요한 API</button>
+  </div>
+</div></div>
+
+<div class="wrap">
+  <section id="view-ideas">
+    <div class="summary" id="sum"></div>
+    <div class="filters" id="needf"><span class="lab">준비</span></div>
+    <nav class="groups" id="groups" aria-label="큰 묶음"></nav>
+    <nav class="index" id="index" aria-label="갈래"></nav>
+    <div id="list"></div>
+  </section>
+  <section id="view-apis" hidden>
+    <div class="summary" id="asum"></div>
+    <div id="alist"></div>
+    <p class="note">공공데이터포털은 지금 쓰는 인증키 하나로 되고, API마다 「활용신청」 버튼만 따로 누르면 됩니다. 대부분 몇 시간 안에 승인되고 일부는 기관 심의로 하루 이상 걸립니다. 별도 사이트는 가입 뒤 키를 받습니다. 신청·가입은 계정이 필요해 직접 하셔야 합니다.</p>
+  </section>
+</div>
+
+<script>
+const D = /*__DATA__*/null;
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const LS = k => { try { return JSON.parse(localStorage.getItem('ggp.' + k)); } catch (e) { return null; } };
+const SS = (k, v) => { try { localStorage.setItem('ggp.' + k, JSON.stringify(v)); } catch (e) {} };
+const ST = ['연결됨', '신청', '가입', '원문'];
+const ST_LABEL = {'연결됨': '지금 바로', '신청': '공공데이터포털 신청', '가입': '별도 사이트 가입', '원문': '원문 직접'};
+const ST_HOW = {
+  '연결됨': '이미 연결돼 있거나 도구가 있는 자료입니다. 오늘 바로 씁니다.',
+  '신청': '같은 인증키로 공공데이터포털에서 「활용신청」만 누르면 됩니다. ★는 이번 주 후보 글에 먼저 필요한 것.',
+  '가입': '별도 사이트에 가입해 키를 받아야 합니다.',
+  '원문': 'API가 없어 원문·파일을 직접 열어 봅니다. 신청할 것은 없습니다.'};
+const NEED = [['all', '전체'], ['바로', '지금 바로'], ['신청', '포털 신청 필요'], ['가입', '사이트 가입 필요'], ['star', '★ 골라 둔 것'], ['done', '✅ 발행·예약됨']];
+let stars = new Set(LS('stars') || []);
+let state = Object.assign({view: 'ideas', group: 'all', cat: 'all', need: 'all', q: ''}, LS('state') || {});
+state.q = '';
+const byId = {};
+D.cats.forEach(c => c.items.forEach(it => { byId[it.id] = {cat: c.name, ...it}; }));
+
+$('#meta').textContent = `글감 ${D.meta.total}개 · ${D.meta.groups}묶음 ${D.meta.cats}갈래 · API ${Object.keys(D.apis).length}개 · 갱신 ${D.meta.date}`;
+
+function save(){ SS('state', {view: state.view, group: state.group, cat: state.cat, need: state.need}); }
+function match(it){
+  if (state.need === 'star' && !stars.has(it.id)) return false;
+  if (state.need !== 'all' && state.need !== 'star' && it.need !== state.need) return false;
+  if (state.q){ const hay = (it.t + ' ' + it.m + ' ' + it.a.map(k => D.apis[k].name).join(' ')).toLowerCase(); if (!hay.includes(state.q)) return false; }
+  return true;
+}
+function renderIdeas(){
+  if (state.need === 'done'){
+    const all = D.cats.flatMap(c => c.items); const cnt = s => all.filter(i => i.need === s).length;
+    $('#sum').innerHTML = `<span><b>${all.length}</b>글감</span><span><b>${cnt('바로')}</b>지금 바로</span><span><b>${cnt('신청')}</b>포털 신청 뒤</span><span><b>${cnt('가입')}</b>사이트 가입 뒤</span><span><b>${stars.size}</b>★ 골라 둠</span><span><b>${(D.done || []).length}</b>✅ 발행·예약됨</span>`;
+    $('#needf').innerHTML = '<span class="lab">준비</span>' + NEED.map(([k, l]) => `<button class="chip" data-need="${k}" aria-pressed="${state.need === k}">${l}</button>`).join('');
+    $('#groups').innerHTML = ''; $('#index').innerHTML = '';
+    const rows = (D.done || []).filter(r => !state.q || (r.t + ' ' + r.by + ' ' + r.cat).toLowerCase().includes(state.q)).slice().reverse();
+    $('#list').innerHTML = `<div class="ghead"><h1>✅ 발행·예약으로 빠진 글감<span class="n" style="font-family:var(--mono);font-size:13px;color:var(--ink3);margin-left:8px">${rows.length}</span></h1><p>글감판에서 지운 게 아니라 여기로 옮긴 것. 같은 글감을 실제로 썼거나 같은 방법으로 다른 대상을 쓴 경우. 되살리려면 ideas_data.py 의 DONE 에서 갈래로 되돌린다.</p></div>` +
+      (rows.length ? `<ul class="items">${rows.map(r => `<li class="item"><span style="font-family:var(--mono);font-size:12px;color:var(--ink3);padding-top:3px">${esc(r.d.slice(5))}</span><div class="body"><div class="t">${esc(r.t)}</div><div class="m">[${esc(r.cat)}] → ${esc(r.by)}</div></div><span class="need 바로" style="background:var(--done-soft,#eee);color:var(--ink2)">발행·예약</span></li>`).join('')}</ul>` : '<p class="empty">아직 없습니다.</p>');
+    return;
+  }
+  const all = D.cats.flatMap(c => c.items);
+  const cnt = s => all.filter(i => i.need === s).length;
+  $('#sum').innerHTML = `<span><b>${all.length}</b>글감</span><span><b>${cnt('바로')}</b>지금 바로</span><span><b>${cnt('신청')}</b>포털 신청 뒤</span><span><b>${cnt('가입')}</b>사이트 가입 뒤</span><span><b>${stars.size}</b>★ 골라 둠</span><span><b>${(D.done || []).length}</b>✅ 발행·예약됨</span>`;
+  $('#needf').innerHTML = '<span class="lab">준비</span>' + NEED.map(([k, l]) => `<button class="chip" data-need="${k}" aria-pressed="${state.need === k}">${l}</button>`).join('');
+  const shownAll = D.cats.map(c => ({...c, items: c.items.filter(match)}));
+  const byName = Object.fromEntries(shownAll.map(c => [c.name, c]));
+  const gcount = g => g.cats.reduce((s, n) => s + byName[n].items.length, 0);
+  $('#groups').innerHTML = `<button class="chip" data-group="all" aria-pressed="${state.group === 'all'}">전체<span class="n">${shownAll.reduce((s, c) => s + c.items.length, 0)}</span></button>` +
+    D.groups.map(g => `<button class="chip" data-group="${esc(g.name)}" aria-pressed="${state.group === g.name}">${esc(g.name)}<span class="n">${gcount(g)}</span></button>`).join('');
+  const groups = D.groups.filter(g => state.group === 'all' || g.name === state.group);
+  const shown = groups.flatMap(g => g.cats.map(n => byName[n]));
+  $('#index').innerHTML = (state.group === 'all' ? '' : `<button class="chip" data-cat="all" aria-pressed="${state.cat === 'all'}">묶음 전체<span class="n">${shown.reduce((s, c) => s + c.items.length, 0)}</span></button>`) +
+    (state.group === 'all' ? '' : shown.map(c => `<button class="chip" data-cat="${esc(c.name)}" aria-pressed="${state.cat === c.name}">${esc(c.name)}<span class="n">${c.items.length}</span></button>`).join(''));
+  const list = groups.map(g => ({...g, cats: g.cats.map(n => byName[n]).filter(c => (state.cat === 'all' || c.name === state.cat) && c.items.length)})).filter(g => g.cats.length);
+  $('#list').innerHTML = list.length ? list.map(g => `<div class="ghead"><h1>${esc(g.name)}<span class="n" style="font-family:var(--mono);font-size:13px;color:var(--ink3);margin-left:8px">${g.cats.reduce((s, c) => s + c.items.length, 0)}</span></h1>${g.desc ? `<p>${esc(g.desc)}</p>` : ''}</div>` + g.cats.map(c => `
+    <section class="cat"><h2>${esc(c.name)}<span class="n">${c.items.length}</span></h2>${c.desc ? `<p class="desc">${esc(c.desc)}</p>` : ''}
+    <ul class="items">${c.items.map(it => `
+      <li class="item">
+        <button class="star" data-star="${it.id}" aria-pressed="${stars.has(it.id)}" aria-label="골라 두기">${stars.has(it.id) ? '★' : '☆'}</button>
+        <div class="body"><div class="t">${esc(it.t)}</div>${it.m ? `<div class="m">${esc(it.m)}</div>` : ''}
+          <div class="apis">${it.a.map(k => `<button class="badge ${D.apis[k].st}" data-api="${k}" title="${esc(D.apis[k].where)}">${esc(D.apis[k].name)}</button>`).join('')}</div></div>
+        <span class="need ${it.need}">${it.need === '바로' ? '지금 바로' : it.need === '신청' ? '포털 신청' : '사이트 가입'}</span>
+      </li>`).join('')}</ul></section>`).join('')).join('') : '<p class="empty">조건에 맞는 글감이 없습니다. 준비 필터나 검색어를 바꿔 보세요.</p>';
+}
+function renderApis(hl){
+  const ks = Object.keys(D.apis);
+  $('#asum').innerHTML = ST.map(s => `<span><b>${ks.filter(k => D.apis[k].st === s).length}</b>${ST_LABEL[s]}</span>`).join('');
+  $('#alist').innerHTML = ST.map(s => {
+    const rows = ks.filter(k => D.apis[k].st === s && (!state.q || (D.apis[k].name + D.apis[k].where).toLowerCase().includes(state.q)))
+      .sort((a, b) => (D.apis[b].star === '★') - (D.apis[a].star === '★') || D.apis[b].used.length - D.apis[a].used.length);
+    if (!rows.length) return '';
+    const col = {연결됨: 'var(--st-now)', 신청: 'var(--st-apply)', 가입: 'var(--st-join)', 원문: 'var(--st-src)'}[s];
+    return `<div class="apisec"><h2><span class="dot" style="background:${col}"></span>${ST_LABEL[s]}<span class="n" style="font-family:var(--mono);font-size:13px;color:var(--ink3)">${rows.length}</span></h2><p class="how">${ST_HOW[s]}</p>
+      <div class="tw"><table><thead><tr><th></th><th>이름</th><th>어디서</th><th style="text-align:right">글감</th></tr></thead><tbody>${rows.map(k => {
+        const v = D.apis[k];
+        return `<tr id="api-${k}" class="${hl === k ? 'hl' : ''}"><td class="st">${v.star}</td><td class="nm">${esc(v.name)}${v.used.length ? `<details class="uses"><summary>쓰는 글감 ${v.used.length}개 보기</summary><ul>${v.used.map(id => `<li>[${esc(byId[id].cat)}] ${esc(byId[id].t)}</li>`).join('')}</ul></details>` : ''}</td><td class="where">${esc(v.where)}</td><td class="cnt">${v.used.length}</td></tr>`;
+      }).join('')}</tbody></table></div></div>`;
+  }).join('');
+}
+function show(view, hl){
+  state.view = view; save();
+  document.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', t.dataset.view === view));
+  $('#view-ideas').hidden = view !== 'ideas'; $('#view-apis').hidden = view !== 'apis';
+  if (view === 'ideas') renderIdeas(); else { renderApis(hl); if (hl){ const r = document.getElementById('api-' + hl); if (r) r.scrollIntoView({block: 'center'}); } }
+}
+document.addEventListener('click', e => {
+  const t = e.target.closest('button'); if (!t) return;
+  if (t.dataset.view){ show(t.dataset.view); return; }
+  if (t.dataset.group){ state.group = t.dataset.group; state.cat = 'all'; save(); renderIdeas(); return; }
+  if (t.dataset.cat){ state.cat = t.dataset.cat; save(); renderIdeas(); return; }
+  if (t.dataset.need){ state.need = t.dataset.need; save(); renderIdeas(); return; }
+  if (t.dataset.star){ const id = t.dataset.star; stars.has(id) ? stars.delete(id) : stars.add(id); SS('stars', [...stars]); renderIdeas(); return; }
+  if (t.dataset.api){ show('apis', t.dataset.api); return; }
+});
+$('#q').addEventListener('input', e => { state.q = e.target.value.trim().toLowerCase(); state.view === 'ideas' ? renderIdeas() : renderApis(); });
+if (location.hash === '#api') state.view = 'apis';
+show(state.view);
+</script>
+
+</body></html>

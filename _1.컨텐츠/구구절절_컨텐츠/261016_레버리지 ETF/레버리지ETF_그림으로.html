@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>레버리지 ETF 그림 검토</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#f5f3ee; --paper:#fffdf8; --fg:#1f2320; --muted:#6b7068; --line:#d9d5c9;
+  --ink:#5a2a1e; --accent:#8a5a1e; --gold:#b8891e; --gold-soft:#f3e7c7;
+  --display:"Noto Serif KR",serif; --body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#17181a; --paper:#1f2124; --fg:#e8e6dd; --muted:#a3a79c; --line:#36393d;
+  --ink:#f0c2b0; --accent:#d9a85a; --gold:#d9ab45; --gold-soft:#3a3120; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#17181a; --paper:#1f2124; --fg:#e8e6dd; --muted:#a3a79c; --line:#36393d;
+  --ink:#f0c2b0; --accent:#d9a85a; --gold:#d9ab45; --gold-soft:#3a3120; color-scheme:dark }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.75;padding-inline:16px;padding-block:0 80px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)} nav.toc{display:none}}
+header{grid-column:1/-1;padding-block:48px 24px;border-bottom:1px solid var(--line)}
+header .eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+header h1{font-family:var(--display);font-size:clamp(26px,3.4vw,38px);line-height:1.3;margin:10px 0 6px;text-wrap:balance}
+header p{margin:0;color:var(--muted);font-size:15px}
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;padding-top:28px;font-size:13.5px}
+nav.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+nav.toc a{color:var(--muted);text-decoration:none;display:block;border-left:2px solid var(--line);padding-left:10px;line-height:1.4}
+nav.toc a:hover,nav.toc a:focus{color:var(--fg);border-left-color:var(--gold)}
+main{min-width:0;max-width:720px}
+section{padding-block:28px;border-bottom:1px solid var(--line)}
+section.lead p{font-size:18px}
+section.lead p:first-child{font-family:var(--display);font-size:26px;color:var(--ink)}
+h2{font-family:var(--display);font-size:22px;line-height:1.35;margin:0 0 14px;text-wrap:balance;color:var(--ink)}
+p{margin:0 0 14px;max-width:66ch}
+strong{background:var(--gold-soft);padding:0 3px;font-weight:700}
+figure{margin:18px 0 22px;background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+figure img{display:block;width:100%;max-width:100%;height:auto}
+figcaption{font-size:14px;color:var(--muted);padding:10px 14px;border-top:1px solid var(--line);line-height:1.5}
+figcaption .fn{color:var(--gold);font-weight:700;margin-right:6px;font-variant-numeric:tabular-nums}
+.tbl{overflow-x:auto;margin:10px 0 18px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:13px;letter-spacing:.04em}
+.note{font-size:14px;color:var(--muted)}
+ul.plain{margin:0 0 14px;padding-left:20px}
+ul.plain li{margin-bottom:6px}
+footer{grid-column:1/-1;color:var(--muted);font-size:13px;padding-top:24px}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">구구절절 · 조사 검토용 (초안 전) · 본편 7장 + 한 걸음 더 6장</div>
+  <h1>검은 목요일, 2배 상품은 왜 20% 넘게 빠졌고 왜 덜 돌아오나</h1>
+  <p>10월 16일 「더 쉽게」로 다시 짰다. 10월 16일 오후, 10/15 폭락 뒤라 결을 바꿨다. 흐름은 「검은 목요일 하루 → 1,000만 원은 225만 → 오를 때는 더(그래서 몰렸다) → 주가가 오르면 돌아올까: 10% 내렸다 오르면 → 7월에 실제로 → 정부는 조건을 걸었다 → 할 일」 하나. 숫자는 레버리지ETF_공부노트_2026-10-16.md와 base data 가격 CSV 확인분만, 직접 계산은 캡션에 표시. 투자 판단 문장은 넣지 않았다.</p>
+</header>
+<nav class="toc"><ol>
+<li><a href="#s0">입구</a></li><li><a href="#s1">검은 목요일 하루</a></li><li><a href="#s2">1,000만 원은 225만</a></li><li><a href="#s3">오를 때는 더</a></li><li><a href="#s4">10% 내렸다 오르면</a></li><li><a href="#s5">7월에 실제로</a></li><li><a href="#s5b">5월 값으로 돌아와도 619만</a></li><li><a href="#s6">조건을 걸었다</a></li><li><a href="#s7">다시 처음으로</a></li><li><a href="#s8">할 일 하나</a></li><li><a href="#s9">한 걸음 더</a></li><li><a href="#s10">아직 정해지지 않은 조건</a></li><li><a href="#s11">마감 직전 줄</a></li><li><a href="#s12">정가표와 계산대</a></li><li><a href="#s13">홍콩의 다이얼</a></li><li><a href="#s14">2.3조 vs 54조</a></li><li><a href="#s15">시간띠</a></li><li><a href="#s16">아직 모르는 것</a></li><li><a href="#s17">검토할 것</a></li>
+</ol></nav>
+<main>
+
+<section class="lead" id="s0">
+<p>10월 15일, 코스피가 하루에 7.6% 떨어졌다. 기사들은 「검은 목요일」이라고 불렀다.</p>
+<p>그날 삼성전자·SK하이닉스 「2배 상품」은 하루에 20% 안팎 빠졌다. 5월 27일 처음 나와 첫날에만 10조 4천억 원어치가 사고팔린 상품이다. 처음 나온 값에 넣은 1,000만 원은 이날 저녁 225만 원이 됐다.</p>
+<p>그럼 주가가 다시 오르면 돌아올까. 답부터 말하면 <strong>이 상품은 「오늘 하루」 움직임의 2배만 약속한다. 그래서 주가가 제자리로 돌아와도 2배 상품은 덜 돌아온다.</strong> 7월에 실제로 그랬다.</p>
+</section>
+<section id="s1">
+<h2>1. 10월 15일 하루, 2배 상품은 20% 넘게 빠졌다</h2>
+<figure><img src="img/L0_black_thursday.png" alt="10월 15일 하루 등락: 코스피 -7.6%, 삼성전자 -11.5%, 삼성전자 2배 -19.6%, SK하이닉스 -13.1%, SK하이닉스 2배 -21.7%" width="1400" height="800"><figcaption><span class="fn">그림 1</span>네이버 금융 종가 10월 14일 → 15일, 직접 계산. 상품은 KODEX 삼성전자·SK하이닉스 단일종목레버리지.</figcaption></figure>
+<p>코스피가 7.6% 떨어진 날, 삼성전자는 11.5%, SK하이닉스는 13.1% 빠졌다. <strong>그 2배 상품은 19.6%, 21.7% 빠졌다.</strong></p>
+<p>2배 상품은 그날 하루 움직임을 두 배 가까이 따라간다. 내리는 날엔 그만큼 크게 내린다. 처음부터 들고 있었다면 지금 얼마일까.</p>
+</section>
+
+<section id="s2">
+<h2>2. 처음 나왔을 때 넣은 1,000만 원은, 검은 목요일 저녁 225만 원</h2>
+<figure><img src="img/L5_ten_million_now.png" alt="1,000만 → 6월 22일 1,876만 → 7월 30일 298만 → 10월 15일 225만 원" width="1400" height="800"><figcaption><span class="fn">그림 2</span>처음 나온 값 23,450원[19] 기준, 종가 ÷ 23,450 × 1,000만 원 — 직접 계산(보수·세금 빼고).</figcaption></figure>
+<p>SK하이닉스 2배 상품을 처음 나온 값에 1,000만 원어치 샀다면 6월엔 1,876만 원까지 불었다가, 7월 말 298만 원, <strong>10월 15일엔 225만 원이 됐다.</strong> 같은 기간 주가는 39.7% 빠졌다.</p>
+<p>1,000만 원으로 돌아가려면 지금 값에서 4.4배가 돼야 한다. 첫날 장이 열리자마자 산 사람(28,505원)은 손해가 더 크다. 그런데 이런 상품에 왜 그렇게 몰렸을까.</p>
+</section>
+
+<section id="s3">
+<h2>3. 오를 때는 2배보다 더 올랐다 — 그래서 몰렸다</h2>
+<figure><img src="img/L4_rising_hill_crowd.png" alt="6월 22일까지 주가 +42%, 2배 상품 +88%" width="1400" height="800"><figcaption><span class="fn">그림 3</span>네이버 금융 일별 종가(등락률 직접 계산), 첫날 거래대금은 금융위 7.16 보완방안[2].</figcaption></figure>
+<p>처음 한 달은 좋았다. 주가가 꾸준히 오른 6월 22일까지 주가는 42%, <strong>2배 상품은 88% 올랐다.</strong> 주가가 오른 폭의 두 배보다 더 오른 셈이다.</p>
+<p>반도체 주가가 한창 오르던 때 나와서 첫날에만 10조 4천억 원어치가 사고팔렸다. 그럼 지금 물린 사람은, 주가가 다시 오르면 돌아올까.</p>
+</section>
+
+<section id="s4">
+<h2>4. 10% 내렸다 10% 오르면, 2배 상품은 4% 손해</h2>
+<figure><img src="img/L2s_down10_up10.png" alt="주식 100 → 90 → 99(-1%), 2배 상품 100 → 80 → 96(-4%)" width="1400" height="800"><figcaption><span class="fn">그림 4</span>하루 움직임의 2배를 매일 다시 맞춘다(금융위 5.15 유의사항[3]). 10%는 계산하기 쉽게 잡은 예 — 직접 계산.</figcaption></figure>
+<p>주가가 하루 10% 내리고 다음 날 10% 오르면, 주식은 100에서 99가 된다. 2배 상품은 하루 20% 내리고 다음 날 20% 올라 96이 된다.</p>
+<p>떨어진 날 두 배로 떨어져 출발점이 낮아지니, <strong>같은 비율로 올라도 덜 돌아온다.</strong> 오르락내리락이 잦을수록 이 차이가 쌓인다. 실제로도 그랬을까.</p>
+</section>
+
+<section id="s5">
+<h2>5. 7월에 실제로 그랬다 — 주가는 돌아왔는데 2배는 -19.8%</h2>
+<figure><img src="img/L1_flat_vs_minus20.png" alt="파란 선 SK하이닉스 주가, 빨간 선 2배 상품. 7월 15일 주가 +1.5%, 2배 상품 -19.8%" width="1400" height="800"><figcaption><span class="fn">그림 5</span>네이버 금융 일별 종가, 처음 나온 값 23,450원은 보도[19]. 등락률은 직접 계산.</figcaption></figure>
+<p>파란 선이 SK하이닉스 주가, 빨간 선이 2배 상품이다. 한 달 반 동안 크게 오르내린 주가는 7월 15일 출발점보다 1.5% 높은 곳으로 돌아왔다.</p>
+<p><strong>같은 날 2배 상품은 출발점보다 19.8% 낮았다.</strong> 주가가 돌아온다고 2배 상품이 같이 돌아오는 건 아니라는 얘기다. 그럼 지금 들고 있는 사람은 어떨까.</p>
+</section>
+
+<section id="s5b">
+<h2>6. 주가가 5월 값으로 돌아와도, 1,000만 원은 많아야 619만 원</h2>
+<figure><img src="img/L5r_back_to_may.png" alt="10월 15일 225만 원 → 주가가 5월 26일 값으로 돌아오면 가장 좋은 경우 619만 원, 처음 넣은 1,000만 원까지 381만 원 모자람" width="1400" height="800"><figcaption><span class="fn">그림 6</span>SK하이닉스 5/26 종가 2,052,000원 ÷ 10/15 종가 1,238,000원 = 1.66배, 2배 상품 상한 = 1.66배를 두 번 곱한 2.75배 — 직접 계산(보수·세금 빼고).</figcaption></figure>
+<p>10월 15일 225만 원이 된 2배 상품을 그대로 들고 있고, SK하이닉스 주가가 처음 값(5월 26일)까지 돌아온다고 치자. 지금 값에서 1.66배가 되는 거다. <strong>흔들림 없이 쭉 오르는 가장 좋은 경우에도 619만 원이다.</strong></p>
+<p>하루하루 2배씩 따라가면, 2배 상품이 오르는 배수는 주가 배수를 두 번 곱한 값을 넘지 못한다. 8~9월 반등 때(7월 30일 → 10월 2일)도 주가 +39.3%에 2배 상품은 +65.2%로, 두 번 곱한 값(+94.1%)엔 못 미쳤다.</p>
+</section>
+
+<section id="s6">
+<h2>7. 정부는 상품을 없애지 않고, 새로 사는 사람에게 조건을 걸었다</h2>
+<figure><img src="img/L6_narrower_doors.png" alt="새 상품·광고 중단(7.16), 현금 3,000만 원(7.31), 교육 3시간(8.7), 모의거래 5시간(8.19), 20주 단위(11월 예정)" width="1400" height="800"><figcaption><span class="fn">그림 7</span>금융위 7.16 보완방안[2]·7.24 예탁금 조기시행[6]·8.12 보도자료[8], 20주 단위 11월은 보도[18].</figcaption></figure>
+<p>상품을 없애는 대신, 새로 사려는 사람이 먼저 갖춰야 할 조건 셋을 걸었다. <strong>돈(현금 3,000만 원), 공부(교육 3시간), 연습(모의거래 5시간)</strong>이다. 새 상품 출시와 광고는 멈췄다.</p>
+<p>이미 산 사람이 파는 건 자유다. 10월 국감에서는 금융위원장과 한국은행 총재가 사과했고, 투자 한도 같은 다음 조건은 아직 정해지지 않았다(한 걸음 더, 그림 9).</p>
+</section>
+
+<section id="s7">
+<h2>다시 처음으로</h2>
+<p>검은 목요일에 2배 상품이 20% 넘게 빠진 건, 그날 하루를 두 배로 따라갔기 때문이다. 그리고 같은 이유로, 주가가 돌아와도 2배 상품은 덜 돌아온다. 이 상품이 약속하는 건 「오늘 하루」뿐이다.</p>
+</section>
+<section id="s8">
+<h2>8. 할 일 하나 — 상품 이름과 설명서에서 두 단어 찾기</h2>
+<figure><img src="img/L8_find_daily_word.png" alt="휴대폰 「내 보유 상품」에 ○○ 레버리지·○○ 2X, 투자설명서의 「일일」에 형광펜" width="1400" height="800"><figcaption><span class="fn">그림 8</span>금융위 5.15·5.26 유의사항(「일일 수익률의 배수」 「일간 변동률 ±2배」)[3][3a]. 화면은 모식.</figcaption></figure>
+<p>내 계좌에 이름에 「레버리지」나 「2X」가 붙은 상품이 있다면, 설명서에서 「일간」(또는 「일일」) 두 글자가 든 문장 하나만 찾아 읽어 보자.</p>
+<p>그 두 글자가 이 글의 그림 전부의 이유다.</p>
+</section>
+
+<section id="s8">
+<h2>한 걸음 더 — 궁금한 사람만</h2>
+<p class="note">본편은 위 여섯 장으로 끝난다. 아래는 더 알고 싶은 사람을 위한 그림이다.</p>
+</section>
+
+<section id="s10">
+<h2>9. 그다음 조건 셋은 아직 정해지지 않았다</h2>
+<figure><img src="img/L7_doors_under_construction.png" alt="왼쪽 초록 상자 시행 중 4. 오른쪽 점선 상자 셋: 개인별 투자한도(20%는 예시, 검토), 과다호가부담금(방식 협의 중), 배율 조정 법(8월 11일 발의)" width="1400" height="800"><figcaption><span class="fn">그림 9</span>금융위 7.28 간담회[7], 7.29 회의 보도[15], 법 개정안 발의 보도[16]. 금융위 보도자료 게시판은 10.15까지 확인.</figcaption></figure>
+<p>개인별 투자한도(가진 투자금의 일정 비율 안에서만 사게 하는 것, 20%는 정부가 든 예시)와 과다호가부담금(지나치게 많은 주문에 돈을 물리는 선물시장 제도를 빌려 오는 것)은 7월 29일 방향만 나왔다. <strong>비율과 시행일은 10월 15일까지 발표되지 않았다.</strong></p>
+<p>시장이 급할 때 배율을 낮추게 하는 법은 8월 11일 국회에 발의된 상태다. 초록은 확정, 회색 점선은 미확정이다.</p>
+</section>
+
+<section id="s11">
+<h2>10. 장 마감 무렵, 2배 상품은 주가가 간 쪽으로 더 민다</h2>
+<figure><img src="img/L9_closing_rush.png" alt="시계(장 마감 무렵), 빨간 줄(오른 날 더 산다)과 파란 줄(내린 날 더 판다)이 시장으로. 6월 19일 약 0.53조 원" width="1400" height="800"><figcaption><span class="fn">그림 10</span>자본시장연구원 자본시장포커스 2026-13호[5] — 현물 0.26조·선물 0.27조는 추정치, 합은 직접 계산. 금융위 7.28 간담회[7].</figcaption></figure>
+<p>하루 2배를 맞추려면 주가가 오른 날엔 마감 무렵 더 사고, 내린 날엔 더 판다. 자본시장연구원은 6월 19일(주가 +2.9%) SK하이닉스 2배 상품들이 주식과 선물을 합쳐 약 0.53조 원어치를 더 샀다고 추정했다.</p>
+<p>모두가 같은 시각에 같은 쪽으로 움직이면 그 순간 값이 더 흔들릴 수 있어, 정부는 운용사에 주문 시점을 나눠 달라고 했다. 다만 이 쏠림이 변동성을 얼마나 키웠는지는 확정된 분석이 없고, 금융위원장도 국감에서 「크지 않다」고 보는 분석이 있다고 답했다.</p>
+</section>
+
+<section id="s12">
+<h2>11. 정가표와 계산대 가격이 다를 때 — 괴리율</h2>
+<figure><img src="img/L10_price_tag_gap.png" alt="왼쪽 정가표 5,251원과 계산대 5,285원, 평소 0.65%. 오른쪽 6월 8일: 주가 7%대 하락인데 상품 마감가 +49.7%" width="1400" height="800"><figcaption><span class="fn">그림 11</span>네이버 ETF 목록 10.15(순자산가치·종가, 차이는 직접 계산), 6.8 ACE SK하이닉스단일종목레버리지 사례 보도[13], 금융위 8.12[8].</figcaption></figure>
+<p>상품 안에 든 실제 가치를 순자산가치(NAV)라 하고, 시장에서 사고파는 값과의 차이를 괴리율이라 한다. 10월 15일 KODEX SK하이닉스 2배 상품은 순자산가치 5,251원, 종가 5,285원으로 <strong>0.65% 차이</strong>였다(직접 계산).</p>
+<p>마감 직전 값을 받쳐 줄 주문(유동성공급자 호가)이 비면 크게 벌어진다. 6월 8일 한 상품은 주가가 7%대 떨어진 날 49.7% 오른 값으로 마감했다(보도). 그래서 8월 19일부터 국내 상품의 관리 기준이 3%에서 2%로 좁혀졌다.</p>
+</section>
+
+<section id="s13">
+<h2>12. 홍콩은 배율 다이얼을 하루 단위로 돌릴 수 있게 했다</h2>
+<figure><img src="img/L11_hongkong_dial.png" alt="다이얼 두 개. 한국은 바늘이 2에 고정(자물쇠), 홍콩은 상한 2 안에서 낮출 수 있음(주황 호)" width="1400" height="800"><figcaption><span class="fn">그림 12</span>홍콩 증권선물위원회(SFC) 관련 보도(The Standard·머니투데이)[21], 한국 검토는 보도[15]. 공부노트 §4-2.</figcaption></figure>
+<p>홍콩은 2026년 7월, 상한 2배는 그대로 두고 배율을 하루 단위로 낮출 수 있는 구조를 허용했다. 삼성전자·SK하이닉스 상품을 포함한 홍콩 상품 12종은 8월 3일부터 적용됐다(보도).</p>
+<p>한국은 지금 법으로는 배율을 바꾸려면 투자자 총회를 거쳐야 한다고 해석될 여지가 있어, 법을 고치는 방안을 검토하고 있다.</p>
+</section>
+
+<section id="s14">
+<h2>13. 손실 2.3조와 54조 — 재는 자가 다르다</h2>
+<figure><img src="img/L12_two_rulers.png" alt="자 두 개. 짧은 초록 막대 2조 3,242억 원(확정손실, 증권사 10곳 개인, 5.27~8.14), 긴 빨간 점선 54조 원(추정, 원문 미확인)" width="1400" height="800"><figcaption><span class="fn">그림 13</span>금감원 자료 보도[10], 국감 답변 보도[11], 전자신문[29]. 54조는 추정·원문 미확인.</figcaption></figure>
+<p>2조 3,242억 원은 금감원이 증권사 10곳에서 받은 개인의 확정손실(이미 팔아서 정해진 손실)만 더한 값이다. 기간은 5월 27일부터 8월 14일까지다.</p>
+<p>54조 원은 외국 증권사 추정으로 알려졌지만 <strong>원문을 확인하지 못했다.</strong> 금융위원장은 국감에서 공식 분석이 아닌 「시장 논평」이라고 반박했다. 23배 차이는 재는 범위가 달라서 생긴다.</p>
+</section>
+
+<section id="s15">
+<h2>14. 1월 발표, 5월 상장, 7월 대책, 10월 국감</h2>
+<figure><img src="img/L13_timeline.png" alt="2026년 1월~10월 시간띠. 1/30 허용 발표, 5/27 상장, 6/22 최고점, 7/16 1차 대책, 10/8 국감 사과, 10/15 두 번째 급락. 위에 2배 상품 종가 선" width="1400" height="800"><figcaption><span class="fn">그림 14</span>공부노트 §1(금융위 보도자료[1][2][8], 국감 보도[10][12], 급락 보도[19]). 가격 선은 네이버 종가, 기간 계산은 직접 계산.</figcaption></figure>
+<p>1월 30일 허용 발표부터 5월 27일 상장까지 넉 달이 채 안 걸렸고, 상장부터 7월 16일 1차 대책까지는 50일이었다. 7월 29일엔 투자한도·과다호가부담금 같은 2차 방향이 나왔다.</p>
+<p>10월 국감에서 금융위원장(8일)과 한국은행 총재(12일)가 사과했고, 같은 주 10월 13일과 15일에 두 번째 급락이 왔다.</p>
+</section>
+
+<section id="s16">
+<h2>아직 모르는 것</h2>
+<ul class="plain">
+<li>이 상품이 주가 변동을 얼마나 키웠는지: 자본시장연구원은 「인과 분석에 한계」를 밝혔고, 국감에서 인용된 대학 연구는 원문을 찾지 못했다.</li>
+<li>54조 원의 원문 보고서는 확인하지 못했다.</li>
+<li>개인별 투자한도·과다호가부담금의 비율과 시행일, 배율 조정 법안의 심사 단계는 10월 15일까지 확정 발표가 없다.</li>
+<li>20주(좌) 단위의 정확한 시행일: 보도는 11월, 거래소 확정 공지는 확인하지 못했다.</li>
+<li>투자자 수·연령대 원자료는 찾지 못했다.</li>
+<li>10월 15일 KODEX SK하이닉스 2배 상품 종가(-21.70%)가 그날 주가의 2배(-26.25%)와 4.5%p 다른 이유는 확인하지 못했다(같은 날 순자산가치 대비 차이는 0.65%).</li>
+</ul>
+</section>
+<section id="s17">
+<h2>검토할 것</h2>
+<ul class="plain">
+<li><strong>10월 16일 두 번째로 다시 짰다(결 바꿈).</strong> 10월 15일 코스피 -7.6% 「검은 목요일」 뒤라 「주가는 제자리인데」로 시작하면 지금과 안 맞는다(사용자). 입구를 그날 하루 등락(그림 1)과 1,000만 원 → 225만 원(그림 2)으로 바꾸고, 질문을 「주가가 다시 오르면 돌아올까」로 — 답은 「덜 돌아온다」(그림 4 원리, 그림 5 7월 실제). 앞서 「더 쉽게」로 계단·판돈 두 장을 한 장으로 합친 것은 그대로.</li>
+<li>처음 나온 값 23,450원은 보도값(첫날 시가 28,505원) — 본문에 「처음 나온 값에 샀다면」 전제로 쓴다.</li>
+<li>그림 6 「일일/일간」 표기 — 발행 전 실제 설명서 한 개로 확인.</li>
+<li>썸네일: 그림 1(검은 목요일 막대)은 통계 카드라 대표로 못 쓴다(5-4). 「폭락한 날 2배 상품」을 한 장면으로 그린 AI 장면을 초안 때 만들고 세 질문으로 판정.</li><li>10/15 하루 등락은 종가 직접 계산이다. 기사마다 장중 기준이라 숫자가 다르다(본주 -9.48%·-11.06% 등).</li>
+<li>「한 걸음 더」 여섯 장을 초안에 붙일지, 뺄지.</li>
+</ul>
+</section>
+</main>
+<footer>원자료: 261016_레버리지 ETF 폴더 — 레버리지ETF_공부노트_2026-10-16.md, base data(금융위 원문, 가격 CSV, 영상 두 판독). 그림 make_pictures.py. 10/16 첫 판은 base data 에 보관.</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>소방관 순직은 1년에 몇 명 — 어느 순직이냐 도해표</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#f5f3ee; --paper:#fffdf8; --fg:#1f2320; --muted:#6b7068; --line:#d9d5c9;
+  --ink:#5a2a1e; --accent:#8a5a1e; --gold:#b8891e; --gold-soft:#f3e7c7;
+  --display:"Noto Serif KR",serif; --body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#17181a; --paper:#1f2124; --fg:#e8e6dd; --muted:#a3a79c; --line:#36393d;
+  --ink:#f0c2b0; --accent:#d9a85a; --gold:#d9ab45; --gold-soft:#3a3120; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#17181a; --paper:#1f2124; --fg:#e8e6dd; --muted:#a3a79c; --line:#36393d;
+  --ink:#f0c2b0; --accent:#d9a85a; --gold:#d9ab45; --gold-soft:#3a3120; color-scheme:dark }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.75;padding-inline:16px;padding-block:0 80px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)} nav.toc{display:none}}
+header{grid-column:1/-1;padding-block:48px 24px;border-bottom:1px solid var(--line)}
+header .eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+header h1{font-family:var(--display);font-size:clamp(26px,3.4vw,38px);line-height:1.3;margin:10px 0 6px;text-wrap:balance}
+header p{margin:0;color:var(--muted);font-size:15px}
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;padding-top:28px;font-size:13.5px}
+nav.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+nav.toc a{color:var(--muted);text-decoration:none;display:block;border-left:2px solid var(--line);padding-left:10px;line-height:1.4}
+nav.toc a:hover,nav.toc a:focus{color:var(--fg);border-left-color:var(--gold)}
+main{min-width:0;max-width:720px}
+section{padding-block:28px;border-bottom:1px solid var(--line)}
+section.lead p{font-size:18px}
+section.lead p:first-child{font-family:var(--display);font-size:26px;color:var(--ink)}
+h2{font-family:var(--display);font-size:22px;line-height:1.35;margin:0 0 14px;text-wrap:balance;color:var(--ink)}
+p{margin:0 0 14px;max-width:66ch}
+strong{background:var(--gold-soft);padding:0 3px;font-weight:700}
+figure{margin:18px 0 22px;background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+figure img{display:block;width:100%;max-width:100%;height:auto}
+figcaption{font-size:14px;color:var(--muted);padding:10px 14px;border-top:1px solid var(--line);line-height:1.5}
+figcaption .fn{color:var(--gold);font-weight:700;margin-right:6px;font-variant-numeric:tabular-nums}
+.tbl{overflow-x:auto;margin:10px 0 18px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:13px;letter-spacing:.04em}
+.note{font-size:14px;color:var(--muted)}
+ul.plain{margin:0 0 14px;padding-left:20px}
+ul.plain li{margin-bottom:6px}
+footer{grid-column:1/-1;color:var(--muted);font-size:13px;padding-top:24px}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+</style>
+<style>
+#dohae{margin:24px 0 36px;width:96vw;max-width:1400px;position:relative;left:50%;transform:translateX(-50%)}
+#dohae .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+#dohae table{border-collapse:collapse;width:100%;min-width:980px;font-size:14px;line-height:1.5}
+#dohae th{background:var(--ink,#1e1e1e);color:#fff;text-align:left;padding:8px 10px;font-weight:600;position:sticky;top:0}
+#dohae td{border-bottom:1px solid rgba(128,128,128,.25);padding:10px;vertical-align:top}
+#dohae td.no{white-space:nowrap;color:#888;font-size:12px;text-align:center}
+#dohae td.no b{font-size:20px;color:inherit}
+#dohae td.pic{width:210px}
+#dohae td.pic img{width:200px;height:auto;border-radius:6px;border:1px solid rgba(128,128,128,.3);display:block}
+#dohae td.pic .t{font-weight:600;margin-top:6px;font-size:13px}
+#dohae td.src{color:#777;font-size:13px;width:170px}
+#dohae td.chk{background:rgba(235,150,20,.10);width:190px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">구구절절 · 도해 계획 검토용 (그림 그리기 전) · 14장 · 시안 2장(②·⑦) 먼저 · 판단 없이 기록만</div>
+  <h1>소방관 순직은 1년에 몇 명 — 어느 순직이냐</h1>
+  <p>**「소방관 순직은 1년에 몇 명」의 답은 「어느 순직이냐」에 달렸다 — 소방청 통계연보의 「순직」은 위험직무순직 기준이라 한 해 2~9명(2014~2024)이고, 질병·사고까지 넣은 「순직」 전체는 2015~2024 10년에 121명(일반 순직 86 · 위험직무순직 35)이다.** 같은 말이 법(공무원 재해보상법 제3조)에서는 두 정의로 나뉘고, 유족보상금 배수(24배 / 45배)·유족연금 비율(38% / 43%)이 갈리며, 어느 쪽인지는 유족 청구 → 공무원연금공단 → 공무원재해보상심의회 → 인사혁신처장 → (불복) 연금위원회 → 행정소송의 순서로 정해진다. 인정률·심사 기간은 공개된 통계가 없고, 미국(USFA 2024 72명)·일본(2024 消防職員 3명)은 「순직」을 세는 기준이 달라 숫자만 나란히 둔다.</p>
+</header>
+<nav class="toc"><ol><li><a href="#dohae">도해표</a></li><li><a href="#facts">사실표</a></li><li><a href="#bone">뼈대</a></li><li><a href="#thumb">썸네일 후보</a></li><li><a href="#unknown">아직 모르는 것</a></li></ol></nav>
+<main>
+<section id="dohae">
+<h2>도해표 — 14장 계획 (그림은 아직 없음)</h2>
+<p class="note">장면판 양식(구구절절 지침 3장 🎬): 숫자 그림은 데이터 모양 장면, 개념 그림은 AI 장면 + 꼬리표. 주황 「시안」 두 장을 먼저 그려 확인한 뒤 나머지. 색·모티프 규칙은 공부노트 3절.</p>
+<div class="scroll"><table><tr><th>번호</th><th>그림·말하는 것</th><th>장면</th><th>숫자</th><th>근거</th></tr><tr><td class='no'>개념<br><b>1</b></td><td><b>책상 위 보도자료 한 장</b><br><span class='note'>공식 발표는 여기까지 — 날짜·시각·추서·영결식</span></td><td>소방서 사무실 책상 위에 놓인 보도자료 한 장(글자 없는 종이, 옆에 볼펜·안경), 창으로 드는 흐린 낮빛. 꼬리표 「10/16 08:38께 부천시 오정구 공장 화재」「10/17 00:55 사망 · 소방위 추서」「영결식 10/19 10시 부천실내체육관」, 작은 꼬리표 「원인·경위 조사 결과 미발표」</td><td>10/16 · 10/17 · 10/19 · 1명</td><td class='src'>F23 (F24는 해설)</td></tr><tr><td class='no'>숫자<br><b>2</b><br><span style='color:#D07A22;font-weight:700'>시안</span></td><td><b>헬멧 선반 열한 단</b><br><span class='note'>통계연보의 「순직」은 한 해 2~9명</span></td><td>소방서 복도 벽의 긴 나무 선반 열한 단(2014→2024), 단마다 놓인 헬멧 수 = 그해 순직 수(7·2·2·2·7·9·2·3·4·2·2). 헬멧은 전부 같은 모양·같은 주황, 사람 없음. 선반 끝에 「위험직무 기준」 꼬리표</td><td>7 · 2 · 2 · 2 · 7 · 9 · 2 · 3 · 4 · 2 · 2</td><td class='src'>F1 · F2</td></tr><tr><td class='no'>개념<br><b>3</b></td><td><b>통계연보와 돋보기</b><br><span class='note'>그 표의 「순직」은 위험직무순직만 센다</span></td><td>책상 위에 펼친 통계연보 책과 그 위에 놓인 돋보기 — 돋보기 안쪽 한 줄만 또렷(글자는 AI가 쓰지 않음). 꼬리표로 설명문 그대로 「순직 현황은 위험 순직 기준」「공상은 공무상요양승인 인원」, 작은 꼬리표 「공상 2024년 1,445명」</td><td>1,445</td><td class='src'>F3 · F4</td></tr><tr><td class='no'>숫자<br><b>4</b></td><td><b>사물함 121개</b><br><span class='note'>넓게 세면 10년에 121명 — 86과 35</span></td><td>소방서 대기실 사물함 121개가 벽 한 면에, 86개는 파랑 띠(일반 순직)·35개는 주황 띠(위험직무순직). 사물함엔 이름표 없음</td><td>121 = 86 + 35 (2015~2024)</td><td class='src'>F6</td></tr><tr><td class='no'>숫자<br><b>5</b></td><td><b>서랍장 일곱 단</b><br><span class='note'>일반 순직 78명은 무엇으로 — 암 28 · 자살 21 · 심혈관 12</span></td><td>사무실 서류 서랍장 일곱 단(열린 깊이 = 명수): 악성종양 28 · 자살 21 · 심혈관 12 · 기타 질병 6 · 뇌혈관 5 · 기타 사고 4 · 감염성 2. 라벨은 단어만</td><td>28 · 21 · 12 · 6 · 5 · 4 · 2 = 78 (2018.10~2025)</td><td class='src'>F8</td></tr><tr><td class='no'>숫자<br><b>6</b></td><td><b>비 오는 차고의 라바콘</b><br><span class='note'>위험직무순직 28명은 어떤 근무에서 — 화재 진압 12 · 구조 9</span></td><td>비 오는 낮의 소방서 차고, 셔터 열린 안쪽에 차량 네 대(펌프차·구조공작차·생활안전 차량·지휘차)가 서 있고 각 차 앞 바닥에 놓인 라바콘 수 = 명수(12·9·4·3). 꼬리표에 연도별 「6·3·8·4·3·1·3·0(2018.10~2025)」 작게</td><td>12 · 9 · 4 · 3 = 28</td><td class='src'>F7</td></tr><tr><td class='no'>개념<br><b>7</b><br><span style='color:#D07A22;font-weight:700'>시안</span></td><td><b>법전에 형광펜 두 색</b><br><span class='note'>법에서 「순직」은 둘이다 — 제3조 3호와 4호</span></td><td>책상 위에 펼친 법전 한 쪽, 두 문단에 형광펜 두 색(파랑·주황)이 칠해져 있다(글자는 흐릿·AI가 쓰지 않음). 꼬리표 「3호 순직공무원: 재직 중 공무로 사망 / 공무상 부상·질병으로 사망」「4호 위험직무순직공무원: 고도의 위험 + 제5조 재해 + 직접 원인」, 작은 꼬리표 「공무원 재해보상법, 2026-10-02 시행」</td><td>제3조 · 2018-09-21 시행 · 2026-10-02</td><td class='src'>F13 · F14</td></tr><tr><td class='no'>개념<br><b>8</b></td><td><b>소방차 장비함 일곱 개</b><br><span class='note'>소방의 「위험직무」는 제5조 2호에 적혀 있다</span></td><td>소방차 측면 장비함 일곱 개가 열려 있고 장비가 하나씩(호스 · 구조 공구 · 구급 가방 · 조명·발전기 · 무전기 · 포획망 · 비어 있는 하나). 장비함마다 단어 꼬리표 「화재진압 · 인명구조 · 구급 · 지원활동 · 긴급 출동·복귀 · 생활안전 · 11호(심의회 인정)」</td><td>— (단어 라벨만)</td><td class='src'>F16</td></tr><tr><td class='no'>개념<br><b>9</b></td><td><b>점검표의 빈 체크 셋</b><br><span class='note'>세 가지가 다 맞아야 위험직무순직</span></td><td>차고 벽에 걸린 출동 점검표 클립보드, 빈 체크 자리 셋(글자 없음). 꼬리표 「① 고도의 위험을 무릅쓸 것」「② 제5조 직무 중 재해」「③ 그 재해가 직접 원인」, 작은 꼬리표 「쟁점은 대개 ③ — 서울고법 2023누33377」</td><td>3</td><td class='src'>F17</td></tr><tr><td class='no'>숫자<br><b>10</b></td><td><b>호스 두 줄 24마디·45마디</b><br><span class='note'>유족보상금 24배와 45배 — 한 마디가 한 달치</span></td><td>차고 바닥에 호스 두 줄을 나란히 펼침, 한 마디 = 공무원 전체 기준소득월액 평균액 한 달치. 파랑 호스 24마디(순직공무원) · 주황 호스 45마디(위험직무순직공무원). 꼬리표 「유족연금 38% / 43%」「둘 다 받지는 않음(제19조)」. 금액 없음</td><td>24배 / 45배 · 38% / 43% · (+5%/유족 1명, 20% 한도)</td><td class='src'>F18</td></tr><tr><td class='no'>개념<br><b>11</b></td><td><b>책상 다섯과 서류철</b><br><span class='note'>누가, 어떤 순서로 정하나 — 책상 다섯</span></td><td>복도에 늘어선 책상 다섯 개를 한 권의 결재 서류철이 차례로 지나는 장면(사람 없음, 의자 비어 있음). 책상 꼬리표 「유족 청구(기관장 확인)」→「공무원연금공단 조사」→「공무원재해보상심의회(100명 이내·회의 11~15명)」→「인사혁신처장 결정」→「연금위원회(180일·90일) → 행정소송」. 작은 꼬리표 「시효 5년」</td><td>100 · 11~15 · 180일 · 90일 · 5년</td><td class='src'>F19</td></tr><tr><td class='no'>개념<br><b>12</b></td><td><b>게시판의 빈 자리</b><br><span class='note'>인정률과 심사 기간은 공개된 숫자가 없다</span></td><td>소방서 복도 게시판에 종이들이 붙어 있는데 가운데 빈 자리 하나(압정만 넷). 빈 자리 위 빨강 꼬리표 「순직 청구 건수 · 인정률 · 평균 심사 기간 — 공식 발표 없음」, 작은 꼬리표 「통계 조항은 있음(제46조의5)」</td><td>없음</td><td class='src'>F20</td></tr><tr><td class='no'>숫자<br><b>13</b></td><td><b>소화전 셋</b><br><span class='note'>같은 2024년, 세 나라의 「순직」은 세는 기준이 다르다</span></td><td>맑은 낮, 나란히 선 소화전 셋(한국 지상식 · 미국 적색 · 일본식), 각 소화전 옆 꼬리표: 「한국 위험직무순직 2 / 66,802명」「미국 USFA 72(심장·뇌혈관 42 = 58%, 근무 뒤 24시간 규칙) / 약 1,041,200명」「일본 消防職員 3(훈련 2·구급 1, 団員 3 별도) / 168,898명」. 도장 「기준이 다르다」. 비율 계산값 없음</td><td>2 · 72 · 3 / 66,802 · 1,041,200 · 168,898 · 58% · 24시간</td><td class='src'>F21 · F22 · F11</td></tr><tr><td class='no'>숫자<br><b>14</b></td><td><b>저수조 셋의 수위</b><br><span class='note'>검색은 발표 다음 날이 정점, 이틀 뒤 절반</span></td><td>소방서 뒤뜰 소방용수 저수조 셋(10/16 · 10/17 · 10/18), 눈금 수위 = 「소방관」 70.8 · 100 · 47.1, 각 저수조 옆 작은 눈금으로 「소방관 순직」 3.7 · 25.5 · 16.0. 꼬리표 「「위험직무순직」은 10년 내내 0.00x」</td><td>70.8 → 100 → 47.1 / 3.7 → 25.5 → 16.0</td><td class='src'>F25 (F26·F27은 해설)</td></tr></table></div>
+</section>
+<section id="facts"><h2>사실표</h2><div class='scroll'><table>
+<tr><th>#</th><th>숫자</th><th>발표 주체</th><th>원본</th><th>확인</th></tr>
+<tr><td>F1</td><td>통계연보 「순직」 2014~2023: <b>7 · 2 · 2 · 2 · 7 · 9 · 2 · 3 · 4 · 2</b></td><td>소방청 『2024년 소방청 통계연보』</td><td>조사 2-1 (koreascience 이슈페이퍼 JAKO202554650403375 표 「연도별 소방공무원 순직·공상자 현황」)</td><td>🟡 공식 표의 2차 인용 — 통계연보 원본 미열람</td></tr>
+<tr><td>F2</td><td>2024 순직 <b>2</b>(2024-01-31 문경 공장 화재) · 공상 <b>1,445</b>(최근 10년 최다)</td><td>소방청 『2025 소방청 통계연보』</td><td>조사 2-1 (FPN 2025-09-02 인용)</td><td>🟡 2차 인용</td></tr>
+<tr><td>F3</td><td>기준 설명문: 「순직 현황은 <b>위험 순직 기준</b>이고, 공상은 공무원연금공단에서 공무상요양승인을 받은 인원」</td><td>공공데이터포털 「소방청_연도별 소방공무원 순직 및 공상자 현황」(15131241) 설명문</td><td>조사 2-1 · 9장</td><td>✅ 공식 설명문 — 통계연보의 「순직」 = 위험직무순직 기준</td></tr>
+<tr><td>F4</td><td>공상 2014~2024: <b>358 · 409 · 511 · 657 · 823 · 818 · 1,004 · 933 · 1,080 · 1,334 · 1,445</b></td><td>소방청 통계연보(2024·2025)</td><td>조사 2-1</td><td>🟡 2차 인용</td></tr>
+<tr><td>F5</td><td>2023 공상 원인별: 화재 249 · 구조 90 · 구급 296 · 생활안전 46 · 기타 653 = 1,334</td><td>『2024 통계연보』</td><td>조사 2-1</td><td>🟡 2차 인용 — 글엔 해설에서만</td></tr>
+<tr><td>F6</td><td>2015~2024 「순직」 전체 <b>121명</b> = 일반 순직 <b>86</b> · 위험직무순직 <b>35</b> / 일반 순직 원인: 직업성 질병(암) 28 · 심뇌혈관 21 / 위험직무 중 화재 진압 14</td><td>소방청 자료(국회 행안위 의원실 제출)</td><td>조사 2-2 (세계일보 2025-08-25)</td><td>🟡 보도 — 의원실 자료 원본 미열람</td></tr>
+<tr><td>F7</td><td>2018-10 ~ 2025-12 위험직무순직 <b>28명</b> — 연도별 2018 6 · 2019 3 · 2020 8 · 2021 4 · 2022 3 · 2023 1 · 2024 3 · 2025 <b>0</b> / 근무 유형: 화재 진압 <b>12</b> · 구조 <b>9</b> · 생활안전 <b>4</b> · 기타 <b>3</b></td><td>소방청 집계</td><td>조사 2-2 (세계일보 2026-10-17)</td><td>🟡 보도 — 집계 시작 2018-10은 공무원 재해보상법 시행(2018-09-21) 직후</td></tr>
+<tr><td>F8</td><td>같은 기간(2018-10~2025) 일반 순직 <b>78명</b> — 악성종양 <b>28</b> · 자살 <b>21</b> · 심혈관 <b>12</b> · 기타 질병 6 · 뇌혈관 5 · 기타 사고 4 · 감염성 2</td><td>소방청 집계</td><td>조사 2-2 (같은 기사)</td><td>🟡 보도 — 이 사고와 엮는 문장 없이 통계로만</td></tr>
+<tr><td>F9</td><td>통계연보(위험직무 기준) 2018~2023 합 <b>27</b> vs 소방청 집계(2018-10~2023) 합 <b>25</b> — 발생연도/인정연도·집계 시작 시점 차이로 보이나 <b>미확인</b></td><td>—</td><td>조사 2-2</td><td>❌ 미확인 — 그림엔 안 넣고 해설·「아직 모르는 것」에</td></tr>
+<tr><td>F10</td><td>과거 묶음: 2012~2021 순직 44 / 2011~2020 위험직무 49(화재 14·구조 18·구급 7·생활안전 3·기타 7) / 2006~2017 60(연평균 6) / 1998~2007 재직 중 사망 204(현장 순직 47·일반 순직 52·일반 사망 105)</td><td>소방청·국민안전처·소방방재청 자료의 보도</td><td>조사 2-2</td><td>🟡 보도 — 기간·기준이 다 달라 한 표에 안 놓는다</td></tr>
+<tr><td>F11</td><td>소방공무원 수: 2023 <b>66,797</b> · 2024 <b>66,802</b>(통계연보) / 2025 말 정원 64,468 · 현원 63,179(의원실 자료) — 2,300여 명 차이는 집계 범위 미확인</td><td>소방청</td><td>조사 2-3</td><td>🟡 2차 — 글엔 통계연보 수치만, 「기준이 다르다」 한 줄</td></tr>
+<tr><td>F12</td><td>단순 비율(직접 계산·참고): 2024 위험직무순직 2 / 66,802 = 10만 명당 약 3.0 · 미국 2024 USFA 72 / 1,041,200 ≈ 6.9 · 일본 2024 職員 3 / 168,898 ≈ 1.8</td><td>직접 계산</td><td>조사 2-4</td><td>⚪ 계산값 — 정의가 달라 <b>그림엔 안 넣는다</b>(원 숫자 + 인원만 나란히)</td></tr>
+<tr><td>F13</td><td>「공무원 재해보상법」 법률 제22049호, 2026-09-29 일부개정 · <b>시행 2026-10-02</b>, 소관 인사혁신처 / 제정 2018-03-20 · 시행 2018-09-21(그 전엔 공무원연금법 안)</td><td>법제처 DRF</td><td>조사 3-1 · 9장</td><td>✅ 현행 법령 / 🟡 제정·시행일은 보도·기억 — DRF 연혁 재확인</td></tr>
+<tr><td>F14</td><td>제3조 1항 3호 「<b>순직공무원</b>」= 가. 재직 중 공무로 사망 / 나. 재직 중 공무상 부상·질병으로 사망 / 다. 퇴직 후 나목 부상·질병으로 사망 · 4호 「<b>위험직무순직공무원</b>」= 생명·신체에 대한 고도의 위험을 무릅쓰고 직무를 수행하다가 제5조 재해를 입고 그 재해가 직접적인 원인이 되어 사망</td><td>법 원문</td><td>조사 3-2</td><td>✅ 원문</td></tr>
+<tr><td>F15</td><td>제4조 공무상 재해 인정기준(공무상 부상 가·나·다 / 공무상 질병 가~마, 「상당한 인과관계」 없으면 제외) · ② 자해는 원칙 제외, 단서 있음 · 제4조의2 인정 특례(유해·위험 환경 장기 노출 질병은 공무상 재해로 <b>추정</b>)</td><td>법 원문</td><td>조사 3-3</td><td>✅ 원문</td></tr>
+<tr><td>F16</td><td>제5조 2호 소방공무원: 가. 재난·재해 현장에서의 <b>화재진압 · 인명구조 · 구급작업 또는 이를 위한 지원활동</b>(긴급한 출동·복귀 및 부수활동 포함) / 나. 위험 제거를 위한 <b>생활안전활동</b> · 10호 보복성 범죄·테러, 실기·실습 훈련 · 11호 심의회가 준한다고 인정하는 위험 직무 (최근 개정 2026-09-29)</td><td>법 원문</td><td>조사 3-4</td><td>✅ 원문</td></tr>
+<tr><td>F17</td><td>위험직무순직 세 요건: ① 고도의 위험을 무릅쓸 것 ② 제5조의 직무를 수행하다가 재해 ③ 그 재해가 직접적인 원인이 되어 사망 — 쟁점은 대개 ③</td><td>인사혁신처 안내(compens0104) · 서울고법 2023누33377</td><td>조사 3-4 · 9장</td><td>✅ 공식 안내 / 🟡 「쟁점은 ③」은 판결문 요지·보도</td></tr>
+<tr><td>F18</td><td>급여(원문): 유족연금 제36조 기준소득월액 <b>38%</b> / 제38조 <b>43%</b>(+유족 1명당 5%, 합계 20% 한도) · 유족보상금 제37조 공무원 전체 기준소득월액 평균액 <b>24배</b> / 제39조 <b>45배</b>(대간첩·교전·치안교란 방지 사망 60배, 2026-02-27 개정) · 제19조 ① 위험직무순직유족연금 결정 시 순직유족연금 지급 안 함 · 제10조 ① 추서 계급으로 산정(2025-01-07 개정) · 제43조 사망조위금 본인 기준소득월액 2배 · 제59조 예우(순직공무원 → 국가유공자법 「순직공무원」 / 위험직무순직공무원 → 「순직군경」 또는 「순직공무원」) · 제20조 ⑤ 보훈 보상금과 병급</td><td>법 원문 · 인사혁신처 안내</td><td>조사 3-5</td><td>✅ 원문 — <b>평균액 금액은 조사 안 함, 글엔 배수만</b></td></tr>
+<tr><td>F19</td><td>절차(원문·공식 안내): 제9조 ① 급여 청구는 <b>인사혁신처장</b>에게, ② 순직·위험직무순직 유족급여는 소속 기관장 확인 → 접수·조사는 <b>공무원연금공단</b> 재해보상실(서류 보완·현장조사·전문조사·의학자문) → 제6·7조 <b>공무원재해보상심의회</b>(위원장 포함 100명 이내, 회의는 11~15명) 심의 → 인사혁신처장 결정·공단 지급 → 불복 제51조 국무총리 소속 <b>공무원재해보상연금위원회</b> 심사 청구(결정 있은 날부터 <b>180일</b> · 안 날부터 <b>90일</b>, 행정심판 불가) → 행정소송 · 제54조 시효 <b>5년</b> · 제46조의5 공무상 재해 통계 조항</td><td>법 원문 · 인사혁신처 compens02</td><td>조사 3-6</td><td>✅ 원문·공식 안내</td></tr>
+<tr><td>F20</td><td>소방공무원 순직 청구 건수·<b>인정률·평균 심사 기간: 공식 발표 없음</b>(미발견) / 참고(주제 밖·별건): 전 공무원 자살 순직 신청→인정 2023 31→16 · 2024 40→18 · 2025 49→16(인사혁신처 자료, 서울신문 2026-08-12) · 소방관 자살 2015~2024 141명 중 순직 인정 29(20.6%) · 재심 사례 2019(심의회 일반 순직 → 연금위원회 위험직무순직)</td><td>인사혁신처(의원실 제출)·보도</td><td>조사 3-7</td><td>❌ 소방 전체 통계 없음 / 🟡 자살 건·재심 사례는 보도 — 그림엔 「없음」만</td></tr>
+<tr><td>F21</td><td>미국 USFA on-duty 사망 2015~2024: 90 · 92 · 93 · 85 · 65 · 102 · <b>141</b> · 98 · 93 · <b>72</b> / 2024 내역: 스트레스·과로(심장·뇌혈관) <b>42(58%)</b> · 피격 9 · 차량 충돌 8 · 갇힘 4 … / 화재 현장 활동 중 26(36%) / 직업 46%·의용 44%·산불 7% / <b>Hometown Heroes 법(2003): 훈련·출동 뒤 24시간 안 심장사·뇌졸중 포함(2024년 18명)</b> · NFPA 2024 <b>62</b>(24시간 안 11 포함) · 미국 소방관 약 <b>1,041,200</b>(NFPA 2020)</td><td>USFA 『Firefighter Fatalities in the United States in 2024』 · NFPA 보도자료</td><td>조사 4-1 · 9장</td><td>✅ 공식 PDF / 🟡 2021=141은 그림 판독 — 2021 보고서로 재확인</td></tr>
+<tr><td>F22</td><td>일본 消防職員 公務 사망 2013~2024: 5 · 8 · 5 · 0 · 15 · 7 · 8 · 6 · 2 · 2 · 4 · <b>3</b> / 消防団員 2024 <b>3</b> / 2024 내역: 사망 6 = 화재 1(団員) · 풍수해 1(団員) · 구급 1(職員) · <b>연습·훈련 3</b> / 부상 2,027 / 消防職員 <b>168,898</b>(2024-04-01) · 団員 746,681 / 「公務災害」= 지방공무원재해보상기금 인정 공무상 사망·부상, 「위험직무」 구분 없음</td><td>総務省消防庁 『令和7年版 消防白書』 資料 2-3-1·2-3-2·2-1-3 CSV</td><td>조사 4-2 · 9장</td><td>✅ 공식 CSV / 🟡 제도 비교는 범위 밖</td></tr>
+<tr><td>F23</td><td>이번 사고(공식): 2026-10-16(금) 오전 8시 38분께 경기 부천시 오정구 공장 화재 → 부천소방서 소속 1명 <b>2026-10-17(토) 오전 0시 55분 사망</b> · 소방장→<b>소방위 1계급 추서</b> · 옥조근정훈장 추서 추진 · 국립현충원 안장 지원 · 분향소 10/17 14시~ · <b>영결식 10/19(월) 10시 부천실내체육관, 경기도청장(葬)</b></td><td>소방청 보도자료 2026-10-17 「소방청, 부천 공장 화재 진압 중 부상 입은 소방공무원 순직」 · 영결식 형식은 보도</td><td>조사 1장 · 9장</td><td>✅ 보도자료(사망 시각·추서·영결식 일시) / 🟡 발생 시각·경기도청장은 보도 — 원인·경위 조사 결과 <b>미발표</b></td></tr>
+<tr><td>F24</td><td>2026년 화재 현장 순직 <b>4명</b>(고양 자동차검사소 2025-11-24 부상→2026-03-03 사망 1 · 완도 수산물 가공공장 냉동창고 2026-04-12 2 · 부천 10/17 1) / 완도 건은 소방청 합동조사단(27명) 4/20~5/19 조사 → <b>7/2 결과 발표</b>(절차의 실례)</td><td>보도(세계일보 10/17 · 머니투데이 7/3)</td><td>조사 1장</td><td>🟡 보도 — 완도 조사 내용은 글에 안 옮김(이번 건과 엮지 않음)</td></tr>
+<tr><td>F25</td><td>데이터랩 일별(2026-09-01~10-18, 상대값): 「소방관」 10/16 <b>70.8</b> → 10/17 <b>100</b> → 10/18 <b>47.1</b> / 「소방관 순직」 10/16 3.7 → 10/17 <b>25.5</b> → 10/18 16.0 / 「부천 소방관」 10/17 79.3 / 월별(2016~2026) 「소방관 순직」 최고 2022-01 1.28 → 2024-02 0.64 → 2026-04 0.36 · 「소방관」 2024-12 = 100(영화 「소방관」 개봉 추정, 미확인) · 「위험직무순직」 10년 내내 0.00x</td><td>직접 조회(HUB)</td><td>`_raw_데이터랩_소방관_2026-10-19.json` · 조사 5-2</td><td>✅ 상대값 — 4개 그룹 한 요청이라 「소방관」 2024-12=100 기준으로 눌림, 비교는 순위로만 / 🟡 월별 봉우리의 사건 대응은 문경(2024-02)·완도(2026-04)만 확인</td></tr>
+<tr><td>F26</td><td>네이버 뉴스 API 누적 total(10/19): 「소방관 순직」 <b>52,762</b> · 「부천 소방관 순직」 2,304 · 「부천 공장 화재 소방관」 3,120 · 「위험직무순직」 5,477 — 연도별 건수는 못 구함</td><td>직접 조회</td><td>같은 json · 조사 5-1</td><td>✅ 누적값만</td></tr>
+<tr><td>F27</td><td>title_check(10/19): 부천 화재 소방관 순직 <b>41,430</b>(경쟁 낮음·지수 1.81) · 부천 소방관 순직 4,260(낮음·1.66) · 소방관 순직 보상금 <b>370</b>(높음) · 소방관 순직률 100(중간) · 소방관 순직 통계 40(낮음) · 소방관 순직 <b>10</b>(낮음) · 위험직무순직 10(높음) / 「나이」「가족관계」「몇살」「장지」 계열은 고인 신상 검색 — 안 쓴다</td><td>검색광고 월간·블로그 탭</td><td>조사 6장 · `Keyword_Reader\cache\title_check\*_2026-10-19.json`</td><td>✅ 값 — 16-3 실제 화면·10-6은 2-11 순서에서 따로</td></tr>
+<tr><td>F28</td><td>소방청 보도자료 흐름: 10/16 「제3회 119메모리얼데이 추모문화제」 → 10/17 순직 보도자료 → 10/19 「가을철 대형산불 대비」 — 영결식·조사 보도자료 없음</td><td>소방청</td><td>조사 5-3</td><td>✅ 목록 확인</td></tr>
+</table></div></section>
+<section id="bone"><h2>뼈대</h2><ul class='plain'><li>제목·앞 검색어 메모(2-11 순서는 초안 전 따로): 사건어 「부천 화재 소방관 순직」 41,430은 2~3주 뒤 빠지고 고인 신상 검색과 붙어 있어 <b>제목 앞에 두는 건 조심</b>(F27). 긴 꼬리는 「소방관 순직 보상금」 370(높음)·「소방관 순직률」 100·「소방관 순직 통계」 40. 씨앗 「소방관 순직」 10. 「위험직무순직 뜻」은 본문 소제목감.</li><li>쓰면 안 되는 문장(조사 7장 그대로): 원인 단정(시너·스프링클러·진입 지시) · 책임 소재(공장주·지휘·정부 인력) · 감정 호소·유족 서사 · 실명·나이·근속·빈소 · 「한국이 미국보다 ~」 판정 · 자살·암 숫자를 이 사고와 엮기 · 「○억 원」 금액.</li></ul></section>
+<section id="thumb"><h2>썸네일 후보 (1:1 · 글자·얼굴 없음)</h2><div class='scroll'><table>
+<tr><th>후보</th><th>장면</th><th>① 글 전체를 말하며 궁금증(답은 숨김)</th><th>② 그림만 봐도 「소방관 순직」이 떠오름</th><th>③ 본문에 있음</th><th>겹침 점검</th></tr>
+<tr><td><b>A</b></td><td>흐린 낮, 소방서 앞마당 — <b>게양대의 조기(弔旗)</b> 와 그 옆 차고 앞에 평소처럼 서 있는 소방차 한 대. 사람·불·연기 없음</td><td>○ — 조기 하나가 「이런 날이 1년에 몇 번인가, 이 「순직」은 어느 순직인가」를 묻는다. 답(2~9 / 121)은 안 보인다</td><td>○ — 조기 + 소방차 = 소방관 순직</td><td>○ — 2절 「사건」 첫 문단 위에 배치</td><td>①은 책상 위 종이, ⑥은 비 오는 차고 안쪽(라바콘)이라 다름. 소방차는 ⑥·⑧에도 나오나 썸네일은 바깥 앞마당·조기가 주인공</td></tr>
+<tr><td><b>B</b></td><td>흐린 낮 실내, 소방서 차고 안쪽 벽 — <b>방화복과 헬멧이 걸린 걸이 한 줄</b>, 그중 <b>하나만 비어 있다</b>. 사람 없음</td><td>○ — 빈 걸이 하나가 「몇 명이, 어떤 기준으로 순직이 되나」를 묻는다</td><td>○ — 방화복·헬멧 줄 = 소방관, 빈 자리 = 순직</td><td>○ — 3절 「구조」 첫 그림(②) 앞, 또는 입구 문단 위에 배치</td><td>②는 선반 위 헬멧 수(데이터), ⑧은 소방차 장비함이라 다름. 헬멧 모티프가 ②와 겹치므로 B를 고르면 ②는 헬멧 대신 <b>같은 선반에 놓인 장화</b>로 바꾼다</td></tr>
+</table></div><ul class='plain'><li>둘 다 Higgsfield gpt_image_2_5 high 1:1, 캡션 「AI 생성 이미지(실제 부천소방서 아님)」. 흐린 낮으로(노을·밤 금지).</li><li>자가 평가: A ①○ ②○ ③○ / B ①○ ②○ ③○(단 ② 헬멧 조정 조건부). 기본 추천 A — 도해와 사물이 안 겹치고 조정이 없다.</li><li>초안 때 둘 중 하나 고르고, 안 고른 쪽은 쓰지 않는다(5-4 같은 파일 두 번 금지).</li></ul></section>
+<section id="unknown"><h2>아직 모르는 것</h2><ul class='plain'><li><b>2025년 순직·공상자 수</b>(『2026 소방청 통계연보』): 공공데이터포털 15131241 HWP(2026-09-21 등록)에 2024·2025 활동별·시도별 — 다운로드 안 함(허가 필요). 받으면 ② 선반에 2025 단을 더하고 ③에 「활동별」 꼬리표.</li><li><b>순직 청구 건수·인정률·평균 심사 기간</b>(소방 전체): 인사혁신처 공식 발표 미발견 — 정보공개청구·국감 자료 경로. ⑫는 「없음」 그대로.</li><li>통계연보(위험직무 기준) 2018~2023 합 27 vs 소방청 집계(2018-10~) 25 — 발생연도/인정연도 중 어느 쪽인지(F9). 그림엔 넣지 않는다.</li><li>1990년대 연도별 순직자 공식 표(1998·2001·2004·2006만 보도).</li><li>소방공무원 수 66,802(통계연보 2024) vs 정원 64,468(의원실 2025)의 집계 범위 차이(F11) — ⑬은 통계연보 수치로.</li><li>법 제정 2018-03-20 · 시행 2018-09-21: 보도·기억 기반 → 발행 전 DRF 연혁으로 재확인(F13).</li><li>USFA 2021 = 141(그림 판독) → 2021 보고서로 재확인 · 미국 소방관 총원 2022·2023(NFPA 2020 값만).</li><li>데이터랩 「소방관」 2024-12 급등이 영화 「소방관」 개봉 때문인지(개봉일 미확인) · 월별 「소방관 순직」 봉우리의 사건 대응은 문경(2024-02)·완도(2026-04)만 확인, 2022-01·2023-03·2020-08·2018-04는 원문 미대조 — 글엔 확인된 둘만.</li><li>빅카인즈 연도별 「소방관 순직」 기사 수(API 400).</li><li>「공무원 전체 기준소득월액 평균액」 고시 금액 — 조사 안 함, 글엔 배수만(⑩).</li><li>이번 사고의 원인·경위 조사 결과와 법상 분류(순직 / 위험직무순직) 결정 — 10/19 현재 미발표·미확인. 발행 뒤 나오면 「다시 사건」 문단만 갱신.</li><li>일본 「公務災害」 인정 제도의 세부(한국의 공상+순직과 어디까지 같은지) — 범위 밖.</li><li>국회입법조사처·감사원 보고서 — 미발견.</li></ul></section>
+</main>
+<footer>원자료: 261019_소방관 순직 — 소방관순직_공부노트_2026-10-19.md, base data(조사 노트·도해표.json·원자료). 판정 문장 없음.</footer>
+</div></body></html>

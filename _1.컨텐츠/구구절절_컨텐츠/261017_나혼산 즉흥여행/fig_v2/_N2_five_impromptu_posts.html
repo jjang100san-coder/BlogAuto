@@ -1,0 +1,47 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'NK';src:url('file:///C:/Windows/Fonts/NotoSansKR-VF.ttf');font-weight:100 900}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#1E2330;--ink2:#4A5163;--muted:#7A7466;--line:#E3D9C6;--pre:#3D62AE;--pre-l:#E7EDF8;--ons:#D07A22;--ons-l:#FBEBDA;
+ --red:#C8463C;--red-l:#F8E2DF;--navy:#22335A;--paper:#FFFCF5;--bg:#EDE5D6;--ok:#2F8F5B}
+html,body{width:1400px;height:800px}
+body{font-family:'NK',sans-serif;color:var(--ink);position:relative;overflow:hidden;-webkit-font-smoothing:antialiased;
+ background:var(--bg);background-image:radial-gradient(rgba(90,70,40,.06) 1px,transparent 1.2px);background-size:6px 6px}
+.ticket{position:absolute;left:36px;top:34px;width:1328px;height:732px;background:var(--paper);border-radius:20px;
+ box-shadow:0 2px 0 rgba(60,45,20,.06),0 22px 50px rgba(60,45,20,.16);overflow:hidden}
+.band{position:absolute;left:0;top:0;right:0;height:158px;background:var(--navy);color:#fff;padding:26px 40px}
+.band .k{display:flex;gap:14px;align-items:center;font-size:15px;font-weight:800;letter-spacing:.18em;color:#AFC0E6}
+.band .k b{background:var(--ons);color:#fff;letter-spacing:.06em;border-radius:6px;padding:3px 9px;font-size:14px}
+.band h1{color:#fff;font-size:50px;font-weight:900;letter-spacing:-.02em;margin-top:10px;white-space:nowrap}
+.band h1 em{font-style:normal;color:#FFC27A}
+.perf{position:absolute;left:1000px;top:158px;bottom:0;border-left:3px dashed #D9CFBC}
+.perf.solid{border-left:2px solid #E8DFCC}
+.stub.side{background:#F7F1E5}
+.notch{position:absolute;width:44px;height:44px;border-radius:50%;background:var(--bg);left:979px}
+.main{position:absolute;left:0;top:158px;width:1000px;bottom:0;padding:24px 36px 44px}
+.stub{position:absolute;left:1003px;right:0;top:158px;bottom:0;padding:26px 30px}
+.stub .lab{font-size:13px;font-weight:800;letter-spacing:.16em;color:#9A917F}
+.stub .row{margin-top:16px}
+.stub .n{font-size:84px;font-weight:900;line-height:.95;letter-spacing:-.04em}
+.stub .n small{font-size:36px;margin-left:2px}
+.stub .t{font-size:16px;font-weight:700;color:var(--ink2);margin-top:6px;line-height:1.35}
+.bar{position:absolute;left:30px;right:30px;bottom:56px;height:54px;background:repeating-linear-gradient(90deg,#22335A 0 3px,transparent 3px 6px,#22335A 6px 7px,transparent 7px 11px,#22335A 11px 15px,transparent 15px 17px)}
+.src2{position:absolute;left:30px;bottom:22px;font-size:13px;font-weight:800;letter-spacing:.14em;color:#9A917F}
+.src{position:absolute;left:36px;bottom:16px;right:340px;font-size:13.5px;color:#9A917F;white-space:nowrap;overflow:hidden}
+.stamp{position:absolute;transform:rotate(-7deg);border:4px solid var(--ons);color:var(--ons);border-radius:12px;padding:10px 20px;
+ font-size:25px;font-weight:900;background:rgba(255,252,245,.88);box-shadow:inset 0 0 0 2px rgba(208,122,34,.25);white-space:nowrap}
+.stamp.red{border-color:var(--red);color:var(--red);box-shadow:inset 0 0 0 2px rgba(200,70,60,.22)}
+.stamp.navy{border-color:var(--navy);color:var(--navy);box-shadow:inset 0 0 0 2px rgba(34,51,90,.2)}
+img.i3{display:block;object-fit:contain}
+svg.i{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.chk{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;flex:none}
+.r2{display:grid;grid-template-columns:150px 270px 40px 1fr 34px;align-items:center;gap:8px;padding:15px 4px;border-bottom:2px dashed var(--line)}
+.r2 .w{font-size:15.5px;font-weight:700;color:var(--muted)}.r2 .q{font-size:20px;font-weight:900;color:var(--ons)}.r2 .p{font-size:20px;font-weight:800;color:var(--navy)}
+.r2.dim .p{color:#9A917F;font-weight:700}.r2 .gray{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#D9CFBC;color:#fff;font-weight:900}</style></head><body>
+<div class="ticket">
+ <div class="band"><div class="k"><b>구구절절</b>TRAVEL NOTE · 「즉흥」이라 쓴 글 · 02 / 13</div><h1>즉흥이라 쓴 글 다섯 편, <em>넷</em>은 예약이 먼저</h1></div>
+ <div class="main"><div class="r2"><div class="w">2024.3 맨체스터</div><div class="q">「아무 계획 없이」</div><div><svg class="i" viewBox="0 0 24 24" style="width:26px;height:26px;color:#B9AE98;stroke-width:2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div><div class="p">기차는 앱으로 미리 예약</div><span class="chk" style="width:30px;height:30px;background:var(--pre)"><svg class="i" viewBox="0 0 24 24" style="width:18px;height:18px;color:#fff;stroke-width:3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class="r2"><div class="w">2025.11 화담숲</div><div class="q">「번개로 가자고 해서」</div><div><svg class="i" viewBox="0 0 24 24" style="width:26px;height:26px;color:#B9AE98;stroke-width:2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div><div class="p">대기번호 76,043번, 두 달 전 예약</div><span class="chk" style="width:30px;height:30px;background:var(--pre)"><svg class="i" viewBox="0 0 24 24" style="width:18px;height:18px;color:#fff;stroke-width:3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class="r2"><div class="w">2023.6 교토</div><div class="q">「즉흥적으로 들어간 집」</div><div><svg class="i" viewBox="0 0 24 24" style="width:26px;height:26px;color:#B9AE98;stroke-width:2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div><div class="p">왕복 항공권 2인, 미리 결제</div><span class="chk" style="width:30px;height:30px;background:var(--pre)"><svg class="i" viewBox="0 0 24 24" style="width:18px;height:18px;color:#fff;stroke-width:3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class="r2"><div class="w">2023.11 후쿠오카</div><div class="q">「일정표도 안 짰어」</div><div><svg class="i" viewBox="0 0 24 24" style="width:26px;height:26px;color:#B9AE98;stroke-width:2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div><div class="p">숙소 두 곳, 미리 예약</div><span class="chk" style="width:30px;height:30px;background:var(--pre)"><svg class="i" viewBox="0 0 24 24" style="width:18px;height:18px;color:#fff;stroke-width:3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class="r2 dim"><div class="w">2019.5 미국 주말</div><div class="q">「계획이랄 게 없었어」</div><div><svg class="i" viewBox="0 0 24 24" style="width:26px;height:26px;color:#B9AE98;stroke-width:2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div><div class="p">큰 예약 없음 — 사는 곳에서 차로</div><span class="gray">–</span></div></div>
+ <div class="perf solid"></div>
+ <div class="stub side"><div class="lab">「즉흥」이라 쓴 글</div><div class="row"><div class="n" style="color:var(--pre)">4<small>/5</small></div><div class="t">같은 여행의 큰 예약이 먼저</div></div><div class="row"><div class="n" style="color:#9A917F">1</div><div class="t">사는 곳에서 차로 나선 주말</div></div><div class="src2">걷고읽고떠나고</div></div>
+ <div class="stamp " style="left:520px;top:598px">즉흥이라 쓰고, 예약은 미리</div>
+ <div class="src">근거 · 각 글 본문 문장(2026.10.17 확인) · 화담숲 대기번호·예약 시점은 화담숲 예약 글</div>
+</div></body></html>

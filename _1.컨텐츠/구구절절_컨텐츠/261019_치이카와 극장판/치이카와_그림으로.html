@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>치이카와는 어떻게 극장 1위까지 도해표</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#f5f3ee; --paper:#fffdf8; --fg:#1f2320; --muted:#6b7068; --line:#d9d5c9;
+  --ink:#5a2a1e; --accent:#8a5a1e; --gold:#b8891e; --gold-soft:#f3e7c7;
+  --display:"Noto Serif KR",serif; --body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#17181a; --paper:#1f2124; --fg:#e8e6dd; --muted:#a3a79c; --line:#36393d;
+  --ink:#f0c2b0; --accent:#d9a85a; --gold:#d9ab45; --gold-soft:#3a3120; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#17181a; --paper:#1f2124; --fg:#e8e6dd; --muted:#a3a79c; --line:#36393d;
+  --ink:#f0c2b0; --accent:#d9a85a; --gold:#d9ab45; --gold-soft:#3a3120; color-scheme:dark }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.75;padding-inline:16px;padding-block:0 80px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)} nav.toc{display:none}}
+header{grid-column:1/-1;padding-block:48px 24px;border-bottom:1px solid var(--line)}
+header .eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+header h1{font-family:var(--display);font-size:clamp(26px,3.4vw,38px);line-height:1.3;margin:10px 0 6px;text-wrap:balance}
+header p{margin:0;color:var(--muted);font-size:15px}
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;padding-top:28px;font-size:13.5px}
+nav.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+nav.toc a{color:var(--muted);text-decoration:none;display:block;border-left:2px solid var(--line);padding-left:10px;line-height:1.4}
+nav.toc a:hover,nav.toc a:focus{color:var(--fg);border-left-color:var(--gold)}
+main{min-width:0;max-width:720px}
+section{padding-block:28px;border-bottom:1px solid var(--line)}
+section.lead p{font-size:18px}
+section.lead p:first-child{font-family:var(--display);font-size:26px;color:var(--ink)}
+h2{font-family:var(--display);font-size:22px;line-height:1.35;margin:0 0 14px;text-wrap:balance;color:var(--ink)}
+p{margin:0 0 14px;max-width:66ch}
+strong{background:var(--gold-soft);padding:0 3px;font-weight:700}
+figure{margin:18px 0 22px;background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+figure img{display:block;width:100%;max-width:100%;height:auto}
+figcaption{font-size:14px;color:var(--muted);padding:10px 14px;border-top:1px solid var(--line);line-height:1.5}
+figcaption .fn{color:var(--gold);font-weight:700;margin-right:6px;font-variant-numeric:tabular-nums}
+.tbl{overflow-x:auto;margin:10px 0 18px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:13px;letter-spacing:.04em}
+.note{font-size:14px;color:var(--muted)}
+ul.plain{margin:0 0 14px;padding-left:20px}
+ul.plain li{margin-bottom:6px}
+footer{grid-column:1/-1;color:var(--muted);font-size:13px;padding-top:24px}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+</style>
+<style>
+#dohae{margin:24px 0 36px;width:96vw;max-width:1400px;position:relative;left:50%;transform:translateX(-50%)}
+#dohae .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+#dohae table{border-collapse:collapse;width:100%;min-width:980px;font-size:14px;line-height:1.5}
+#dohae th{background:var(--ink,#1e1e1e);color:#fff;text-align:left;padding:8px 10px;font-weight:600;position:sticky;top:0}
+#dohae td{border-bottom:1px solid rgba(128,128,128,.25);padding:10px;vertical-align:top}
+#dohae td.no{white-space:nowrap;color:#888;font-size:12px;text-align:center}
+#dohae td.no b{font-size:20px;color:inherit}
+#dohae td.pic{width:210px}
+#dohae td.pic img{width:200px;height:auto;border-radius:6px;border:1px solid rgba(128,128,128,.3);display:block}
+#dohae td.pic .t{font-weight:600;margin-top:6px;font-size:13px}
+#dohae td.src{color:#777;font-size:13px;width:170px}
+#dohae td.chk{background:rgba(235,150,20,.10);width:190px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">구구절절 · 도해 계획 검토용 (그림 그리기 전) · 16장 · 시안 2장(⑥·⑭) 먼저 · 캐릭터 그림 없음</div>
+  <h1>치이카와는 어떻게 극장 1위까지</h1>
+  <p>**9월 30일 개봉일 1위로 시작했다가 「암살자(들)」에 밀려 2위를 열흘 지킨 영화가, 10월 14일(수) 하루 75,239명으로 2위(28,287명)를 2.66배 앞서며 다시 1위에 올라 10/18까지 5일 연속 1위·누적 1,828,909명(KOBIS)이 됐다 — 일본에서 2020년 1월 연재 → 2021년 2월 1권 → 2022년 4월 TV 애니 → 2026년 7월 24일 극장(87일 181억 엔)으로 6년 반 걸린 길을, 한국은 2024년 12월 열흘 팝업 → 2026년 2월 27일 첫 정규 매장 → 215일 뒤 극장으로 압축해서 따라왔고, 그 극장의 객석은 CGV 집계로 20대가 45%(같은 달 「암살자(들)」은 16%)였다.** 왜 20대인가는 평론가·교수·닛케이가 각자 말한 것을 이름 붙여 옮기는 데서 멈춘다.</p>
+</header>
+<nav class="toc"><ol><li><a href="#dohae">도해표</a></li><li><a href="#facts">사실표</a></li><li><a href="#bone">뼈대</a></li><li><a href="#thumb">썸네일 후보</a></li><li><a href="#unknown">아직 모르는 것</a></li></ol></nav>
+<main>
+<section id="dohae">
+<h2>도해표 — 16장 계획 (그림은 아직 없음)</h2>
+<p class="note">장면판 양식(구구절절 지침 3장 🎬): 숫자 그림은 데이터 모양 장면, 개념 그림은 AI 장면 + 꼬리표. 주황 「시안」 두 장을 먼저 그려 확인한 뒤 나머지. 색·모티프 규칙은 공부노트 3절.</p>
+<div class="scroll"><table><tr><th>번호</th><th>그림·말하는 것</th><th>장면</th><th>숫자</th><th>근거</th></tr><tr><td class='no'>숫자<br><b>1</b></td><td><b>객석 19줄</b><br><span class='note'>19일 동안 하루에 몇 명 — 객석이 채워진 모양</span></td><td>상영관 객석을 19줄로(한 줄 = 하루, 9/30~10/18), 줄마다 채워진 좌석 수 = 그날 관객(1,000석 = 좌석 100개 비율). 1위 날 8줄은 주황, 2위 날은 파랑, 10/3 줄만 끝까지 가득</td><td>204,383(10/3 최고) · 28,238(10/13 최저) · 122,291(개봉일)</td><td class='src'>F3·F4</td></tr><tr><td class='no'>숫자<br><b>2</b></td><td><b>전광판 달력 여덟 날</b><br><span class='note'>1위였던 날은 여덟 날</span></td><td>매표소 위 전광판이 10월 달력 모양 — 날마다 순위 숫자 한 자리가 불 켜진 꼴, 「1」 여덟 날은 주황 불, 「2」 열 날은 파랑 불, 「3」 한 날(10/1)은 흐린 불. 9/30 은 달력 왼쪽 끝에 붙인 작은 날</td><td>1위 8일 · 2위 10일 · 3위 1일 · 10/14~18 다섯 날 연속</td><td class='src'>F4</td></tr><tr><td class='no'>숫자<br><b>3</b></td><td><b>매표 창구 둘, 사흘</b><br><span class='note'>10월 14일 — 580명 차이였던 두 창구가 2.66배로</span></td><td>매표소 창구 두 개(왼쪽 치이카와 주황, 오른쪽 암살자(들) 파랑), 사흘(10/12·13·14) 각 창구 앞에 팔린 표 묶음 높이 그대로. 10/12 두 묶음 거의 같은 높이, 10/14 왼쪽이 2.66배</td><td>−580 · −4,606 · +46,952 (75,239 vs 28,287) · 점유 40.2% vs 14.2%</td><td class='src'>F6</td></tr><tr><td class='no'>숫자<br><b>4</b></td><td><b>종이 시간표 두 장</b><br><span class='note'>상영관이 줄었다가 개봉 때보다 많아졌다</span></td><td>극장 로비 종이 상영시간표 두 장을 나란히 — 10/13 한 장은 치이카와 회차 줄이 짧고(2,516회·811스크린), 10/17 한 장은 줄이 길다(4,347회·1,166). 아래 작은 꼬리표 「9/30 1,078 → 10/12 779 → 10/18 1,181」</td><td>779 → 1,181 · 2,516 → 4,347</td><td class='src'>F7</td></tr><tr><td class='no'>숫자<br><b>5</b></td><td><b>티켓 스텁 꽂이 둘</b><br><span class='note'>주말·공휴일 여덟 날이 평일 열한 날의 두 배</span></td><td>매표소 뒤 티켓 스텁 꽂이 두 개 — 주말·공휴일 꽂이(8일, 주황)에 120.6만 장, 평일 꽂이(11일, 파랑)에 59.2만 장, 꽂힌 높이 그대로. 근거 줄 「직접 계산 · 개봉 전 상영분 30,725 제외」</td><td>1,205,709 / 592,475</td><td class='src'>F10 (🟡 10/5 성격 확인 뒤 확정)</td></tr><tr><td class='no'>숫자<br><b>6</b><br><span style='color:#D07A22;font-weight:700'>시안</span></td><td><b>두 나라 기차 시간표</b><br><span class='note'>일본 노선과 한국 노선 — 두 나라 기차 시간표</span></td><td>**역 시간표판 두 열** — 왼쪽 「일본」 열: 2017 투고 · 2020.1 연재 · 2021.2 1권 · 2022.4 TV 애니 · 2026.7.24 극장 / 오른쪽 「한국」 열: 2024.12 팝업 · 2026.2.27 첫 매장 · 2026.9.30 극장. 같은 해(2026)를 가로줄 하나로 맞춰 두 「극장」 줄이 68일 차이로 나란히 보이게. 한국 열은 짧고 촘촘, 일본 열은 길고 성김</td><td>6년 반 vs 약 22개월 · 68일 · 215일</td><td class='src'>F13·F16</td></tr><tr><td class='no'>숫자<br><b>7</b></td><td><b>500엔 동전 기둥 여섯</b><br><span class='note'>일본 극장 87일 — 엔화가 쌓인 모양</span></td><td>일본 극장 매표 카운터 위 500엔 동전 기둥 여섯 개(1일·3일·30일·59일·81일·87일), 높이 = 흥수. 마지막 기둥 옆 작은 꼬리표 「1,242만 명 · 잠정 애니 9위(興行通信社 집계)」</td><td>9.9 → 22.4 → 100 → 158.4 → 179.5 → 181억 엔</td><td class='src'>F14·F15</td></tr><tr><td class='no'>숫자<br><b>8</b></td><td><b>서가의 달 46권</b><br><span class='note'>한국 검색은 세 달 만에 15배 — 서가에 꽂힌 달</span></td><td>서점 서가 한 단에 월별 책등 46권(2023-01~2026-10)이 세워져 있고 책 두께 = 데이터랩 상대값. 2023~25 는 얇은 책 46권 중 대부분, 2026-08·09·10 세 권만 두꺼움. 책갈피 세 개: 2024.12(팝업) · 2026.2(매장) · 2026.9(개봉)</td><td>3.4~7.2 → 6.65 → 11.80 → 30.34 → 100</td><td class='src'>F21·F16</td></tr><tr><td class='no'>개념<br><b>9</b></td><td><b>팝업 부스와 상설 매장</b><br><span class='note'>열흘 팝업과 상설 매장은 같은 건물에</span></td><td>쇼핑몰 실내(맑은 낮, 천창 빛) — 왼쪽에 접이식 임시 팝업 부스(천막·가벽, 간판 글자 없음), 오른쪽에 유리 진열창 상설 매장(간판·상품 모양 없음, 진열대만). 사람·캐릭터·로고 없음. 꼬리표 왼쪽 「2024.12 · 열흘 약 3만 명」, 오른쪽 「2026.2.27 첫 정규 매장 · 하루 약 1,000명 → 영화 뒤 두 배」. 근거 줄 「AI 생성 장면(실제 매장 아님)」</td><td>3만 · 1,000 → 두 배 · 14개월</td><td class='src'>F16·F17</td></tr><tr><td class='no'>숫자<br><b>10</b></td><td><b>좌석 배치도 둘</b><br><span class='note'>객석 100석 중 20대가 45석 — 옆 상영관은 16석</span></td><td>상영관 두 개의 좌석 배치도(좌석 100개씩)를 나란히 — 왼쪽 치이카와: 20대 45석 주황·30대 20석 옅은 주황·나머지 회색 / 오른쪽 암살자(들): 40대 28석 파랑·30대 21석·20대 16석. 아래 작은 꼬리표 「CGV 예매 여성 72% · 20대 46%」</td><td>45 · 20 / 28 · 21 · 16 / 72% · 46%</td><td class='src'>F19</td></tr><tr><td class='no'>개념<br><b>11</b></td><td><b>작업대 위 물건 넷</b><br><span class='note'>기사마다 반복되는 네 단어 — 풀 뽑기·스티커·자격시험·토벌</span></td><td>흐린 창가 작업대 위 물건 넷(캐릭터 없음): 흙 묻은 작업 장갑과 뽑힌 풀 한 줌 · 스티커 시트와 붙이던 상자 · 연필 놓인 시험 답안지(글자 없음) · 낡은 작은 방패와 몽둥이. 꼬리표는 단어 라벨 넷뿐, 아래 작은 줄 「누가 말했나 — 하재근 · 이홍주 · 김경수 · 노창희 · 닛케이 · 이코노미스트」. 근거 줄 「AI 생성 장면 · 인용은 본문 해설에」</td><td>— (단어 라벨만)</td><td class='src'>F25</td></tr><tr><td class='no'>숫자<br><b>12</b></td><td><b>필름 캔 탑 11개</b><br><span class='note'>역대 일본 애니 한국 관객 10위권에 놓으면</span></td><td>극장 영사실 선반에 필름 캔(둥근 금속 통)을 작품별로 쌓은 탑 11개, 캔 1개 = 50만 명. 무한성편 570만+ · 스즈메 558 · 슬램덩크 490 · 너의 이름은 396 · 체인소 맨 343 · 하울 301 · 무한열차 221 · 센과 치히로 216 · 그대들 201 · **치이카와 182.9(주황, 「10/18까지」 꼬리표)** · 포뇨 152. 근거 줄 「통합전산망 기준 · 위키트리 2025-11 정리 · 무한성편 최종 미확인」</td><td>182.9만 · 포뇨 +31만 · 그대들 −18만</td><td class='src'>F20</td></tr><tr><td class='no'>숫자<br><b>13</b></td><td><b>외벽 현수막 여섯</b><br><span class='note'>같은 주말 같은 극장의 여섯 편</span></td><td>멀티플렉스 외벽 세로 현수막 여섯 장(제목 글자 없음, 색 띠만), 길이 = 10/18 일 관객. 치이카와 주황 146,248 · 암살자(들) 파랑 56,420 · 타짜 36,249 · 오디세이 19,949 · 웨일폴 13,897 · 룩백 8,622. 각 현수막 아래 작은 누적 꼬리표</td><td>146,248 … 8,622 · 누적 1,828,909 / 3,249,172</td><td class='src'>F11</td></tr><tr><td class='no'>개념<br><b>14</b><br><span style='color:#D07A22;font-weight:700'>시안</span></td><td><b>번호표 띠 1,230</b><br><span class='note'>화요일 아침 9시 13분, 대기번호 1,230</span></td><td>흐린 아침 쇼핑몰 통로, 셔터 반쯤 올라간 매장 앞 번호표 발급기에서 뽑힌 긴 번호표 띠가 바닥을 따라 통로 끝까지 흘러간다(숫자·글자 없음, 사람 없음, 차단봉 줄만). 꼬리표 「10/7(화) 09:13 · 1,230번 · 예상 655분」, 작은 꼬리표 「9/19(토) 14시 1,160번대」 「2024.12 팝업 2시간 만에 1,000번」. 근거 줄 「AI 생성 장면(실제 매장 아님) · 뉴스1 사진 설명」</td><td>1,230 · 655분 · 1,160 · 1,000</td><td class='src'>F17·F16</td></tr><tr><td class='no'>숫자<br><b>15</b></td><td><b>팝콘통과 가격표 둘</b><br><span class='note'>팝콘통 정가와 매물 가격은 다른 숫자</span></td><td>극장 매점 카운터 위 팝콘통 하나(무늬 없는 통)와 가격표 두 장 — 왼쪽 정가표 「29,000」, 오른쪽 중고 매물표는 네 배 높이. 옆에 작은 인형 상자(캐릭터 없음) 가격표 「27,000 → 16만 원대 매물」. 도장 「매물 가격 — 거래가 아님」</td><td>29,000 → 약 4배 · 27,000 → 16만 원대</td><td class='src'>F24</td></tr><tr><td class='no'>숫자<br><b>16</b></td><td><b>음료 컵 세 개</b><br><span class='note'>극장판을 치는 사람보다 이름을 치는 사람이 14배</span></td><td>극장 매점 음료 컵 세 개 — 라지(「치이카와」 100) · 미디엄(「먼작귀」 35.2) · 스몰(「치이카와 극장판」 7.07), 컵 높이 그대로. 아래 작은 꼬리표 「데이터랩 2026-10 상대값」</td><td>100 · 35.19 · 7.07 · 14배</td><td class='src'>F22</td></tr></table></div>
+</section>
+<section id="facts"><h2>사실표</h2><div class='scroll'><table>
+<tr><th>#</th><th>숫자</th><th>출처</th><th>원본 위치</th><th>확인</th></tr>
+<tr><td>F1</td><td>「극장판 치이카와: 인어 섬의 비밀」 개봉 <b>2026-09-30</b>(수) · 98분 · 전체관람가 · 수입 대원미디어(주) · 배급 (주)씨제이이엔엠</td><td>KOBIS movie/searchMovieInfo</td><td>`_raw_kobis` `movieInfo[&quot;20261807&quot;]`</td><td>✅</td></tr>
+<tr><td>F2</td><td>10/18(일) 누적 <b>1,828,909명</b> · 그날 146,248명 · 스크린 <b>1,181</b>(최고) · 상영횟수 4,292</td><td>KOBIS 일별</td><td>`daily[&quot;20261018&quot;]`</td><td>✅ — 글의 「지금까지 몇 명」은 이 날짜 숫자, 「10/18까지」를 꼭 붙인다</td></tr>
+<tr><td>F3</td><td>일별 관객 19일: 최고 <b>10/3(토) 204,383</b> · 최저 <b>10/13(화) 28,238</b> · 개봉일 122,291(누적 153,016 — 차이 30,725는 개봉 전 상영분, 「유료 시사」 단정 금지)</td><td>KOBIS 일별</td><td>`daily[&quot;20260930&quot;]`~`[&quot;20261018&quot;]` (조사 1장 표 그대로)</td><td>✅</td></tr>
+<tr><td>F4</td><td>1위 <b>8일</b>: 9/30 · 10/3 · 10/11 · 10/14~18 / 2위 10일 / 3위 1일(10/1) — 「10/11 이후 계속 1위」(머니투데이)는 KOBIS 와 다름(10/12·13 은 2위)</td><td>KOBIS 일별 rank</td><td>`daily[*][0..2]`</td><td>✅</td></tr>
+<tr><td>F5</td><td>누적 이정표: <b>100만 10/9(개봉 10일째) 1,025,703</b> · 150만 10/16(17일째) 1,507,877 · 180만 10/18(19일째)</td><td>KOBIS 일별 audiAcc</td><td>`daily[&quot;20261009&quot;]` `[&quot;20261016&quot;]` `[&quot;20261018&quot;]`</td><td>✅</td></tr>
+<tr><td>F6</td><td>역전일 <b>10/14(수)</b>: 치이카와 75,239 vs 암살자(들) 28,287 → 차이 <b>46,952 · 2.66배</b> · 매출 점유 40.2% vs 14.2% / 2위 때 격차: 10/10 −2,755 · <b>10/12 −580</b> · 10/13 −4,606 / 10/17 174,784 vs 53,538(3.26배)</td><td>KOBIS 일별, <b>직접 계산</b></td><td>`daily[&quot;20261014&quot;]` 1·2위, `[&quot;20261010&quot;]` `[&quot;20261012&quot;]` `[&quot;20261013&quot;]` `[&quot;20261017&quot;]`</td><td>✅ 직접 계산</td></tr>
+<tr><td>F7</td><td>스크린 <b>1,078</b>(9/30) → <b>779</b>(10/12, 최저) → <b>1,181</b>(10/18, 최고) / 상영횟수 2,516(10/13, 최저) → <b>4,347</b>(10/17, 최고) — 같은 날 암살자(들) 스크린 1,017(10/12)·1,104(10/17)</td><td>KOBIS 일별 scrnCnt·showCnt</td><td>`daily[&quot;20260930&quot;]` `[&quot;20261012&quot;]` `[&quot;20261013&quot;]` `[&quot;20261017&quot;]` `[&quot;20261018&quot;]`</td><td>✅</td></tr>
+<tr><td>F8</td><td>매출 점유율 최고 <b>47.0%</b>(10/17) · 주간 10/12~18 <b>38.0%</b>(1위)</td><td>KOBIS 일별·주간 salesShare</td><td>`daily[&quot;20261017&quot;]`, `weekly[&quot;20261018&quot;]`</td><td>✅</td></tr>
+<tr><td>F9</td><td>주간 3주: 9/28~10/4 <b>2위</b> 574,017(1위 암살자 668,553) → 10/5~11 <b>2위</b> 676,703(1위 암살자 759,106) → 10/12~18 <b>1위</b> 547,464(2위 암살자 255,330)</td><td>KOBIS 주간(weekGb=0)</td><td>`weekly[&quot;20261004&quot;]` `[&quot;20261011&quot;]` `[&quot;20261018&quot;]`</td><td>✅</td></tr>
+<tr><td>F10</td><td>주말·공휴일 <b>8일 1,205,709명</b> vs 평일 <b>11일 592,475명</b>(개봉 전 상영분 30,725 제외, 합 1,798,184) — 공휴일은 10/3 개천절·10/5·10/9 한글날로 셈</td><td>KOBIS 일별, <b>직접 계산</b></td><td>`daily[*]` 19일 합</td><td>🟡 <b>10/5 성격 확인</b>: 조사 노트는 「추석 연휴」라 적었으나 2026년 추석은 9/25 → 10/5 는 개천절(토) 대체공휴일로 보임. 달력 재확인 뒤 비고 고치기</td></tr>
+<tr><td>F11</td><td>같은 달 상영작 10/18 일별: ① 치이카와 146,248(누적 1,828,909) ② 암살자(들) 56,420(3,249,172, 9/23 개봉) ③ 타짜: 벨제붑의 노래 36,249(1,911,190) ④ 오디세이 19,949(12,267,664) ⑤ 웨일폴 13,897(56,363, 10/14 개봉) ⑥ 룩백 8,622(105,345, 10/8 개봉)</td><td>KOBIS 일별</td><td>`daily[&quot;20261018&quot;]` 1~6위</td><td>✅</td></tr>
+<tr><td>F12</td><td>2026년 개봉작 중 애니 <b>2위</b>(1위 토이 스토리 5 2,949,202) · 전체 14위(10/17 누적 기준, 13위 타짜 1,874,923) · 10/18 타짜와 82,281명 차이</td><td>이코노믹리뷰 10/18 · 차이는 직접 계산</td><td>조사 1장</td><td>🟡 보도 — 「13위가 된다」 쓰지 않고 거리만</td></tr>
+<tr><td>F13</td><td>일본 연표: <b>2017</b> X 투고 시작(팔로워 33만) → <b>2020-01</b> 전용 계정 정식 연재(날짜 단위 없음) → <b>2021-02-12</b> 1권 → <b>2022-04-04</b> 후지TV 「めざましテレビ」 안 TV 애니 시작(1화 약 1분 30초) → 2024-04 日本漫画家協会賞 → <b>2026-07-24</b> 극장판 일본 개봉(東宝, 447스크린)</td><td>nippon.com 2025-04-28 · 마루젠 서지·KAI-YOU · phileweb · 전격온라인</td><td>조사 2장</td><td>✅ 2022-04-04·2026-07-24 / 🟡 1권 날짜는 講談社 페이지 직접 미확인(2권 2021-08-23·6권 2023-12-21 은 직접)</td></tr>
+<tr><td>F14</td><td>일본 흥행 추이(東宝 발표를 매체가 전함): 1일 9.9억 엔 → 3일 22.4억·150.9만 명 → 30일 100억 → 59일 158.4억·1,085.7만 → 81일 179.5억·1,229만 → <b>87일(10/18) 181억 엔·1,242만 명</b></td><td>데일리스포츠 · 피아·오리콘 · 아니메아니메 · 시네마투데이 · 오리콘 10/13·10/19</td><td>조사 2장 「일본 극장 흥행 추이」</td><td>🟡 매체 전달치(興行通信社 페이지 직접 못 봄) — 「東宝 발표(오리콘 10/19)」로</td></tr>
+<tr><td>F15</td><td>역대 일본 애니 흥수(興行通信社 집계, granza 정리) 치이카와 181억 = <b>잠정 9위</b>(8위 하울 196.0 · 10위 슬램덩크 166.7) · 실사 포함 역대 12위</td><td>granza · 오리콘 10/13</td><td>조사 2장</td><td>🟡 정리본 — 「잠정·실사 포함 12위·애니 9위(興行通信社 집계 기준)」 조건 붙여서</td></tr>
+<tr><td>F16</td><td>한국 연표: <b>2024-12</b> 용산 아이파크몰 팝업(2시간 만에 대기 1,000번, 열흘 약 3만 명) → 2026-02-04~19 더현대 「베이비」 팝업 → <b>2026-02-27</b> 치이카와샵 아이파크몰 용산점(「한국 첫 정규 매장」) → 2026-08 성수 「스시」 팝업 → <b>2026-09-30</b> 개봉. 간격 <b>직접 계산</b>: 매장→개봉 <b>215일</b>(약 7개월) · 일본 개봉→한국 개봉 <b>68일</b> · 팝업→매장 약 14개월</td><td>이투데이 09-22 · MTN 10-12 · 치이카와샵 공식 X · 팝플리 · KOBIS</td><td>조사 2장 「한국 상륙 연표」</td><td>✅ 2/27(공식 X)·9/30(KOBIS) / 🟡 팝업 숫자는 보도</td></tr>
+<tr><td>F17</td><td>대기: <b>10/7(화) 09:13 대기번호 1,230번·예상 655분</b>(08:00부터 줄) · 9/19(토) 14시 1,160번대·입장 17시 넘어 · 10/8 한정판 전날 밤부터 대기 · 아이파크몰 「하루 약 1,000명, 영화 화제 뒤 두 배」(10/14)</td><td>뉴스1 10-15 사진 설명 · 이투데이 · 뉴시스 10-16 · 머니투데이 10-18</td><td>조사 2장</td><td>🟡 보도(사진 설명 포함) — 시각·날짜 붙여서</td></tr>
+<tr><td>F18</td><td>사전예매: 9/15 2만 장 초과·전체 5위 → 9/29(개봉 전날) 21만 명 이상·예매율 41.4% · 첫 주말 인형탈 무대인사 약 3,000석 매진 · 10/1 엠카운트다운 출연 영상 이틀 100만 뷰</td><td>이투데이 · 우먼센스 10-09 · TV리포트 · MTN</td><td>조사 2장</td><td>🟡 보도</td></tr>
+<tr><td>F19</td><td>관객 구성(CGV 집계): 치이카와 <b>20대 45% · 30대 20%</b> / 같은 시기 암살자(들) 40대 28% · 30대 21% · <b>20대 16%</b> / CGV 예매 분석 <b>여성 72% · 20대 예매율 46%</b> / 멀티플렉스 관계자 「20대 관객이 이렇게 많은 건 &#x27;치이카와&#x27;만의 이례적 특징」</td><td>뉴시스 10-16 · 시대 10-08</td><td>조사 3장 「한국 관객 구성」</td><td>🟡 보도(집계 기간 미상) — 「CGV 집계(뉴시스 10/16)」로</td></tr>
+<tr><td>F20</td><td>역대 일본 애니 한국 관객 10위권: 무한성편 570만 넘김(최종 미확인) · 스즈메 558만 · 슬램덩크 490만 · 너의 이름은 396만 · 체인소 맨 레제편 343만 · 하울 301만 · 무한열차 221만 · 센과 치히로 216만 · 그대들 201만 · 포뇨 152만 → 치이카와 182.9만(10/18)은 <b>포뇨를 넘어 10위권 안, 그대들까지 18만</b></td><td>위키트리 2025-11-10 정리 · 뉴시스 10/16</td><td>조사 3장</td><td>🟡 정리 기사 — 「영화관입장권 통합전산망 기준, 위키트리 정리」 붙여서, 무한성편 최종은 미확인</td></tr>
+<tr><td>F21</td><td>데이터랩 월(「치이카와」, 최대 2026-10 = 100): 2023~2025 <b>3.4~7.2</b> → 2026-07 <b>6.65</b> → 08 <b>11.80</b> → 09 <b>30.34</b> → 10 <b>100</b> (세 달 만에 <b>15배</b>, 직접 계산)</td><td>HUB search-trend</td><td>`_raw_데이터랩` `month.results[0]`</td><td>✅ 상대값(검색량 아님 — title_check 월 검색량과 섞지 않기)</td></tr>
+<tr><td>F22</td><td>2026-10 월 상대값: 「치이카와」 100 · 「먼작귀」 <b>35.19</b> · 「치이카와 극장판」 <b>7.07</b> → 캐릭터 이름으로 치는 사람이 극장판으로 치는 사람의 <b>14배</b> / 「치이카와 극장판」 주 단위 10/5주 7.19 정점 → 10/12주 5.86</td><td>HUB search-trend</td><td>`month.results[1..2]`, `week.results[1]`</td><td>✅ 상대값</td></tr>
+<tr><td>F23</td><td>데이터랩 일: 9/29 35.4 → <b>9/30 65.2(1.8배)</b> → 10/3 82.1 → 10/9 94.7 → <b>10/17 100</b> → 10/18 89.8 — 개봉 3주째도 80~100 / 주 단위 9/14주 13.1 → 9/21주 23.2 → 9/28주 68.6 → 10/5주 95.1 → 10/12주 100</td><td>HUB search-trend</td><td>`date.results[0]`, `week.results[0]`</td><td>✅ 상대값</td></tr>
+<tr><td>F24</td><td>리셀: CGV 팝콘통 정가 <b>29,000원</b> → 중고 약 <b>4배</b> 구매글 / 한정 랏코 인형 정가 27,000원 → <b>16만 원대 매물</b>(「매물 가격이지 거래가 아님」 기사 명시) / 굿즈 이벤트 9/15 기준 270건 이상·CGV 약 90건 / 지그재그 9/1~21 「치이카와」 검색 전년비 +522%</td><td>MHN 10-14 · 우먼센스 10-09</td><td>조사 4장</td><td>🟡 보도 — 「매물」만, 「팔렸다」 금지</td></tr>
+<tr><td>F25</td><td>세계관(여러 기사 공통): 풀 뽑기·스티커 붙이기 노동으로 보수 → 더 나은 보수를 위한 자격시험(낙방 포함) → 「토벌」 노동 → 친구와 음식 나누는 일상 / 인기 이유 인용자: 하재근(키덜트+취업난 세대) · 이홍주(「cultural code that comforts their souls」, 영문 내 번역) · 김경수(「만화가 아니라 철학」 밈) · 노창희(OTT 시대엔 팬덤) · 닛케이(하루벌이 노동 서사 + CJ 케이팝 방식 마케팅, 인사이트·시대 재인용) · 이코노미스트(일용직 노동=긱 이코노미, 재인용) · 배급사 관계자(「이런 흥행을 할 줄은 몰랐다」)</td><td>조사 5장 표</td><td>조사 5장</td><td>🟡 전부 「누가 말했다」로만, 판정 없음 · 최주은 인용은 쓰지 않음</td></tr>
+<tr><td>F26</td><td>title_check 10/19: 「치이카와 극장판」 107,800(높음·문서 18,337·지수 5.88) · 「극장판 치이카와 인어 섬의 비밀」 924,500(중간·지수 85.9) · 「치이카와 영화」 510,900(낮음·지수 12.5) · 「치이카와」 1,415,600 · 「치이카와 팝콘통」 71,900(지수 19.1) · 「치이카와 극장판 관객수」 410(낮음)</td><td>title_check.py</td><td>조사 6장 · 캐시 `Keyword_Reader\cache\title_check\치이카와_극장판_2026-10-19.json` 외 2</td><td>✅</td></tr>
+<tr><td>F27</td><td>단행본 부수: 6권(2023-12-21) 띠지 「270만」 → 7권 고지 「360만」 → 8권 고지 「460만」 → 9권 고지 「500만」 → 講談社 작품 페이지 2026-10-19 현재 「累計600万部突破」(<b>발표일 미상</b>) · 9권 2026-11-20 발매 예정 · 공식 X 팔로워 2025-07 410만</td><td>講談社 titles 페이지(직접) · chiikawa-log · 덴파미니코</td><td>조사 2장</td><td>✅ 600만 문구 확인 / 🟡 시점 — 「講談社 작품 페이지가 2026년 10월 현재 &#x27;누계 600만 부 돌파&#x27;라 적고 있다」로만</td></tr>
+<tr><td>F28</td><td>日本キャラクター大賞 2026 그랑프리·규정에 따라 전당입성(2026-06-17) — 횟수는 anime.eiga 「4번째」 vs 다른 매체 「3연패」</td><td>전격온라인 · anime.eiga</td><td>조사 2장</td><td>🟡 「2024~26 3년 연속·전당입성(주최 발표)」까지만, 「3연패 대상」 단정 금지</td></tr>
+</table></div></section>
+<section id="bone"><h2>뼈대</h2><ul class='plain'></ul></section>
+<section id="thumb"><h2>썸네일 후보 (1:1 · 글자·얼굴 없음)</h2><div class='scroll'><table>
+<tr><th>후보</th><th>장면</th><th>① 글 전체를 말하며 궁금증(답은 숨김)</th><th>② 그림만 봐도 제목이 떠오름</th><th>③ 본문에 있음</th><th>겹침 점검</th></tr>
+<tr><td><b>A</b></td><td>상영 직전 상영관 안 — 객석은 뒷모습 실루엣으로 거의 찼고, 맨 앞줄 빈 좌석 하나에 <b>매장 쇼핑백(로고 없음)과 팝콘통</b>이 놓여 있다. 스크린엔 맑은 낮 바다 위 작은 섬 하나(캐릭터·글자 없음)</td><td>○ — 「매장에서 산 것을 들고 극장까지」가 한 장면에: 몇 명이, 언제 1위였나는 안 보임</td><td>○ — 스크린의 섬 = 「인어 섬」, 쇼핑백+팝콘통 = 굿즈 줄 → 이 영화 / 캐릭터 없이는 △에 가까우니 제목이 받친다</td><td>○ — 1절 「입구」 첫 문단 위에 배치</td><td>①은 좌석 19줄(데이터 모양), ⑩은 배치도라 다름 · 스크린에 섬이 보이는 장면은 도해에 없음</td></tr>
+<tr><td><b>B</b></td><td>흐린 아침 쇼핑몰 바깥 보도 — 셔터 내린 매장 앞에 <b>접이식 의자·담요·보온병</b>이 차단봉 띠를 따라 한 줄로 놓여 있다(사람 없음, 전날 밤부터의 흔적). 건물 위쪽엔 빈 극장 현수막 틀</td><td>○ — 「무엇이 이 줄을 만들고, 그 줄이 어떻게 극장까지 갔나」. 극장 숫자는 안 보임</td><td>△ — 밤샘 줄 = 굿즈 매장까진 오지만 「치이카와」까진 제목이 받쳐야 함</td><td>○ — 5절 「다시 사건」(매장 줄) 머리에 배치</td><td>⑭는 실내 통로의 번호표 띠(AI)라 같은 「줄」 모티프 — 둘 다 쓰면 겹치니 <b>B를 고르면 ⑭ 장면을 매장 안 진열대 앞 번호표 발급기 클로즈업으로 바꾼다</b></td></tr>
+</table></div><ul class='plain'><li>둘 다 Higgsfield gpt_image_2_5 high 1:1, 캡션 「AI 생성 이미지(실제 극장·매장 아님)」. A 는 실내(스크린만 맑은 낮), B 는 흐린 아침 — 밤·노을 없음.</li><li>추천 A(②가 더 강함). 초안 때 둘 중 하나 고르고, 안 고른 쪽은 쓰지 않는다(5-4 같은 파일 두 번 금지).</li></ul></section>
+<section id="unknown"><h2>아직 모르는 것</h2><ul class='plain'><li><b>최종 관객</b> — 상영 중. 「몇 명 간다」는 쓰지 않고, 끝나면 KOBIS 로 한 줄 덧붙인다(할 일 하나).</li><li><b>입구의 내 장면</b> — 「KOBIS 표를 열어 본 것」으로 뼈대를 짰으나, 극장 관람·굿즈 줄 목격 같은 실제 경험이 있으면 그쪽이 입구. 사용자 확인.</li><li><b>10/5(월)의 성격</b> — 조사 노트는 「추석 연휴」, 2026년 추석은 9/25라 개천절(10/3 토) 대체공휴일로 보임. 달력 확인 뒤 F10·⑤ 비고 확정.</li><li>무한성편 KOBIS 최종 누적(570만대) — 보도만. 역대 10위권 표(위키트리 정리)에 빠진 작품이 없는지도 미확인.</li><li>1권 발매일 2021-02-12 — 講談社 1권 페이지 직접 미열람(마루젠·KAI-YOU). 연재 시작은 「2020년 1월」까지만.</li><li>講談社 「600만 부」 발표일 — 페이지 문구만 10/19 확인. 9권(11/20) 고지 때 바뀔 수 있음.</li><li>CGV 연령·성별 집계의 기간(개봉~며칠까지인지) — 뉴시스·시대 기사에 없음.</li><li>日本キャラクター大賞 수상 횟수 — 매체마다 다름(3연패 vs 4번째).</li><li>興行通信社 주말 랭킹 원 페이지 — 직접 못 봄(eiga.com 404). 181억 엔은 오리콘 10/19 전달치.</li><li>한국 라이선스 대행사 이름(Spiralcute 보도 403) · 대원미디어 계약 연도 · 한국 TV 방영 여부 · 롯데월드·다이소·올리브영 협업 — 전부 미확인이라 안 쓴다.</li><li>닛케이·이코노미스트 원문(한국 매체 재인용) · wowtv 10/17 「흥행 비결」(타임아웃) · 최주은 교수 인용 원문.</li><li>일본 개봉 → 한국 개봉 68일이 다른 일본 애니와 견줘 빠른지 느린지 — 비교 기준을 안 모았음(스즈메·슬램덩크 일본 개봉일 미수집).</li><li>「치이카와 극장판」 검색은 10/5주 정점 뒤 꺾였는데 「치이카와」는 계속 오른 이유 — 상대값만 있고 해석 근거 없음.</li></ul></section>
+</main>
+<footer>원자료: 261019_치이카와 극장판 — 치이카와_공부노트_2026-10-19.md, base data(조사 노트·도해표.json·원자료). 판정 문장 없음.</footer>
+</div></body></html>

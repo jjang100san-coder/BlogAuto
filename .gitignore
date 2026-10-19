@@ -1,0 +1,51 @@
+# ── Blog 클라우드 저장소 .gitignore 초안 ──
+# 방식: 기본은 전부 빼고, 글·코드만 골라 올린 뒤, 원자료·개인정보 폴더를 다시 뺀다.
+
+# 1) 기본은 전부 뺀다
+*
+!*/
+
+# 2) 글·코드만 올린다
+!.gitignore
+!*.md
+!*.py
+!*.txt
+!*.csv
+!*.html
+!*.js
+!*.ps1
+!*.bat
+
+# 3) 원자료(영상 전사·프레임·크롤링 원본)는 뺀다
+**/base data/
+**/base 자료/
+**/base*/
+**/raw_*/
+**/transcript*.txt
+**/_raw/
+**/seg/
+**/frames/
+**/raw/
+**/old/
+
+# 4) 로그인 정보·실행 환경은 뺀다
+**/chrome_profile/
+**/profile/
+**/profile-public/
+**/.venv/
+**/node_modules/
+**/__pycache__/
+.claude/settings.local.json
+
+# 5) 로컬에서만 도는 것·백업은 뺀다
+projects/
+영상분석/
+260916_블로그/
+_보관/
+archive/
+엔화환율수집/
+*.log
+tunnel-*
+monitor-tunnel.ps1
+**/*_log.txt
+**/*전사_*.md

@@ -1,0 +1,8 @@
+﻿거창 감악산 프리뷰 사진 순서
+1. geochang_01_banner.jpg - 도입부 (썸네일, 첫 장으로 드래그)
+2. geochang_02_parking_map.jpg - 🚌 섹션 표 위
+3. geochang_03_shuttle_info.jpg - 🚌 섹션 마감시간 표 위
+4. geochang_04_closing_time.jpg - 마감시간 표 바로 아래
+5. (없음) 개화 현황 - 📋 표 아래, 없으면 그 줄 삭제
+
+업로드는 드래그로. Ctrl+V 금지.

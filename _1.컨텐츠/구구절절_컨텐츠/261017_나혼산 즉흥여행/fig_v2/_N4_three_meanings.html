@@ -1,0 +1,50 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'NK';src:url('file:///C:/Windows/Fonts/NotoSansKR-VF.ttf');font-weight:100 900}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#1E2330;--ink2:#4A5163;--muted:#7A7466;--line:#E3D9C6;--pre:#3D62AE;--pre-l:#E7EDF8;--ons:#D07A22;--ons-l:#FBEBDA;
+ --red:#C8463C;--red-l:#F8E2DF;--navy:#22335A;--paper:#FFFCF5;--bg:#EDE5D6;--ok:#2F8F5B}
+html,body{width:1400px;height:800px}
+body{font-family:'NK',sans-serif;color:var(--ink);position:relative;overflow:hidden;-webkit-font-smoothing:antialiased;
+ background:var(--bg);background-image:radial-gradient(rgba(90,70,40,.06) 1px,transparent 1.2px);background-size:6px 6px}
+.ticket{position:absolute;left:36px;top:34px;width:1328px;height:732px;background:var(--paper);border-radius:20px;
+ box-shadow:0 2px 0 rgba(60,45,20,.06),0 22px 50px rgba(60,45,20,.16);overflow:hidden}
+.band{position:absolute;left:0;top:0;right:0;height:158px;background:var(--navy);color:#fff;padding:26px 40px}
+.band .k{display:flex;gap:14px;align-items:center;font-size:15px;font-weight:800;letter-spacing:.18em;color:#AFC0E6}
+.band .k b{background:var(--ons);color:#fff;letter-spacing:.06em;border-radius:6px;padding:3px 9px;font-size:14px}
+.band h1{color:#fff;font-size:50px;font-weight:900;letter-spacing:-.02em;margin-top:10px;white-space:nowrap}
+.band h1 em{font-style:normal;color:#FFC27A}
+.perf{position:absolute;left:1000px;top:158px;bottom:0;border-left:3px dashed #D9CFBC}
+.perf.solid{border-left:2px solid #E8DFCC}
+.stub.side{background:#F7F1E5}
+.notch{position:absolute;width:44px;height:44px;border-radius:50%;background:var(--bg);left:979px}
+.main{position:absolute;left:0;top:158px;width:1000px;bottom:0;padding:24px 36px 44px}
+.stub{position:absolute;left:1003px;right:0;top:158px;bottom:0;padding:26px 30px}
+.stub .lab{font-size:13px;font-weight:800;letter-spacing:.16em;color:#9A917F}
+.stub .row{margin-top:16px}
+.stub .n{font-size:84px;font-weight:900;line-height:.95;letter-spacing:-.04em}
+.stub .n small{font-size:36px;margin-left:2px}
+.stub .t{font-size:16px;font-weight:700;color:var(--ink2);margin-top:6px;line-height:1.35}
+.bar{position:absolute;left:30px;right:30px;bottom:56px;height:54px;background:repeating-linear-gradient(90deg,#22335A 0 3px,transparent 3px 6px,#22335A 6px 7px,transparent 7px 11px,#22335A 11px 15px,transparent 15px 17px)}
+.src2{position:absolute;left:30px;bottom:22px;font-size:13px;font-weight:800;letter-spacing:.14em;color:#9A917F}
+.src{position:absolute;left:36px;bottom:16px;right:340px;font-size:13.5px;color:#9A917F;white-space:nowrap;overflow:hidden}
+.stamp{position:absolute;transform:rotate(-7deg);border:4px solid var(--ons);color:var(--ons);border-radius:12px;padding:10px 20px;
+ font-size:25px;font-weight:900;background:rgba(255,252,245,.88);box-shadow:inset 0 0 0 2px rgba(208,122,34,.25);white-space:nowrap}
+.stamp.red{border-color:var(--red);color:var(--red);box-shadow:inset 0 0 0 2px rgba(200,70,60,.22)}
+.stamp.navy{border-color:var(--navy);color:var(--navy);box-shadow:inset 0 0 0 2px rgba(34,51,90,.2)}
+img.i3{display:block;object-fit:contain}
+svg.i{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.chk{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;flex:none}
+.qs{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:4px}
+.qq{border-left:7px solid;padding:6px 0 6px 18px;min-height:250px}
+.qq .w{font-size:15px;font-weight:800;letter-spacing:.06em;margin-bottom:14px}
+.qq .t{font-size:23px;font-weight:800;line-height:1.5;color:var(--ink)}
+.qq .f{font-size:15px;color:var(--muted);font-weight:700;margin-top:12px}
+.stub .big2{font-size:46px;font-weight:900;line-height:1.1;color:var(--navy);margin-top:10px}</style></head><body>
+<div class="ticket">
+ <div class="band"><div class="k"><b>구구절절</b>TRAVEL NOTE · 「즉흥」의 뜻 · 04 / 13</div><h1>「즉흥」, 세 곳에서 <em>다르게</em> 쓰였다</h1></div>
+ <div class="main"><img class="i3" src="icons/dict_t.png" style="position:absolute;left:1160px;top:-142px;width:128px;height:128px;z-index:3"><div class="qs"><div class="qq" style="border-color:var(--navy)"><div class="w" style="color:var(--navy)">표준국어대사전 「즉흥」</div><div class="t">「그 자리에서 바로 일어나는 감흥. 또는 그런 기분.」</div><div class="f"></div></div><div class="qq" style="border-color:var(--ons)"><div class="w" style="color:var(--ons)">MBC가 말한 「즉흥 여행」</div><div class="t">「목적지와 항공권을 미리 정하지 않은 채 당일 여행지를 결정해 떠나는 방식」</div><div class="f">9.4 입장문</div></div><div class="qq" style="border-color:var(--red)"><div class="w" style="color:var(--red)">MBC가 덧붙인 문장</div><div class="t">「모든 과정이 아무런 사전 준비 없이 진행된 것으로 받아들여질 수 있다는 점」</div><div class="f">→ 「충분히 고려하지 못했습니다」</div></div></div></div>
+ <div class="perf solid"></div>
+ <div class="stub side"><div class="lab">기준</div><div class="t" style="margin-top:14px">한 번에 많은 사람이 듣는 방송에서 말의 뜻은</div><div class="big2">듣는 쪽</div><div class="t" style="margin-top:14px">심의규정 제14조<br>「시청자를 혼동케 하여서는 아니 된다」</div><div class="src2">걷고읽고떠나고</div></div>
+ <div class="stamp navy" style="left:420px;top:598px">기준은 시청자</div>
+ <div class="src">근거 · 표준국어대사전 「즉흥」, MBC 9.4 입장문(한겨레·더팩트 대조), 방송심의에 관한 규정 제14조(객관성)</div>
+</div></body></html>

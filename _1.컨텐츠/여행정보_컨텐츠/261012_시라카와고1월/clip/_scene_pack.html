@@ -1,0 +1,27 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'NK';src:url('file:///C:/Windows/Fonts/NotoSansKR-VF.ttf');font-weight:100 900}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#FAF7F2;--card:#FFFFFF;--ink:#1E2330;--ink2:#4A5163;--muted:#8A8F9C;--line:#E7E1D6;
+ --pre:#3D62AE;--pre-l:#E6ECF8;--ons:#D07A22;--ons-l:#FBEBDA;--red:#C8463C;--red-l:#F9E3E0;--ok:#2F8F5B;--ok-l:#E2F1E8;--sand:#F3EBDD}
+html,body{width:1350px;height:1338px}
+body{font-family:'NK',sans-serif;background:var(--bg);color:var(--ink);position:relative;overflow:hidden;-webkit-font-smoothing:antialiased}
+.stage{position:absolute;left:70px;right:70px;top:250px;bottom:263px}
+.card{background:var(--card);border-radius:30px;box-shadow:0 2px 0 rgba(30,35,48,.04),0 16px 40px rgba(30,35,48,.09);border:1px solid #EFE9DF}
+.pill{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:10px 22px;font-weight:800}
+.big{font-weight:900;letter-spacing:-.03em;line-height:1}
+.mut{color:var(--muted)}
+.ab{position:absolute}
+.icon3d{object-fit:contain;filter:drop-shadow(0 14px 18px rgba(30,35,48,.16))}
+svg.i{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dots{background-image:radial-gradient(#E9E2D5 1.6px,transparent 1.6px);background-size:26px 26px}
+.pc{width:380px;padding:40px 26px;display:flex;flex-direction:column;align-items:center;text-align:center;margin-top:240px}.k{font-size:70px;font-weight:900;color:var(--ons)}
+.w{font-size:38px;font-weight:800;color:var(--ink2);margin-top:18px;line-height:1.35;min-height:110px}.ar{font-size:60px;color:var(--muted);font-weight:900}
+.c{font-size:40px;font-weight:900;margin-top:10px;background:var(--pre-l);color:var(--pre);border-radius:18px;padding:16px 18px;line-height:1.3}</style></head><body class="dots"><div class="stage" style="display:flex;gap:28px;align-items:stretch;justify-content:center"><div class="card pc" id="p0"><div class="k">발</div><div class="w">쌓인 눈 3~182cm</div><div class="ar">↓</div><div class="c">방수 신발</div></div><div class="card pc" id="p1"><div class="k">몸</div><div class="w">낮에도 5도 아래</div><div class="ar">↓</div><div class="c">패딩·장갑·핫팩</div></div><div class="card pc" id="p2"><div class="k">시간</div><div class="w">12:57 → 16:15</div><div class="ar">↓</div><div class="c">몸 녹일 곳</div></div></div><img class="icon3d ab" id="bt" src="icons/boots_t.png" style="height:220px;left:565px;top:250px"><script>
+const E=u=>u<=0?0:u>=1?1:u*u*(3-2*u);
+const P=(t,a,b)=>E((t-a)/(b-a));
+const K=u=>u<=0?0:u>=1?1:(u<.6?E(u/.6)*1.12:1.12-.12*E((u-.6)/.4));
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const num=(x,d=0)=>x.toLocaleString('ko-KR',{minimumFractionDigits:d,maximumFractionDigits:d});
+const sgn=(x,d=1)=>(x>0?'+':x<0?'−':'')+Math.abs(x).toFixed(d);
+function F(t){for(let i=0;i<3;i++){const v=K(P(t,.2+i*.5,.6+i*.5));$('#p'+i).style.transform=`scale(${v})`;$('#p'+i).style.opacity=Math.min(1,v*1.3)}
+$('#bt').style.transform=`scale(${K(P(t,1.8,2.3))}) rotate(${Math.sin(t*2)*4}deg)`}</script></body></html>

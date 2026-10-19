@@ -1,0 +1,7 @@
+scene 0 5.36 s
+scene 1 5.19 s
+scene 2 5.31 s
+scene 3 6.28 s
+scene 4 6.2 s
+scene 5 6.48 s
+done C:\Users\user\Desktop\Blog\_1.컨텐츠\여행정보_컨텐츠\260925_금리엔화_유튜브\clip\out\yen_youtube_clip.mp4 34.2s

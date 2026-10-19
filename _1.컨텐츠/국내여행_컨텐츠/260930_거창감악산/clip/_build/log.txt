@@ -1,0 +1,7 @@
+scene 0 4.71 s
+scene 1 5.54 s
+scene 2 5.66 s
+scene 3 6.08 s
+scene 4 8.33 s
+scene 5 4.15 s
+done C:\Users\user\Desktop\Blog\_1.컨텐츠\국내여행_컨텐츠\260930_거창감악산\clip\out\gamak_info_clip.mp4 33.9s

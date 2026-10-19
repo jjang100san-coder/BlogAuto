@@ -1,0 +1,7 @@
+scene 0 5.71 s
+scene 1 6.45 s
+scene 2 5.92 s
+scene 3 5.57 s
+scene 4 5.85 s
+scene 5 4.46 s
+done C:\Users\user\Desktop\Blog\_1.컨텐츠\국내여행_컨텐츠\260919_하남 이성산성축제\clip\out\iseong_clip.mp4 33.4s

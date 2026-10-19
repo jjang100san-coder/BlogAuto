@@ -1,0 +1,34 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'NK';src:url('file:///C:/Windows/Fonts/NotoSansKR-VF.ttf');font-weight:100 900}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#FAF7F2;--card:#FFFFFF;--ink:#1E2330;--ink2:#4A5163;--muted:#8A8F9C;--line:#E7E1D6;
+ --pre:#3D62AE;--pre-l:#E6ECF8;--ons:#D07A22;--ons-l:#FBEBDA;--red:#C8463C;--red-l:#F9E3E0;--ok:#2F8F5B;--ok-l:#E2F1E8;--sand:#F3EBDD}
+html,body{width:1350px;height:1338px}
+body{font-family:'NK',sans-serif;background:var(--bg);color:var(--ink);position:relative;overflow:hidden;-webkit-font-smoothing:antialiased}
+.stage{position:absolute;left:70px;right:70px;top:250px;bottom:263px}
+.card{background:var(--card);border-radius:30px;box-shadow:0 2px 0 rgba(30,35,48,.04),0 16px 40px rgba(30,35,48,.09);border:1px solid #EFE9DF}
+.pill{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:10px 22px;font-weight:800}
+.big{font-weight:900;letter-spacing:-.03em;line-height:1}
+.mut{color:var(--muted)}
+.ab{position:absolute}
+.icon3d{object-fit:contain;filter:drop-shadow(0 14px 18px rgba(30,35,48,.16))}
+svg.i{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dots{background-image:radial-gradient(#E9E2D5 1.6px,transparent 1.6px);background-size:26px 26px}
+.cb{width:540px;padding:44px 40px;min-height:420px}.hd{font-size:48px;font-weight:900;margin-bottom:26px}.hd .mut{font-size:30px}
+.rw{font-size:40px;font-weight:800;padding:18px 0;border-bottom:2px solid #EFE9DF}.rw.on{color:var(--ok)}.sm{font-size:30px;color:var(--ink2);font-weight:700;margin-top:12px}
+.gap{color:var(--red);border:4px dashed var(--red);border-radius:16px;padding:18px 20px;margin-top:14px}</style></head><body class="dots"><div class="stage" style="display:flex;flex-direction:column;gap:44px;justify-content:center;align-items:center"><div style="display:flex;gap:40px">
+<div class="card cb" id="J"><div class="hd">일본 <span class="mut">2014년부터</span></div>
+<div class="rw on">✓ 큰 매단 천장 정기조사</div><div class="sm">높이 6m · 넓이 200㎡ 넘으면</div></div>
+<div class="card cb" id="Kr"><div class="hd">우리 건축물관리법</div>
+<div class="rw">· 마감재 살펴보기</div><div class="rw gap" id="gp">매단 천장 — 조항 없음</div></div></div>
+<div class="pill" id="nt" style="background:var(--red-l);color:var(--red);font-size:40px;white-space:nowrap">관음동 건물은 정기점검 대상도 아니었어</div></div>
+<img class="icon3d ab" id="cl" src="icons/clip_t.png" style="height:180px;right:80px;top:260px"><script>
+const E=u=>u<=0?0:u>=1?1:u*u*(3-2*u);
+const P=(t,a,b)=>E((t-a)/(b-a));
+const K=u=>u<=0?0:u>=1?1:(u<.6?E(u/.6)*1.12:1.12-.12*E((u-.6)/.4));
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const num=(x,d=0)=>x.toLocaleString('ko-KR',{minimumFractionDigits:d,maximumFractionDigits:d});
+const sgn=(x,d=1)=>(x>0?'+':x<0?'−':'')+Math.abs(x).toFixed(d);
+function F(t){$('#J').style.transform=`scale(${K(P(t,.1,.5))})`;$('#Kr').style.transform=`scale(${K(P(t,.8,1.2))})`;
+$('#gp').style.opacity=P(t,1.8,2.1)>0?(0.4+0.6*Math.abs(Math.sin(t*3))):0;$('#nt').style.opacity=P(t,2.8,3.2);
+$('#cl').style.transform=`scale(${K(P(t,.3,.7))}) rotate(-8deg)`}</script></body></html>

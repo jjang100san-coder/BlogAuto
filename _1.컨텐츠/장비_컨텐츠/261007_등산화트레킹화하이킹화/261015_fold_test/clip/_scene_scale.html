@@ -1,0 +1,32 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'NK';src:url('file:///C:/Windows/Fonts/NotoSansKR-VF.ttf');font-weight:100 900}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#FAF7F2;--card:#FFFFFF;--ink:#1E2330;--ink2:#4A5163;--muted:#8A8F9C;--line:#E7E1D6;
+ --pre:#3D62AE;--pre-l:#E6ECF8;--ons:#D07A22;--ons-l:#FBEBDA;--red:#C8463C;--red-l:#F9E3E0;--ok:#2F8F5B;--ok-l:#E2F1E8;--sand:#F3EBDD}
+html,body{width:1350px;height:1338px}
+body{font-family:'NK',sans-serif;background:var(--bg);color:var(--ink);position:relative;overflow:hidden;-webkit-font-smoothing:antialiased}
+.stage{position:absolute;left:70px;right:70px;top:250px;bottom:263px}
+.card{background:var(--card);border-radius:30px;box-shadow:0 2px 0 rgba(30,35,48,.04),0 16px 40px rgba(30,35,48,.09);border:1px solid #EFE9DF}
+.pill{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:10px 22px;font-weight:800}
+.big{font-weight:900;letter-spacing:-.03em;line-height:1}
+.mut{color:var(--muted)}
+.ab{position:absolute}
+.icon3d{object-fit:contain;filter:drop-shadow(0 14px 18px rgba(30,35,48,.16))}
+svg.i{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dots{background-image:radial-gradient(#E9E2D5 1.6px,transparent 1.6px);background-size:26px 26px}
+.glass{width:470px;height:520px;background:linear-gradient(160deg,#F4F6F8,#DDE2E8);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px}
+.lcd{font-family:'NK';font-size:120px;font-weight:300;letter-spacing:.04em;color:#2B3A4E}.lb{font-size:38px;font-weight:800;color:var(--ink2)}
+.rw{display:flex;justify-content:space-between;gap:40px;padding:22px 34px;font-size:40px;font-weight:800;width:560px}.rw b{font-weight:900}</style></head><body class="dots"><div class="stage" style="display:flex;align-items:center;justify-content:center;gap:50px">
+<div class="card glass"><div class="lcd" id="lcd">--.--</div><div class="lb" id="lb">&nbsp;</div></div>
+<div style="display:flex;flex-direction:column;gap:18px"><div class="card rw" id="r0"><span>신발 없이</span><b>98.87kg</b></div><div class="card rw" id="r1"><span>밴티지 들고</span><b>99.93kg</b></div><div class="card rw" id="r2"><span>아식스 들고</span><b>99.25kg</b></div><div class="card rw" id="r3"><span>퓨마 들고</span><b>99.25kg</b></div>
+<div class="pill" id="nt" style="background:var(--red-l);color:var(--red);font-size:38px;align-self:flex-start">러닝화 둘이 똑같다?</div></div></div><script>
+const E=u=>u<=0?0:u>=1?1:u*u*(3-2*u);
+const P=(t,a,b)=>E((t-a)/(b-a));
+const K=u=>u<=0?0:u>=1?1:(u<.6?E(u/.6)*1.12:1.12-.12*E((u-.6)/.4));
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const num=(x,d=0)=>x.toLocaleString('ko-KR',{minimumFractionDigits:d,maximumFractionDigits:d});
+const sgn=(x,d=1)=>(x>0?'+':x<0?'−':'')+Math.abs(x).toFixed(d);
+const S=[['신발 없이', '98.87'], ['밴티지 들고', '99.93'], ['아식스 들고', '99.25'], ['퓨마 들고', '99.25']];
+function F(t){let k=Math.min(3,Math.floor(t/0.9));$('#lcd').textContent=t<.2?'--.--':S[k][1];$('#lb').textContent=t<.2?'':S[k][0];
+for(let i=0;i<4;i++){const v=P(t,.2+i*.9,.5+i*.9);$('#r'+i).style.opacity=v;$('#r'+i).style.background=(i==k&&t<3.8)?'#FBEBDA':'#fff'}
+$('#nt').style.transform=`scale(${K(P(t,3.9,4.3))})`}</script></body></html>

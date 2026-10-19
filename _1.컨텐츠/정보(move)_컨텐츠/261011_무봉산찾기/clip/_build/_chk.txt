@@ -1,0 +1,2 @@
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/정보(move)_컨텐츠/261011_무봉산찾기/clip/_build/_beep.wav'
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/정보(move)_컨텐츠/261011_무봉산찾기/clip/_build/_chk03.wav'

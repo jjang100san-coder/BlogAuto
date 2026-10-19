@@ -1,0 +1,369 @@
+<title>네임카드 모션 양식집</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bebas+Neue&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+/* 레이아웃: 경기장 밤 조명 아래 매치데이 프로그램 — 카드(무대)마다 정사각 1:1, 아래에 「영상으로 옮길 때」 메모 */
+:root{
+  --bg:#0c0e13; --panel:#151821; --fg:#ece9e2; --mut:#8e94a3; --line:#252a35;
+  --accent:#f5d34a;            /* B 양식의 노란 강조 */
+  --suwon:#1f4fc0; --suwon-red:#d0263b; --white:#f7f6f2; --hwa:#ee7a2c; --night:#0e1016;
+  --display:"Black Han Sans","Noto Sans KR",system-ui,sans-serif;
+  --digits:"Bebas Neue","Black Han Sans",Impact,sans-serif;
+  --body:"Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:44px 64px}
+header.top{display:grid;gap:14px;margin-bottom:34px}
+.eyebrow{font-size:13px;letter-spacing:.14em;color:var(--accent);font-weight:700}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(34px,6vw,58px);line-height:1.05;margin:0;text-wrap:balance}
+.lede{color:var(--mut);max-width:62ch;line-height:1.7;margin:0;font-size:15px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:6px}
+button{font:inherit;font-weight:700;font-size:14px;color:var(--bg);background:var(--accent);border:0;padding:10px 16px;cursor:pointer}
+button.ghost{background:transparent;color:var(--fg);border:1px solid var(--line)}
+button:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+.note{font-size:12.5px;color:var(--mut)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:34px 26px}
+article{display:grid;gap:14px;min-width:0}
+.head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.head h2{font-family:var(--display);font-weight:400;font-size:22px;margin:0}
+.head .len{font-family:var(--digits);font-size:20px;color:var(--accent);letter-spacing:.04em;white-space:nowrap}
+.stage{position:relative;aspect-ratio:1/1;max-width:100%;overflow:hidden;background:var(--night);container-type:inline-size;cursor:pointer}
+.stage *{position:absolute}
+dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0;font-size:13.5px;line-height:1.55}
+dt{color:var(--mut);white-space:nowrap}
+dd{margin:0;min-width:0}
+ol.layers{margin:0;padding-left:1.2em;display:grid;gap:2px}
+.src{font-size:12px;color:var(--mut);border-top:1px solid var(--line);padding-top:10px}
+
+/* ---------- 공통 무대 글자 ---------- */
+.kick{font-family:var(--body);font-weight:700;font-size:3.2cqw;letter-spacing:.08em;color:var(--white)}
+.name{font-family:var(--display);color:var(--white);line-height:1}
+.yellow{background:var(--accent);color:var(--night);font-family:var(--display);font-size:5.2cqw;padding:1.6cqw 3cqw;line-height:1}
+.srcline{font-size:2.1cqw;color:rgba(255,255,255,.62);left:5cqw;bottom:3.4cqw}
+.row{left:6cqw;right:6cqw;display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:1.2cqw;color:var(--white)}
+.row b{position:static;font-family:var(--digits);font-weight:400;font-size:6.4cqw;letter-spacing:.02em}
+.row span{position:static;font-size:3cqw;font-weight:500}
+
+/* ---------- 1 대각 슬래시 ---------- */
+.s1 .panel{inset:0;background:var(--suwon);clip-path:polygon(0 0,64% 0,46% 100%,0 100%)}
+.s1 .edge{inset:0;background:var(--suwon-red);clip-path:polygon(64% 0,67% 0,49% 100%,46% 100%)}
+.s1 .kick{left:6cqw;top:6cqw}
+.s1 .num{left:5cqw;top:12cqw;font-family:var(--digits);font-size:58cqw;line-height:.82;color:var(--white)}
+.s1 .unit{left:31cqw;top:44cqw;font-family:var(--display);font-size:10cqw;color:var(--white)}
+.s1 .name{right:6cqw;top:16cqw;font-size:15cqw;text-align:right}
+.s1 .role{right:6cqw;top:34cqw;font-size:3.4cqw;font-weight:700;color:var(--white);text-align:right}
+.s1 .r1{top:64cqw}.s1 .r2{top:74cqw}
+.s1 .yellow{left:5cqw;top:84.5cqw}
+
+/* ---------- 2 전광판 플립 ---------- */
+.s2{background:#11141b}
+.s2 .band{left:0;right:0;top:0;height:3cqw;background:var(--hwa)}
+.s2 .kick{left:6cqw;top:8cqw;color:var(--hwa)}
+.s2 .name{left:6cqw;top:14cqw;font-size:14cqw}
+.s2 .role{left:6cqw;top:31cqw;font-size:3.4cqw;font-weight:500;color:rgba(255,255,255,.75)}
+.s2 .board{left:6cqw;right:6cqw;top:41cqw;display:grid;grid-template-columns:repeat(3,1fr);gap:3cqw;position:absolute}
+.s2 .cell{position:relative;display:grid;gap:1.6cqw}
+.s2 .tiles{position:relative;display:flex;gap:1cqw}
+.s2 .tile{position:relative;flex:1;height:22cqw;background:#1d212b;display:grid;place-items:center;font-family:var(--digits);font-size:19cqw;color:var(--white);perspective:400px;transform-origin:50% 0}
+.s2 .tile::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:#0b0d12}
+.s2 .lab{position:relative;font-size:3cqw;font-weight:700;color:rgba(255,255,255,.7)}
+.s2 .yellow{left:6cqw;bottom:10cqw}
+
+/* ---------- 3 외곽선 숫자 ---------- */
+.s3{background:linear-gradient(115deg,var(--suwon) 0 49.5%,var(--hwa) 50.5% 100%)}
+.s3 .shade{inset:0;background:linear-gradient(180deg,rgba(10,12,18,.55),rgba(10,12,18,.15) 40%,rgba(10,12,18,.75))}
+.s3 .kick{left:6cqw;top:6cqw}
+.s3 .big{left:0;right:0;top:12cqw;text-align:center;font-family:var(--digits);font-size:62cqw;line-height:.85;color:transparent;-webkit-text-stroke:.5cqw var(--white)}
+.s3 .fill{left:0;right:0;top:12cqw;text-align:center;font-family:var(--digits);font-size:62cqw;line-height:.85;color:var(--white);clip-path:inset(100% 0 0 0)}
+.s3 .name{left:6cqw;top:66cqw;font-size:13cqw}
+.s3 .role{left:6cqw;top:81cqw;font-size:3.4cqw;font-weight:700;color:var(--white)}
+.s3 .arrow{left:6cqw;top:87cqw;font-size:3.2cqw;font-weight:500;color:rgba(255,255,255,.85)}
+
+/* ---------- 4 청백적 스윕 ---------- */
+.s4{background:var(--night)}
+.s4 .st{top:0;bottom:0;width:100%;left:0;transform-origin:0 50%}
+.s4 .st1{background:var(--suwon)}
+.s4 .st2{background:var(--white);clip-path:polygon(70% 0,78% 0,64% 100%,56% 100%)}
+.s4 .st3{background:var(--suwon-red);clip-path:polygon(78% 0,84% 0,70% 100%,64% 100%)}
+.s4 .kick{left:6cqw;top:7cqw}
+.s4 .name{left:6cqw;top:13cqw;font-size:15cqw}
+.s4 .role{left:6cqw;top:31cqw;font-size:3.6cqw;font-weight:700;color:var(--white)}
+.s4 .rank{left:6cqw;top:40cqw;font-family:var(--digits);font-size:40cqw;line-height:.8;color:var(--white)}
+.s4 .rank small{position:static;font-family:var(--display);font-size:9cqw}
+.s4 .r1{top:73cqw;right:42cqw}.s4 .r2{top:83cqw;right:42cqw}
+
+/* ---------- 5 순위 사다리 ---------- */
+.s5{background:#111319}
+.s5 .panel{inset:0;background:var(--hwa);clip-path:polygon(0 0,100% 0,100% 30%,0 46%)}
+.s5 .kick{left:6cqw;top:6cqw;color:var(--night)}
+.s5 .name{left:6cqw;top:12cqw;font-size:14cqw;color:var(--night)}
+.s5 .role{left:6cqw;top:29cqw;font-size:3.4cqw;font-weight:700;color:var(--night)}
+.s5 .ladder{left:9cqw;top:52cqw;bottom:16cqw;width:.6cqw;background:rgba(255,255,255,.18)}
+.s5 .tick{left:6cqw;font-family:var(--digits);font-size:4cqw;color:rgba(255,255,255,.45);width:12cqw;text-align:right;transform:translateX(-100%)}
+.s5 .dot{left:7.3cqw;width:4cqw;height:4cqw;border-radius:50%;background:var(--accent);box-shadow:0 0 0 1.4cqw rgba(245,211,74,.22)}
+.s5 .from{left:16cqw;font-size:3.4cqw;color:rgba(255,255,255,.6)}
+.s5 .to{left:16cqw;font-family:var(--digits);font-size:16cqw;line-height:.85;color:var(--white)}
+.s5 .to small{position:static;font-family:var(--display);font-size:5cqw}
+.s5 .award{left:52cqw;right:6cqw;top:62cqw;font-size:3.4cqw;line-height:1.5;color:var(--white);border-left:.6cqw solid var(--accent);padding-left:2.4cqw}
+
+/* ---------- 6 VS 충돌 ---------- */
+.s6 .L{inset:0;background:var(--suwon);clip-path:polygon(0 0,56% 0,44% 100%,0 100%)}
+.s6 .R{inset:0;background:var(--hwa);clip-path:polygon(56% 0,100% 0,100% 100%,44% 100%)}
+.s6 .dark{inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0 17%,transparent 17% 80%,rgba(0,0,0,.6) 80%)}
+.s6 .kick{left:5.5cqw;top:5.5cqw}
+.s6 .t{left:5.5cqw;top:10cqw;font-family:var(--display);font-size:6.4cqw;color:var(--accent)}
+.s6 .nL{left:6cqw;top:24cqw;font-family:var(--digits);font-size:40cqw;line-height:.8;color:var(--white)}
+.s6 .nR{right:6cqw;top:24cqw;font-family:var(--digits);font-size:40cqw;line-height:.8;color:var(--white);text-align:right}
+.s6 .uL{left:6cqw;top:58cqw;font-size:3.6cqw;font-weight:700;color:var(--white)}
+.s6 .uR{right:6cqw;top:58cqw;font-size:3.6cqw;font-weight:700;color:var(--white);text-align:right}
+.s6 .vs{left:50%;top:38cqw;transform:translateX(-50%);font-family:var(--digits);font-size:9cqw;color:var(--white);background:var(--night);padding:.6cqw 2.4cqw}
+.s6 .q{left:5.5cqw;top:85cqw;font-family:var(--display);font-size:6.6cqw;color:var(--accent)}
+
+/* ---------- 움직임 (.play 일 때만, 끝 상태 = 쉬는 상태) ---------- */
+@keyframes wipeDiag{from{clip-path:polygon(0 0,0 0,0 100%,0 100%)}}
+@keyframes wipeEdge{from{clip-path:polygon(0 0,3% 0,0 100%,0 100%)}}
+@keyframes up{from{transform:translateY(40%);opacity:0}}
+@keyframes left{from{transform:translateX(-30%);opacity:0}}
+@keyframes right{from{transform:translateX(30%);opacity:0}}
+@keyframes pop{0%{transform:scale(1.35);opacity:0}70%{transform:scale(.97);opacity:1}}
+@keyframes flip{0%{transform:rotateX(-92deg);filter:brightness(.4)}100%{transform:rotateX(0)}}
+@keyframes fillUp{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes stroke{from{opacity:0;transform:scale(1.08)}}
+@keyframes sweep{from{transform:scaleX(0)}}
+@keyframes slideL{from{transform:translateX(-60%)}}
+@keyframes slideR{from{transform:translateX(60%)}}
+@keyframes climb{from{top:var(--from)}}
+@keyframes grow{from{transform:scaleX(0)}}
+
+.play.s1 .panel{animation:wipeDiag .55s cubic-bezier(.7,0,.2,1) both}
+.play.s1 .edge{animation:wipeEdge .55s .12s cubic-bezier(.7,0,.2,1) both}
+.play.s1 .kick{animation:left .4s .45s both}
+.play.s1 .num{animation:pop .55s .55s cubic-bezier(.2,.8,.2,1) both}
+.play.s1 .unit{animation:up .35s .85s both}
+.play.s1 .name{animation:right .5s .7s cubic-bezier(.2,.8,.2,1) both}
+.play.s1 .role{animation:right .4s .9s both}
+.play.s1 .r1{animation:up .35s 1.15s both}.play.s1 .r2{animation:up .35s 1.27s both}
+.play.s1 .yellow{animation:left .4s 1.55s both}
+
+.play.s2 .band{animation:grow .45s cubic-bezier(.7,0,.2,1) both;transform-origin:0 50%}
+.play.s2 .kick{animation:left .35s .3s both}
+.play.s2 .name{animation:up .45s .4s both}
+.play.s2 .role{animation:up .35s .6s both}
+.play.s2 .tile{animation:flip .5s cubic-bezier(.3,1.4,.6,1) both}
+.play.s2 .lab{animation:up .3s 1.6s both}
+.play.s2 .yellow{animation:left .4s 1.9s both}
+
+.play.s3 .kick{animation:left .35s .1s both}
+.play.s3 .big{animation:stroke .6s .2s both}
+.play.s3 .fill{animation:fillUp .8s .85s cubic-bezier(.6,0,.2,1) both}
+.play.s3 .name{animation:up .45s 1.4s both}
+.play.s3 .role{animation:up .35s 1.6s both}
+.play.s3 .arrow{animation:up .35s 1.75s both}
+
+.play.s4 .st1{animation:sweep .5s cubic-bezier(.7,0,.2,1) both}
+.play.s4 .st2{animation:sweep .5s .1s cubic-bezier(.7,0,.2,1) both}
+.play.s4 .st3{animation:sweep .5s .2s cubic-bezier(.7,0,.2,1) both}
+.play.s4 .kick{animation:left .35s .55s both}
+.play.s4 .name{animation:left .45s .65s both}
+.play.s4 .role{animation:left .35s .85s both}
+.play.s4 .rank{animation:pop .55s 1s both}
+.play.s4 .r1{animation:up .35s 1.4s both}.play.s4 .r2{animation:up .35s 1.52s both}
+
+.play.s5 .panel{animation:wipeDiag .5s cubic-bezier(.7,0,.2,1) both}
+.play.s5 .kick{animation:left .35s .3s both}
+.play.s5 .name{animation:left .45s .4s both}
+.play.s5 .role{animation:left .35s .55s both}
+.play.s5 .ladder{animation:grow .4s .7s both;transform-origin:50% 100%}
+.play.s5 .tick{animation:up .3s .8s both}
+.play.s5 .dot{animation:climb 1.1s 1.1s cubic-bezier(.6,0,.2,1) both}
+.play.s5 .to{animation:pop .45s 2.1s both}
+.play.s5 .from{animation:up .3s .9s both}
+.play.s5 .award{animation:left .4s 2.4s both}
+
+.play.s6 .L{animation:slideL .5s cubic-bezier(.7,0,.2,1) both}
+.play.s6 .R{animation:slideR .5s cubic-bezier(.7,0,.2,1) both}
+.play.s6 .kick{animation:up .3s .45s both}
+.play.s6 .t{animation:up .35s .55s both}
+.play.s6 .vs{animation:pop .4s .7s both}
+.play.s6 .nL{animation:left .5s .85s both}.play.s6 .nR{animation:right .5s .85s both}
+.play.s6 .uL,.play.s6 .uR{animation:up .3s 1.3s both}
+.play.s6 .q{animation:left .4s 1.7s both}
+
+@media (prefers-reduced-motion: reduce){.play *{animation:none!important}}
+@media (max-width:420px){.wrap{padding-inline:16px}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">걷고읽고떠나고 · 축구 카드 B 양식</div>
+    <h1>네임카드 모션 양식집</h1>
+    <p class="lede">팀 색을 화면에 크게 깔고 숫자를 아주 크게 쓰는 B 양식으로, 움직임이 다른 네임카드 여섯 가지를 모았습니다. 카드를 누르면 다시 재생됩니다. 각 카드 아래에는 영상으로 옮길 때 쓸 레이어 순서와 길이를 적었습니다.</p>
+    <div class="bar">
+      <button id="playAll" type="button">모두 다시 재생</button>
+      <span class="note">예시 숫자는 10월 17일까지 확인한 공식 기록입니다. 로고·선수 사진은 쓰지 않습니다.</span>
+    </div>
+  </header>
+
+  <main class="grid">
+
+    <!-- 1 -->
+    <article>
+      <div class="head"><h2>대각 슬래시</h2><span class="len">1.9 s</span></div>
+      <div class="stage s1" tabindex="0" aria-label="대각 슬래시 네임카드, 누르면 재생">
+        <div class="panel"></div><div class="edge"></div>
+        <div class="kick">오늘의 선수 · 수원 4-1 안산</div>
+        <div class="num" data-count="3">3</div><div class="unit">골</div>
+        <div class="name">루이스</div>
+        <div class="role">수원삼성 공격수</div>
+        <div class="row r1"><span>득점 시각</span><b>2′ · 27′ · 57′</b></div>
+        <div class="row r2"><span>경기</span><b>10.11 홈</b></div>
+        <div class="yellow">해트트릭</div>
+        <div class="srcline">기록: K리그 공식 · 직접 만든 이미지</div>
+      </div>
+      <dl>
+        <dt>움직임</dt><dd>팀 색 면이 대각으로 밀려 들어오고 빨간 날이 뒤따름 → 큰 숫자가 튀어 커졌다 자리 잡음 → 이름이 오른쪽에서 → 기록 줄 차례로 → 노란 띠</dd>
+        <dt>레이어</dt><dd><ol class="layers"><li>밤 배경</li><li>팀 색 대각 면 · 빨간 날</li><li>큰 숫자 + 단위</li><li>이름 · 자리</li><li>기록 줄 2개</li><li>노란 띠 · 출처</li></ol></dd>
+        <dt>쓰임</dt><dd>경기 후기의 「오늘의 선수」, 클립 첫 장면</dd>
+      </dl>
+    </article>
+
+    <!-- 2 -->
+    <article>
+      <div class="head"><h2>전광판 플립</h2><span class="len">2.3 s</span></div>
+      <div class="stage s2" tabindex="0" aria-label="전광판 플립 네임카드, 누르면 재생">
+        <div class="band"></div>
+        <div class="kick">빠지는 자리 · 화성FC</div>
+        <div class="name">장민준</div>
+        <div class="role">수비수 · 왼발 · 2002년생</div>
+        <div class="board">
+          <div class="cell"><div class="tiles"><div class="tile" style="animation-delay:.8s">2</div><div class="tile" style="animation-delay:.9s">1</div></div><div class="lab">경기</div></div>
+          <div class="cell"><div class="tiles"><div class="tile" style="animation-delay:1.05s">2</div></div><div class="lab">골</div></div>
+          <div class="cell"><div class="tiles"><div class="tile" style="animation-delay:1.2s">1</div><div class="tile" style="animation-delay:1.3s">8</div><div class="tile" style="animation-delay:1.4s">6</div></div><div class="lab">cm</div></div>
+        </div>
+        <div class="yellow">화성 1차전 선제골의 주인</div>
+        <div class="srcline">기록: K리그 공식(2026 시즌) · 직접 만든 이미지</div>
+      </div>
+      <dl>
+        <dt>움직임</dt><dd>팀 색 띠가 위에서 그어짐 → 이름·자리 → 경기장 전광판처럼 숫자판이 한 장씩 위에서 넘어옴 → 이름표 → 노란 띠</dd>
+        <dt>레이어</dt><dd><ol class="layers"><li>어두운 배경 · 팀 색 띠</li><li>이름 · 자리</li><li>숫자판(한 칸씩 따로)</li><li>이름표</li><li>노란 띠 · 출처</li></ol></dd>
+        <dt>쓰임</dt><dd>기록이 여러 개인 선수 소개, 결장·복귀 소식</dd>
+      </dl>
+    </article>
+
+    <!-- 3 -->
+    <article>
+      <div class="head"><h2>외곽선 채우기</h2><span class="len">2.1 s</span></div>
+      <div class="stage s3" tabindex="0" aria-label="외곽선 채우기 네임카드, 누르면 재생">
+        <div class="shade"></div>
+        <div class="kick">친정 첫 경기 · 10월 18일</div>
+        <div class="big">98′</div><div class="fill">98′</div>
+        <div class="name">일류첸코</div>
+        <div class="role">화성 1차전 수원 결승골 · 후반 45+8분</div>
+        <div class="arrow">수원삼성 → 화성FC · 7월 27일 이적</div>
+        <div class="srcline">기록: K리그 공식 · 직접 만든 이미지</div>
+      </div>
+      <dl>
+        <dt>움직임</dt><dd>두 팀 색 배경 위에 큰 숫자 외곽선이 먼저 그려짐 → 아래에서 위로 속이 차오름 → 이름 → 설명 두 줄</dd>
+        <dt>레이어</dt><dd><ol class="layers"><li>두 팀 색 사선 배경 · 어둡게 누르는 막</li><li>숫자 외곽선</li><li>숫자 채움(위로 걷히는 가림막)</li><li>이름 · 설명</li></ol></dd>
+        <dt>쓰임</dt><dd>이적생·친정 맞대결처럼 두 팀에 걸친 선수, 기억할 숫자 하나가 있을 때</dd>
+      </dl>
+    </article>
+
+    <!-- 4 -->
+    <article>
+      <div class="head"><h2>청백적 스윕</h2><span class="len">1.9 s</span></div>
+      <div class="stage s4" tabindex="0" aria-label="청백적 스윕 네임카드, 누르면 재생">
+        <div class="st st1"></div><div class="st st2"></div><div class="st st3"></div>
+        <div class="kick">K리그2 · 10월 12일 기준</div>
+        <div class="name">이정효</div>
+        <div class="role">수원삼성 감독</div>
+        <div class="rank">1<small>위</small></div>
+        <div class="row r1"><span>승점</span><b>56</b></div>
+        <div class="row r2"><span>경기</span><b>26</b></div>
+        <div class="srcline">기록: K리그 공식 순위 · 직접 만든 이미지</div>
+      </div>
+      <dl>
+        <dt>움직임</dt><dd>팀의 세 색 띠가 차례로 왼쪽에서 쓸고 지나감 → 이름 → 큰 순위 숫자 → 기록 줄</dd>
+        <dt>레이어</dt><dd><ol class="layers"><li>청 · 백 · 적 띠 3장(따로 움직임)</li><li>이름 · 자리</li><li>큰 순위</li><li>기록 줄 2개 · 출처</li></ol></dd>
+        <dt>쓰임</dt><dd>감독·팀 소개, 연재(정효볼) 표지</dd>
+      </dl>
+    </article>
+
+    <!-- 5 -->
+    <article>
+      <div class="head"><h2>순위 사다리</h2><span class="len">2.8 s</span></div>
+      <div class="stage s5" tabindex="0" aria-label="순위 사다리 네임카드, 누르면 재생">
+        <div class="panel"></div>
+        <div class="kick">화성FC 감독</div>
+        <div class="name">차두리</div>
+        <div class="role">K리그 2년 차 팀 · 2026 K리그2</div>
+        <div class="ladder"></div>
+        <div class="tick" style="top:84cqw;left:8cqw">10</div>
+        <div class="tick" style="top:58cqw;left:8cqw">5</div>
+        <div class="from" style="top:83.6cqw">2025 최종</div>
+        <div class="dot" style="top:58.6cqw;--from:84.6cqw"></div>
+        <div class="to" style="top:52cqw">5<small>위</small></div>
+        <div class="award">2026년 5월<br>이달의 감독상<br>(10월 12일 순위)</div>
+        <div class="srcline">기록: K리그 공식 순위 · 더팩트 · 직접 만든 이미지</div>
+      </div>
+      <dl>
+        <dt>움직임</dt><dd>팀 색 면이 위에서 사선으로 깔림 → 이름 → 세로 사다리가 자람 → 노란 점이 10위 자리에서 5위까지 올라감 → 큰 순위 → 곁 설명</dd>
+        <dt>레이어</dt><dd><ol class="layers"><li>배경 · 팀 색 사선 면</li><li>이름 · 자리</li><li>사다리 선 · 눈금</li><li>노란 점(위치만 움직임)</li><li>큰 순위 · 곁 설명</li></ol></dd>
+        <dt>쓰임</dt><dd>순위·기록이 바뀐 이야기(전년 대비, 몇 주 사이)</dd>
+      </dl>
+    </article>
+
+    <!-- 6 -->
+    <article>
+      <div class="head"><h2>VS 충돌</h2><span class="len">2.1 s</span></div>
+      <div class="stage s6" tabindex="0" aria-label="VS 충돌 카드, 누르면 재생">
+        <div class="L"></div><div class="R"></div><div class="dark"></div>
+        <div class="kick">VS 안산그리너스</div>
+        <div class="t">같은 상대, 다른 승리</div>
+        <div class="nL" data-count="2">2′</div>
+        <div class="vs">VS</div>
+        <div class="nR" data-count="66">66′</div>
+        <div class="uL">수원삼성 첫 골</div>
+        <div class="uR">화성FC 첫 골</div>
+        <div class="q">10월 18일, 누가 먼저 뚫을까</div>
+        <div class="srcline">득점 시각: K리그 공식 기록 · 직접 만든 이미지</div>
+      </div>
+      <dl>
+        <dt>움직임</dt><dd>양쪽 팀 색 면이 좌우에서 밀고 들어와 사선에서 부딪힘 → 제목 → VS 표시가 튐 → 두 숫자가 양옆에서 → 설명 → 노란 질문</dd>
+        <dt>레이어</dt><dd><ol class="layers"><li>왼쪽 팀 면 · 오른쪽 팀 면</li><li>위·아래 어두운 막</li><li>제목 · VS</li><li>두 숫자 · 설명</li><li>노란 질문 · 출처</li></ol></dd>
+        <dt>쓰임</dt><dd>프리뷰 썸네일, 클립 첫 장면, 맞대결 비교</dd>
+      </dl>
+    </article>
+
+  </main>
+
+  <p class="src">영상으로 옮길 때: 레이어마다 따로 그린 투명 PNG를 시간표대로 움직이면 이 페이지와 같은 장면이 됩니다. 클립은 1:1 그대로 쓰거나, 세로(9:16)는 위아래를 팀 색으로 늘려 씁니다. 숫자가 올라가는 효과는 끝 숫자가 공식 기록일 때만 씁니다.</p>
+</div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function play(stage){
+    if(reduce) return;
+    stage.classList.remove('play'); void stage.offsetWidth; stage.classList.add('play');
+    stage.querySelectorAll('[data-count]').forEach(function(el){
+      var end = +el.getAttribute('data-count'), suffix = el.textContent.replace(/^[0-9]+/, ''), t0 = null;
+      var delay = parseFloat(getComputedStyle(el).animationDelay) * 1000 || 0, dur = 650;
+      function step(ts){ if(t0 === null) t0 = ts; var p = Math.min(1, Math.max(0, (ts - t0 - delay) / dur));
+        el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))) + suffix; if(p < 1) requestAnimationFrame(step); }
+      requestAnimationFrame(step);
+    });
+  }
+  var stages = Array.prototype.slice.call(document.querySelectorAll('.stage'));
+  stages.forEach(function(s){
+    s.addEventListener('click', function(){ play(s); });
+    s.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); play(s); } });
+  });
+  document.getElementById('playAll').addEventListener('click', function(){ stages.forEach(play); });
+  stages.forEach(function(s, i){ setTimeout(function(){ play(s); }, 250 + i * 180); });
+})();
+</script>

@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>즉흥 여행 그림</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#f5f3ee; --paper:#fffdf8; --fg:#1f2320; --muted:#6b7068; --line:#d9d5c9;
+  --ink:#5a2a1e; --accent:#8a5a1e; --gold:#b8891e; --gold-soft:#f3e7c7;
+  --display:"Noto Serif KR",serif; --body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#17181a; --paper:#1f2124; --fg:#e8e6dd; --muted:#a3a79c; --line:#36393d;
+  --ink:#f0c2b0; --accent:#d9a85a; --gold:#d9ab45; --gold-soft:#3a3120; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#17181a; --paper:#1f2124; --fg:#e8e6dd; --muted:#a3a79c; --line:#36393d;
+  --ink:#f0c2b0; --accent:#d9a85a; --gold:#d9ab45; --gold-soft:#3a3120; color-scheme:dark }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.75;padding-inline:16px;padding-block:0 80px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)} nav.toc{display:none}}
+header{grid-column:1/-1;padding-block:48px 24px;border-bottom:1px solid var(--line)}
+header .eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+header h1{font-family:var(--display);font-size:clamp(26px,3.4vw,38px);line-height:1.3;margin:10px 0 6px;text-wrap:balance}
+header p{margin:0;color:var(--muted);font-size:15px}
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;padding-top:28px;font-size:13.5px}
+nav.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+nav.toc a{color:var(--muted);text-decoration:none;display:block;border-left:2px solid var(--line);padding-left:10px;line-height:1.4}
+nav.toc a:hover,nav.toc a:focus{color:var(--fg);border-left-color:var(--gold)}
+main{min-width:0;max-width:720px}
+section{padding-block:28px;border-bottom:1px solid var(--line)}
+section.lead p{font-size:18px}
+section.lead p:first-child{font-family:var(--display);font-size:26px;color:var(--ink)}
+h2{font-family:var(--display);font-size:22px;line-height:1.35;margin:0 0 14px;text-wrap:balance;color:var(--ink)}
+p{margin:0 0 14px;max-width:66ch}
+strong{background:var(--gold-soft);padding:0 3px;font-weight:700}
+figure{margin:18px 0 22px;background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+figure img{display:block;width:100%;max-width:100%;height:auto}
+figcaption{font-size:14px;color:var(--muted);padding:10px 14px;border-top:1px solid var(--line);line-height:1.5}
+figcaption .fn{color:var(--gold);font-weight:700;margin-right:6px;font-variant-numeric:tabular-nums}
+.tbl{overflow-x:auto;margin:10px 0 18px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:13px;letter-spacing:.04em}
+.note{font-size:14px;color:var(--muted)}
+ul.plain{margin:0 0 14px;padding-left:20px}
+ul.plain li{margin-bottom:6px}
+footer{grid-column:1/-1;color:var(--muted);font-size:13px;padding-top:24px}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+</style>
+<style>
+#dohae{margin:24px 0 36px;width:96vw;max-width:1400px;position:relative;left:50%;transform:translateX(-50%)}
+#dohae .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+#dohae table{border-collapse:collapse;width:100%;min-width:980px;font-size:14px;line-height:1.5}
+#dohae th{background:var(--ink,#1e1e1e);color:#fff;text-align:left;padding:8px 10px;font-weight:600;position:sticky;top:0}
+#dohae td{border-bottom:1px solid rgba(128,128,128,.25);padding:10px;vertical-align:top}
+#dohae td.no{white-space:nowrap;color:#888;font-size:12px;text-align:center}
+#dohae td.no b{font-size:20px;color:inherit}
+#dohae td.pic{width:210px}
+#dohae td.pic img{width:200px;height:auto;border-radius:6px;border:1px solid rgba(128,128,128,.3);display:block}
+#dohae td.pic .t{font-weight:600;margin-top:6px;font-size:13px}
+#dohae td.src{color:#777;font-size:13px;width:170px}
+#dohae td.chk{background:rgba(235,150,20,.10);width:190px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">구구절절 · 조사 검토용 (초안 전) · 본편 9장 + 한 걸음 더 4장 · 맨 위 도해표</div>
+  <h1>즉흥 여행, 어디까지가 즉흥인가</h1>
+  <p>나혼산 알마티 편 논란(10/16 공문 보도)을 입구로, 내 여행 후기 68편의 「미리 / 현장」을 직접 세어 「즉흥」의 범위를 본다. 숫자는 base data 세 파일 확인분만, 직접 센 값은 캡션에 표시. 판정 문장은 넣지 않았다.</p>
+</header>
+<nav class="toc"><ol>
+<li><a href="#dohae">도해표</a></li><li><a href="#s0">입구</a></li><li><a href="#s1">큰 예약 96%</a></li><li><a href="#s2">즉흥 글 다섯 편</a></li><li><a href="#s3">후쿠오카 두 줄</a></li><li><a href="#s4">즉흥 세 가지</a></li><li><a href="#s5">날짜순</a></li><li><a href="#s5b">미리 한 것·안 한 것</a></li><li><a href="#s5c">검색이 뜬 날</a></li><li><a href="#s6">알릴 수 있다·알려야 한다</a></li><li><a href="#s7">다시 처음으로</a></li><li><a href="#s8">할 일 하나</a></li><li><a href="#s9">한 걸음 더</a></li><li><a href="#s10">종류별</a></li><li><a href="#s11">옛 신문</a></li><li><a href="#s12">운전 서류</a></li><li><a href="#s13">시청률</a></li><li><a href="#s14">아직 모르는 것</a></li><li><a href="#s15">검토할 것</a></li>
+</ol></nav>
+<main>
+<section id="dohae">
+<h2>도해표 — 그림 13장 한눈에</h2>
+<p class="note">그림마다 「말하는 것 · 숫자 · 출처 · 확인할 점」. 그림을 누르면 본문 그 자리로 간다. 노란 칸이 사용자 확인이 필요한 곳.</p>
+<div class="scroll"><table><tr><th>번호</th><th>그림</th><th>이 그림이 말하는 것</th><th>숫자·원문</th><th>출처</th><th>확인할 점</th></tr><tr><td class="no">본편<br><b>1</b></td><td class="pic"><a href="#fig1"><img src="img/N1_big_bookings_first.png" alt="내 여행 글 68편을 세어 보니, 큰 예약은 96%가 미리였다"></a><div class="t">내 여행 글 68편을 세어 보니, 큰 예약은 96%가 미리였다</div></td><td>즉흥이라 해도 비행기·숙소는 미리 잡는다 — 갈리는 건 「무엇을」 정했느냐</td><td>항공·숙소·렌터카·투어 48:2(96%) · 동선·식당·현지 교통 29:44(40%) · 전체 77:46(63%) · 알 수 없음 36 제외</td><td class="src">내 블로그 후기 68편 직접 셈(내여행글_예약비율 3절)</td><td class="chk">「투어·입장권」을 큰 예약에 넣은 게 맞는지 · 36가지 뺀 기준</td></tr><tr><td class="no">본편<br><b>2</b></td><td class="pic"><a href="#fig2"><img src="img/N2_five_impromptu_posts.png" alt="「즉흥」이라고 쓴 내 글 다섯 편, 넷은 큰 예약이 먼저 있었다"></a><div class="t">「즉흥」이라고 쓴 내 글 다섯 편, 넷은 큰 예약이 먼저 있었다</div></td><td>「즉흥」이라고 쓴 글도 같은 여행의 큰 예약은 미리였다</td><td>맨체스터 기차 앱 예약 · 화담숲 대기번호 76,043번·두 달 전 · 교토 항공 2인 · 후쿠오카 숙소 두 곳 · 2019 미국 주말은 큰 예약 없음</td><td class="src">각 글 본문 문장(1절 즉흥류 표·2절)</td><td class="chk">글 다섯 편 고른 게 맞는지 · 맨체스터 날짜 「2024.3」 · 2019 미국 「사는 곳에서 차로」 표현</td></tr><tr><td class="no">본편<br><b>3</b></td><td class="pic"><a href="#fig3"><img src="img/N3_fukuoka_two_lines.png" alt="셋이 간 후쿠오카, 내 메모엔 두 줄뿐이었다"></a><div class="t">셋이 간 후쿠오카, 내 메모엔 두 줄뿐이었다</div></td><td>같은 여행에서도 동행은 일정표, 나는 비행기·숙소만 — 「완전 무계획으로 갈 배짱은 없던 거지」</td><td>2023.11 2박3일, 동행 둘·나 · 내 메모 「비행기 왕복」「숙소 두 곳」</td><td class="src">후쿠오카 11월 글 두 편 + 본인 확인(10/17)</td><td class="chk">수첩 셋은 AI 장면(글자 없는 낙서) — 동행 일정표 내용은 모식 · 본인 말 인용 그대로 써도 되는지</td></tr><tr><td class="no">본편<br><b>4</b></td><td class="pic"><a href="#fig4"><img src="img/N4_three_meanings.png" alt="「즉흥」이라는 말, 세 곳에서 다르게 쓰였다"></a><div class="t">「즉흥」이라는 말, 세 곳에서 다르게 쓰였다</div></td><td>즉흥의 범위가 셋 — 1대 다 방송에선 듣는 쪽 뜻이 기준(심의규정 제14조)</td><td>사전 「그 자리에서 바로 일어나는 감흥」 · MBC 「목적지와 항공권을 미리 정하지 않은 채 당일 결정」 · MBC 「사전 준비 없이로 받아들여질 수 있다는 점」</td><td class="src">표준국어대사전 · MBC 9.4 입장문(한겨레·더팩트 대조)</td><td class="chk">MBC 문장 인용 길이 · 「청자 기준」 문장과 제14조 인용</td></tr><tr><td class="no">본편<br><b>5</b></td><td class="pic"><a href="#fig5"><img src="img/N5_dates_in_order.png" alt="방송 석 주 전 공문부터 10월 보도까지, 날짜순으로"></a><div class="t">방송 석 주 전 공문부터 10월 보도까지, 날짜순으로</div></td><td>무엇이 언제 나왔는지만 — 판정 없이</td><td>7.22 공문(8.6 카운터 발권·11시10분 편) · 8.6 출국 · 8.14·21 방송 · 8.25 「지원·협찬 받은 사실 없다」 · 8.31 「행정·촬영 협조는 받음」 · 9.4 「지원 없음은 금전 얘기」·스태프 항공권 미리 · 10.16 공문 보도</td><td class="src">한겨레·텐아시아·스포티비 10.16(공항공사가 국회에 낸 자료), MBC 입장문</td><td class="chk">「석 주 전」(7.22→8.14 = 23일) · 「거짓말」 대신 「고쳐 말했다」로 쓴 것</td></tr><tr><td class="no">본편<br><b>6</b></td><td class="pic"><a href="#fig6"><img src="img/N5b_prepared_or_not.png" alt="미리 한 것과 안 한 것, 입장문이 둘 다 말했다"></a><div class="t">미리 한 것과 안 한 것, 입장문이 둘 다 말했다</div></td><td>준비했으면 즉흥이 아니고, 안 했으면 위험했다 — 비판이 양쪽에서 나온 이유(판단은 독자)</td><td>미리 한 것: 촬영 허가 공문(7.22)·스태프 항공권·현지 촬영 협조 / 안 한 것: 운전 공증 「뒤늦게 확인」(8.25)</td><td class="src">MBC 입장문 8.25·9.4, 공항공사 국회 자료(10.16 보도), 대사관 공지</td><td class="chk">「위험」이라는 낱말 수위 · 평가어(무책임 등) 안 쓴 것</td></tr><tr><td class="no">본편<br><b>7</b></td><td class="pic"><a href="#fig7"><img src="img/N5c_search_peaks.png" alt="검색이 다시 뜬 날은, 새 사실이 나온 날이었다"></a><div class="t">검색이 다시 뜬 날은, 새 사실이 나온 날이었다</div></td><td>왜 계속 화제였나 — 해명이 고쳐질 때마다 다시 떴다</td><td>데이터랩 상대 추이: 8.26 100(최고) · 8.25 74 · 8.22 54 · 8.31 50 · 9.4 53 · 10.16 10</td><td class="src">네이버 데이터랩 검색어트렌드(검색어 8개 묶음, 10/17 조회)</td><td class="chk">검색어 8개 묶음 구성 · 상대값이라는 표시</td></tr><tr><td class="no">본편<br><b>8</b></td><td class="pic"><a href="#fig8"><img src="img/N6_tell_rules.png" alt="방송은 「알릴 수 있다」, 유튜브는 「알려야 한다」"></a><div class="t">방송은 「알릴 수 있다」, 유튜브는 「알려야 한다」</div></td><td>알리는 규칙이 두 체계에서 반대 방향 — 촬영 협조가 협찬인지는 미결</td><td>방송법: 돈·물품·용역·인력·장소 / 할 수 있다 / 끝 자막 1회 · 공정위: 현금·제품·상품권·포인트·할인 / 공개하여야 한다 / 제목·영상 안</td><td class="src">방송법 제2조22호·제74조, 협찬고지 규칙 제8조, 공정위 심사지침(2026.6.1)</td><td class="chk">「방송 심의 기관이 아직 결론을 내지 않았다」 표현 · 이 그림을 본편에 둘지</td></tr><tr><td class="no">본편<br><b>9</b></td><td class="pic"><a href="#fig9"><img src="img/N7_one_blank_line.png" alt="할 일 하나 — 다음 여행 메모에 「그날 정하기」 한 줄 남겨 두기"></a><div class="t">할 일 하나 — 다음 여행 메모에 「그날 정하기」 한 줄 남겨 두기</div></td><td>기억에 남은 즉흥은 큰 예약 위에서 나왔다 → 메모에 한 줄 비워 두기(내 다짐, 훈계 아님)</td><td>구마모토 「계획에 없던 30분이 제일 선명해」 · 규슈 「전부 계획에 없던 거야」 · 후쿠오카 「일정표에 아무것도 안 적혀 있던 시간」 · 미서부 「제일 좋았던 곳들은 일정표에 없더라고」</td><td class="src">각 글 본문(10/17 원문 대조 — 「같은 말」 아닌 「비슷한 문장」)</td><td class="chk">할 일을 「~하기로 했다」 내 다짐으로 둔 결이 괜찮은지</td></tr><tr><td class="no">한 걸음 더<br><b>10</b></td><td class="pic"><a href="#fig10"><img src="img/H1_by_kind.png" alt="종류별로 보면 — 항공·숙소는 전부 미리, 식당은 셋 중 하나만"></a><div class="t">종류별로 보면 — 항공·숙소는 전부 미리, 식당은 셋 중 하나만</div></td><td>그림 1을 종류별로 풀어 본 것</td><td>항공 6:0 · 숙소 17:0 · 렌터카 10:1 · 투어 15:1 · 동선 17:18 · 현지 교통 3:6 · 식당 6:13(32%)</td><td class="src">내여행글_예약비율 3절 종류별 표</td><td class="chk">센 방식의 한계(일정표 1개 vs 현장 여러 개) 해설에 넣은 것</td></tr><tr><td class="no">한 걸음 더<br><b>11</b></td><td class="pic"><a href="#fig11"><img src="img/H2_old_papers.png" alt="1920~1999년 신문에 「즉흥여행」은 세 번 나왔다"></a><div class="t">1920~1999년 신문에 「즉흥여행」은 세 번 나왔다</div></td><td>옛날엔 「무전여행」, 1990년대엔 「배낭여행」 — 「즉흥여행」은 1989년에 처음</td><td>무전여행 632 · 배낭여행 2,166 · 즉흥여행 3(첫 기사 1989-01-31 조선, 설 연휴 후회 글) · 1963 영화 광고 주의</td><td class="src">네이버 뉴스 라이브러리 검색 API(따옴표 구절, 10/17)</td><td class="chk">기사 수 = 그 말이 나온 횟수(유행 아님) 표시</td></tr><tr><td class="no">한 걸음 더<br><b>12</b></td><td class="pic"><a href="#fig12"><img src="img/H3_driving_papers.png" alt="카자흐스탄에서 운전하려면 — 국제운전면허증만으로는 안 된다"></a><div class="t">카자흐스탄에서 운전하려면 — 국제운전면허증만으로는 안 된다</div></td><td>운전 장면 논란의 사실 근거</td><td>한국 국제면허(제네바) 불인정 · 카자흐스탄 비엔나 협약국 · 한국 면허 원본 + 러시아어 공증 번역본</td><td class="src">주카자흐스탄 대사관 공지 8.20·8.25, 외교부 해외안전여행, 유엔 조약 현황</td><td class="chk">글 주제(즉흥의 범위)와 거리 — 넣을지</td></tr><tr><td class="no">한 걸음 더<br><b>13</b></td><td class="pic"><a href="#fig13"><img src="img/H4_ratings.png" alt="그동안의 시청률 — 숫자만 적는다"></a><div class="t">그동안의 시청률 — 숫자만 적는다</div></td><td>숫자만, 원인은 말하지 않음</td><td>닐슨 전국 8.14 5.8 → 8.21 6.5 → 9.25 3.5(추석) → 10.2 6.0 → 10.9 5.0</td><td class="src">닐슨코리아 각 회차 보도</td><td class="chk">남길지 뺄지(원인 오해 위험)</td></tr></table></div>
+</section>
+
+<section class="lead" id="s0">
+<p>10월 16일, 「나 혼자 산다」 전현무의 알마티 「즉흥 여행」 편이 다시 연예 기사 맨 위에 올라왔다. 방송 석 주 전 공항에 낸 촬영 허가 공문에 「8월 6일 카운터에서 발권하는 장면」이 적혀 있었다는 보도다.</p>
+<p>나도 블로그에 「즉흥」으로 떠났다는 여행 글을 여러 편 썼다. 그래서 세어 봤다. 여행 후기 68편에서 「언제 정했는지」가 적힌 159가지다.</p>
+<p>답부터 말하면 <strong>비행기·숙소 같은 큰 예약은 96%가 미리였고, 즉흥은 그 안의 동선과 식당에서 일어났다.</strong> 「즉흥」이라는 말이 어디까지를 가리키는지가, 이번 논란의 한가운데에 있다.</p>
+</section>
+<section id="s1">
+<h2>1. 내 여행 글 68편을 세어 보니, 큰 예약은 96%가 미리였다</h2>
+<figure id="fig1"><img src="img/N1_big_bookings_first.png" alt="항공·숙소·렌터카·투어 미리 48 : 현장 2(96%), 동선·식당·현지 교통 미리 29 : 현장 44(40%)" width="1400" height="800"><figcaption><span class="fn">그림 1</span>블로그 여행 후기 본문을 직접 읽고 센 값(2026.10.17). 언제 정했는지 글로 알 수 없는 36가지는 뺐다.</figcaption></figure>
+<p>항공·숙소·렌터카·투어 50가지 중 48가지를 미리 잡았다. <strong>96%다.</strong> 반대로 그날 어디로 갈지, 뭘 먹을지는 73가지 중 29가지만 미리 정했다.</p>
+<p>합치면 미리가 63%지만, 무엇을 정했느냐에 따라 확 갈린다. 그럼 「즉흥」이라고 쓴 글은 어땠을까.</p>
+</section>
+
+<section id="s2">
+<h2>2. 「즉흥」이라고 쓴 내 글 다섯 편, 넷은 큰 예약이 먼저 있었다</h2>
+<figure id="fig2"><img src="img/N2_five_impromptu_posts.png" alt="아무 계획 없이 → 기차 미리 예약, 번개로 → 대기번호 76,043번, 즉흥적으로 들어간 집 → 항공권 미리, 일정표도 안 짰어 → 숙소 두 곳, 계획이랄 게 없었어 → 큰 예약 없음" width="1400" height="800"><figcaption><span class="fn">그림 2</span>각 글 본문 문장(2026.10.17 직접 확인).</figcaption></figure>
+<p>본문에 「아무 계획 없이」「번개로」「즉흥적으로」「일정표도 안 짰어」「계획이랄 게 없었어」가 나오는 글은 다섯 편이다. <strong>그중 넷은 같은 여행의 기차·입장권·항공권·숙소를 미리 잡아 두었다.</strong></p>
+<p>「번개」로 간 화담숲은 대기번호 76,043번을 기다려 두 달 전에 예약한 것이었다. 큰 예약이 하나도 없던 건, 사는 곳에서 차를 몰고 나선 주말 한 번뿐이다.</p>
+</section>
+
+<section id="s3">
+<h2>3. 셋이 간 후쿠오카, 내 메모엔 두 줄뿐이었다</h2>
+<figure id="fig3"><img src="img/N3_fukuoka_two_lines.png" alt="동행 둘의 일정표는 꽉 차 있고, 내 메모엔 비행기 왕복·숙소 두 곳 두 줄만" width="1400" height="800"><figcaption><span class="fn">그림 3</span>블로그 후쿠오카 11월 글 두 편 + 본인 확인. 일정표 그림은 모식.</figcaption></figure>
+<p>2023년 11월 후쿠오카 글에 나는 「일정표도 안 짰어」라고 썼다. 같이 간 동행 둘은 일정표대로 다녔고, <strong>나는 비행기와 숙소만 잡고 갔다.</strong></p>
+<p>솔직히 완전 무계획으로 갈 배짱은 없었다. 그럼 방송이 말한 「즉흥」은 어디까지였을까.</p>
+</section>
+
+<section id="s4">
+<h2>4. 「즉흥」이라는 말, 세 곳에서 다르게 쓰였다</h2>
+<figure id="fig4"><img src="img/N4_three_meanings.png" alt="표준국어대사전 「그 자리에서 바로 일어나는 감흥」, MBC 「목적지와 항공권을 미리 정하지 않은 채 당일 결정」, MBC 「모든 과정이 사전 준비 없이로 받아들여질 수 있다는 점」" width="1400" height="800"><figcaption><span class="fn">그림 4</span>표준국어대사전, MBC 9.4 입장문(MBC 누리집, 한겨레·더팩트 보도로 대조).</figcaption></figure>
+<p>사전의 즉흥은 「그 자리에서 바로 일어나는 감흥」이다. MBC는 9월 4일 입장문에서 방송의 즉흥 여행을 <strong>「목적지와 항공권을 미리 정하지 않은 채 당일 여행지를 결정해 떠나는 방식」</strong>이라고 설명했다.</p>
+<p>같은 입장문에 「모든 과정이 아무런 사전 준비 없이 진행된 것으로 받아들여질 수 있다는 점을 충분히 고려하지 못했다」는 문장도 있다. 한 번에 많은 사람이 듣는 방송에서는 <strong>말의 뜻이 듣는 쪽에서 정해진다.</strong> 방송심의 규정 제14조도 「불명확한 내용을 사실인 것으로 방송하여 시청자를 혼동케 하여서는 아니 된다」고 기준을 시청자에 둔다. 무엇이 언제 미리 정해졌는지는 날짜로 보면 이렇다.</p>
+</section>
+
+<section id="s5">
+<h2>5. 방송 석 주 전 공문부터 10월 보도까지, 날짜순으로</h2>
+<figure id="fig5"><img src="img/N5_dates_in_order.png" alt="7.22 공문 → 8.6 출국 → 8.14·21 방송 → 8.25 1차 입장 → 8.31 2차 → 9.4 3차·사과 → 10.16 공문 보도" width="1400" height="800"><figcaption><span class="fn">그림 5</span>한겨레·텐아시아·스포티비뉴스 10.16(인천국제공항공사가 국회에 낸 자료), MBC 입장문 8.25·8.31·9.4.</figcaption></figure>
+<p>7월 22일 공항에 낸 촬영 허가 공문에는 <strong>8월 6일 카운터 발권 장면과 오전 11시10분 편</strong>이 적혀 있었고, 실제로 그 편으로 출국했다고 보도됐다. MBC는 이 공문을 「촬영 허가를 받으려고 정리한 예시 상황」이며 전현무에게 전달된 적이 없다고 설명했다.</p>
+<p>입장문은 세 번 바뀌었다. 8월 25일 「촬영 지원이나 협찬 등을 받은 사실은 없다」, 8월 31일 「금전 협찬은 없고 행정 절차·촬영 협조는 받았다」, 9월 4일 「앞의 '지원이 없었다'는 금전 지원 얘기였다」며 스태프 항공권도 미리 발권했다고 밝혔다. <strong>처음 발표는 일주일 뒤 MBC 스스로 고쳐 말했다.</strong> 그럼 무엇을 미리 했고, 무엇을 안 했을까.</p>
+</section>
+
+<section id="s5b">
+<h2>6. 미리 한 것과 안 한 것, 입장문이 둘 다 말했다</h2>
+<figure id="fig6"><img src="img/N5b_prepared_or_not.png" alt="미리 한 것: 공항 촬영 허가 공문(7.22)·스태프 항공권·현지 촬영 협조 / 미리 안 한 것: 현지 운전 서류(면허 공증) 「뒤늦게 확인」" width="1400" height="800"><figcaption><span class="fn">그림 6</span>MBC 입장문 8.25·9.4, 인천국제공항공사가 국회에 낸 자료(10.16 보도), 주카자흐스탄 대사관 공지.</figcaption></figure>
+<p>MBC가 미리 했다고 밝힌 건 셋이다. 공항 촬영 허가 공문, 스태프 항공권, 현지 촬영 협조. <strong>반대로 현지 운전 서류는 「뒤늦게 확인했다」고 했다.</strong></p>
+<p>준비했다면 즉흥이 아니고, 준비하지 않았다면 여러 명이 움직이는 해외 촬영에서 위험했다. 비판이 양쪽에서 나온 이유다. 어느 쪽을 더 무겁게 볼지는 읽는 사람의 몫이다. 그런데 왜 두 달 넘게 계속 화제가 됐을까.</p>
+</section>
+
+<section id="s5c">
+<h2>7. 검색이 다시 뜬 날은, 새 사실이 나온 날이었다</h2>
+<figure id="fig7"><img src="img/N5c_search_peaks.png" alt="데이터랩 날짜별 검색 추이: 8.26 최고, 8.25·8.31·9.4·10.16에 다시 뜀" width="1400" height="800"><figcaption><span class="fn">그림 7</span>네이버 데이터랩 검색어트렌드(2026.10.17 조회). 검색량이 아니라 가장 높은 날을 100으로 둔 상대 추이.</figcaption></figure>
+<p>「전현무 카자흐스탄」 같은 검색어 8개를 날짜별로 그리면, <strong>방송 날보다 입장문이 나온 날 더 크게 뛰었다.</strong> 1차 입장 다음 날(8.26)이 가장 높았고, 2차(8.31)·3차(9.4) 때 다시 올랐다.</p>
+<p>10월 16일 공문 보도 때도 다시 올랐다. 새 사실이 앞의 해명을 고칠 때마다 다시 화제가 된 셈이다. 그렇다면 도움을 받았을 때 방송은 무엇을 알려야 할까.</p>
+</section>
+
+<section id="s6">
+<h2>8. 방송은 「알릴 수 있다」, 유튜브는 「알려야 한다」</h2>
+<figure id="fig8"><img src="img/N6_tell_rules.png" alt="방송법: 돈·물품·용역·인력·장소, 할 수 있다, 프로그램 끝 자막 / 공정위 지침: 현금·제품·상품권·포인트·할인, 공개하여야 한다, 제목·영상 안" width="1400" height="800"><figcaption><span class="fn">그림 8</span>방송법 제2조제22호·제74조, 협찬고지 규칙 제8조, 공정위 추천·보증 심사지침(2026.6.1 시행).</figcaption></figure>
+<p>방송법은 돈뿐 아니라 <strong>인력·장소를 받는 것도 협찬</strong>으로 본다. 다만 방송의 협찬 고지는 「할 수 있다」라서, 정해진 방식(프로그램 끝 자막)으로만 알린다.</p>
+<p>유튜브 뒷광고 규칙은 반대로 「공개하여야 한다」는 의무다. 「촬영 협조」가 방송법의 협찬에 들어가는지는, 민원을 받은 방송 심의 기관이 10월 17일까지 결론을 내지 않았다.</p>
+</section>
+
+<section id="s7">
+<h2>다시 처음으로</h2>
+<p>나도 비행기와 숙소를 다 잡아 놓고 「즉흥」이라고 썼다. 내 블로그라면 독자가 조금 넘어가 줄 수도 있다. 하지만 한 번에 수많은 사람이 듣는 방송에서는 <strong>말의 뜻이 말한 사람이 아니라 들은 사람에게서 정해진다.</strong> 제작진 스스로도 그 점을 충분히 고려하지 못했다고 적었다.</p>
+</section>
+<section id="s8">
+<h2>9. 할 일 하나 — 다음 여행 메모에 「그날 정하기」 한 줄 남겨 두기</h2>
+<figure id="fig9"><img src="img/N7_one_blank_line.png" alt="다음 여행 메모: 비행기·숙소·렌터카 + 그날 정하기 한 줄, 내 글 네 편의 비슷한 문장" width="1400" height="800"><figcaption><span class="fn">그림 9</span>블로그 구마모토성·규슈 렌터카·후쿠오카 11월 코스·미서부 2년 뒤 글 본문. 메모는 모식.</figcaption></figure>
+<p>내 글 네 편에 비슷한 문장이 있었다. 「계획에 없던 30분이 제일 선명해」, 「일정표에 아무것도 안 적혀 있던 시간」 같은 문장이다. <strong>네 문장 모두 비행기와 숙소를 미리 잡아 둔 여행에서 나왔다.</strong></p>
+<p>그래서 다음 여행 메모엔 다 채우지 않고, 「그날 정하기」 한 줄을 남겨 두기로 했다.</p>
+</section>
+
+<section id="s9">
+<h2>한 걸음 더 — 궁금한 사람만</h2>
+<p class="note">본편은 위 아홉 장으로 끝난다. 아래는 더 알고 싶은 사람을 위한 그림이다.</p>
+</section>
+
+<section id="s10">
+<h2>10. 종류별로 보면 — 항공·숙소는 전부 미리, 식당은 셋 중 하나만</h2>
+<figure id="fig10"><img src="img/H1_by_kind.png" alt="항공 6:0, 숙소 17:0, 렌터카 10:1, 투어·입장권 15:1, 동선 17:18, 현지 교통 3:6, 식당 6:13" width="1400" height="800"><figcaption><span class="fn">그림 10</span>여행 후기 결정 항목 중 시점이 적힌 123가지(직접 셈). 기타 10가지는 뺐다.</figcaption></figure>
+<p>항공과 숙소는 미리 안 잡은 적이 한 번도 없었다. 식당은 거꾸로 19곳 중 13곳을 현장에서 골랐다.</p>
+<p>현장 결정이 더 많았던 여행은 넷인데, 그중 둘(규슈 일주, 교토·고베)은 미리 짠 첫날 계획이 틀어진 뒤였다. 다만 미리 쪽은 일정표를 하나로, 현장 쪽은 들른 곳마다 따로 셌으니 숫자는 현장 쪽으로 조금 기울어 있다.</p>
+</section>
+
+<section id="s11">
+<h2>11. 1920~1999년 신문에 「즉흥여행」은 세 번 나왔다</h2>
+<figure id="fig11"><img src="img/H2_old_papers.png" alt="무전여행 632(1960년대 254), 배낭여행 2,166(1990년대 2,162), 즉흥여행 3(1980년대 1, 1990년대 2)" width="1400" height="800"><figcaption><span class="fn">그림 11</span>네이버 뉴스 라이브러리 검색 결과 기사 수(따옴표 구절 검색). 유행 건수가 아니라 그 말이 나온 횟수.</figcaption></figure>
+<p>80년 치 신문 다섯 곳에서 「즉흥여행」이라는 말은 세 번 나왔다. 처음은 1989년 1월 31일, 설 연휴에 즉흥으로 나섰다가 길에 갇혀 후회하는 글이었다.</p>
+<p>그 전 세대의 말은 「무전여행」(632건), 해외여행이 자유로워진 1989년 뒤로는 「배낭여행」(2,166건)이었다. 1963년 무전여행 기사 상당수는 영화 「후라이보이 무전여행」 광고다.</p>
+</section>
+
+<section id="s12">
+<h2>12. 카자흐스탄에서 운전하려면 — 국제운전면허증만으로는 안 된다</h2>
+<figure id="fig12"><img src="img/H3_driving_papers.png" alt="한국 국제운전면허증(제네바 협약) 불인정, 카자흐스탄은 비엔나 협약국, 필요한 것은 한국 면허 원본과 러시아어 공증 번역본" width="1400" height="800"><figcaption><span class="fn">그림 12</span>주카자흐스탄 대한민국 대사관 공지(8.20·8.25), 외교부 해외안전여행, 유엔 조약 현황.</figcaption></figure>
+<p>방송에서 렌터카를 모는 장면도 논란이 됐다. 대사관 안내로는 <strong>한국 국제운전면허증은 카자흐스탄에서 인정되지 않고</strong>, 한국 면허 원본과 러시아어 공증 번역본이 있어야 한다.</p>
+<p>한국과 카자흐스탄이 따르는 도로교통 협약이 다르기 때문이다. MBC는 8월 25일 입장에서 「별도의 공증 절차가 필요하다는 사실을 뒤늦게 확인했다」고 밝혔다.</p>
+</section>
+
+<section id="s13">
+<h2>13. 그동안의 시청률 — 숫자만 적는다</h2>
+<figure id="fig13"><img src="img/H4_ratings.png" alt="닐슨 전국: 8.14 5.8, 8.21 6.5, 8.28 5.1, 9.4 5.2, 9.11 4.8, 9.18 4.2, 9.25 3.5, 10.2 6.0, 10.9 5.0" width="1400" height="800"><figcaption><span class="fn">그림 13</span>닐슨코리아(각 회차 보도). 10.16 방송분은 10.17 기준 확인 못 함.</figcaption></figure>
+<p>알마티 2편(8월 21일) 6.5%에서 9월 25일 3.5%까지 내려갔다가, 10월 2일 6.0%로 올랐다.</p>
+<p>9월 25일은 추석 연휴 기간이었다. 다른 이유가 여럿 겹쳐 있어, 이 숫자만으로 논란의 영향을 말할 수는 없다.</p>
+</section>
+
+<section id="s14">
+<h2>아직 모르는 것</h2>
+<ul class="plain">
+<li>방송 심의 기관(방미심위)이 민원을 상정했는지, 결론이 났는지 — 9월 4일 「민원 접수」 확인이 마지막.</li>
+<li>알마티시가 준 「지원」·「협조」의 구체 내용, 스태프 항공권 발권일, 렌터카 계약서.</li>
+<li>10월 16일 방송 시청률, 전현무 본인 입장.</li>
+<li>내 글에서 「언제 정했는지」 알 수 없던 36가지의 실제 예약 시점(카드·메일로만 확인 가능).</li>
+</ul>
+</section>
+<section id="s15">
+<h2>검토할 것</h2>
+<ul class="plain">
+<li><strong>축:</strong> 「즉흥」이라는 말이 어디까지를 가리키나 + 내 여행 글 실측. 뒷광고·조작 여부는 판정하지 않았다(근거 없음). 의원 이름 대신 「국회에 낸 자료」.</li>
+<li>첫 그림은 실제 숫자(내 여행 글 159가지)다. 썸네일은 초안 때 AI 장면으로 따로 만들고 세 질문으로 판정한다.</li>
+<li>마스터 3-1: 쉬는 말(문·칸·계단·뚜껑)과 레버리지 글에서 많이 쓴 「조건」은 쓰지 않았다.</li>
+<li>10/17 보강(사용자 대화): 결론을 「청자 기준」으로(1대 다 미디어), 「미리 한 것과 안 한 것」·「검색이 다시 뜬 날」 두 장 추가, 그림 5에 입장문이 바뀐 대목.</li>
+<li>「한 걸음 더」 네 장 중 시청률(그림 13)은 원인을 말하지 않는다는 문장을 붙였다. 빼도 된다.</li>
+<li>후쿠오카 그림(그림 3)의 동행 일정표 내용은 모식이다(글자 없음).</li>
+<li><strong>10/18 그림 양식 「장면판」:</strong> 그림마다 장면 하나 — 개념 그림 8장은 AI 장면(글자·숫자·얼굴 없음) 위에 숫자 꼬리표·도장을 얹었고(근거 줄에 「AI 생성 장면」), 숫자 그림 5장은 데이터 모양 그대로(필름 띠·검색 산맥·짐표·신문 더미·아파트) 그렸다. 숫자는 앞 판과 같다. 탑승권판은 base data\img_탑승권판_2026-10-18 에 보관.</li>
+</ul>
+</section>
+</main>
+<footer>원자료: 261017_나혼산 즉흥여행 폴더 — 나혼산_공부노트_2026-10-17.md, base data(논란 타임라인·협찬 고지 규칙 원문·내 여행 글 비율과 옛 신문·사용자 확인). 그림 fig_v2\scene_figs.py(장면판, 10/18).</footer>
+</div>
+</body>
+</html>

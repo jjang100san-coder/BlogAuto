@@ -1,0 +1,28 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'NK';src:url('file:///C:/Windows/Fonts/NotoSansKR-VF.ttf');font-weight:100 900}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#FAF7F2;--card:#FFFFFF;--ink:#1E2330;--ink2:#4A5163;--muted:#8A8F9C;--line:#E7E1D6;
+ --pre:#3D62AE;--pre-l:#E6ECF8;--ons:#D07A22;--ons-l:#FBEBDA;--red:#C8463C;--red-l:#F9E3E0;--ok:#2F8F5B;--ok-l:#E2F1E8;--sand:#F3EBDD}
+html,body{width:1350px;height:1338px}
+body{font-family:'NK',sans-serif;background:var(--bg);color:var(--ink);position:relative;overflow:hidden;-webkit-font-smoothing:antialiased}
+.stage{position:absolute;left:70px;right:70px;top:250px;bottom:263px}
+.card{background:var(--card);border-radius:30px;box-shadow:0 2px 0 rgba(30,35,48,.04),0 16px 40px rgba(30,35,48,.09);border:1px solid #EFE9DF}
+.pill{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:10px 22px;font-weight:800}
+.big{font-weight:900;letter-spacing:-.03em;line-height:1}
+.mut{color:var(--muted)}
+.ab{position:absolute}
+.icon3d{object-fit:contain;filter:drop-shadow(0 14px 18px rgba(30,35,48,.16))}
+svg.i{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dots{background-image:radial-gradient(#E9E2D5 1.6px,transparent 1.6px);background-size:26px 26px}
+body.dots{background:#11131A;background-image:radial-gradient(#1E2230 1.6px,transparent 1.6px);background-size:26px 26px;color:#fff}
+.card{background:#1B1F2A;border:1px solid #2A3040;box-shadow:0 16px 40px rgba(0,0,0,.35)}.hd{font-size:44px;font-weight:900}.hd span{font-size:32px;color:#9AA3B5}.rw{display:grid;grid-template-columns:90px 1fr 160px;align-items:center;padding:28px 40px;font-size:50px;font-weight:900}
+.rw b{color:#F5D047}.rw em{font-style:normal;text-align:right}.rw em::after{content:'점';font-size:32px;margin-left:4px;color:#9AA3B5}</style></head><body class="dots"><div class="stage" style="display:flex;flex-direction:column;gap:20px;justify-content:center"><div class="hd">K리그2 · 경기 뒤 순위 <span>(1·2위 바로 승격)</span></div><div class="card rw" id="r0" style="border:4px solid #2E62D9"><b>1</b><span>수원삼성</span><em id="p0">0</em></div><div class="card rw" id="r1" style=""><b>2</b><span>수원FC</span><em id="p1">0</em></div><div class="card rw" id="r2" style=""><b>3</b><span>서울 이랜드</span><em id="p2">0</em></div><div class="card rw" id="r3" style=""><b>4</b><span>대구</span><em id="p3">0</em></div><div class="pill" id="gap" style="background:#F5D047;color:#11131A;font-size:44px;align-self:center">남은 5경기 · 2위와 5점</div></div><script>
+const E=u=>u<=0?0:u>=1?1:u*u*(3-2*u);
+const P=(t,a,b)=>E((t-a)/(b-a));
+const K=u=>u<=0?0:u>=1?1:(u<.6?E(u/.6)*1.12:1.12-.12*E((u-.6)/.4));
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const num=(x,d=0)=>x.toLocaleString('ko-KR',{minimumFractionDigits:d,maximumFractionDigits:d});
+const sgn=(x,d=1)=>(x>0?'+':x<0?'−':'')+Math.abs(x).toFixed(d);
+const V=[59, 54, 54, 49];
+function F(t){V.forEach((v,i)=>{const u=P(t,.2+i*.25,.9+i*.25);$('#r'+i).style.opacity=Math.min(1,u*2);$('#p'+i).textContent=Math.round(v*u)});
+$('#gap').style.transform=`scale(${K(P(t,2.2,2.6))})`}</script></body></html>

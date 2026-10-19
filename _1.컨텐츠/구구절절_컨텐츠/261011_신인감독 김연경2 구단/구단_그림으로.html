@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>예능이 배구단을 만들 수 있나</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#f5f3ee; --paper:#fffdf8; --fg:#1f2320; --muted:#6b7068; --line:#d9d5c9;
+  --ink:#1f3358; --accent:#8a5a1e; --gold:#b8891e; --gold-soft:#f3e7c7;
+  --display:"Noto Serif KR",serif; --body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#17181a; --paper:#1f2124; --fg:#e8e6dd; --muted:#a3a79c; --line:#36393d;
+  --ink:#bfd0f0; --accent:#d9a85a; --gold:#d9ab45; --gold-soft:#3a3120; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#17181a; --paper:#1f2124; --fg:#e8e6dd; --muted:#a3a79c; --line:#36393d;
+  --ink:#bfd0f0; --accent:#d9a85a; --gold:#d9ab45; --gold-soft:#3a3120; color-scheme:dark }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.75;padding-inline:16px;padding-block:0 80px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)} nav.toc{display:none}}
+header{grid-column:1/-1;padding-block:48px 24px;border-bottom:1px solid var(--line)}
+header .eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+header h1{font-family:var(--display);font-size:clamp(26px,3.4vw,38px);line-height:1.3;margin:10px 0 6px;text-wrap:balance}
+header p{margin:0;color:var(--muted);font-size:15px}
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;padding-top:28px;font-size:13.5px}
+nav.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+nav.toc a{color:var(--muted);text-decoration:none;display:block;border-left:2px solid var(--line);padding-left:10px;line-height:1.4}
+nav.toc a:hover,nav.toc a:focus{color:var(--fg);border-left-color:var(--gold)}
+main{min-width:0;max-width:720px}
+section{padding-block:28px;border-bottom:1px solid var(--line)}
+section.lead p{font-size:18px}
+section.lead p:first-child{font-family:var(--display);font-size:26px;color:var(--ink)}
+h2{font-family:var(--display);font-size:22px;line-height:1.35;margin:0 0 14px;text-wrap:balance;color:var(--ink)}
+p{margin:0 0 14px;max-width:66ch}
+strong{background:var(--gold-soft);padding:0 3px;font-weight:700}
+figure{margin:18px 0 22px;background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+figure img{display:block;width:100%;max-width:100%;height:auto}
+figcaption{font-size:14px;color:var(--muted);padding:10px 14px;border-top:1px solid var(--line);line-height:1.5}
+figcaption .fn{color:var(--gold);font-weight:700;margin-right:6px;font-variant-numeric:tabular-nums}
+.tbl{overflow-x:auto;margin:10px 0 18px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:13px;letter-spacing:.04em}
+.q{font-family:var(--display);color:var(--ink);font-size:19px;margin:0 0 10px}
+.note{font-size:14px;color:var(--muted)}
+ul.plain{margin:0 0 14px;padding-left:20px}
+ul.plain li{margin-bottom:6px}
+footer{grid-column:1/-1;color:var(--muted);font-size:13px;padding-top:24px}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">구구절절 · 조사 검토용 (초안 전)</div>
+  <h1>신인감독 김연경2 — 예능이 진짜 배구단을 만들 수 있나, 가입금 20억과 해마다 70억</h1>
+  <p>1화(10/11) 두 판독 + 페퍼→SOOP 원본 + 키움·데이원 + 미국·일본·유럽 조사. 글 순서대로 그림 14장과 설명을 붙였다. 숫자는 공부노트에서 확인한 것만, 1화 발언은 자막·whisper가 일치하고 화면으로 대조한 것만.</p>
+</header>
+<nav class="toc"><ol>
+<li><a href="#s0">썸네일</a></li><li><a href="#s1">입구 — 조건 다섯, 숫자 0</a></li><li><a href="#s2">가입금 20억</a></li><li><a href="#s3">매년 70억</a></li><li><a href="#s4">「홍보 효과」 셈법</a></li><li><a href="#s5">페퍼 → 수퍼스</a></li><li><a href="#s6">어디서나 90%</a></li><li><a href="#s7">키움처럼</a></li><li><a href="#s8">미디어가 만든 팀</a></li><li><a href="#s9">일본은 분사</a></li><li><a href="#s10">관중 2,389명</a></li><li><a href="#s11">남은 77일</a></li><li><a href="#s12">지속가능 다섯 칸 · 할 일</a></li><li><a href="#s13">아직 모르는 것</a></li>
+</ol></nav>
+<main>
+
+<section id="s0">
+<h2>썸네일 — 빈 구단주 자리</h2>
+<p>통계 카드 대신 「궁금한 장면」으로. 경기장 한가운데 빈 의자 하나, 그 위에 공 하나. 1화 마지막 자막 「다음 시즌은 없습니다」가 가리키는 자리다. 캡션에는 「실제 경기장 사진 아님 · AI 삽화」를 단다.</p>
+<figure><img src="img/00_thumb_empty_chair.png" alt="빈 경기장 한가운데 놓인 빈 가죽 의자와 그 위의 배구공" width="1024" height="1024"><figcaption><span class="fn">썸네일</span>힉스필드 gpt_image_2_5, 1:1. 프롬프트는 image_prompts_ko.md.</figcaption></figure>
+</section>
+
+<section class="lead" id="s1">
+<p>「그래서 얼마인데?」</p>
+<p>10월 11일 1화. 14분 7초에 PD가 〈프로 팀의 조건〉을 꺼냈다. 운영사무국, 연고지, 기업, 관중 동원력, 경기력. 그리고 우등 버스. 117분짜리 방송에서 <strong>돈 숫자는 한 번도 나오지 않았다.</strong> 「기업이 제일 중요하다」(13분쯤)는 말만 두 번 나왔다. 그래서 끝까지 팠다. 프로 배구단은 들어갈 때 얼마, 해마다 얼마, 그 돈은 누가 내고 왜 내는가.</p>
+<figure><img src="img/D9_five_conditions.png" alt="프로 팀의 조건 다섯 카드와 가격표" width="1400" height="800"><figcaption><span class="fn">그림 1</span>1화 13~14분쯤 화면·발언. 가격표는 이 글이 붙인 것. 연고지 칸의 전주는 유치 희망 도시 예시(전북일보 2025.10)이고 연고지·훈련장은 미정.</figcaption></figure>
+<p class="note">1화 발언 중 글에 쓸 것은 자막과 whisper 두 판독이 일치하고 화면으로 대조한 것만(마스터 0-11). 「승관이 찬스」 등 웃음 장면은 인용하되 화면은 싣지 않는다.</p>
+</section>
+
+<section id="s2">
+<h2>들어가는 값 — 20억, 그리고 도장 셋</h2>
+<p>페퍼저축은행이 2021년 4월 창단할 때 낸 돈이 <strong>가입 회비 2억 + 배구발전기금 18억 = 20억</strong>. 2026년 5월 SOOP이 페퍼를 인수할 때도 KOVO는 「신생팀 기준 약 20억」을 들이밀었다. 절차는 신청 → 이사회 심의 → 총회 승인(정관 6조·규약 9조). SOOP은 계약(5.15)에서 승인(6.2)까지 18일.</p>
+<p>농구 데이원은 가입금 15억을 두 번 연체하고 1년 만에 제명됐다. 가입금은 「낼 수 있나」보다 「계속 낼 수 있나」가 문제다.</p>
+<figure><img src="img/D1_entry_fee.png" alt="가입금 20억 티켓과 승인 절차 3단계" width="1400" height="800"><figcaption><span class="fn">그림 2</span>스포티비뉴스 2021, 서울신문 2026.5.18, 머니투데이 2026.6.2, SBS 2023.</figcaption></figure>
+</section>
+
+<section id="s3">
+<h2>들어온 뒤가 진짜 — 매년 70억, 스스로 버는 건 3.6억</h2>
+<p>여자부 운영비는 페퍼저축은행 기준 한 해 70억(이 글의 운영비는 전부 이 숫자). 구단이 직접 버는 돈은 중계권 배분 <strong>약 3.6억</strong>(KBS N 6시즌 300억 ÷ 6 ÷ 14구단, 계산값)과 미공개인 입장·굿즈. 간격이 60억 넘게 벌어진다. 그 간격을 메우는 말이 「모기업 홍보 효과」다.</p>
+<figure><img src="img/D2_yearly_gap.png" alt="쓰는 돈과 버는 돈 막대 비교" width="1400" height="800"><figcaption><span class="fn">그림 3</span>경향 2023.4.25, 머니투데이 2026.5, MK 2021, 네이트 2026.4.20, KOVO 2026.4.16. 3.6억은 계산값.</figcaption></figure>
+<p>리그가 구단에 나눠 주는 중계권 몫도 종목마다 다르다. KBO는 지상파 연 540억 + 뉴미디어 연 450억 = 연 990억 ÷ 10구단 ≈ 99억(실제 배분액 비공개, 상한 계산값). J1은 균등배분금 2.5억 엔 ≈ 22억(성적·팬 지표 배분 별도). V리그 3.6억. 야구 구단은 중계권만으로 운영비의 큰 몫을 채우고, 배구 구단은 그 자리를 모기업이 채운다. (10/12 NFL 비교를 한국·일본 비교로 교체)</p>
+<figure><img src="img/D3_broadcast_scale.png" alt="KBO·J1·V리그 구단당 중계권 몫 비교" width="1400" height="800"><figcaption><span class="fn">그림 4</span>KBO 보도자료 2024, J리그 2024년도 배분금 발표, MK 2021. 구단당 금액은 계산값, 환율 100엔=880원.</figcaption></figure>
+</section>
+
+<section id="s4">
+<h2>「홍보 효과」라는 셈법</h2>
+<p>KOVO·SMS리서치 2011-12 시즌 조사: 신생 IBK기업은행은 운영비 30억에 홍보 효과 106억, 삼성화재 508억, 리그 전체 2,244억. TV·뉴스·경기장 노출을 광고비로 환산한 숫자다. 모기업은 이 숫자로 「손실」을 「마케팅비」로 바꿔 읽는다. V리그 출범 뒤 창단한 4곳이 전부 금융사인 이유. <strong>14년 전 자료</strong>이고, 센 주체가 연맹이라 리그 가치를 높게 보이려는 쪽의 숫자일 수 있다 → 본문에 「부풀려졌을 수 있는 참고치」로 명시(10/12). KOVO가 2026년 다시 용역을 입찰 중이다.</p>
+<figure><img src="img/D4_pr_effect.png" alt="운영비 30억 대 홍보효과 106억 막대" width="1400" height="800"><figcaption><span class="fn">그림 5</span>이데일리 2012, 경향 2023.4.25, 머니투데이 2026.7.3.</figcaption></figure>
+</section>
+
+<section id="s5">
+<h2>모기업이 아프면 구단이 바로 아프다 — 페퍼에서 수퍼스까지</h2>
+<p>페퍼저축은행 2025년 순손실 555억, 3년 누적 약 2,600억, 직원 487→344명. 2대 주주 사모펀드에 배구단은 「비핵심 자산」이었다. 2026년 4월 코치진·사무국 계약 종료, 5.15 SOOP 인수 계약, 6.2 총회 승인, 10.3 SOOP 수퍼스 출범, 11.1 개막. 김연경이 1화(10분쯤)에서 말한 「페퍼저축은행처럼 몇 년 안 됐는데 갑자기 팀이 해체되면 선수단 자체가 또 상처를 입고」가 이 타임라인이다.</p>
+<figure><img src="img/D5_pepper_timeline.png" alt="페퍼저축은행 창단부터 SOOP 수퍼스 개막까지 타임라인" width="1400" height="800"><figcaption><span class="fn">그림 6</span>머니투데이 2026.4.30·6.2, 서울신문 5.7·5.18·7.30, 전남일보 10.3, 1화 전사.</figcaption></figure>
+</section>
+
+<section id="s6">
+<h2>어디서나 배구는 스폰서가 90%</h2>
+<p>한국만의 사정이 아니다. 폴란드 야스트솀프스키 94%, ZAKSA 91%(2017 검증 자료 2차 인용). 같은 해 야스트솀프스키는 모기업 JSW가 지원을 끊자 2026-27 시즌 불참을 선언했다. 2014 독일 운터하힝은 제네랄리가 빠지자 해체. 축구 예능 킹스리그도 90% 가까이. 반대로 야구·축구는 입장 수입이 커서 모기업 의존이 한국 야구 25%, 일본 농구 49%로 내려온다. <strong>배구를 야구 잣대로 보면 틀린다.</strong></p>
+<figure><img src="img/D6_sponsor_share.png" alt="종목별 스폰서 비중 가로 막대" width="1400" height="800"><figcaption><span class="fn">그림 7</span>유럽_·일본_구단운영모델.md, 네이트 2026.4.20. 한국 V리그는 공시가 없어 비율 산출 불가.</figcaption></figure>
+</section>
+
+<section id="s7">
+<h2>「키움처럼」 — 이름만 빌려주는 기업, 운영하는 구단</h2>
+<p>1화 9분쯤, KOVO 사무국이 꺼낸 길이 네이밍 스폰서십이다. 키움증권은 서울히어로즈에 연 100억(2019~23), 2024~28 최대 695억을 주고 지분은 0. 모기업 없는 유일한 야구단이 흑자를 냈다(연도별 수치는 보도마다 달라 미확정). 농구 데이원은 같은 구조로 2022년 들어와 캐롯손보가 시즌 뒤 빠지고 임금 체불 끝에 2023.6 제명.</p>
+<p>왜 야구만 됐나. 야구는 10구단 매출 7,796억에 입장 수입 30%라 100억이 「보태는 돈」이지만, 배구는 운영비 70억이 전부 「메워야 할 돈」이다. 이름값으로 70억을 해마다 낼 기업이 있어야 1화의 그림(구단주 기업 + MBC 운영사무국)이 선다.</p>
+<figure><img src="img/D7_naming_model.png" alt="키움·데이원·원더독스 구조 비교" width="1400" height="800"><figcaption><span class="fn">그림 8</span>경향 2018.11.6, 오마이스타 2023, 시사저널 2019, 한국아이닷컴 2023, 1화 9분쯤·10분쯤. 조직도는 모식도.</figcaption></figure>
+</section>
+
+<section id="s8">
+<h2>미디어가 「0에서 만든」 리그와 「있는 구단을 키운」 쪽</h2>
+<p>방송사가 팀을 만드는 일은 전례가 많고 결과가 갈린다. 0에서 리그까지 만든 쪽(XFL 2001·2020, 팬 컨트롤드 풋볼, 킹스리그)은 전부 손실이나 중단. 있는 구단을 콘텐츠로 키운 쪽(렉섬, F1 다큐, TBS→DeNA 요코하마)은 매출이 뛰었다. SOOP 수퍼스는 후자에 가깝고, 원더독스는 「0에서 만든 팀」이 「있는 리그」에 들어가려는 중간형이다.</p>
+<figure><img src="img/D8_media_made.png" alt="미디어 주도 리그·팀 성패 비교" width="1400" height="800"><figcaption><span class="fn">그림 9</span>미국_·유럽_·일본_구단운영모델.md, 전남일보 2026.10.3.</figcaption></figure>
+</section>
+
+<section id="s9">
+<h2>일본은 「독립」이 아니라 「분사」로 갔다</h2>
+<p>SV리그 1부 라이선스는 운영 법인을 주식회사로(2026-27~), 매출 4억→6억 엔, 아레나 5,000석, 결산 공개를 요구한다. 도레이·JTEKT·산토리·파나소닉이 세운 「클럽」은 전부 모기업 100% 자회사다. 클럽 평균 8.9억 엔(약 80억)이면 한국 여자부 70억과 같은 규모. 다른 건 <strong>회사로 떼어내 결산을 공개한다</strong>는 점이고, 한국은 그 단계가 아직이라 모기업 결산 한 줄이 구단 운명이 된다.</p>
+<figure><img src="img/D11_japan.png" alt="일본 SV리그 클럽 규모와 라이선스 요건" width="1400" height="800"><figcaption><span class="fn">그림 10</span>일본_구단운영모델.md(SV리그 2024년도 결산, 경제산업성 2025.2).</figcaption></figure>
+</section>
+
+<section id="s10">
+<h2>관중은 늘었다 — 그래도 한 경기 2,389명</h2>
+<p>2025-26 시즌 총관중 63만 5,461명, 경기당 2,389명(주말 3,079·주중 2,058). 남자부는 OK저축은행 부산 이전으로 +19.6%, 여자부는 −3.8%. 원더독스 시즌1 첫 직관이 2,000명이었으니 「관중 동원력」 칸은 이미 V리그 평균급 숫자가 있다. 문제는 입장 수입이 공개되지 않아 그 2,000명이 얼마인지 아무도 모른다는 것.</p>
+<figure><img src="img/D12_attendance.png" alt="V리그 남녀부 시즌 관중과 경기당 평균" width="1400" height="800"><figcaption><span class="fn">그림 11</span>KOVO(네이트 2026.4.16·5.28), 다음 2025.11.17.</figcaption></figure>
+</section>
+
+<section id="s11">
+<h2>남은 77일 — 12월 27일까지 구단주가 없으면</h2>
+<p>1화 1시간 31분쯤 화면 「예상 마지막 방송일 12월 27일」, 1시간 32분쯤 「다음 시즌은 없습니다」. SOOP 때 계약→승인이 18일이었으니 같은 속도면 12.19 승인, 12월 초엔 기업이 서야 한다(역산, 가정). 시즌1 뒤 연락 온 곳은 「국내 굴지의 금융 기업·국내 대표 핀테크 기업」(6분쯤 화면)이었고 연초 이란 전쟁과 페퍼 해체가 그 대화를 끊었다(7분쯤). 이번엔 11.1 수퍼스가 개막한 시즌 한가운데서 찾는다.</p>
+<figure><img src="img/D10_deadline.png" alt="10월 11일부터 12월 27일까지 77일 타임라인" width="1400" height="800"><figcaption><span class="fn">그림 12</span>1화 전사 1시간 31분쯤, 서울신문 2026.5.18, 머니투데이 6.2. 중간 날짜는 역산.</figcaption></figure>
+</section>
+
+<section id="s12">
+<h2>그래서 「지속가능」이란 — 구단 비용이 모기업 순이익의 몇 %인가</h2>
+<p>페퍼저축은행의 순이익 흐름을 늘어놓으면 이 글의 결론이 보인다. 2020년 348억, 창단 해 2021년 817억, 2022년 513억, 그리고 2023년 −1,072억·2024년 −961억·2025년 −555억. <strong>창단 때 운영비 70억은 순이익의 8.6%</strong>였다. 2년 뒤 분모가 사라졌다.</p>
+<p>같은 셈을 다른 모기업에 해 보면 기존 구단은 전부 2% 아래다. IBK기업은행 0.3%, 현대건설 1.3%, 흥국생명 2.1%. 키움증권이 서울히어로즈에 주는 네이밍 100억은 순이익의 0.9%다. SOOP의 7.1%는 페퍼 창단 시점과 비슷한 숫자이고, 다른 점은 2년 연속 흑자와 광고 매출 +61%, 그리고 노출을 자기 플랫폼에서 만든다는 것이다. 비율은 전부 운영비를 70억으로 통일한 계산값이라 「자리」만 본다.</p>
+<figure><img src="img/D13_profit_ratio.png" alt="모기업별 운영비 70억 대 순이익 비율 가로 막대" width="1400" height="800"><figcaption><span class="fn">그림 13</span>딜사이트(페퍼 연도별), 뉴스스페이스(2023~25 감사보고서), 쿠키뉴스 2026.2.12(SOOP), 새턴경제(흥국·현대건설), 헤럴드경제 2026.2.3(키움). 비율은 계산값.</figcaption></figure>
+<p>그런데 순이익 하나로는 설명이 안 되는 게 있다. 현대건설은 2024년 7,662억 순손실을 냈는데 구단은 흔들리지 않았다. 페퍼는 흑자 2년째에 이미 2대 주주 사모펀드가 「비핵심 자산」으로 보고 있었다. 데이원은 모기업이 회생절차에 들어가자 네이밍 스폰서 캐롯손보가 한 시즌도 못 채우고 빠졌다. 그래서 칸이 다섯이 된다.</p>
+<div class="tbl"><table>
+<tr><th>칸</th><th>묻는 것</th><th>무너진 사례</th><th>버틴 사례</th></tr>
+<tr><td>① 비율</td><td>70억 ÷ 순이익</td><td>페퍼 8.6% → 적자</td><td>기존 구단 2% 아래</td></tr>
+<tr><td>② 흐름</td><td>3년 연속 흑자인가</td><td>페퍼 창단 2년 뒤 적자 전환</td><td>SOOP 2024·2025 연속 흑자</td></tr>
+<tr><td>③ 주인</td><td>누가 구단을 결정하나</td><td>페퍼 2대 주주 사모펀드, 데이원 회생 모기업</td><td>현대건설(그룹, 2024 적자에도 유지), 키움(구단 법인 별도)</td></tr>
+<tr><td>④ 계약</td><td>네이밍이면 몇 년인가</td><td>캐롯 한 시즌</td><td>키움 5년 + 5년</td></tr>
+<tr><td>⑤ 업종</td><td>홍보 효과 셈법이 서는가</td><td>—</td><td>B2C 금융·소비재·플랫폼(SOOP은 자체 중계)</td></tr>
+</table></div>
+<h2>할 일 하나 — 2화에 「기업」 이름이 나오면 이 다섯 칸을 채운다</h2>
+<p>구단주가 나타나면 축하보다 먼저 이 표를 채운다. 검색창에 「○○ 2025 당기순이익」을 치고 ①②를, 주주 구성과 계약 발표문에서 ③④를, 업종은 보면 안다. 빨간 칸이 하나라도 있으면 「5년 뒤」를 묻는다. 페퍼는 ③이 빨강이었고 2년 만에 ②도 빨강이 됐다. 선수단이 「또 상처 입지」 않으려면(김연경, 1화 10분쯤) 구단주 발표 날 이 표부터다.</p>
+<figure><img src="img/D14_checklist.png" alt="페퍼·SOOP·키움·데이원을 다섯 칸에 넣은 점검표" width="1400" height="800"><figcaption><span class="fn">그림 14</span>공부노트 §1-10 표, 데일리안 2023.3.21, 오마이스타 2023, 머니투데이 2026.4.30. 평가가 아니라 자리 확인.</figcaption></figure>
+<p class="note">GS칼텍스·한국도로공사·정관장은 2025 연간 순이익을 못 찾아 표에서 뺐다(아직 모르는 것에 추가). 공부노트 §2 뼈대 9번의 다른 후보 「11.1 수퍼스 홈경기 하나 보기」는 2순위.</p>
+</section>
+
+<section id="s13">
+<h2>아직 모르는 것</h2>
+<ul class="plain">
+<li>KOVO 규약 9조 원문(가입금 산정·심사 항목). 조 번호는 보도로 확인, 조문은 미확인. SOOP 최종 가입비가 20억에서 얼마로 조율됐는지.</li>
+<li>흥국생명 타이틀 스폰서 금액. V리그 입장 수입·객단가(미공개). 2026 KOVO 미디어 노출 효과 용역 결과.</li>
+<li>키움 연도별 흑자의 정확한 수치(보도마다 191억·300억·77억). 원더독스 운영 주체(MBC 직접인지 외주 법인인지)와 선수 계약 형태.</li>
+<li>전주 유치론의 현재(2026.10). 1화는 연고지 숫자를 말하지 않았다.</li>
+<li>GS칼텍스·한국도로공사·정관장(KGC)의 2025 연간 순이익 — 비율표에 못 넣었다. 다른 구단의 실제 운영비도 미공개라 70억 통일 가정.</li>
+<li>「국내 굴지의 금융 기업·핀테크 기업」이 어디였는지 — 방송은 끝까지 이름을 가렸다.</li>
+</ul>
+<div class="tbl"><table>
+<tr><th>제목 점검(10-8)</th><th>월 검색량</th><th>경쟁</th><th>지수</th><th>판단</th></tr>
+<tr><td>신인감독 김연경2</td><td>107,700</td><td>낮음</td><td>8.18</td><td>앞 검색어 1순위</td></tr>
+<tr><td>원더독스 시즌2</td><td>13,570</td><td>중간</td><td>2.98</td><td>파이프 뒤</td></tr>
+<tr><td>페퍼저축은행 배구단</td><td>1,500</td><td>낮음</td><td>0.08</td><td>파이프 뒤 보조</td></tr>
+<tr><td>네이밍 스폰서</td><td>10</td><td>낮음</td><td>0.0</td><td>검색형 아님 · 본문에만</td></tr>
+</table></div>
+<p class="q">제목 후보 A(발견형, 추천): 신인감독 김연경2 원더독스 구단 창단 비용 | 1화 내내 돈 얘기는 0번, 가입금 20억에 해마다 70억이 든다</p>
+<p class="q">제목 후보 B(질문형): 신인감독 김연경2 원더독스 구단 창단 비용 | 가입금 20억에 해마다 70억, 어느 기업이 5년을 낼까</p>
+<p class="note">16-3(10/12): 「신인감독 김연경2」「원더독스 시즌2」 블로그 탭 상위 15편씩 — 전부 방송시간·선수 명단·OTT·「제8구단 도전」 소개, 돈을 다룬 글 0편. 앞 23자에 두 검색어를 같은 뜻 묶음으로 한 번씩, 「원더독스」 단독(경쟁 높음)은 「구단 창단」과 붙여 썼다. 경유표는 공부노트 §3-1.</p>
+</section>
+
+</main>
+<footer>원자료: 261011_신인감독 김연경2 구단\구단_공부노트_2026-10-11.md · base data\해외조사\ · base data\영상추출\ · 그림은 make_infographics.py. 1화 화면은 싣지 않는다(마스터 0-4). 2026-10-12.</footer>
+</div>
+</body>
+</html>

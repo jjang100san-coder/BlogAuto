@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>주유소 값은 왜 늦게 내리나</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#f5f3ee; --paper:#fffdf8; --fg:#1f2320; --muted:#6b7068; --line:#d9d5c9;
+  --ink:#5a2a1e; --accent:#8a5a1e; --gold:#b8891e; --gold-soft:#f3e7c7;
+  --display:"Noto Serif KR",serif; --body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#17181a; --paper:#1f2124; --fg:#e8e6dd; --muted:#a3a79c; --line:#36393d;
+  --ink:#f0c2b0; --accent:#d9a85a; --gold:#d9ab45; --gold-soft:#3a3120; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#17181a; --paper:#1f2124; --fg:#e8e6dd; --muted:#a3a79c; --line:#36393d;
+  --ink:#f0c2b0; --accent:#d9a85a; --gold:#d9ab45; --gold-soft:#3a3120; color-scheme:dark }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.75;padding-inline:16px;padding-block:0 80px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)} nav.toc{display:none}}
+header{grid-column:1/-1;padding-block:48px 24px;border-bottom:1px solid var(--line)}
+header .eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+header h1{font-family:var(--display);font-size:clamp(26px,3.4vw,38px);line-height:1.3;margin:10px 0 6px;text-wrap:balance}
+header p{margin:0;color:var(--muted);font-size:15px}
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;padding-top:28px;font-size:13.5px}
+nav.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+nav.toc a{color:var(--muted);text-decoration:none;display:block;border-left:2px solid var(--line);padding-left:10px;line-height:1.4}
+nav.toc a:hover,nav.toc a:focus{color:var(--fg);border-left-color:var(--gold)}
+main{min-width:0;max-width:720px}
+section{padding-block:28px;border-bottom:1px solid var(--line)}
+section.lead p{font-size:18px}
+section.lead p:first-child{font-family:var(--display);font-size:26px;color:var(--ink)}
+h2{font-family:var(--display);font-size:22px;line-height:1.35;margin:0 0 14px;text-wrap:balance;color:var(--ink)}
+p{margin:0 0 14px;max-width:66ch}
+strong{background:var(--gold-soft);padding:0 3px;font-weight:700}
+figure{margin:18px 0 22px;background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+figure img{display:block;width:100%;max-width:100%;height:auto}
+figcaption{font-size:14px;color:var(--muted);padding:10px 14px;border-top:1px solid var(--line);line-height:1.5}
+figcaption .fn{color:var(--gold);font-weight:700;margin-right:6px;font-variant-numeric:tabular-nums}
+.tbl{overflow-x:auto;margin:10px 0 18px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:13px;letter-spacing:.04em}
+.note{font-size:14px;color:var(--muted)}
+ul.plain{margin:0 0 14px;padding-left:20px}
+ul.plain li{margin-bottom:6px}
+footer{grid-column:1/-1;color:var(--muted);font-size:13px;padding-top:24px}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">구구절절 · 조사 검토용 (초안 전) · 본편 그림 7장 + 한 걸음 더 5장</div>
+  <h1>주유소 값은 왜 조용할까 — 지금은 상한선, 풀리면 깃털</h1>
+  <p>10월 15일 다시 짰다. 흐름은 「지금 값은 상한선을 따른다 → 그 차액은 나랏돈 → 상한이 풀리면 깃털」 하나로, 해설은 그림마다 2~3문장으로. 더 깊은 그림은 끝의 「한 걸음 더」로 옮겼다. 숫자는 기름값_공부노트_2026-10-14.md와 base data CSV 확인분만, 직접 계산은 캡션에 표시.</p>
+</header>
+<nav class="toc"><ol>
+<li><a href="#s0">입구</a></li><li><a href="#s1">50리터 8,193원</a></li><li><a href="#s2">상한선을 따라</a></li><li><a href="#s3">냄비와 뚜껑</a></li><li><a href="#s4">차액은 나랏돈</a></li><li><a href="#s5">상한 없을 때의 버릇</a></li><li><a href="#s6">같은 100원, 1,300원</a></li><li><a href="#s7">다시 처음으로</a></li><li><a href="#s8">할 일 하나</a></li><li><a href="#s9">한 걸음 더</a></li><li><a href="#s10">두 번 넘겨지는 값</a></li><li><a href="#s11">94% vs 68% 곡선</a></li><li><a href="#s12">작년 6월</a></li><li><a href="#s13">1리터 쪼개기</a></li><li><a href="#s14">덜어 낸 두 몫</a></li><li><a href="#s15">아직 모르는 것</a></li><li><a href="#s16">검토할 것</a></li>
+</ol></nav>
+<main>
+
+<section class="lead" id="s0">
+<p>전쟁 뉴스는 그대로인데, 주유소 가격판은 요즘 거의 안 움직인다.</p>
+<p>휘발유는 5월에 리터당 2,011원까지 갔다가 지금 1,856원이다. 전쟁 전(1,692원)으로는 안 돌아갔고, 9월부터는 몇 원 차이로만 움직인다. 왜 그럴까.</p>
+<p>오피넷 자료를 받아 재 봤다. 답부터 말하면 <strong>지금 값은 시장보다 정부가 정한 상한선을 따라 움직이고 있다.</strong> 그리고 그 상한이 풀리면, 주유소 값은 원래 내릴 때 늦다.</p>
+</section>
+<section id="s1">
+<h2>1. 50리터 가득 넣으면, 전쟁 전보다 8,193원 더</h2>
+<figure><img src="img/O2_fifty_liters.png" alt="주유기 두 대: 전쟁 직전 84,629원, 지금 92,822원, 차이 8,193원" width="1400" height="800"><figcaption><span class="fn">그림 1</span>전국 평균값 × 50리터 — 직접 계산(공부노트 §0·§2-2).</figcaption></figure>
+<p>전국 평균 휘발유로 50리터를 넣으면 전쟁 직전엔 84,629원, 지금은 92,822원이다. <strong>한 번 넣을 때 8,193원을 더 낸다.</strong> 경유는 12,267원 더다.</p>
+<p>그럼 값은 어떤 길로 여기까지 왔을까.</p>
+</section>
+
+<section id="s2">
+<h2>2. 전쟁 뒤 휘발유 값은 정부 상한선을 따라 움직였다</h2>
+<figure><img src="img/O0_cap_line.png" alt="주황 선(주유소 휘발유)이 회색 선(정부 상한)을 따라 움직인다. 전쟁 직후 2주 +206원, ① 상한 시작 ② 상한 올림 ③ 150원 내림 뒤 동결" width="1400" height="800"><figcaption><span class="fn">그림 2</span>오피넷 주유소 평균판매가 일간, 석유 최고가격 차수표(1·2·7차, 8~10차 동결). 상한은 정유사가 주유소에 넘기는 값 기준.</figcaption></figure>
+<p>주황 선이 주유소 휘발유, 회색 선이 정부가 정한 상한이다. 전쟁 직후 2주는 상한이 없어서 시장 그대로 206원이 뛰었다.</p>
+<p>3월 13일 상한이 생긴 뒤로는 <strong>주유소 값이 그 선을 따라 오르고(②), 내리고(③), 동결되자 멈췄다.</strong> 지금 값이 조용한 이유가 이거다.</p>
+</section>
+
+<section id="s3">
+<h2>3. 바깥은 끓는데 — 냄비에 뚜껑이 덮였다</h2>
+<figure><img src="img/O9_lid_on_pot.png" alt="왼쪽 뚜껑 덮인 냄비(상한 휘발유 1,784원). 오른쪽 9월 한 달: 두바이유 28% 출렁임, 주유소 휘발유 4.24원" width="1400" height="800"><figcaption><span class="fn">그림 3</span>석유 최고가격 차수표, 오피넷 일간. 출렁임 %는 직접 계산.</figcaption></figure>
+<p>뚜껑은 정유사가 주유소에 넘기는 값에 씌웠다. 국제 값(냄비)이 끓어도 그보다 비싸게 넘길 수 없다.</p>
+<p>그래서 9월 한 달 두바이유는 28% 출렁였는데 <strong>주유소 휘발유는 4.24원 안에서만 움직였다.</strong> 그럼 국제 값과 상한 사이의 차액은 누가 메울까.</p>
+</section>
+
+<section id="s4">
+<h2>4. 상한 아래 차액은 나랏돈이 메운다</h2>
+<figure><img src="img/O10_gap_filled.png" alt="전쟁 직전: 국제 714원, 정유사 775원. 지금: 국제 1,232원, 정유사 983원 — 차액 249원은 정부 예비비로" width="1400" height="800"><figcaption><span class="fn">그림 4</span>오피넷 정유사 공급가(정유사 보고치)·싱가포르 휘발유, 손실보전 보도. 차이는 직접 계산(공부노트 §4-5).</figcaption></figure>
+<p>평소엔 정유사가 국제 값보다 조금 비싸게 넘겼다(들여오고 정제하는 몫). 지금은 상한 때문에 <strong>리터당 249원 싸게 넘기고, 그 차이를 정부가 예비비로 메워 준다.</strong></p>
+<p>지금의 조용함은 공짜가 아니라는 얘기다. 상한을 언제까지 둘지(11차 상한)는 아직 발표 전이다. 상한이 풀리면 어떻게 될까.</p>
+</section>
+
+<section id="s5">
+<h2>5. 상한이 없을 때 주유소 값의 버릇 — 오를 땐 3주, 내릴 땐 6주</h2>
+<figure><img src="img/O5_stairs.png" alt="위 빨간 막대 3주(로켓, 오를 때), 아래 파란 막대 6주(깃털, 내릴 때)" width="1400" height="800"><figcaption><span class="fn">그림 5</span>오피넷 주간 416주(2018.1~2026.2, 상한 전) — 직접 계산(공부노트 §3-1). 직접 계산.</figcaption></figure>
+<p>상한이 없던 2018년부터 올해 2월까지 8년을 재 봤다. 정유사가 넘기는 값이 오르면 주유소 휘발유는 3주 만에 거의 다 따라 올랐고, 내리면 6주가 걸렸다.</p>
+<p>경제학에서 「로켓과 깃털」이라 부르는 모양이다. <strong>결국 다 내려오긴 하는데, 늦다.</strong> 그 늦은 만큼이 내 지갑에선 얼마일까.</p>
+</section>
+
+<section id="s6">
+<h2>6. 같은 100원인데, 3주 뒤 50리터에 1,300원 차이</h2>
+<figure><img src="img/O7_my_fifty_liters.png" alt="100원 오르면 3주 뒤 94원 올라 50리터 4,720원 더, 100원 내리면 68원만 내려 3,420원 덜. 차이 1,300원" width="1400" height="800"><figcaption><span class="fn">그림 6</span>3주 뒤 반영률(휘발유 94.4%·68.4%) × 100원(계산용 가정) × 50리터 — 직접 계산.</figcaption></figure>
+<p>원가가 리터당 100원 움직였다고 치자. 오를 땐 3주 뒤 94원이 올라 있고, 내릴 땐 68원만 내려 있다.</p>
+<p>50리터로 바꾸면 <strong>같은 100원인데 한 번에 1,300원이 다르다.</strong> 6주쯤 지나면 거의 같아진다. 상한이 풀린 뒤 값이 내려갈 땐 이 버릇이 다시 보일 수 있다.</p>
+</section>
+
+<section id="s7">
+<h2>다시 처음으로</h2>
+<p>지금 주유소 값이 조용한 건 정부 상한선 때문이고, 그 아래 차액은 나랏돈이 메우고 있다. 상한이 풀리면 국제 값과, 내릴 때 늦는 주유소의 버릇이 다시 보일 수 있다.</p>
+</section>
+<section id="s8">
+<h2>7. 할 일 하나 — 주유 전에 오피넷 「내 주변」 최저가 한 번 보기</h2>
+<figure><img src="img/O12_check_nearby.png" alt="휴대폰 「내 주변 · 가격순」 화면 모식, 오늘 서울 1,902원 · 대구 1,829원, 73원 차이" width="1400" height="800"><figcaption><span class="fn">그림 7</span>오피넷 오픈API 시도별 평균·최저가(10/14). 50리터 차이는 직접 계산. 앱 화면은 모식.</figcaption></figure>
+<p>같은 날에도 지역마다, 주유소마다 값이 다르다. 오늘 서울과 대구 평균만 73원 차이(50리터면 3,663원)다.</p>
+<p>오피넷 앱 「내 주변」에서 가격순으로 한 번 보고 가면 된다.</p>
+</section>
+
+<section id="s9">
+<h2>한 걸음 더 — 궁금한 사람만</h2>
+<p class="note">본편은 위 일곱 장으로 끝난다. 아래는 「왜 그렇게 되나」를 더 보고 싶은 사람을 위한 그림이다.</p>
+</section>
+
+<section id="s10">
+<h2>8. 기름값은 과일값처럼 두 번 넘겨져서 온다</h2>
+<figure><img src="img/O3_two_handoffs.png" alt="산지(싱가포르 국제 값) → 도매(정유사 공급가) → 소매(주유소 판매가)" width="1400" height="800"><figcaption><span class="fn">그림 8</span>오피넷 국제 제품가·정유사 공급가·주유소 판매가. 그림은 비유.</figcaption></figure>
+<p>사과가 과수원에서 도매를 거쳐 가게로 오듯, 기름값도 국제 시장 → 정유사 → 주유소로 넘겨진다. 넘겨질 때마다 늦어질 자리가 생긴다. 재 보니 늦는 건 주유소 쪽이었다.</p>
+</section>
+
+<section id="s11">
+<h2>9. 3주 뒤 따라온 몫 — 오를 땐 94%, 내릴 땐 68%</h2>
+<figure><img src="img/O6_rocket_feather_curve.png" alt="가로 주, 세로 따라온 비율. 빨간 선(오를 때)이 파란 선(내릴 때)보다 위, 3주 뒤 94.4% 대 68.4%" width="1400" height="800"><figcaption><span class="fn">그림 9</span>오피넷 주간, 비대칭 분포시차 모형(시차 8주) — 직접 계산. 정유사 공급가는 정유사 보고치.</figcaption></figure>
+<p>그림 5의 실제 곡선이다. 경유는 3주 뒤 95% 대 53%로 차이가 더 컸다. 같은 방법으로 정유사 단계도 쟀는데, 평시엔 오를 때와 내릴 때 차이가 뚜렷하지 않았다. 정유사 담합 의혹 기간과 겹치지만, 이 값으로는 담합 여부를 말할 수 없다.</p>
+</section>
+
+<section id="s12">
+<h2>10. 작년 6월, 주유소는 오를 때 덜 남기고 내릴 때 되찾았다</h2>
+<figure><img src="img/O8_june_2025.png" alt="2025년 6월 12일 전쟁 때 주유소 몫: 45.77원 → 27.48원 → 74.25원(동전 더미)" width="1400" height="800"><figcaption><span class="fn">그림 10</span>오피넷 주간·일간. 주유소 몫은 직접 계산. 동전 1개 ≈ 5원(모식).</figcaption></figure>
+<p>상한이 없던 작년 6월의 모습이다. 원가가 오르자 주유소는 값을 바로 다 못 올려 남는 몫이 줄었고, 원가가 내리자 값을 천천히 내리며 그 몫을 되찾았다. 깃털은 이런 모양이 쌓인 것이다.</p>
+</section>
+
+<section id="s13">
+<h2>11. 휘발유 1리터 1,857원, 그중 796원이 세금</h2>
+<figure><img src="img/O4_one_liter.png" alt="막대 하나: 정유사 공급가 983원, 유류세 634원, 부가세 162원, 주유소 78원" width="1400" height="800"><figcaption><span class="fn">그림 11</span>정유사 공급가 9월 5주(오피넷 세금 내역), 판매가 10월 1주.</figcaption></figure>
+<p>세금이 판매가의 43%다. 유류세는 「리터당 얼마」로 정해져 있어서, 국제 값이 2.4배가 돼도 주유소 값은 정점에서 1.19배에 그쳤다. 세금 덩어리가 완충재 노릇을 한 셈이다.</p>
+</section>
+
+<section id="s14">
+<h2>12. 유류세가 65원, 환율이 78원을 덜어 냈다</h2>
+<figure><img src="img/O11_cut_from_tag.png" alt="가격표 1,856원에서 잘려 나간 두 조각: 유류세 -65원, 환율 -78원" width="1400" height="800"><figcaption><span class="fn">그림 12</span>3.26 관계부처 합동브리핑, 오피넷 세금 내역, 한국은행 ECOS 환율 — 환율 몫은 직접 계산.</figcaption></figure>
+<p>3월 27일 유류세 인하 폭을 넓혀 휘발유 리터당 65원이 빠졌다(11월 말까지). 환율이 내려 국제 휘발유 값이 원화로 78원 싸졌다. 다만 지금은 상한이 값을 정해 그대로 옮겨 가진 않는다.</p>
+</section>
+
+<section id="s15">
+<h2>아직 모르는 것</h2>
+<ul class="plain">
+<li>11차 최고가격: 동결·인하·해제 여부는 10월 14일 현재 발표 전.</li>
+<li>정부의 「최고가격 효과」 산식: 「휘발유 약 100원」(8차 설명)과 그림 4의 249원이 왜 다른지 확인하지 못했다.</li>
+<li>정유사 손실보전 신청액·지급액은 공개되지 않았다.</li>
+<li>주 단위 반영 시차를 낸 국내 공식 기관 보고서는 찾지 못했다. 그림 5·6·9는 이 글의 직접 계산이다.</li>
+</ul>
+</section>
+<section id="s16">
+<h2>검토할 것</h2>
+<ul class="plain">
+<li><strong>10월 15일 재구성</strong>(사용자: 「글이 많고 로직이 복잡」) — 본편 7장(50리터 → 상한선 그래프 → 뚜껑 → 차액 → 상한 없을 때의 버릇 → 1,300원 → 할 일)과 「한 걸음 더」 5장. 해설은 그림마다 2~3문장. 처음 넣은 「세 장면」 그림은 추상적이라 이해가 안 된다는 지적으로 빼고, 실제 값과 상한선을 한 그래프에 그린 그림 2로 바꿨다(같은 날).</li>
+<li>본편만 읽어도 「지금 값은 상한선을 따른다 → 그 차액은 나랏돈 → 상한이 풀리면 깃털」이 잡히는지. 「한 걸음 더」를 초안에서 아예 뺄지, 끝에 붙일지.</li>
+<li>그림 6의 「100원」은 계산용 가정이다.</li>
+<li>입구 「내 장면」: 본인 주유 장면(차종·최근 주유 금액)이 있으면 그걸로 바꾼다.</li>
+<li>그림 7 앱 메뉴 이름(「내 주변」)은 발행 전 실제 앱 화면으로 한 번 더.</li>
+</ul>
+</section>
+</main>
+<footer>원자료: 261014_기름값 폴더 — 기름값_공부노트_2026-10-14.md, base data(오피넷 일간·주간 CSV, 오픈API JSON, 한국은행 ECOS, 계산 로그). 그림 make_pictures.py. 10/15 이전 판은 그림 12장 순서(작업 메모 백업).</footer>
+</div>
+</body>
+</html>

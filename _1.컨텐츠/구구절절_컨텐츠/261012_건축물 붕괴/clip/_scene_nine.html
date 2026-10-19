@@ -1,0 +1,27 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'NK';src:url('file:///C:/Windows/Fonts/NotoSansKR-VF.ttf');font-weight:100 900}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#FAF7F2;--card:#FFFFFF;--ink:#1E2330;--ink2:#4A5163;--muted:#8A8F9C;--line:#E7E1D6;
+ --pre:#3D62AE;--pre-l:#E6ECF8;--ons:#D07A22;--ons-l:#FBEBDA;--red:#C8463C;--red-l:#F9E3E0;--ok:#2F8F5B;--ok-l:#E2F1E8;--sand:#F3EBDD}
+html,body{width:1350px;height:1338px}
+body{font-family:'NK',sans-serif;background:var(--bg);color:var(--ink);position:relative;overflow:hidden;-webkit-font-smoothing:antialiased}
+.stage{position:absolute;left:70px;right:70px;top:250px;bottom:263px}
+.card{background:var(--card);border-radius:30px;box-shadow:0 2px 0 rgba(30,35,48,.04),0 16px 40px rgba(30,35,48,.09);border:1px solid #EFE9DF}
+.pill{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:10px 22px;font-weight:800}
+.big{font-weight:900;letter-spacing:-.03em;line-height:1}
+.mut{color:var(--muted)}
+.ab{position:absolute}
+.icon3d{object-fit:contain;filter:drop-shadow(0 14px 18px rgba(30,35,48,.16))}
+svg.i{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dots{background-image:radial-gradient(#E9E2D5 1.6px,transparent 1.6px);background-size:26px 26px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.nt{padding:30px 28px;height:240px}.nm{font-size:42px;font-weight:900}.nm span{font-size:32px;color:var(--muted)}
+.cs{font-size:34px;font-weight:700;color:var(--ink2);margin-top:14px;line-height:1.35}
+.stamp{left:50%;top:300px;font-size:88px;color:var(--red);border:9px solid var(--red);border-radius:24px;padding:16px 36px;background:rgba(255,255,255,.92);white-space:nowrap}</style></head><body class="dots"><div class="stage"><div class="grid"><div class="card nt" id="n0" style=""><div class="nm">광주 학동 <span>2021</span></div><div class="cs">순서를 바꾸고 흙을 쌓았다</div></div><div class="card nt" id="n1" style=""><div class="nm">광주 화정 <span>2022</span></div><div class="cs">받침을 일찍 뺐다</div></div><div class="card nt" id="n2" style=""><div class="nm">인천 검단 <span>2023</span></div><div class="cs">철근을 빠뜨렸다</div></div><div class="card nt" id="n3" style=""><div class="nm">성남 정자교 <span>2023</span></div><div class="cs">고칠 때를 놓쳤다</div></div><div class="card nt" id="n4" style=""><div class="nm">안성 교량 <span>2025</span></div><div class="cs">받침 72개를 치웠다</div></div><div class="card nt" id="n5" style=""><div class="nm">오산 옹벽 <span>2025</span></div><div class="cs">물길을 안 챙겼다</div></div><div class="card nt" id="n6" style=""><div class="nm">광명 터널 <span>2025</span></div><div class="cs">무게를 2.5배 작게 셌다</div></div><div class="card nt" id="n7" style=""><div class="nm">광주 도서관 <span>2025</span></div><div class="cs">용접을 대충 했다</div></div><div class="card nt" id="n8" style="background:#F3F0EA"><div class="nm">서울 서소문 <span>2026</span></div><div class="cs">조사 중</div></div></div><div class="ab stamp big" id="st">「기술이 없어서」 0건</div></div><script>
+const E=u=>u<=0?0:u>=1?1:u*u*(3-2*u);
+const P=(t,a,b)=>E((t-a)/(b-a));
+const K=u=>u<=0?0:u>=1?1:(u<.6?E(u/.6)*1.12:1.12-.12*E((u-.6)/.4));
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const num=(x,d=0)=>x.toLocaleString('ko-KR',{minimumFractionDigits:d,maximumFractionDigits:d});
+const sgn=(x,d=1)=>(x>0?'+':x<0?'−':'')+Math.abs(x).toFixed(d);
+function F(t){for(let i=0;i<9;i++){const v=P(t,.1+i*.17,.4+i*.17);$('#n'+i).style.opacity=v;$('#n'+i).style.transform=`translateY(${(1-v)*40}px)`}
+const s=P(t,2.6,2.9);$('#st').style.opacity=s;$('#st').style.transform=`translateX(-50%) scale(${1.6-.6*s}) rotate(-5deg)`}</script></body></html>

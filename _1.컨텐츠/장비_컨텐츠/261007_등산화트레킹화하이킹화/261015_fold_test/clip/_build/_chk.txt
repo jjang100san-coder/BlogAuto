@@ -1,0 +1,4 @@
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/장비_컨텐츠/261007_등산화트레킹화하이킹화/261015_fold_test/clip/_build/_beep.wav'
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/장비_컨텐츠/261007_등산화트레킹화하이킹화/261015_fold_test/clip/_build/_chk04.wav'
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/장비_컨텐츠/261007_등산화트레킹화하이킹화/261015_fold_test/clip/_build/_beep.wav'
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/장비_컨텐츠/261007_등산화트레킹화하이킹화/261015_fold_test/clip/_build/_chk05.wav'

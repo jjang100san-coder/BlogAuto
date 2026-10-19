@@ -1,0 +1,6 @@
+scene 0 5.02 s
+scene 1 6.4 s
+scene 2 7.95 s
+scene 3 5.38 s
+scene 4 5.43 s
+done C:\Users\user\Desktop\Blog\_1.컨텐츠\정보(move)_컨텐츠\260928_야간산찾기\clip\out\night_mountain_clip.mp4 29.7s

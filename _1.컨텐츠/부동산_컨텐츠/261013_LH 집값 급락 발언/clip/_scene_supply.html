@@ -1,0 +1,26 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'NK';src:url('file:///C:/Windows/Fonts/NotoSansKR-VF.ttf');font-weight:100 900}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#FAF7F2;--card:#FFFFFF;--ink:#1E2330;--ink2:#4A5163;--muted:#8A8F9C;--line:#E7E1D6;
+ --pre:#3D62AE;--pre-l:#E6ECF8;--ons:#D07A22;--ons-l:#FBEBDA;--red:#C8463C;--red-l:#F9E3E0;--ok:#2F8F5B;--ok-l:#E2F1E8;--sand:#F3EBDD}
+html,body{width:1350px;height:1338px}
+body{font-family:'NK',sans-serif;background:var(--bg);color:var(--ink);position:relative;overflow:hidden;-webkit-font-smoothing:antialiased}
+.stage{position:absolute;left:70px;right:70px;top:250px;bottom:263px}
+.card{background:var(--card);border-radius:30px;box-shadow:0 2px 0 rgba(30,35,48,.04),0 16px 40px rgba(30,35,48,.09);border:1px solid #EFE9DF}
+.pill{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:10px 22px;font-weight:800}
+.big{font-weight:900;letter-spacing:-.03em;line-height:1}
+.mut{color:var(--muted)}
+.ab{position:absolute}
+.icon3d{object-fit:contain;filter:drop-shadow(0 14px 18px rgba(30,35,48,.16))}
+svg.i{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dots{background-image:radial-gradient(#E9E2D5 1.6px,transparent 1.6px);background-size:26px 26px}
+.trk{left:80px;right:80px;top:380px;height:12px;border-radius:6px;background:repeating-linear-gradient(90deg,#D9CFBF 0 30px,transparent 30px 50px)}
+.st{top:440px;width:300px;text-align:center}.nm{font-size:60px;font-weight:900}.sb{font-size:36px;font-weight:700;color:var(--muted);margin-top:4px}.v{font-size:76px;font-weight:900;margin-top:20px}</style></head><body class="dots"><div class="stage"><div class="card ab" style="inset:0"><div class="trk ab"></div><img class="icon3d ab" id="box" src="icons/parcel_t.png" style="height:200px;top:150px;left:0"><div class="st ab" id="s0" style="left:80px"><div class="nm">주문</div><div class="sb">인허가</div><div class="v" style="color:#C8463C">+40.4%</div></div><div class="st ab" id="s1" style="left:460px"><div class="nm">출고</div><div class="sb">착공</div><div class="v" style="color:#C8463C">+41.1%</div></div><div class="st ab" id="s2" style="left:840px"><div class="nm">도착</div><div class="sb">입주</div><div class="v" style="color:#3D62AE">−19.1%</div></div><div class="ab mut" style="left:40px;bottom:26px;font-size:28px;font-weight:700">서울 주택 · 2026년 1~8월 · 1년 전 같은 기간 대비</div></div></div><script>
+const E=u=>u<=0?0:u>=1?1:u*u*(3-2*u);
+const P=(t,a,b)=>E((t-a)/(b-a));
+const K=u=>u<=0?0:u>=1?1:(u<.6?E(u/.6)*1.12:1.12-.12*E((u-.6)/.4));
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const num=(x,d=0)=>x.toLocaleString('ko-KR',{minimumFractionDigits:d,maximumFractionDigits:d});
+const sgn=(x,d=1)=>(x>0?'+':x<0?'−':'')+Math.abs(x).toFixed(d);
+function F(t){const x=80+P(t,.2,3.4)*760;$('#box').style.transform=`translateX(${x}px) translateY(${-Math.abs(Math.sin(t*6))*14}px)`;
+for(let i=0;i<3;i++){const v=K(P(t,.3+i*1.3,.7+i*1.3));$('#s'+i).style.opacity=Math.min(1,v*1.4);$('#s'+i).style.transform=`scale(${v})`}}</script></body></html>

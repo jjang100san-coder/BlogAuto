@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>프랑스 폭동 도해표</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#f5f3ee; --paper:#fffdf8; --fg:#1f2320; --muted:#6b7068; --line:#d9d5c9;
+  --ink:#5a2a1e; --accent:#8a5a1e; --gold:#b8891e; --gold-soft:#f3e7c7;
+  --display:"Noto Serif KR",serif; --body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#17181a; --paper:#1f2124; --fg:#e8e6dd; --muted:#a3a79c; --line:#36393d;
+  --ink:#f0c2b0; --accent:#d9a85a; --gold:#d9ab45; --gold-soft:#3a3120; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#17181a; --paper:#1f2124; --fg:#e8e6dd; --muted:#a3a79c; --line:#36393d;
+  --ink:#f0c2b0; --accent:#d9a85a; --gold:#d9ab45; --gold-soft:#3a3120; color-scheme:dark }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.75;padding-inline:16px;padding-block:0 80px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)} nav.toc{display:none}}
+header{grid-column:1/-1;padding-block:48px 24px;border-bottom:1px solid var(--line)}
+header .eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+header h1{font-family:var(--display);font-size:clamp(26px,3.4vw,38px);line-height:1.3;margin:10px 0 6px;text-wrap:balance}
+header p{margin:0;color:var(--muted);font-size:15px}
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;padding-top:28px;font-size:13.5px}
+nav.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+nav.toc a{color:var(--muted);text-decoration:none;display:block;border-left:2px solid var(--line);padding-left:10px;line-height:1.4}
+nav.toc a:hover,nav.toc a:focus{color:var(--fg);border-left-color:var(--gold)}
+main{min-width:0;max-width:720px}
+section{padding-block:28px;border-bottom:1px solid var(--line)}
+section.lead p{font-size:18px}
+section.lead p:first-child{font-family:var(--display);font-size:26px;color:var(--ink)}
+h2{font-family:var(--display);font-size:22px;line-height:1.35;margin:0 0 14px;text-wrap:balance;color:var(--ink)}
+p{margin:0 0 14px;max-width:66ch}
+strong{background:var(--gold-soft);padding:0 3px;font-weight:700}
+figure{margin:18px 0 22px;background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+figure img{display:block;width:100%;max-width:100%;height:auto}
+figcaption{font-size:14px;color:var(--muted);padding:10px 14px;border-top:1px solid var(--line);line-height:1.5}
+figcaption .fn{color:var(--gold);font-weight:700;margin-right:6px;font-variant-numeric:tabular-nums}
+.tbl{overflow-x:auto;margin:10px 0 18px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:13px;letter-spacing:.04em}
+.note{font-size:14px;color:var(--muted)}
+ul.plain{margin:0 0 14px;padding-left:20px}
+ul.plain li{margin-bottom:6px}
+footer{grid-column:1/-1;color:var(--muted);font-size:13px;padding-top:24px}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+</style>
+<style>
+#dohae{margin:24px 0 36px;width:96vw;max-width:1400px;position:relative;left:50%;transform:translateX(-50%)}
+#dohae .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+#dohae table{border-collapse:collapse;width:100%;min-width:980px;font-size:14px;line-height:1.5}
+#dohae th{background:var(--ink,#1e1e1e);color:#fff;text-align:left;padding:8px 10px;font-weight:600;position:sticky;top:0}
+#dohae td{border-bottom:1px solid rgba(128,128,128,.25);padding:10px;vertical-align:top}
+#dohae td.no{white-space:nowrap;color:#888;font-size:12px;text-align:center}
+#dohae td.no b{font-size:20px;color:inherit}
+#dohae td.pic{width:210px}
+#dohae td.pic img{width:200px;height:auto;border-radius:6px;border:1px solid rgba(128,128,128,.3);display:block}
+#dohae td.pic .t{font-weight:600;margin-top:6px;font-size:13px}
+#dohae td.src{color:#777;font-size:13px;width:170px}
+#dohae td.chk{background:rgba(235,150,20,.10);width:190px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">구구절절 · 도해 계획 검토용 (그림 그리기 전) · 18장 · 시안 2장(⑤·⑪) 먼저</div>
+  <h1>프랑스 폭동 — 체포 숫자는 왜 하루에 네 번 바뀌었나</h1>
+  <p>같은 하루(10월 17일)를 두고 체포 숫자가 400 → 1,200 → 1,800 → 2,397로 바뀐 건 사건이 커져서가 아니라 「누가 언제 셌느냐」가 달랐기 때문이고, 참가 인원(내무부 55만 / CGT 80만)도 같은 이유로 둘이다. 그 하루는 9월 셋째 주 고등학교에서 시작해 10월 6일 노조, 10월 16일 노란 조끼가 차례로 올라탄 4주의 끝이었다. 프랑스가 「늘 거리에」 있는 것처럼 보이는 건 노조원이 많아서가 아니라(10.3%) 노조가 맺은 협약을 거의 모두(98%)가 적용받고, 집회가 허가가 아니라 3일 전 신고로 열리는 구조 때문이다 — 단 「그래서 거리로 나온다」는 연결은 연구 원문으로 확인 못 했으니 숫자를 나란히 두는 데서 멈춘다.</p>
+</header>
+<nav class="toc"><ol><li><a href="#dohae">도해표</a></li><li><a href="#facts">사실표</a></li><li><a href="#bone">뼈대</a></li><li><a href="#thumb">썸네일 후보</a></li><li><a href="#unknown">아직 모르는 것</a></li></ol></nav>
+<main>
+<section id="dohae">
+<h2>도해표 — 18장 계획 (그림은 아직 없음)</h2>
+<p class="note">장면판 양식(구구절절 지침 3장 🎬): 숫자 그림 11장은 데이터 모양 장면, 개념 그림 7장은 AI 장면 + 꼬리표. 주황 「시안」 두 장(⑤ 4주 지하철 노선도 · ⑪ 우산 하나로 열 명)을 먼저 그려 확인한 뒤 나머지. 색·모티프 규칙은 공부노트 3절.</p>
+<div class="scroll"><table><tr><th>번호</th><th>그림·말하는 것</th><th>장면</th><th>숫자</th><th>근거</th></tr><tr><td class='no'>숫자<br><b>1</b></td><td><b>가판대 호외 네 장</b><br><span class='note'>같은 하루, 체포 숫자가 네 번 바뀌었다</span></td><td>파리 신문 가판대(kiosque) 앞줄에 호외 네 장이 시간순으로 걸림 — 낮(AP)·밤(총리)·아침(장관)·저녁(장관 확정). 1,800과 2,397 사이에 작은 X 게시 쪽지 「2,000+」</td><td>400 → 1,200 → 1,800 → (2,000+) → 2,397</td><td class='src'>F1~F5</td></tr><tr><td class='no'>숫자<br><b>2</b></td><td><b>한국 알림 네 장</b><br><span class='note'>한국 제목도 넷 — 한국 시각으로 보면</span></td><td>꺼진 휴대폰 위에 쌓인 알림 네 장(일요일 아침 → 월요일), 각 장에 체포 숫자와 한국 시각 꼬리표</td><td>400(10/18) · 1,200(10/18) · 1,800(10/18) · 2,400(10/19)</td><td class='src'>F6</td></tr><tr><td class='no'>개념<br><b>3</b></td><td><b>광장 위 두 셈</b><br><span class='note'>55만과 80만은 둘 다 발표된 숫자</span></td><td>드론 높이에서 본 바스티유 광장과 대로, 사람은 점(얼굴 없음), 맑은 낮. 왼쪽 파랑 꼬리표 「내무부 55만 · 110곳」, 오른쪽 주황 「CGT 80만 · 1,750곳」</td><td>550,000 / 800,000 · 110 / 1,750</td><td class='src'>F7</td></tr><tr><td class='no'>개념<br><b>4</b></td><td><b>승합차와 유치장 복도</b><br><span class='note'>체포와 구금은 다른 말(원리 그림)</span></td><td>파리 경찰 승합차 여러 대가 선 거리(흐린 날) → 그중 하나의 유치장 복도. 큰 꼬리표 「체포 2,397(전국)」, 작은 꼬리표 「파리 구금 557 — 성인 381 · 미성년 151」</td><td>2,397 / 557(381·151·25) · 파리 체포 855 · 리옹 160</td><td class='src'>F5·F8</td></tr><tr><td class='no'>숫자<br><b>5</b><br><span style="color:#D07A22;font-weight:700">시안</span></td><td><b>4주 노선도</b><br><span class='note'>고교 시위가 시청 화재까지 가는 4주</span></td><td>**파리 지하철 노선도식 타임라인** — 역 하나 = 날짜 하나(9/17 예산·교사 파업 → 9/18~21 크레테유 → 9/28 → 10/1 → 10/6 → 10/13 → 10/16 → 10/17 리모주). **환승역** 두 곳 = 10/6 노조 합류 · 10/16 노란 조끼 합류(주황 노선이 파랑 노선에 올라탐). 종점 역은 빨강</td><td>164 · 625 · 1,949 · 11/5 예고 · 2,397</td><td class='src'>F11~F13·F15·F17·F19</td></tr><tr><td class='no'>숫자<br><b>6</b></td><td><b>고교 3,700 점 지도</b><br><span class='note'>10월 1일 — 전국 고교 3,700곳 중 1,027곳</span></td><td>프랑스 육각형 지도 위에 고교를 점 3,700개로, 영향 1,027 주황·봉쇄 222 빨강</td><td>3,700 / 1,027 / 222 · 하루 체포 1,949 · 부상 305</td><td class='src'>F15</td></tr><tr><td class='no'>개념<br><b>7</b></td><td><b>낡은 복도의 양동이</b><br><span class='note'>고교생이 적어 낸 요구 네 가지</span></td><td>낡은 고교 복도 — 비 새는 천장 아래 양동이, 벽에 붙은 글자 없는 안내 포스터, 빽빽이 쌓인 의자(흐린 낮, 사람 없음). 꼬리표 「교사 부족 · 낡은 건물 · 과밀 · Parcoursup」</td><td>— (단어 라벨만)</td><td class='src'>F14</td></tr><tr><td class='no'>숫자<br><b>8</b></td><td><b>주유소 가격판</b><br><span class='note'>「생활비」라는 말의 숫자</span></td><td>프랑스 주유소 가격판(데이터 모양 그대로) — 경유 2.33€/L 큰 숫자, 옆에 영수증 꼬리표 「9월 물가 +3.1% · 에너지 +21.3%」, 아래 「2027 예산 540억 유로 절감」</td><td>2.33 · 3.1% · 21.3% · 540억</td><td class='src'>F26·F12</td></tr><tr><td class='no'>숫자<br><b>9</b></td><td><b>테라스 의자 100개</b><br><span class='note'>찬성과 지지는 다른 숫자</span></td><td>카페 테라스 의자 100개를 세 줄로 — 찬성 55개 주황, 지지 26개 진한 주황, 요구 정당 72개. 옆에 작은 줄 「노란 조끼 시작 무렵 73」</td><td>55 · 26 · 72 / 73 · 83 · 88 · 60</td><td class='src'>F18</td></tr><tr><td class='no'>개념<br><b>10</b></td><td><b>1883년 시청 종탑</b><br><span class='note'>1883년 시청, 18시쯤</span></td><td>리모주 시청을 닮은 석조 시청과 종탑, 저녁 어스름(글 안 유일한 밤 장면), 사람·불꽃 과장 없음. 꼬리표 「1883.7.14 준공 · 18시쯤 · 종탑 붕괴」, 근거 줄 「AI 생성 장면(실제 리모주 시청 아님)」</td><td>1883 · 18시 · 구금 19 · 경찰 중상 4</td><td class='src'>F11</td></tr><tr><td class='no'>개념<br><b>11</b><br><span style="color:#D07A22;font-weight:700">시안</span></td><td><b>우산 하나로 열 명</b><br><span class='note'>노조원은 열에 하나, 협약은 거의 모두에게</span></td><td>비 오는 파리 보도 — 열 명 중 **한 명만** 우산을 들었는데 그 우산이 거의 모두를 덮는다(뒷모습·실루엣, 얼굴 없음). 꼬리표 「조직률 10.3%」(우산 든 사람) · 「협약 적용 98%」(우산 그늘)</td><td>10.3% / 98% · 공공 18.1% · 민간 8% 미만</td><td class='src'>F21</td></tr><tr><td class='no'>숫자<br><b>12</b></td><td><b>달력 두 장 128·17</b><br><span class='note'>파업으로 잃은 날 — 128 대 17</span></td><td>벽걸이 1년 달력 두 장(프랑스·독일)을 나란히, 빨간 날 수가 그대로 보임. 작은 셋째 장 영국</td><td>128 / 17 (/ 28) · 2020~21 프랑스 79</td><td class='src'>F22</td></tr><tr><td class='no'>개념<br><b>13</b></td><td><b>우편함 봉투 두 개</b><br><span class='note'>허가가 아니라 신고 — 3일 전과 48시간 전</span></td><td>도청 우편함에 꽂힌 봉투 두 개 — 프랑스 봉투 소인 「D-3 ~ D-15 · 시청/도청」, 한국 봉투 소인 「D-2 ~ D-30 · 경찰서」. 아래 작은 꼬리표 「믈룅 행정법원 2025.12: 기한만으로 금지 불가」</td><td>3~15일 / 48~720시간</td><td class='src'>F23</td></tr><tr><td class='no'>숫자<br><b>14</b></td><td><b>합의 경로와 호출 핀</b><br><span class='note'>10월 17일엔 신고된 행진과 신고 없는 호출이 한 날에</span></td><td>파리 지도 — 바스티유→레퓌블리크 합의 경로는 파란 선, 틱톡·협업 지도로 퍼진 호출은 경로 밖 주황 핀들. 꼬리표 「경로 합의 10/16 · 경로 밖 135€」</td><td>10/16 · 135€ · 14시</td><td class='src'>F19·F27</td></tr><tr><td class='no'>숫자<br><b>15</b></td><td><b>승합차 행렬 여섯 줄</b><br><span class='note'>같은 자로 재면 — 하루 체포 여섯 사건</span></td><td>경찰 승합차(CRS 밴) 행렬 — 밴 1대 = 100명. 2026.10.17 24대 · 2026.10.1 19대 · 2018 노란 조끼 17대 · 2023 나엘 13대 · 2025 모든 것을 막자 5대 · 2023 연금 5대</td><td>2,397 · 1,949 · 1,723 · 1,311 · 473 · 457</td><td class='src'>F24 (F25는 해설에서 「기준 다른 총계는 비교 안 함」)</td></tr><tr><td class='no'>개념<br><b>16</b></td><td><b>수하물 태그 네 장</b><br><span class='note'>외교부 공지는 네 번 먼저 와 있었다</span></td><td>캐리어 손잡이에 묶인 수하물 태그 네 장(9/30 · 10/2 · 10/14 · 10/16), 마지막 태그만 주황. 옆에 「여행유의 — 전 지역」 꼬리표</td><td>공지 4건 · (6) 10/16 · 14시 Bastille</td><td class='src'>F27</td></tr><tr><td class='no'>숫자<br><b>17</b></td><td><b>신문 묶음 더미</b><br><span class='note'>한국 기사는 일요일에야 — 14에서 158, 243</span></td><td>신문 보급소 바닥에 끈으로 묶인 신문 더미 여섯 개(10/14~19), 높이 = 기사 수. 10/18부터 더미 위에 「리모주 시청 96」 작은 묶음</td><td>46 · 26 · 32 · 14 · 158 · 243 / 리모주 0 → 96 → 100</td><td class='src'>F28</td></tr><tr><td class='no'>숫자<br><b>18</b></td><td><b>분수 네 줄기</b><br><span class='note'>검색은 하루 만에, 「폭동」보다 「시위」로</span></td><td>콩코르드 광장 분수 네 줄기 = 검색어 네 개(프랑스 시위 · 프랑스 폭동 · 파리 시위 · 프랑스 여행), 10/17 낮은 물줄기 → 10/18 치솟음. 꼬리표 「시위 100 · 폭동 12 · 파리 14.2 · 여행 2.2」</td><td>1.9 → 100 / 0 → 12.0 / 0.6 → 14.2 / 0.3 → 2.2 · 주 단위 7.8배</td><td class='src'>F29 (F30 검색광고 반대는 해설·「아직 모르는 것」)</td></tr></table></div>
+</section>
+<section id="facts"><h2>사실표 (발표 주체·시각·원본)</h2><div class='scroll'><table>
+<tr><th>#</th><th>숫자</th><th>발표 주체 · 시각</th><th>원본</th><th>확인</th></tr>
+<tr><td>F1</td><td>10/17 체포 <b>약 400명</b></td><td>AP, 10/17 낮</td><td>위키 EN 표 [S2] (조사 1장)</td><td>🟡 위키 재인용 — AP 원문 미열람</td></tr>
+<tr><td>F2</td><td>10/17 체포 <b>1,200명</b> · 경찰·군경찰 부상 150</td><td>르코르뉘 총리, 10/17 밤</td><td>France 24 [S3], franceinfo [S8]</td><td>✅</td></tr>
+<tr><td>F3</td><td>10/17 체포 <b>1,800명 이상</b> · 부상 500 이상(경찰·군경찰·소방 포함)</td><td>내무장관 뉘녜스·AP, 10/18 아침</td><td>CBS(AP) [S4], Actu17 [S10]</td><td>✅ — 글감판 메모의 「1,800」은 이 잠정치</td></tr>
+<tr><td>F4</td><td>10/17 체포 <b>2,000명 이상</b> · 부상 600 이상(소방 포함)</td><td>뉘녜스 X 게시, 10/18 13:00</td><td>franceinfo [S8]</td><td>✅</td></tr>
+<tr><td>F5</td><td>10/17 체포 <b>2,397명</b>(확정) · 경찰·군경찰 부상 <b>997</b>(중상 7)</td><td>뉘녜스, 10/18 저녁</td><td>ICI 20:52 갱신 [S11], ABC(AFP) [S6]. CNews 제목 동일(본문 403)</td><td>✅ — 글에 쓰는 확정치. 체포는 10/17 <b>하루</b> 숫자</td></tr>
+<tr><td>F6</td><td>한국 기사 제목 숫자: 「400명 체포」(글로벌이코노믹 10/18) · 「1200명」(머니투데이 10/18) · 「1800명」(여러 곳) · 「체포 2400명」(뉴데일리 10/19)</td><td>각 매체</td><td>[S32]</td><td>✅ 제목 직접 확인</td></tr>
+<tr><td>F7</td><td>10/17 참가 <b>550,000</b>(파리 110,000 · 집회 110곳) / <b>800,000</b>(집회·시위 1,750곳)</td><td>내무부(뉘녜스) / CGT, 10/17</td><td>France 24 [S3], ABC(AFP) [S6], Europe 1 [S9]</td><td>✅ — 둘 다 적는다, 범위로 합치지 않는다</td></tr>
+<tr><td>F8</td><td>파리권 체포 <b>855</b>(파리 경찰청) · 파리 구금(garde à vue) <b>최소 557</b>(성인 381 · 미성년 151 · 미상 25, 파리 검찰) · 리옹 체포 <b>160</b>(성인 124, 론 도지사)</td><td>각 기관, 10/18</td><td>franceinfo [S8], CBS(AP) [S4], ICI [S11]</td><td>✅ — 체포(interpellation) ≠ 구금(garde à vue), 파리 517 갱신설은 미확인</td></tr>
+<tr><td>F9</td><td>사망 <b>1명</b> — 파리 행진 중 심정지, 당국 「건강 문제, 폭력과 무관」</td><td>파리 경찰, 10/18</td><td>CBS(AP) [S4], ABC(AFP) [S6]</td><td>✅ — 경위 세부 미확인</td></tr>
+<tr><td>F10</td><td>피해 업소 <b>약 1,500곳</b>, 손실 「수억 유로」</td><td>소매·상업연맹, 10/18~19</td><td>ABC(AFP) [S6]</td><td>🟡 연맹 추정치</td></tr>
+<tr><td>F11</td><td>리모주 시청: <b>1883년 7월 14일</b> 준공, 10/17 <b>18시쯤</b> 침입·방화, <b>종탑 붕괴</b>, 「대부분 소실」 · 리모주 경찰 중상 4 · 경찰차 4대 · 구금 19</td><td>오트비엔 도청(바라트 도지사) / Euronews</td><td>Euronews [S12], CBS(AP) [S4]</td><td>✅</td></tr>
+<tr><td>F12</td><td>9/17 르코르뉘 2027 예산 「약 <b>540억 유로</b> 노력」 · 공무원 급여 지수 동결(약 20억) · 2027 적자 목표 4.8% · 같은 날 교사 파업</td><td>총리 / 위키 EN</td><td>Public Sénat [S15], [S2]</td><td>✅</td></tr>
+<tr><td>F13</td><td>고교생 시위 시작 <b>9/18 또는 9/21</b>(크레테유 생텍쥐페리 고교) — 위키 EN 정보상자 9/18, 본문·위키 FR 9/21</td><td>—</td><td>[S1][S2]</td><td>🟡 글엔 「9월 셋째 주」</td></tr>
+<tr><td>F14</td><td>USL(고교생 노조, 9/29) 요구: 교사·직원 부족 · 낡은 학교 · 과밀 학급·과중한 시간표 · Parcoursup 스트레스</td><td>USL</td><td>위키 EN [S2]</td><td>🟡 위키 재인용</td></tr>
+<tr><td>F15</td><td>9/28 체포 164 · 학교 180곳 / 9/30 체포 625 · 부상 83 · 학교 356곳 / <b>10/1 하루 체포 1,949 · 부상 305 · 고교 1,027곳 영향(봉쇄 222) · 전국 고교 약 3,700</b></td><td>내무부</td><td>[S2], Le Courrier de l&#x27;Atlas·AFP [S13]</td><td>✅ (10/1), 🟡 9/28·30은 위키 재인용</td></tr>
+<tr><td>F16</td><td>9/28~10/2 구금 <b>1,793명</b>, 약 90% 미성년</td><td>법무부</td><td>Le Figaro(위키 재인용), 75 Secondes [S13]</td><td>🟡 재인용</td></tr>
+<tr><td>F17</td><td>10/6 참가 정부 250,000 / 노조 450,000 · 10/13 내무부 161,500 / 청년노조연대 480,000 · 10/6 노조연합(CFDT·CGT·FO·UNSA·FSU) <b>11/5 전국 파업</b> 예고 — 요구 「임금·공공서비스·고용·산업」</td><td>각 주체</td><td>위키 EN [S2], The Local [S16]</td><td>🟡 참가 수 위키 재인용 / ✅ 11/5 예고</td></tr>
+<tr><td>F18</td><td>Elabe 10/7: 고교생 운동 「찬성」 <b>55%</b> · 「지지」 <b>26%</b> · 요구 「정당」 <b>72%</b> / 시작 무렵 비교 — 노란 조끼 73% · 2024 농민 83% · 2019 응급실 88% · 2017년 이후 평균 60%</td><td>Elabe</td><td>Le Grand Continent [S18]</td><td>✅ — 10/17 이후 조사는 없음</td></tr>
+<tr><td>F19</td><td>9/16 틱톡 「V2」가 10/17 호출(정치 소속 미확인) · 호출 사이트 17octobregiletjaune.net · 파리 경찰청–노조 경로 합의는 <b>10/16에야</b> · 경로 밖 집회 금지(위반 <b>135유로</b>)</td><td>위키 FR / France 24</td><td>[S1][S3]</td><td>🟡 위키 FR 재인용</td></tr>
+<tr><td>F20</td><td>마크롱 10/18 20:00 담화 원문: 「une violence débridée dans nos villes」 · 시위대의 「le coût de la vie, sur le prix des carburants」 걱정 · 「factieux, issus de groupuscules d&#x27;ultra-gauche」(정부가 쓴 말 — 인용으로만) · 「six mois de notre élection présidentielle」 · 비상사태·통행금지 <b>선포 안 함</b></td><td>엘리제궁</td><td>[S5]</td><td>✅ 원문</td></tr>
+<tr><td>F21</td><td>노조 조직률 <b>10.3%</b>(2019, 공공 18.1% · 민간 8% 미만) / 단체협약 적용률 <b>98%</b></td><td>DARES / OECD·AIAS ICTWSS(Eurofound 2018 값)</td><td>iFRAP(DARES 재인용) [S25], OECD·Eurofound [S26]</td><td>✅ 98% OECD 원문 / 🟡 10.3%는 iFRAP 재인용 — 「그래서 거리로」 해석은 원문 확인 못 함</td></tr>
+<tr><td>F22</td><td>파업 손실일(임금노동자 1,000명당 연평균): 프랑스 2000~09 <b>127</b> · 2010~19 <b>128</b> · 2020~21 <b>79</b> / 독일 13~17 · 영국 18~28(연대별)</td><td>ETUI(Euronews 정리)</td><td>[S24], 원 데이터 etui.org 403</td><td>🟡 Euronews 정리본 — 그림엔 「프랑스 128 · 독일 17」(2010~19)로 쓰되 독일 값의 연대 대조 남음</td></tr>
+<tr><td>F23</td><td>집회 신고: 프랑스 국내안보법전 <b>L211-2</b> — 3일 전(만 3일)~15일 전 시청·도청(파리는 경찰청) <b>신고</b> · 2025.12 믈룅 행정법원 「기한 미준수만으로 금지 불가」 / 한국 집시법 <b>제6조</b> — 720시간~<b>48시간</b> 전 관할 경찰서장 신고</td><td>법령</td><td>국사원·믈룅 행정법원 [S27], 법률정보 사이트 [S28]</td><td>🟡 Légifrance·국가법령정보센터 원문 미열람</td></tr>
+<tr><td>F24</td><td>하루 전국 체포(내무부 기준, 같은 자): 2026-10-17 <b>2,397</b> · 2026-10-01 <b>1,949</b> · 2018-12-08 노란 조끼 4차 <b>1,723</b>(당일 밤 잠정 1,385, 경찰 89,000 배치) · 2023-07-01 나엘 <b>1,311</b> · 2025-09-10 모든 것을 막자 <b>473</b>(경찰 80,000 배치) · 2023-03-23 연금 <b>457</b></td><td>내무부(각 시점)</td><td>[S11][S13][S19][S20][S22][S21]</td><td>✅ 2,397·1,949·1,311·457 / 🟡 1,723·473 검색 요약 — 「역대 최다」 단정 근거 없음</td></tr>
+<tr><td>F25</td><td>기준이 다른 총계(참고만): 2005 체포 6,000+(Le Temps) vs 최소 2,921(스위스 분석), 차량 9,071/10,300/10,346, 비상사태 11/9 시행 · 나엘 1주 체포 3,486(내무부 7/4) vs 3,915(법무부), 차량 5,892 · 노란 조끼 1차 287,710명, 6개월 누계 약 12,000</td><td>각 출처</td><td>[S23][S20][S19][S18]</td><td>🟡 집계 기간·기관이 달라 비교 금지 — 「세는 곳 따라 다르다」 예시로만</td></tr>
+<tr><td>F26</td><td>9월 소비자물가 <b>+3.1%</b>(8월 2.4%) · 에너지 <b>+21.3%</b> · 근원 +1.5% / 경유 전국 평균 <b>2.33€/L</b>(10/9 주간, 생태전환부 집계)</td><td>INSEE 10/15 확정 / 생태전환부→Selectra</td><td>[S29][S30]</td><td>✅ INSEE / 🟡 경유는 Selectra 인용</td></tr>
+<tr><td>F27</td><td>외교부 0404 안전공지: 9/30 「고교 시위·파업 확대」 · 10/2 「10.6 고교 시위·10.7 가자 3주년」 · 10/14 (5) · 10/16 (6) 「노란조끼 및 학생 대규모 시위 — 파리 14시 Bastille 집결, République 행진 유력, 현장 인근 방문 자제」 / 여행경보 「여행유의 — 전 지역」(10/19 조회) / 영사콜센터 +82-2-3210-0404</td><td>외교부</td><td>[S17]</td><td>✅ 공지 (5)(6) 원문 / 🟡 9/30·10/2는 검색 요약 — <b>10/18 이후 새 공지 미확인</b></td></tr>
+<tr><td>F28</td><td>한국 기사 수(네이버 뉴스 API, 느슨한 일치, 10/14→15→16→17→18→19 낮): 「프랑스 시위」 46·26·32·<b>14</b>·<b>158</b>·<b>243</b> / 「프랑스 폭동」 3·0·0·1·26·64 / 「리모주 시청」 0·0·0·0·96·100(상한) / 「프랑스 고교생 시위」 3·4·5·5·56·28</td><td>직접 셈</td><td>`naver_news_count_2026-10-19.json`</td><td>✅ 대략치</td></tr>
+<tr><td>F29</td><td>데이터랩 일 단위(상대값): 「프랑스 시위」 10/17 <b>1.9</b> → 10/18 <b>100</b> · 「프랑스 폭동」 0.0 → <b>12.0</b> · 「파리 시위」 0.6 → 14.2 · 「프랑스 여행」 0.3 → 2.2 / 주 단위 2026-10-12주 「프랑스 시위」 100 vs 2025-09-08주(모든 것을 막자) 12.82 — 약 7.8배</td><td>직접 조회</td><td>`datalab_*.json`</td><td>✅ 상대값 — 「프랑스 여행」 튐의 해석은 미확인</td></tr>
+<tr><td>F30</td><td>검색광고 월간: 「프랑스 폭동」 <b>7,340</b>(경쟁 낮음) vs 「프랑스 시위」 10 · 「프랑스 학생 시위」 4,370 · 「프랑스 여행 시위」 105 — 데이터랩(시위 ≫ 폭동)과 <b>반대</b></td><td>title_check 10/19 13:58</td><td>조사 7-1</td><td>✅ 값 / 원인 미확인 — 제목 검색어는 16-3 실제 화면으로 다시 본다</td></tr>
+</table></div></section>
+<section id="bone"><h2>뼈대</h2><ul class='plain'></ul></section>
+<section id="thumb"><h2>썸네일 후보 (1:1 · 글자·얼굴 없음)</h2><div class='scroll'><table>
+<tr><th>후보</th><th>장면</th><th>① 글 전체를 말하며 궁금증(답은 숨김)</th><th>② 그림만 봐도 사건이 떠오름</th><th>③ 본문에 있음</th><th>겹침 점검</th></tr>
+<tr><td><b>A</b></td><td>낡은 고등학교 교실, 빽빽한 책상 하나 위에 <b>노란 조끼 한 벌</b>이 걸쳐 있다. 창밖은 흐린 낮, 사람 없음</td><td>○ — 고교 교실과 노란 조끼가 한 장면에 있어 「어떻게 여기서 저기까지」가 바로 생긴다. 체포 숫자(입구)는 안 보이지만 글의 몸(4주)은 담김</td><td>○ — 노란 조끼 = 프랑스 시위, 교실 = 고교생 시위</td><td>○ — 2절 「사건」 첫 문단 위에 배치</td><td>⑦은 복도·양동이, ⑪은 거리·우산이라 다름</td></tr>
+<tr><td><b>B</b></td><td>시위 다음 날 아침의 바스티유 광장 — 기둥(7월 기둥) 아래 빈 광장, 바닥에 떨어진 <b>노란 조끼 하나</b>와 흩어진 전단(글자 없음), 흐린 아침</td><td>○ — 「어젯밤 무슨 일이, 얼마나」. 사건 장면이 아니라 그 다음 아침이라 ①△는 피함</td><td>○ — 바스티유 기둥 + 노란 조끼</td><td>○ — 1절 「입구」(일요일 아침에 숫자를 본 장면) 위에 배치</td><td>③은 드론 높이 낮 군중, ⑭는 지도라 다름</td></tr>
+</table></div><ul class='plain'><li>둘 다 Higgsfield gpt_image_2_5 high 1:1, 캡션 「AI 생성 이미지(실제 ○○ 아님)」. 맑은 날·흐린 날 중 <b>\1</b>으로(노을 쏠림 금지).</li><li>초안 때 둘 중 하나 고르고, 안 고른 쪽은 쓰지 않는다(5-4 같은 파일 두 번 금지).</li></ul></section>
+<section id="unknown"><h2>아직 모르는 것</h2><ul class='plain'><li>10/17 전국 경찰 배치 공식 인원(「1만 명 이상」은 Europe 1 생중계 표현뿐) · 10/17 전국 차량 방화 수(어느 매체도 집계 없음).</li><li>10/18 이후 외교부 새 안전공지 · 10/17 항공·철도 차질 보도 — <b>\1</b>.</li><li>10/17 폭력 이후 여론조사(Elabe 10/7이 마지막).</li><li>사망자 1명의 신원·경위 세부(당국 「건강 문제」만) · 생테티엔 17세 손 절단 원인(IGPN 조사 중, 장관 미확인) · 랑스 15세(10/5).</li><li>고교생 시위 시작일 9/18 vs 9/21(위키 EN 자체 불일치) → 「9월 셋째 주」로 쓴다.</li><li>ETUI 독일 「13~17」·영국 「18~28」이 어느 연대 값인지(Euronews 정리본만, 원 데이터 403) — ⑫는 「2010~19 프랑스 128 · 독일 17」로 그리되 대조 뒤 확정.</li><li>「노조원이 적어도 협약을 모두 적용받아서 시위로 힘을 보인다」는 연결 — OECD 원문엔 없음. 숫자 둘만 나란히.</li><li>검색광고 월간(폭동 7,340 : 시위 10)과 데이터랩(시위 100 : 폭동 12)이 반대인 원인 · 2026-07-13주 「프랑스 폭동」 2.72 튐 · 「프랑스 여행」 10/18 2.2 튐의 뜻.</li><li>2005년 체포 6,000+ vs 2,921(두 배 차이) — 글엔 둘 다 출처 붙여서만, 그림엔 안 넣음.</li><li>파리 구금 557 → 517 갱신설 · 파리 체포 855 / 195 / 21의 범위.</li><li>위키 FR의 「10/20 위기대응반」「10/23 부다페스트」 원 출처 · 10/19 뉘녜스 마르세유 방문(CNews 제목만).</li><li>Légifrance L211-2 원문 · 국가법령정보센터 집시법 제6조 원문 — 둘 다 미열람(재인용).</li></ul></section>
+</main>
+<footer>원자료: 261019_프랑스 폭동 — 프랑스폭동_공부노트_2026-10-19.md, base data(프랑스폭동_조사·도해표.json·데이터랩 원자료). 판정 문장 없음, 참가 인원은 발표 주체별.</footer>
+</div></body></html>

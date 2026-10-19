@@ -1,0 +1,4 @@
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/여행_컨텐츠/양식 셋업 전/여행-25년 캐나다편/clip/_build/_beep.wav'
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/여행_컨텐츠/양식 셋업 전/여행-25년 캐나다편/clip/_build/_chk02.wav'
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/여행_컨텐츠/양식 셋업 전/여행-25년 캐나다편/clip/_build/_beep.wav'
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/여행_컨텐츠/양식 셋업 전/여행-25년 캐나다편/clip/_build/_chk04.wav'

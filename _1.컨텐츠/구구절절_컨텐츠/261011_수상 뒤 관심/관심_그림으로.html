@@ -1,0 +1,183 @@
+<title>관심은 왜 한발 늦게 오나</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+/* 레이아웃: 한 줄 문서. 그림이 본문과 같은 폭으로 번갈아 선다. 왼쪽에 얇은 차례. */
+:root{
+  --bg:#f5f3ee; --paper:#fffdf8; --fg:#1f2320; --muted:#6b7068; --line:#d9d5c9;
+  --ink:#3a2f4a; --accent:#8a5a1e; --gold:#b8891e; --gold-soft:#f3e7c7;
+  --display:"Noto Serif KR",serif; --body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#17181a; --paper:#1f2124; --fg:#e8e6dd; --muted:#a3a79c; --line:#36393d;
+  --ink:#d3c6e3; --accent:#d9a85a; --gold:#d9ab45; --gold-soft:#3a3120; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#17181a; --paper:#1f2124; --fg:#e8e6dd; --muted:#a3a79c; --line:#36393d;
+  --ink:#d3c6e3; --accent:#d9a85a; --gold:#d9ab45; --gold-soft:#3a3120; color-scheme:dark }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.75;padding-inline:16px;padding-block:0 80px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)} nav.toc{display:none}}
+header{grid-column:1/-1;padding-block:48px 24px;border-bottom:1px solid var(--line)}
+header .eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+header h1{font-family:var(--display);font-size:clamp(26px,3.4vw,38px);line-height:1.3;margin:10px 0 6px;text-wrap:balance}
+header p{margin:0;color:var(--muted);font-size:15px}
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;padding-top:28px;font-size:13.5px}
+nav.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+nav.toc a{color:var(--muted);text-decoration:none;display:block;border-left:2px solid var(--line);padding-left:10px;line-height:1.4}
+nav.toc a:hover,nav.toc a:focus{color:var(--fg);border-left-color:var(--gold)}
+main{min-width:0;max-width:720px}
+section{padding-block:28px;border-bottom:1px solid var(--line)}
+section.lead p{font-size:18px}
+section.lead p:first-child{font-family:var(--display);font-size:26px;color:var(--ink)}
+h2{font-family:var(--display);font-size:22px;line-height:1.35;margin:0 0 14px;text-wrap:balance;color:var(--ink)}
+p{margin:0 0 14px;max-width:66ch}
+strong{background:var(--gold-soft);padding:0 3px;font-weight:700}
+figure{margin:18px 0 22px;background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+figure img{display:block;width:100%;max-width:100%;height:auto}
+figcaption{font-size:14px;color:var(--muted);padding:10px 14px;border-top:1px solid var(--line);line-height:1.5}
+figcaption .fn{color:var(--gold);font-weight:700;margin-right:6px;font-variant-numeric:tabular-nums}
+.tbl{overflow-x:auto;margin:10px 0 18px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:13px;letter-spacing:.04em}
+.q{font-family:var(--display);color:var(--ink);font-size:19px;margin:0 0 10px}
+.note{font-size:14px;color:var(--muted)}
+footer{grid-column:1/-1;color:var(--muted);font-size:13px;padding-top:24px}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+</style>
+<div class="wrap">
+<header>
+  <div class="eyebrow">구구절절 · 조사 검토용 (초안 전)</div>
+  <h1>관심은 왜 늘 한발 늦게 오나 — 노벨상·밈·역주행, 무관심에서 폭발까지 그리고 그 뒤</h1>
+  <p>앤 카슨·한강·리센느·롤린·컬링까지 사례 10개, 그 「왜」를 설명하는 연구 4개. 글 순서대로 그림과 설명을 붙였다. 숫자는 공부노트에서 확인한 것만.</p>
+</header>
+<nav class="toc"><ol>
+<li><a href="#s1">입구</a></li><li><a href="#s2">사례 — 계기와 배수</a></li><li><a href="#s3">연구 ① 정보 폭포</a></li><li><a href="#s4">연구 ② 사회적 증거</a></li><li><a href="#s5">연구 ③ 누적 이익</a></li><li><a href="#s6">연구 ④ 상의 역설</a></li><li><a href="#s7">네 개를 한 줄로</a></li><li><a href="#s8">그 뒤 — 지속과 소멸</a></li><li><a href="#s9">등록 선수 실측</a></li><li><a href="#s9b">폭발 뒤 1~2년</a></li><li><a href="#s9c">조건 넷</a></li><li><a href="#s9e">누구의 팬덤인가</a></li><li><a href="#s9d">리센느에게 감히</a></li><li><a href="#s10">결론과 할 일</a></li><li><a href="#s11">아직 모르는 것</a></li>
+</ol></nav>
+<main>
+
+<section class="lead" id="s1">
+<p>10월 8일 저녁에야 앤 카슨을 검색했다.</p>
+<p>그 전날까지 내 서재에도, 내 검색창에도 없던 이름이었다. 발표 12시간 만에 예스24 판매가 184배, 교보가 138배. 출판사는 재고가 떨어져 예약판매로 돌렸고, 한글날이라 인쇄소가 쉬어 월요일에 찍는다고 했다.</p>
+<p>궁금한 건 카슨이 아니라 나였다. 나는 왜 그제야 찾았을까. 그리고 상이 없었다면 영영 안 찾았을까. 같은 모양의 일이 문학에만 있는 게 아니었다. 2년 동안 차트 밖이던 걸그룹 노래가 밈 하나로 1위가 됐고, 4년 묵은 노래가 댓글 영상 하나로 1위가 됐다. 이 글은 그 「같은 모양」을 끝까지 판 기록이다.</p>
+</section>
+
+<section id="s2">
+<h2>같은 모양의 사례 열 개 — 무관심, 계기, 폭발</h2>
+<p>문학·음악·영화·스포츠에서 모았다. 공통점은 「계기 하나」가 있고, 그 뒤 숫자가 배수로 뛴다는 것. 표의 배수는 전부 기사와 집계 기관 발표에서 가져온 숫자다.</p>
+<div class="tbl"><table>
+<tr><th>사례</th><th>무관심 상태</th><th>계기</th><th>폭발</th></tr>
+<tr><td>앤 카슨 2026</td><td>「1년 100부 미만」 급 시인</td><td>노벨 발표</td><td>교보 138배 · 예스24 184배 · 『빨강의 자서전』 367배</td></tr>
+<tr><td>한강 2024</td><td>부커로 알려진 뒤였음</td><td>노벨 발표</td><td>6일 만에 3사 103만 부 · 예스24 종이책 2,240배</td></tr>
+<tr><td>욘 포세 2023</td><td>번역 9종 있었음</td><td>노벨 발표</td><td>알라딘 연간의 10배 · 『멜랑콜리아』 주문 100부→1,600부</td></tr>
+<tr><td>구르나 2021</td><td>국내 출간 0종</td><td>노벨 발표</td><td>살 책이 없어 뒤늦게 3권 출간</td></tr>
+<tr><td>앨리스 먼로 2013</td><td>자국 거장</td><td>노벨 발표</td><td>캐나다 판매 4,424%↑ (이틀 전 문고판 출간이 교란 변수)</td></tr>
+<tr><td>리센느 2026</td><td>발매 2년 차트 밖, 680일 무명</td><td>3/20 「거제 야호」 밈</td><td>멜론 검색 6,550%↑ · 7/8 멜론 1위 · 초동 3.6만→10.7만</td></tr>
+<tr><td>롤린 2021</td><td>4년 차트 밖</td><td>댓글모음 영상</td><td>2주 만에 멜론 1위 · 그해 연간 2위</td></tr>
+<tr><td>윤하 2022</td><td>발매 뒤 조용</td><td>축제 무대 입소문</td><td>243일 만에 음방 1위</td></tr>
+<tr><td>기생충 2020</td><td>이미 흥행</td><td>오스카 4관왕</td><td>재상영 · 관련서 하루 1,000권 · 일본 상영관 2배</td></tr>
+<tr><td>비인기 종목</td><td>컬링 등록 수백 명</td><td>올림픽 메달</td><td>양궁 클럽 수강생 3배, 협회 문의 2개월 지속</td></tr>
+</table></div>
+<p class="note">출처: 서울신문·뉴닉·한겨레·이데일리·BookNet Canada·문화일보·MBC·스타뉴스·더팩트·서울신문(2020)·문화일보(양궁). 각 숫자의 기사 번호는 공부노트 1장.</p>
+</section>
+
+<section id="s3">
+<h2>연구 ① 정보 폭포 — 앞사람을 보면 내 판단을 버린다</h2>
+<p class="q">「상」은 앞사람 수천 명이 한꺼번에 '샀다'고 보여주는 신호다.</p>
+<p>줄 선 사람을 떠올리면 된다. A는 자기 느낌으로 고른다. B는 A 한 명만 봤으니 아직 자기 느낌이 이긴다. C는 앞의 둘이 같은 걸 골랐으니 자기 느낌을 버리고 따라간다. D부터는 아무도 자기 느낌을 안 본다. 이게 폭포다.</p>
+<p>두 가지가 중요하다. 폭포는 <strong>두세 명만 우연히 겹쳐도 시작</strong>되고, 정보가 실제로 모인 게 아니라서 <strong>쉽게 뒤집힌다</strong>. 1992년 경제학 논문이 수학으로 보인 내용이다.</p>
+<figure><img src="img/R1_cascade_v2.png" alt="정보 폭포 계단" loading="lazy"><figcaption><span class="fn">그림 1</span> Bikhchandani·Hirshleifer·Welch 1992, Journal of Political Economy 100(5). A~E 줄서기와 신호는 설명용 그림.</figcaption></figure>
+</section>
+
+<section id="s4">
+<h2>연구 ② 사회적 증거 — 모를 때는 남들이 하는 것을 정답으로 삼는다</h2>
+<p class="q">시집·낯선 작가·안 들어본 아이돌은 전부 「확신이 없는 영역」이다.</p>
+<p>확신이 있을 때는 내 취향으로 고른다. 확신이 없을 때는 「나와 비슷한 남들」이 고른 것을 정답으로 보고, 그 수가 많을수록 더 옳다고 느낀다. 설득 심리학의 여섯 원칙 중 하나다.</p>
+<p>그래서 수상 효과는 원래 덜 알려진 쪽에서 크다. 프랑스 공쿠르상을 통계로 본 연구는 수상이 판매를 평균 350% 올리는데, <strong>원래 덜 팔리던 책일수록 효과가 컸다</strong>고 했다. 카슨이 한강보다 배수가 큰 이유가 여기 있다.</p>
+<figure><img src="img/R2_social_proof_v2.png" alt="사회적 증거 두 칸" loading="lazy"><figcaption><span class="fn">그림 2</span> Cialdini 『Influence』 social proof. 보조: Lagiosa·Méon 2021(공쿠르 회귀불연속, 워킹페이퍼).</figcaption></figure>
+</section>
+
+<section id="s5">
+<h2>연구 ③ 누적 이익 — 같은 48곡, 8개 세계, 1등이 다 달랐다</h2>
+<p class="q">역주행이 「운」처럼 보이는 이유의 수학.</p>
+<p>2006년 실험이다. 참가자 14,341명에게 무명 밴드 48곡을 듣게 했다. 한 집단은 남의 다운로드 수를 못 보고, 나머지는 서로 분리된 8개 「세계」에서 남의 다운로드 수를 봤다. 결과는 <strong>세계마다 1등이 달랐다</strong>. 1등은 더 1등이 되고 꼴찌는 더 꼴찌가 됐다.</p>
+<p>품질이 전부는 아니었다. 가장 좋은 곡은 꼴찌를 안 했고 가장 나쁜 곡은 1등을 못 했지만, 그 사이는 뭐든 가능했다. 순위를 한 줄로 보여준 두 번째 실험에서는 쏠림이 더 커졌다. 차트 1위가 다음 날 더 큰 1위가 되는 구조다.</p>
+<figure><img src="img/R3_musiclab_v2.png" alt="MusicLab 8개 세계" loading="lazy"><figcaption><span class="fn">그림 3</span> Salganik·Dodds·Watts 2006, Science 311. 막대는 결과를 설명하는 모식도이고 실제 수치가 아니다. 1등 곡 번호도 설명용 배치.</figcaption></figure>
+</section>
+
+<section id="s6">
+<h2>연구 ④ 상의 역설 — 수상작은 더 팔리지만 평점은 더 떨어진다</h2>
+<p class="q">관심이 소비로, 소비가 실망으로.</p>
+<p>2007~2011년 수상작과 낙선한 최종후보작 64권(32쌍)의 독자 리뷰 38,817개를 봤다. 수상작은 독자가 급증하는데 <strong>평점은 2년에 걸쳐 약 0.25점(5점 만점) 떨어졌고</strong>, 낙선작은 그대로였다.</p>
+<p>이유는 둘이다. 취향이 제각각인 독자가 한꺼번에 몰린다. 그리고 인기 자체가 반감을 부른다. 2011년 부커상을 받은 『예감은 틀리지 않는다』가 대표 사례로, 판매가 뛰는 동안 평점은 장기 하락했다.</p>
+<figure><img src="img/R4_paradox_v2.png" alt="상의 역설 그래프" loading="lazy"><figcaption><span class="fn">그림 4</span> Kovács·Sharkey 2014, Administrative Science Quarterly 59(1). 막대·별은 모식도. 「0.25점」은 2차 요약 수치라 원문 표 재확인 표시.</figcaption></figure>
+</section>
+
+<section id="s7">
+<h2>네 개를 한 줄로 잇기</h2>
+<p>상이 신호가 되고(①), 확신 없는 영역일수록 그 신호를 따르며(②), 초기 우위가 눈덩이처럼 커지고(③), 몰려온 독자 때문에 평가는 오히려 내려간다(④). 리센느의 「거제 야호」 밈도 같은 자리에 선다. 상 대신 밈이 신호였을 뿐이다.</p>
+<p><strong>우리는 작품이 아니라 신호를 산다.</strong> 그래서 신호가 꺼지면 관심도 꺼진다. 다음 절은 그 「꺼진 뒤」다.</p>
+</section>
+
+<section id="s8">
+<h2>그 뒤 — 폭발 다음 해에 어디에 있었나</h2>
+<p>확인된 숫자만 모았다. 윤하는 연간 49위에서 이듬해 5위로 오히려 더 올라갔고 3년 연속 연간 차트에 남았다. 롤린은 그해 연간 2위, 이듬해 여름까지 547일 연속 일간 차트에 있었다. 한강의 해외 번역서는 120만 부에서 그대로 멈췄고, 『채식주의자』는 부커 전 9년 누적 6만에서 그해 60만으로 뛰었다.</p>
+<figure><img src="img/C1_afterwards_v2.png" alt="사례의 그 뒤 표" loading="lazy"><figcaption><span class="fn">그림 5</span> 멜론 연간 순위·번역원 집계·창비 발표. 「거제 관광객 300%」는 멤버 발언이라 쓰지 않았고 거제시 집계 +78%만 썼다.</figcaption></figure>
+</section>
+
+<section id="s9">
+<h2>등록 선수 실측 — 컬링은 평창 뒤 오히려 줄었다</h2>
+<p>「메달 뒤 관심이 종목을 키우나」를 숫자로 보려고 대한체육회 포털에서 종목별 등록 선수를 직접 조회했다. <strong>컬링은 2017년 790명에서 평창 이듬해 668명, 2021년 631명으로 줄었다.</strong> '영미' 열풍은 등록 선수로 이어지지 않았다. 양궁은 도쿄 뒤 완만히 늘었고, 펜싱은 꾸준히 늘었다.</p>
+<p>2022년부터는 포털이 바뀌어 집계 기준이 달라졌다. 그래서 선을 끊어 그렸고, 같은 쪽끼리만 비교해야 한다.</p>
+<figure><img src="img/C2_registered_players.png" alt="등록 선수 선그래프" loading="lazy"><figcaption><span class="fn">그림 6</span> g1.sports.or.kr 종별현황(선수), 2026.10.11 조회. 2016~21은 이전 포털, 2022~26은 현 포털. 2020년 컬링 651명은 이전 포털에서 10.11 밤 추가 조회.</figcaption></figure>
+</section>
+
+<section id="s9b">
+<h2>폭발 뒤 1~2년 — 같은 역주행, 다른 끝</h2>
+<p class="q">꺼진 쪽의 공통점은 「노래가 나빠서」가 아니었다.</p>
+<p>음악 역주행 여덟 팀을 1~2년 뒤까지 따라가 봤다. 브레이브걸스는 역주행 2년 만에 전원 계약 만료였고, 소속사가 활동 기간에 콘서트를 한 번도 열지 않았다는 사실이 그때 다시 드러났다. 팀명 상표마저 소속사 것이라 「브브걸」로 이름을 바꿔야 했다. 여자친구·EXID·모모랜드는 전부 데뷔 7년 재계약 시점에 흩어졌다. 올해 유니스는 역주행 한복판에서 「정해진 2년 6개월」이 끝났다.</p>
+<p>남은 쪽은 달랐다. 윤하는 역주행 다음 해 연간 5위로 더 올라갔고, 2024년 체조경기장 2만 석을 채웠고, 소속사는 2년 연속 흑자였다. 오마이걸은 퀸덤으로 팬층을 넓힌 뒤 이듬해 신곡으로 첫 1위를 했다.</p>
+<figure><img src="img/C3_timeline_bars.png" alt="폭발 뒤 몇 년 갔나 타임라인" loading="lazy"><figcaption><span class="fn">그림 7</span> 막대 길이 = 역주행 시작부터 계약 만료·해체까지. 아주경제·뉴시스·OSEN·텐아시아·일간스포츠·뉴스서울·fn. 리센느·윤하·오마이걸은 진행 중.</figcaption></figure>
+<p>책도 같은 모양이다. 노벨상 뒤 전체 도서 판매는 반년 만에 수상 전보다 낮아졌다. 그런데 『소년이 온다』는 2년 연속 연간 1위였고, 올해 3월 『작별하지 않는다』가 전미도서비평가협회상을 받자 하루 만에 5배가 다시 팔렸다. <strong>다음 신호가 오는 쪽만 남는다.</strong></p>
+</section>
+
+<section id="s9c">
+<h2>거꾸로 뽑은 조건 넷</h2>
+<p>열 사례를 거꾸로 돌리면 네 칸이 나온다. 무대가 생겼나. 밈이 팬덤으로 바뀌었나. 다음 신호가 왔나. 그리고 시계가 맞나. 꺼진 쪽은 네 번째에 걸렸고 첫 번째가 비어 있었다.</p>
+<figure><img src="img/C4_four_conditions_v2.png" alt="관심이 남는 조건 넷" loading="lazy"><figcaption><span class="fn">그림 8a</span> 열 사례에서 귀납한 것. 학술 모델이 아니라 이 글의 가설이다.</figcaption></figure>
+</section>
+
+<section id="s9e">
+<h2>그런데 누구의 팬덤인가 — 아저씨 팬덤은 얼마나 가나</h2>
+<p class="q">열 명 중 일곱이 남자였다.</p>
+<p>편의점 빵 구매자 통계가 가장 구체적이었다. 남성이 69.1%, 그중 30대와 40대 남성만 41.3%다. 첫 팬콘 예매자도 남성이 약 70%였다는 기록이 있다. 유입 경로는 유튜브 「나의 연수 아저씨」였고, 그 시즌은 7월 졸업식으로 끝났다.</p>
+<figure><img src="img/F1_fandom_pictogram.png" alt="리센느 팬덤 성별·연령 픽토그램" loading="lazy"><figcaption><span class="fn">그림 8</span> CU 집계(문화일보 2026.10.4). 팬콘 성비는 나무위키 기재라 공식 미확인.</figcaption></figure>
+<p>「여성 팬덤이 더 오래 간다」는 말에는 근거가 있다. 포토카드 거래 앱 설치자가 여성 92.7%다. 다시 사는 사람이 여성에 몰려 있다. 그런데 반례가 더 날카롭다. 브레이브걸스는 출발이 군통령이었지만 역주행 본체는 여성 청취자였다. 그런데도 2년 만에 끝났다. 여자친구는 여성 팬이 60%였는데 7년 만료로 흩어졌다.</p>
+<figure><img src="img/F2_bravegirls_paradox.png" alt="브레이브걸스 역설 막대" loading="lazy"><figcaption><span class="fn">그림 9</span> 여성신문 2021.4(멜론 이용자 추이), 아주경제 2023.2.16, 서울신문 2016.3.16.</figcaption></figure>
+<p>그래서 성별은 「누가 듣느냐」를 정하지, 무대와 다음 신호와 시계를 대신해 주지 않는다. 아저씨 팬덤의 진짜 문제는 성별이 아니라 구매 단위다. 빵과 음원은 한 번이고, 앨범 복수 구매와 포카 교환은 반복이다. 리센느 초동 10만 7천이 어느 손에서 나왔는지는 아직 모른다.</p>
+<figure><img src="img/F3_bread_vs_photocard.png" alt="한 번 사는 팬덤과 다시 사는 팬덤" loading="lazy"><figcaption><span class="fn">그림 10</span> 그림은 모식도. 포카마켓 성비는 Dighty 데이터마켓 안드로이드 설치자 기준.</figcaption></figure>
+</section>
+
+<section id="s9d">
+<h2>리센느에게 감히 — 삼류 분석가의 조언</h2>
+<p class="q">네 칸 중 비어 있는 칸은 시계이고, 흔들리는 칸은 팬덤 전환이다.</p>
+<p>팬덤은 있다. 초동이 3만 6천에서 10만 7천으로 뛰었고, 밈 전인 지난해 앨범도 8만이었다. 다만 그 손이 다시 사는 손인지는 위에서 본 대로 아직 모른다. 무대는 축제 시즌과 음악방송 6관왕까지는 있는데 단독 콘서트 공지는 못 찾았다. 다음 신호는 11월 3일 새 앨범이 첫 시험이다. 시계가 문제다. 2024년 3월 데뷔면 표준계약 7년은 2031년이고, 소속사는 기업가치가 75배 뛰는 동안 지난해 56억 영업손실로 자본잠식 상태였다. 특허청 원본도 열어 봤다. 영문 팀명 상표 열 건이 전부 소속사 명의였다. 데뷔 8일 전 공연업으로 출원해 지난해 말 등록됐고, 밈 석 달 뒤인 올해 6월 25일에 음반·가방·귀금속 등 일곱 건을 한꺼번에 더 냈다. 멤버 공동 출원은 없다. 업계 표준이라 문제가 아니라, 브레이브걸스가 이름을 잃은 바로 그 구조라는 뜻이다.</p>
+<p>그래서 셋만. <strong>밈을 다시 쓰지 말 것.</strong> 「롤린」 다음의 「운전만해」가 그 교훈이다. <strong>2027년 안에 단독 무대를 셀 수 있는 숫자로 남길 것.</strong> 윤하의 20회 투어가 모델이다. <strong>팀명 상표와 재계약 시계를 팬보다 먼저 볼 것.</strong> 브브걸이 이름을 잃은 이유다. 그리고 하나 더. 아저씨 팬덤을 여성 팬덤으로 바꾸려 하지 말고, 지금 팬덤을 다시 사는 구조로 바꿀 것. 재가입률과 2회차 예매 같은 숫자가 그 증거다.</p>
+<figure><img src="img/C5_rescene_checklist_v2.png" alt="리센느 체크표" loading="lazy"><figcaption><span class="fn">그림 11</span> 공개된 숫자로만 채운 체크표. 상표는 특허청 KIPRIS 2026.10.11 직접 조회. ○△X는 글쓴이 판단.</figcaption></figure>
+</section>
+
+<section id="s10">
+<h2>결론, 그리고 오늘 할 수 있는 것 하나</h2>
+<p>우리는 작품이 아니라 신호를 산다. 신호가 꺼진 뒤에도 남는 건 <strong>무대가 생기고 다음 신호가 온 경우</strong>뿐이었다. 윤하의 축제, 펜싱의 클럽, 한강의 다음 상. 상이나 밈은 문을 열 뿐이고, 그 뒤를 받치는 건 사람들이 계속 모일 자리다.</p>
+<p>오늘 할 일 하나. 지금 장바구니에 든 그 책을 보고 한 번만 묻자. <strong>「상 받기 전에 내가 이 작가를 알았나.」</strong> 사지 말라는 게 아니다. 내가 산 게 작품인지 신호인지 알고 사자는 것이다.</p>
+</section>
+
+<section id="s11">
+<h2>아직 모르는 것</h2>
+<p>다시 찾아서 채운 것. 『채식주의자』는 노벨상 전에 이미 110만 부였다. 롤린은 2021년 연간 2위에서 2022년 72위로 내려갔다. 등록 선수 2020년 컬링은 651명이라 평창 뒤 감소가 한 해도 끊기지 않았다. 미나리는 수상 다음 날 관객이 73% 뛰어 닷새 뒤 100만을 넘겼다. 모모랜드 소속사는 2024년에야 코로나 재정난과 임금 체불을 인정했다.</p>
+<p>아직 못 채운 것. 윤하 2023년 지방 투어의 실제 입장 관객(예매 좌석 수만 확인). 구르나 세 권의 판매 수치. 리센느의 전속계약 기간, 단독 콘서트 계획, 11월 3일 앨범 초동, 초동 구매자 성비와 팬클럽 재가입률, 팬콘 공식 성비(「남성 70%」는 원자료가 없다), 멜론 청취자 연령·성별(비공개). 상이 장기 성공에 미치는 효과를 다룬 2003년 논문은 초록까지만 읽었다. 본문 PDF가 접근 차단이라 숫자는 못 봤다. 확인되면 한 문단으로 덧붙인다.</p>
+</section>
+
+</main>
+<footer>근거 일람: 관심_공부노트_2026-10-11.md · 도해: make_diagrams.py(자체 제작) · 그림 3·4의 막대와 선은 모식도, 그림 5·6은 확인된 숫자</footer>
+</div>

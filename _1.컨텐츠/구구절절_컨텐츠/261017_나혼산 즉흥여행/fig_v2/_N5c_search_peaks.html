@@ -1,0 +1,45 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'NK';src:url('file:///C:/Windows/Fonts/NotoSansKR-VF.ttf');font-weight:100 900}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#1E2330;--ink2:#4A5163;--muted:#7A7466;--line:#E3D9C6;--pre:#3D62AE;--pre-l:#E7EDF8;--ons:#D07A22;--ons-l:#FBEBDA;
+ --red:#C8463C;--red-l:#F8E2DF;--navy:#22335A;--paper:#FFFCF5;--bg:#EDE5D6;--ok:#2F8F5B}
+html,body{width:1400px;height:800px}
+body{font-family:'NK',sans-serif;color:var(--ink);position:relative;overflow:hidden;-webkit-font-smoothing:antialiased;
+ background:var(--bg);background-image:radial-gradient(rgba(90,70,40,.06) 1px,transparent 1.2px);background-size:6px 6px}
+.ticket{position:absolute;left:36px;top:34px;width:1328px;height:732px;background:var(--paper);border-radius:20px;
+ box-shadow:0 2px 0 rgba(60,45,20,.06),0 22px 50px rgba(60,45,20,.16);overflow:hidden}
+.band{position:absolute;left:0;top:0;right:0;height:158px;background:var(--navy);color:#fff;padding:26px 40px}
+.band .k{display:flex;gap:14px;align-items:center;font-size:15px;font-weight:800;letter-spacing:.18em;color:#AFC0E6}
+.band .k b{background:var(--ons);color:#fff;letter-spacing:.06em;border-radius:6px;padding:3px 9px;font-size:14px}
+.band h1{color:#fff;font-size:50px;font-weight:900;letter-spacing:-.02em;margin-top:10px;white-space:nowrap}
+.band h1 em{font-style:normal;color:#FFC27A}
+.perf{position:absolute;left:1000px;top:158px;bottom:0;border-left:3px dashed #D9CFBC}
+.perf.solid{border-left:2px solid #E8DFCC}
+.stub.side{background:#F7F1E5}
+.notch{position:absolute;width:44px;height:44px;border-radius:50%;background:var(--bg);left:979px}
+.main{position:absolute;left:0;top:158px;width:1000px;bottom:0;padding:24px 36px 44px}
+.stub{position:absolute;left:1003px;right:0;top:158px;bottom:0;padding:26px 30px}
+.stub .lab{font-size:13px;font-weight:800;letter-spacing:.16em;color:#9A917F}
+.stub .row{margin-top:16px}
+.stub .n{font-size:84px;font-weight:900;line-height:.95;letter-spacing:-.04em}
+.stub .n small{font-size:36px;margin-left:2px}
+.stub .t{font-size:16px;font-weight:700;color:var(--ink2);margin-top:6px;line-height:1.35}
+.bar{position:absolute;left:30px;right:30px;bottom:56px;height:54px;background:repeating-linear-gradient(90deg,#22335A 0 3px,transparent 3px 6px,#22335A 6px 7px,transparent 7px 11px,#22335A 11px 15px,transparent 15px 17px)}
+.src2{position:absolute;left:30px;bottom:22px;font-size:13px;font-weight:800;letter-spacing:.14em;color:#9A917F}
+.src{position:absolute;left:36px;bottom:16px;right:340px;font-size:13.5px;color:#9A917F;white-space:nowrap;overflow:hidden}
+.stamp{position:absolute;transform:rotate(-7deg);border:4px solid var(--ons);color:var(--ons);border-radius:12px;padding:10px 20px;
+ font-size:25px;font-weight:900;background:rgba(255,252,245,.88);box-shadow:inset 0 0 0 2px rgba(208,122,34,.25);white-space:nowrap}
+.stamp.red{border-color:var(--red);color:var(--red);box-shadow:inset 0 0 0 2px rgba(200,70,60,.22)}
+.stamp.navy{border-color:var(--navy);color:var(--navy);box-shadow:inset 0 0 0 2px rgba(34,51,90,.2)}
+img.i3{display:block;object-fit:contain}
+svg.i{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.chk{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;flex:none}
+</style></head><body>
+<div class="ticket">
+ <div class="band"><div class="k"><b>구구절절</b>TRAVEL NOTE · 왜 계속 화제였나 · 07 / 13</div><h1>검색이 다시 뜬 날 = <em>새 사실</em>이 나온 날</h1></div>
+ <div class="main"><img class="i3" src="icons/search_t.png" style="position:absolute;left:1160px;top:-142px;width:128px;height:128px;z-index:3"><svg width="920" height="420" viewBox="0 0 920 420" style="font-family:NK"><line x1="40" x2="910" y1="320.0" y2="320.0" stroke="#E7E0D0" stroke-width="1.5"/><text x="32" y="325.0" text-anchor="end" font-size="13" fill="#9A917F" font-weight="700">0</text><line x1="40" x2="910" y1="169.0" y2="169.0" stroke="#E7E0D0" stroke-width="1.5"/><text x="32" y="174.0" text-anchor="end" font-size="13" fill="#9A917F" font-weight="700">50</text><line x1="40" x2="910" y1="18.0" y2="18.0" stroke="#E7E0D0" stroke-width="1.5"/><text x="32" y="23.0" text-anchor="end" font-size="13" fill="#9A917F" font-weight="700">100</text><polygon points="40.0,320.0 40.0,320.0 52.9,320.0 65.9,320.0 78.8,320.0 91.7,315.3 104.6,272.1 117.6,262.5 130.5,264.9 143.4,281.5 156.3,291.8 169.3,300.4 182.2,260.0 195.1,156.9 208.0,168.1 221.0,229.4 233.9,97.2 246.8,18.0 259.7,144.2 272.7,171.9 285.6,198.7 298.5,209.2 311.4,168.4 324.4,212.1 337.3,241.0 350.2,265.9 363.1,161.5 376.1,200.5 389.0,261.7 401.9,278.9 414.8,293.0 427.8,297.7 440.7,300.2 453.6,298.8 466.5,292.9 479.5,301.6 492.4,305.4 505.3,306.7 518.2,309.2 531.2,310.4 544.1,310.5 557.0,308.9 569.9,307.3 582.9,312.1 595.8,313.9 608.7,314.2 621.6,309.3 634.6,308.6 647.5,308.9 660.4,309.6 673.3,312.6 686.3,313.5 699.2,315.6 712.1,316.1 725.0,315.6 738.0,313.3 750.9,313.1 763.8,304.1 776.7,301.9 789.7,307.3 802.6,312.0 815.5,313.4 828.4,313.0 841.4,313.6 854.3,314.9 867.2,315.4 880.1,315.6 893.1,316.8 906.0,289.9 906.0,320.0" fill="rgba(61,98,174,.12)"/><polyline points="40.0,320.0 52.9,320.0 65.9,320.0 78.8,320.0 91.7,315.3 104.6,272.1 117.6,262.5 130.5,264.9 143.4,281.5 156.3,291.8 169.3,300.4 182.2,260.0 195.1,156.9 208.0,168.1 221.0,229.4 233.9,97.2 246.8,18.0 259.7,144.2 272.7,171.9 285.6,198.7 298.5,209.2 311.4,168.4 324.4,212.1 337.3,241.0 350.2,265.9 363.1,161.5 376.1,200.5 389.0,261.7 401.9,278.9 414.8,293.0 427.8,297.7 440.7,300.2 453.6,298.8 466.5,292.9 479.5,301.6 492.4,305.4 505.3,306.7 518.2,309.2 531.2,310.4 544.1,310.5 557.0,308.9 569.9,307.3 582.9,312.1 595.8,313.9 608.7,314.2 621.6,309.3 634.6,308.6 647.5,308.9 660.4,309.6 673.3,312.6 686.3,313.5 699.2,315.6 712.1,316.1 725.0,315.6 738.0,313.3 750.9,313.1 763.8,304.1 776.7,301.9 789.7,307.3 802.6,312.0 815.5,313.4 828.4,313.0 841.4,313.6 854.3,314.9 867.2,315.4 880.1,315.6 893.1,316.8 906.0,289.9" fill="none" stroke="#22335A" stroke-width="3.2" stroke-linejoin="round"/><line x1="91.7" x2="91.7" y1="315.3" y2="327" stroke="#D07A22" stroke-width="1.6" stroke-dasharray="3 3"/><circle cx="91.7" cy="315.3" r="6.5" fill="#D07A22" stroke="#FFFCF5" stroke-width="2.5"/><text x="91.7" y="342" text-anchor="middle" font-size="15" font-weight="800" fill="#D07A22">1편 방송</text><line x1="182.2" x2="182.2" y1="260.0" y2="349" stroke="#D07A22" stroke-width="1.6" stroke-dasharray="3 3"/><circle cx="182.2" cy="260.0" r="6.5" fill="#D07A22" stroke="#FFFCF5" stroke-width="2.5"/><text x="182.2" y="364" text-anchor="middle" font-size="15" font-weight="800" fill="#D07A22">2편·알마티 보도</text><line x1="233.9" x2="233.9" y1="97.2" y2="371" stroke="#D07A22" stroke-width="1.6" stroke-dasharray="3 3"/><circle cx="233.9" cy="97.2" r="6.5" fill="#D07A22" stroke="#FFFCF5" stroke-width="2.5"/><text x="233.9" y="386" text-anchor="middle" font-size="15" font-weight="800" fill="#D07A22">1차 입장</text><line x1="311.4" x2="311.4" y1="168.4" y2="327" stroke="#D07A22" stroke-width="1.6" stroke-dasharray="3 3"/><circle cx="311.4" cy="168.4" r="6.5" fill="#D07A22" stroke="#FFFCF5" stroke-width="2.5"/><text x="311.4" y="342" text-anchor="middle" font-size="15" font-weight="800" fill="#D07A22">2차 입장</text><line x1="363.1" x2="363.1" y1="161.5" y2="349" stroke="#D07A22" stroke-width="1.6" stroke-dasharray="3 3"/><circle cx="363.1" cy="161.5" r="6.5" fill="#D07A22" stroke="#FFFCF5" stroke-width="2.5"/><text x="363.1" y="364" text-anchor="middle" font-size="15" font-weight="800" fill="#D07A22">3차 입장</text><line x1="906.0" x2="906.0" y1="289.9" y2="327" stroke="#D07A22" stroke-width="1.6" stroke-dasharray="3 3"/><circle cx="906.0" cy="289.9" r="6.5" fill="#D07A22" stroke="#FFFCF5" stroke-width="2.5"/><text x="906.0" y="342" text-anchor="end" font-size="15" font-weight="800" fill="#D07A22">공문 보도</text><text x="258.8" y="24.0" font-size="15" font-weight="900" fill="#22335A">8.26 최고</text></svg></div>
+ <div class="perf solid"></div>
+ <div class="stub side"><div class="lab">검색이 가장 높은 날</div><div class="row"><div class="n" style="color:var(--pre)">8.26</div><div class="t">1차 입장문 다음 날 (=100)</div></div><div class="row"><div class="n" style="color:var(--ons)">10.16</div><div class="t">공문 보도 날 다시 상승</div></div><div class="src2">걷고읽고떠나고</div></div>
+ <div class="stamp " style="left:560px;top:598px">해명이 바뀔 때마다 다시 떴다</div>
+ <div class="src">근거 · 네이버 데이터랩 검색어트렌드(검색어 8개 묶음, 2026.10.17 조회) · 검색량이 아니라 상대 추이</div>
+</div></body></html>

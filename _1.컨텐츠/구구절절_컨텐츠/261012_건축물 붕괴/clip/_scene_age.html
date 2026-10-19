@@ -1,0 +1,28 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'NK';src:url('file:///C:/Windows/Fonts/NotoSansKR-VF.ttf');font-weight:100 900}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#FAF7F2;--card:#FFFFFF;--ink:#1E2330;--ink2:#4A5163;--muted:#8A8F9C;--line:#E7E1D6;
+ --pre:#3D62AE;--pre-l:#E6ECF8;--ons:#D07A22;--ons-l:#FBEBDA;--red:#C8463C;--red-l:#F9E3E0;--ok:#2F8F5B;--ok-l:#E2F1E8;--sand:#F3EBDD}
+html,body{width:1350px;height:1338px}
+body{font-family:'NK',sans-serif;background:var(--bg);color:var(--ink);position:relative;overflow:hidden;-webkit-font-smoothing:antialiased}
+.stage{position:absolute;left:70px;right:70px;top:250px;bottom:263px}
+.card{background:var(--card);border-radius:30px;box-shadow:0 2px 0 rgba(30,35,48,.04),0 16px 40px rgba(30,35,48,.09);border:1px solid #EFE9DF}
+.pill{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:10px 22px;font-weight:800}
+.big{font-weight:900;letter-spacing:-.03em;line-height:1}
+.mut{color:var(--muted)}
+.ab{position:absolute}
+.icon3d{object-fit:contain;filter:drop-shadow(0 14px 18px rgba(30,35,48,.16))}
+svg.i{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dots{background-image:radial-gradient(#E9E2D5 1.6px,transparent 1.6px);background-size:26px 26px}
+.hh{font-size:46px;font-weight:900}.hrow{display:flex;gap:16px;margin-top:50px}.hc{width:100px;height:100px;position:relative}.hs{width:100px;height:100px}
+.yy{margin-top:56px}.yy .big{font-size:140px;color:#B66A2C}.yy .mut{font-size:44px;font-weight:800}.sm{font-size:34px;font-weight:700;color:var(--ink2);margin-top:30px}</style></head><body class="dots"><div class="stage"><div class="card ab" style="inset:0;padding:50px 60px"><div class="hh">지은 지 30년 넘은 건축물</div><div class="hrow"><div class="hc" id="h0"><svg viewBox="0 0 100 100" class="hs"><path d="M10 48 L50 12 L90 48 V92 H10 Z" fill="#E7E1D6"/><path class="fl" d="M10 48 L50 12 L90 48 V92 H10 Z" fill="#B66A2C"/></svg></div><div class="hc" id="h1"><svg viewBox="0 0 100 100" class="hs"><path d="M10 48 L50 12 L90 48 V92 H10 Z" fill="#E7E1D6"/><path class="fl" d="M10 48 L50 12 L90 48 V92 H10 Z" fill="#B66A2C"/></svg></div><div class="hc" id="h2"><svg viewBox="0 0 100 100" class="hs"><path d="M10 48 L50 12 L90 48 V92 H10 Z" fill="#E7E1D6"/><path class="fl" d="M10 48 L50 12 L90 48 V92 H10 Z" fill="#B66A2C"/></svg></div><div class="hc" id="h3"><svg viewBox="0 0 100 100" class="hs"><path d="M10 48 L50 12 L90 48 V92 H10 Z" fill="#E7E1D6"/><path class="fl" d="M10 48 L50 12 L90 48 V92 H10 Z" fill="#B66A2C"/></svg></div><div class="hc" id="h4"><svg viewBox="0 0 100 100" class="hs"><path d="M10 48 L50 12 L90 48 V92 H10 Z" fill="#E7E1D6"/><path class="fl" d="M10 48 L50 12 L90 48 V92 H10 Z" fill="#B66A2C"/></svg></div><div class="hc" id="h5"><svg viewBox="0 0 100 100" class="hs"><path d="M10 48 L50 12 L90 48 V92 H10 Z" fill="#E7E1D6"/><path class="fl" d="M10 48 L50 12 L90 48 V92 H10 Z" fill="#B66A2C"/></svg></div><div class="hc" id="h6"><svg viewBox="0 0 100 100" class="hs"><path d="M10 48 L50 12 L90 48 V92 H10 Z" fill="#E7E1D6"/><path class="fl" d="M10 48 L50 12 L90 48 V92 H10 Z" fill="#B66A2C"/></svg></div><div class="hc" id="h7"><svg viewBox="0 0 100 100" class="hs"><path d="M10 48 L50 12 L90 48 V92 H10 Z" fill="#E7E1D6"/><path class="fl" d="M10 48 L50 12 L90 48 V92 H10 Z" fill="#B66A2C"/></svg></div><div class="hc" id="h8"><svg viewBox="0 0 100 100" class="hs"><path d="M10 48 L50 12 L90 48 V92 H10 Z" fill="#E7E1D6"/><path class="fl" d="M10 48 L50 12 L90 48 V92 H10 Z" fill="#B66A2C"/></svg></div><div class="hc" id="h9"><svg viewBox="0 0 100 100" class="hs"><path d="M10 48 L50 12 L90 48 V92 H10 Z" fill="#E7E1D6"/><path class="fl" d="M10 48 L50 12 L90 48 V92 H10 Z" fill="#B66A2C"/></svg></div></div><div class="yy"><span class="big" id="pv">42.6%</span> <span class="mut" id="yr">2023년 말</span></div><div class="sm">관음동 건물은 1994년에 지은 32년 된 건물</div></div></div><script>
+const E=u=>u<=0?0:u>=1?1:u*u*(3-2*u);
+const P=(t,a,b)=>E((t-a)/(b-a));
+const K=u=>u<=0?0:u>=1?1:(u<.6?E(u/.6)*1.12:1.12-.12*E((u-.6)/.4));
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const num=(x,d=0)=>x.toLocaleString('ko-KR',{minimumFractionDigits:d,maximumFractionDigits:d});
+const sgn=(x,d=1)=>(x>0?'+':x<0?'−':'')+Math.abs(x).toFixed(d);
+const S=[[0,42.6,'2023년 말'],[1.6,44.4,'2024년 말'],[3.0,46.3,'2025년 말']];
+function F(t){let v=0,y='';for(const [a,p,l] of S){if(t>=a){v=p;y=l}}const u=P(t,.2,1.0);const show=v*u;
+for(let i=0;i<10;i++){const f=Math.max(0,Math.min(1,show/10-i));const p=$('#h'+i).querySelector('.fl');p.style.clipPath=`inset(${(1-f)*100}% 0 0 0)`}
+$('#pv').textContent=(u<1?show:v).toFixed(1)+'%';$('#yr').textContent=y}</script></body></html>

@@ -1,0 +1,26 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'NK';src:url('file:///C:/Windows/Fonts/NotoSansKR-VF.ttf');font-weight:100 900}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#FAF7F2;--card:#FFFFFF;--ink:#1E2330;--ink2:#4A5163;--muted:#8A8F9C;--line:#E7E1D6;
+ --pre:#3D62AE;--pre-l:#E6ECF8;--ons:#D07A22;--ons-l:#FBEBDA;--red:#C8463C;--red-l:#F9E3E0;--ok:#2F8F5B;--ok-l:#E2F1E8;--sand:#F3EBDD}
+html,body{width:1350px;height:1338px}
+body{font-family:'NK',sans-serif;background:var(--bg);color:var(--ink);position:relative;overflow:hidden;-webkit-font-smoothing:antialiased}
+.stage{position:absolute;left:70px;right:70px;top:250px;bottom:263px}
+.card{background:var(--card);border-radius:30px;box-shadow:0 2px 0 rgba(30,35,48,.04),0 16px 40px rgba(30,35,48,.09);border:1px solid #EFE9DF}
+.pill{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:10px 22px;font-weight:800}
+.big{font-weight:900;letter-spacing:-.03em;line-height:1}
+.mut{color:var(--muted)}
+.ab{position:absolute}
+.icon3d{object-fit:contain;filter:drop-shadow(0 14px 18px rgba(30,35,48,.16))}
+svg.i{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dots{background-image:radial-gradient(#E9E2D5 1.6px,transparent 1.6px);background-size:26px 26px}
+.hd{display:grid;grid-template-columns:330px 1fr 1fr;text-align:center;font-size:34px;font-weight:800;color:var(--ink2)}
+.pr{display:grid;grid-template-columns:330px 1fr 1fr;align-items:center;padding:38px 40px;text-align:center}.pr .nm{font-size:46px;font-weight:900;text-align:left}.c{font-size:62px;font-weight:900}</style></head><body class="dots"><div class="stage" style="display:flex;flex-direction:column;gap:40px;justify-content:center"><div class="hd"><span></span><span><img src="icons/people_t.png" class="icon3d" style="height:110px"><br>인구 4년</span><span><img src="icons/apt_t.png" class="icon3d" style="height:110px"><br>같은 단지 값</span></div><div class="card pr" id="q0"><div class="nm">용인 수지구</div><div class="c" style="color:#3D62AE">▼ −2.2%</div><div class="c" style="color:#C8463C">▲ +31.5%</div></div><div class="card pr" id="q1"><div class="nm">평택시</div><div class="c" style="color:#C8463C">▲ +8.4%</div><div class="c" style="color:#3D62AE">▼ −15.9%</div></div><div class="ab big" id="ne" style="left:50%;bottom:20px;font-size:72px;color:var(--ons)">사람 ≠ 값</div></div><script>
+const E=u=>u<=0?0:u>=1?1:u*u*(3-2*u);
+const P=(t,a,b)=>E((t-a)/(b-a));
+const K=u=>u<=0?0:u>=1?1:(u<.6?E(u/.6)*1.12:1.12-.12*E((u-.6)/.4));
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const num=(x,d=0)=>x.toLocaleString('ko-KR',{minimumFractionDigits:d,maximumFractionDigits:d});
+const sgn=(x,d=1)=>(x>0?'+':x<0?'−':'')+Math.abs(x).toFixed(d);
+function F(t){for(let i=0;i<2;i++){const v=P(t,.3+i*.7,.8+i*.7);$('#q'+i).style.opacity=v;$('#q'+i).style.transform=`translateY(${(1-v)*60}px)`}
+const s=P(t,2.2,2.6);$('#ne').style.opacity=s;$('#ne').style.transform=`translateX(-50%) scale(${K(s)})`}</script></body></html>

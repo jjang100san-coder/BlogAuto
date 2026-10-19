@@ -1,0 +1,11 @@
+﻿[videoscan] downloading ...
+[videoscan] 1280x720  439.4s  60.0fps
+[videoscan] hook 15.0s @ 5.0fps (75 frames), body every 3.38s (130 frames), grid 4x7 @ 362px
+[videoscan] detecting scene changes ...
+[videoscan] 64 cuts, avg shot 6.19s (8.74/min) (60 frames extracted)
+[videoscan] transcript from source.ko-orig.vtt: 110 lines
+
+[videoscan] READY C:\Users\user\Desktop\Blog\_1.而⑦뀗痢?釉붾줈洹몄뿰?湲?而⑦뀗痢?260927_?좏뒠釉??곸긽 遺꾩꽍\260927_QpQdwWpeDyc
+  sheets/  3 hook + 5 body
+  cuts/    60 frames
+  manifest.json

@@ -1,0 +1,2 @@
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/먹!자_컨텐츠/261010_대구 소고기_한우 소굽는집/clip/_build/_beep.wav'
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/먹!자_컨텐츠/261010_대구 소고기_한우 소굽는집/clip/_build/_chk00.wav'

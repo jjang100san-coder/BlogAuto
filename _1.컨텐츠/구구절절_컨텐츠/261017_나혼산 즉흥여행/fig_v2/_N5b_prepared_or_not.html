@@ -1,0 +1,50 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'NK';src:url('file:///C:/Windows/Fonts/NotoSansKR-VF.ttf');font-weight:100 900}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#1E2330;--ink2:#4A5163;--muted:#7A7466;--line:#E3D9C6;--pre:#3D62AE;--pre-l:#E7EDF8;--ons:#D07A22;--ons-l:#FBEBDA;
+ --red:#C8463C;--red-l:#F8E2DF;--navy:#22335A;--paper:#FFFCF5;--bg:#EDE5D6;--ok:#2F8F5B}
+html,body{width:1400px;height:800px}
+body{font-family:'NK',sans-serif;color:var(--ink);position:relative;overflow:hidden;-webkit-font-smoothing:antialiased;
+ background:var(--bg);background-image:radial-gradient(rgba(90,70,40,.06) 1px,transparent 1.2px);background-size:6px 6px}
+.ticket{position:absolute;left:36px;top:34px;width:1328px;height:732px;background:var(--paper);border-radius:20px;
+ box-shadow:0 2px 0 rgba(60,45,20,.06),0 22px 50px rgba(60,45,20,.16);overflow:hidden}
+.band{position:absolute;left:0;top:0;right:0;height:158px;background:var(--navy);color:#fff;padding:26px 40px}
+.band .k{display:flex;gap:14px;align-items:center;font-size:15px;font-weight:800;letter-spacing:.18em;color:#AFC0E6}
+.band .k b{background:var(--ons);color:#fff;letter-spacing:.06em;border-radius:6px;padding:3px 9px;font-size:14px}
+.band h1{color:#fff;font-size:50px;font-weight:900;letter-spacing:-.02em;margin-top:10px;white-space:nowrap}
+.band h1 em{font-style:normal;color:#FFC27A}
+.perf{position:absolute;left:1000px;top:158px;bottom:0;border-left:3px dashed #D9CFBC}
+.perf.solid{border-left:2px solid #E8DFCC}
+.stub.side{background:#F7F1E5}
+.notch{position:absolute;width:44px;height:44px;border-radius:50%;background:var(--bg);left:979px}
+.main{position:absolute;left:0;top:158px;width:1000px;bottom:0;padding:24px 36px 44px}
+.stub{position:absolute;left:1003px;right:0;top:158px;bottom:0;padding:26px 30px}
+.stub .lab{font-size:13px;font-weight:800;letter-spacing:.16em;color:#9A917F}
+.stub .row{margin-top:16px}
+.stub .n{font-size:84px;font-weight:900;line-height:.95;letter-spacing:-.04em}
+.stub .n small{font-size:36px;margin-left:2px}
+.stub .t{font-size:16px;font-weight:700;color:var(--ink2);margin-top:6px;line-height:1.35}
+.bar{position:absolute;left:30px;right:30px;bottom:56px;height:54px;background:repeating-linear-gradient(90deg,#22335A 0 3px,transparent 3px 6px,#22335A 6px 7px,transparent 7px 11px,#22335A 11px 15px,transparent 15px 17px)}
+.src2{position:absolute;left:30px;bottom:22px;font-size:13px;font-weight:800;letter-spacing:.14em;color:#9A917F}
+.src{position:absolute;left:36px;bottom:16px;right:340px;font-size:13.5px;color:#9A917F;white-space:nowrap;overflow:hidden}
+.stamp{position:absolute;transform:rotate(-7deg);border:4px solid var(--ons);color:var(--ons);border-radius:12px;padding:10px 20px;
+ font-size:25px;font-weight:900;background:rgba(255,252,245,.88);box-shadow:inset 0 0 0 2px rgba(208,122,34,.25);white-space:nowrap}
+.stamp.red{border-color:var(--red);color:var(--red);box-shadow:inset 0 0 0 2px rgba(200,70,60,.22)}
+.stamp.navy{border-color:var(--navy);color:var(--navy);box-shadow:inset 0 0 0 2px rgba(34,51,90,.2)}
+img.i3{display:block;object-fit:contain}
+svg.i{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.chk{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;flex:none}
+.g6{display:grid;grid-template-columns:3fr 1.1fr;gap:0;margin-top:2px}
+.g6 .side{padding:0 10px}.g6 .side+.side{border-left:2px dashed var(--line)}
+.g6 .hd{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:900;margin-bottom:6px}
+.objs{display:flex;justify-content:space-around}.ob{width:200px;text-align:center;position:relative}
+.ob img{margin:0 auto}.ob .l{font-size:19px;font-weight:900;margin-top:-4px}.ob .d{font-size:15px;color:var(--muted);font-weight:700;margin-top:4px}
+.ob .chk{position:absolute;top:10px;right:22px}</style></head><body>
+<div class="ticket">
+ <div class="band"><div class="k"><b>구구절절</b>TRAVEL NOTE · MBC 입장문이 말한 것 · 06 / 13</div><h1>미리 한 것 <em>셋</em>, 안 한 것 <em>하나</em></h1></div>
+ <div class="main"><div class="g6"><div class="side"><div class="hd" style="color:var(--pre)"><span class="chk" style="width:26px;height:26px;background:var(--pre)"><svg class="i" viewBox="0 0 24 24" style="width:15px;height:15px;color:#fff;stroke-width:3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>미리 한 것</div><div class="objs"><div class="ob"><img class="i3" src="icons/permit_t.png" style="width:170px;height:170px"><span class="chk" style="width:34px;height:34px;background:var(--pre)"><svg class="i" viewBox="0 0 24 24" style="width:20px;height:20px;color:#fff;stroke-width:3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div class="l">촬영 허가 공문</div><div class="d">7월 22일</div></div><div class="ob"><img class="i3" src="icons/tickets_t.png" style="width:170px;height:170px"><span class="chk" style="width:34px;height:34px;background:var(--pre)"><svg class="i" viewBox="0 0 24 24" style="width:20px;height:20px;color:#fff;stroke-width:3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div class="l">스태프 항공권</div><div class="d">미리 발권</div></div><div class="ob"><img class="i3" src="icons/camera_t.png" style="width:170px;height:170px"><span class="chk" style="width:34px;height:34px;background:var(--pre)"><svg class="i" viewBox="0 0 24 24" style="width:20px;height:20px;color:#fff;stroke-width:3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div class="l">현지 촬영 협조</div><div class="d">미리 요청</div></div></div></div><div class="side"><div class="hd" style="color:var(--red)"><span class="chk" style="width:26px;height:26px;background:var(--red)"><svg class="i" viewBox="0 0 24 24" style="width:15px;height:15px;color:#fff;stroke-width:3"><path d="M6 6l12 12M18 6L6 18"/></svg></span>안 한 것</div><div class="objs"><div class="ob"><img class="i3" src="icons/license_t.png" style="width:170px;height:170px"><div class="l">운전 서류</div><div class="d">「뒤늦게 확인」</div></div></div></div></div></div>
+ <div class="perf solid"></div>
+ <div class="stub side"><div class="lab">미리 한 것 : 안 한 것</div><div class="row"><div class="n" style="color:var(--pre)">3<small> : 1</small></div><div class="t">공문 · 스태프 항공권 · 촬영 협조<br>vs 운전 서류(면허 공증)</div></div><div class="src2">걷고읽고떠나고</div></div>
+ <div class="stamp " style="left:250px;top:598px">준비했으면 즉흥이 아니고, 안 했으면 위험했다</div>
+ <div class="src">근거 · MBC 입장문 8.25·9.4, 인천국제공항공사가 국회에 낸 자료(10.16 보도), 주카자흐스탄 대사관 공지(8.20·8.25)</div>
+</div></body></html>

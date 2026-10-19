@@ -1,0 +1,26 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'NK';src:url('file:///C:/Windows/Fonts/NotoSansKR-VF.ttf');font-weight:100 900}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#FAF7F2;--card:#FFFFFF;--ink:#1E2330;--ink2:#4A5163;--muted:#8A8F9C;--line:#E7E1D6;
+ --pre:#3D62AE;--pre-l:#E6ECF8;--ons:#D07A22;--ons-l:#FBEBDA;--red:#C8463C;--red-l:#F9E3E0;--ok:#2F8F5B;--ok-l:#E2F1E8;--sand:#F3EBDD}
+html,body{width:1350px;height:1338px}
+body{font-family:'NK',sans-serif;background:var(--bg);color:var(--ink);position:relative;overflow:hidden;-webkit-font-smoothing:antialiased}
+.stage{position:absolute;left:70px;right:70px;top:250px;bottom:263px}
+.card{background:var(--card);border-radius:30px;box-shadow:0 2px 0 rgba(30,35,48,.04),0 16px 40px rgba(30,35,48,.09);border:1px solid #EFE9DF}
+.pill{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:10px 22px;font-weight:800}
+.big{font-weight:900;letter-spacing:-.03em;line-height:1}
+.mut{color:var(--muted)}
+.ab{position:absolute}
+.icon3d{object-fit:contain;filter:drop-shadow(0 14px 18px rgba(30,35,48,.16))}
+svg.i{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dots{background-image:radial-gradient(#E9E2D5 1.6px,transparent 1.6px);background-size:26px 26px}
+.hh{font-size:52px;font-weight:900}.it{display:flex;align-items:center;gap:24px;padding:30px 40px;font-size:50px;font-weight:900;width:900px}
+.no{width:70px;height:70px;border-radius:50%;background:var(--ons);color:#fff;display:grid;place-items:center;font-size:40px;flex:none}</style></head><body class="dots"><div class="stage" style="display:flex;flex-direction:column;gap:26px;justify-content:center;align-items:center"><div class="hh">매장에서, 접기 전에 옆모습부터</div><div class="card it" id="k0"><div class="no">1</div><span>앞코가 들렸는지</span></div><div class="card it" id="k1"><div class="no">2</div><span>밑창 돌기가 깊은지</span></div><div class="card it" id="k2"><div class="no">3</div><span>발가락에 고무를 덧댔는지</span></div><img class="icon3d" id="bt" src="icons/boot_t.png" style="height:220px"></div><script>
+const E=u=>u<=0?0:u>=1?1:u*u*(3-2*u);
+const P=(t,a,b)=>E((t-a)/(b-a));
+const K=u=>u<=0?0:u>=1?1:(u<.6?E(u/.6)*1.12:1.12-.12*E((u-.6)/.4));
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const num=(x,d=0)=>x.toLocaleString('ko-KR',{minimumFractionDigits:d,maximumFractionDigits:d});
+const sgn=(x,d=1)=>(x>0?'+':x<0?'−':'')+Math.abs(x).toFixed(d);
+function F(t){for(let i=0;i<3;i++){const v=K(P(t,.3+i*.5,.7+i*.5));$('#k'+i).style.transform=`scale(${v})`;$('#k'+i).style.opacity=Math.min(1,v*1.3)}
+$('#bt').style.transform=`translateY(${(1-P(t,1.8,2.4))*200}px) rotate(${Math.sin(t*2)*4}deg)`;$('#bt').style.opacity=P(t,1.8,2.2)}</script></body></html>

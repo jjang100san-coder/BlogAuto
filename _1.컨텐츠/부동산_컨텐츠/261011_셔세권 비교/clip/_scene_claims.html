@@ -1,0 +1,34 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'NK';src:url('file:///C:/Windows/Fonts/NotoSansKR-VF.ttf');font-weight:100 900}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#FAF7F2;--card:#FFFFFF;--ink:#1E2330;--ink2:#4A5163;--muted:#8A8F9C;--line:#E7E1D6;
+ --pre:#3D62AE;--pre-l:#E6ECF8;--ons:#D07A22;--ons-l:#FBEBDA;--red:#C8463C;--red-l:#F9E3E0;--ok:#2F8F5B;--ok-l:#E2F1E8;--sand:#F3EBDD}
+html,body{width:1350px;height:1338px}
+body{font-family:'NK',sans-serif;background:var(--bg);color:var(--ink);position:relative;overflow:hidden;-webkit-font-smoothing:antialiased}
+.stage{position:absolute;left:70px;right:70px;top:250px;bottom:263px}
+.card{background:var(--card);border-radius:30px;box-shadow:0 2px 0 rgba(30,35,48,.04),0 16px 40px rgba(30,35,48,.09);border:1px solid #EFE9DF}
+.pill{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:10px 22px;font-weight:800}
+.big{font-weight:900;letter-spacing:-.03em;line-height:1}
+.mut{color:var(--muted)}
+.ab{position:absolute}
+.icon3d{object-fit:contain;filter:drop-shadow(0 14px 18px rgba(30,35,48,.16))}
+svg.i{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dots{background-image:radial-gradient(#E9E2D5 1.6px,transparent 1.6px);background-size:26px 26px}
+.bub{width:400px;padding:34px 30px;text-align:center}.q{font-size:46px;font-weight:800;line-height:1.35}.q b{font-weight:900;font-size:62px}
+.rl{width:400px;text-align:center;font-size:36px;font-weight:700;color:var(--ink2);line-height:1.4}.k{display:inline-block;background:var(--sand);color:var(--ons);border-radius:12px;padding:4px 16px;font-size:30px;font-weight:900;margin-bottom:10px}
+.stamp{left:50%;top:640px;font-size:84px;color:var(--red);border:8px solid var(--red);border-radius:22px;padding:14px 34px;background:rgba(255,255,255,.85);white-space:nowrap}</style></head><body class="dots"><div class="stage"><img class="icon3d ab" id="ph" src="icons/phone_t.png" style="height:380px;left:415px;top:40px">
+<div class="card bub ab" id="b1" style="left:0;top:40px"><div class="q">「최고가 대비<br><b style="color:#3D62AE">−40%</b> 폭락」</div></div>
+<div class="card bub ab" id="b2" style="right:0;top:40px"><div class="q">「1주에<br><b style="color:#C8463C">+2%</b> 상승」</div></div>
+<div class="ab rl" id="r1" style="left:0;top:470px"><div class="k">잰 것</div>그 단지 역대 최고가<br>한 건 vs 최근 한 건</div>
+<div class="ab rl" id="r2" style="right:0;top:470px"><div class="k">잰 것</div>표본 단지의<br>주간 지수</div>
+<div class="ab stamp big" id="st">재는 법이 달랐다</div></div><script>
+const E=u=>u<=0?0:u>=1?1:u*u*(3-2*u);
+const P=(t,a,b)=>E((t-a)/(b-a));
+const K=u=>u<=0?0:u>=1?1:(u<.6?E(u/.6)*1.12:1.12-.12*E((u-.6)/.4));
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const num=(x,d=0)=>x.toLocaleString('ko-KR',{minimumFractionDigits:d,maximumFractionDigits:d});
+const sgn=(x,d=1)=>(x>0?'+':x<0?'−':'')+Math.abs(x).toFixed(d);
+function F(t){$('#ph').style.transform=`scale(${K(P(t,.05,.4))})`;
+$('#b1').style.transform=`scale(${K(P(t,.4,.8))}) rotate(-4deg)`;$('#b2').style.transform=`scale(${K(P(t,1.0,1.4))}) rotate(4deg)`;
+$('#r1').style.opacity=P(t,2.0,2.4);$('#r2').style.opacity=P(t,2.4,2.8);
+const s=P(t,3.2,3.5);$('#st').style.opacity=s;$('#st').style.transform=`translateX(-50%) scale(${1.6-.6*s}) rotate(-6deg)`}</script></body></html>

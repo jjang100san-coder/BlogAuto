@@ -1,0 +1,4 @@
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/장비_컨텐츠/261013_등산화수선/clip/_build/_beep.wav'
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/장비_컨텐츠/261013_등산화수선/clip/_build/_chk00.wav'
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/장비_컨텐츠/261013_등산화수선/clip/_build/_beep.wav'
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/장비_컨텐츠/261013_등산화수선/clip/_build/_chk10.wav'

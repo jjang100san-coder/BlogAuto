@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>건물은 왜 무너지나</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#f5f3ee; --paper:#fffdf8; --fg:#1f2320; --muted:#6b7068; --line:#d9d5c9;
+  --ink:#5a2a1e; --accent:#8a5a1e; --gold:#b8891e; --gold-soft:#f3e7c7;
+  --display:"Noto Serif KR",serif; --body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#17181a; --paper:#1f2124; --fg:#e8e6dd; --muted:#a3a79c; --line:#36393d;
+  --ink:#f0c2b0; --accent:#d9a85a; --gold:#d9ab45; --gold-soft:#3a3120; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#17181a; --paper:#1f2124; --fg:#e8e6dd; --muted:#a3a79c; --line:#36393d;
+  --ink:#f0c2b0; --accent:#d9a85a; --gold:#d9ab45; --gold-soft:#3a3120; color-scheme:dark }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.75;padding-inline:16px;padding-block:0 80px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)} nav.toc{display:none}}
+header{grid-column:1/-1;padding-block:48px 24px;border-bottom:1px solid var(--line)}
+header .eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+header h1{font-family:var(--display);font-size:clamp(26px,3.4vw,38px);line-height:1.3;margin:10px 0 6px;text-wrap:balance}
+header p{margin:0;color:var(--muted);font-size:15px}
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;padding-top:28px;font-size:13.5px}
+nav.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+nav.toc a{color:var(--muted);text-decoration:none;display:block;border-left:2px solid var(--line);padding-left:10px;line-height:1.4}
+nav.toc a:hover,nav.toc a:focus{color:var(--fg);border-left-color:var(--gold)}
+main{min-width:0;max-width:720px}
+section{padding-block:28px;border-bottom:1px solid var(--line)}
+section.lead p{font-size:18px}
+section.lead p:first-child{font-family:var(--display);font-size:26px;color:var(--ink)}
+h2{font-family:var(--display);font-size:22px;line-height:1.35;margin:0 0 14px;text-wrap:balance;color:var(--ink)}
+p{margin:0 0 14px;max-width:66ch}
+strong{background:var(--gold-soft);padding:0 3px;font-weight:700}
+figure{margin:18px 0 22px;background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+figure img{display:block;width:100%;max-width:100%;height:auto}
+figcaption{font-size:14px;color:var(--muted);padding:10px 14px;border-top:1px solid var(--line);line-height:1.5}
+figcaption .fn{color:var(--gold);font-weight:700;margin-right:6px;font-variant-numeric:tabular-nums}
+.tbl{overflow-x:auto;margin:10px 0 18px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:13px;letter-spacing:.04em}
+.note{font-size:14px;color:var(--muted)}
+ul.plain{margin:0 0 14px;padding-left:20px}
+ul.plain li{margin-bottom:6px}
+footer{grid-column:1/-1;color:var(--muted);font-size:13px;padding-top:24px}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">구구절절 · 조사 검토용 (초안 전) · 그림 10장 + 해설</div>
+  <h1>왜 기술은 발전하는데 건물은 무너질까 — 대구 천장에서 시작해 10장으로</h1>
+  <p>원리는 깊게 들어가지 않고 일상 비유(줄에 매단 선반·레시피·시험지·외양간·건물의 나이)로. 숫자는 붕괴_공부노트_2026-10-14_합본.md와 원본 확인 노트 두 개(국내 파일 58·해외 32) 확인분만. 원 노트 숫자 18건은 정정표대로 고쳐 썼다.</p>
+</header>
+<nav class="toc"><ol>
+<li><a href="#s1">입구</a></li><li><a href="#s2">천장이 떨어졌다</a></li><li><a href="#s3">줄에 매단 선반</a></li><li><a href="#s4">점검표의 빈칸</a></li><li><a href="#s5">레시피 9건</a></li><li><a href="#s6">시험지 800건</a></li><li><a href="#s7">공장과 현장</a></li><li><a href="#s8">외양간</a></li><li><a href="#s9">건물의 나이</a></li><li><a href="#s10">정리</a></li><li><a href="#s11">할 일 하나</a></li><li><a href="#s12">검토할 것</a></li>
+</ol></nav>
+<main>
+
+<section class="lead" id="s1">
+<p>건물이 무너지면 「기술이 아직 부족한가」부터 떠올린다.</p>
+<p>10월 10일 대구 관음동 상가 2층에서 천장이 떨어져 38명이 다쳤다. 휴대폰은 해마다 좋아지는데 건물은 왜 여전히 무너질까. 국토부 사고조사위 보도자료 원문 8건과 해외 연구를 열어 봤다. 답부터 말하면 <strong>최근 국내 9건 중 「기술이 없어서」 무너진 건 0건이었다.</strong> 대부분은 알던 걸 건너뛰었고, 규칙이 닿지 않은 빈칸이 있었고, 건물이 낡아 있었다.</p>
+</section>
+
+<section id="s2">
+<h2>1. 건물은 그대로였고, 매달린 천장이 떨어졌다</h2>
+<figure><img src="img/B1_ceiling_not_building.png" alt="건물 단면, 뼈대는 그대로 2층 천장만 떨어짐" width="1400" height="800"><figcaption><span class="fn">그림 1</span>합본 §2, 공부노트 §1-1. 단면은 모식.</figcaption></figure>
+<p>그림의 회색 틀이 건물의 뼈대(기둥·보·바닥)다. 대구 사고에서 이 뼈대는 그대로였다. 떨어진 건 2층 천장에 매달린 마감, 그러니까 위층 바닥 아래에 붙여 둔 「덮개」였다. 그래서 정확히는 붕괴가 아니라 천장 낙하다. 그런데도 66명 중 38명이 다쳤다. 덮개가 어떻게 붙어 있었는지부터 보자.</p>
+</section>
+
+<section id="s3">
+<h2>2. 매단 천장은 줄에 매단 선반과 같다</h2>
+<figure><img src="img/B2_hanging_shelf.png" alt="줄에 매단 선반과 실제 매단 천장 단면" width="1400" height="800"><figcaption><span class="fn">그림 2</span>합본 §2(보도). 원인은 조사 중. 모식.</figcaption></figure>
+<p>왼쪽은 천장에 줄 두 개로 매단 선반이다. 판과 전구를 올릴수록 줄이 버텨야 할 무게가 늘고, 줄이 낡으면 버티는 힘이 준다. 상가 천장도 같은 방식이다. 위층 콘크리트 바닥에서 철제 줄(달대·와이어)을 내려 틀을 매달고, 그 틀에 판을 붙인다. 대구 천장은 석고보드와 종이합판이 세 겹이었고, 판매업체가 조명 10개를 더 달았다는 보도가 있다. 다만 <strong>무엇이 결정적이었는지는 아직 조사 중</strong>이라 여기서 원인을 단정하지 않는다.</p>
+</section>
+
+<section id="s4">
+<h2>3. 일본은 매단 천장을 정기적으로 본다, 우리 법에는 그 칸이 없다</h2>
+<figure><img src="img/B3_checklist_gap.png" alt="일본과 한국 점검표, 한국은 매단 천장 칸이 비어 있음" width="1400" height="800"><figcaption><span class="fn">그림 3</span>일본 特定天井(2014.4.1), 건축물관리법 제13·15조. 점검표는 모식.</figcaption></figure>
+<p>그럼 이런 천장은 누가 점검할까. 일본은 2011년 대지진 때 매단 천장이 떨어지는 사고를 겪은 뒤, 높이 6m·넓이 200㎡를 넘는 큰 매단 천장을 정기조사 대상에 넣었다(2014년부터). 우리 법에는 매단 천장을 따로 점검하라는 조항이 없다. 점검지침에 마감재를 살펴보는 정도가 있을 뿐이다. 게다가 대구 건물(892.92㎡)은 정기점검 대상 건물도 아니었다. 규칙이 닿지 않는 칸에서 사고가 난 셈이다.</p>
+</section>
+
+<section id="s5">
+<h2>4. 레시피는 있었는데 단계를 건너뛰었다 — 최근 9건</h2>
+<figure><img src="img/B4_recipe_skipped.png" alt="9건의 원인을 한 줄씩 적은 카드" width="1400" height="800"><figcaption><span class="fn">그림 4</span>국토부 사고조사위 보도자료 원문 8건 + 서소문 초기 보고.</figcaption></figure>
+<p>범위를 넓혀 최근 큰 붕괴 9건을 봤다. 요리로 치면 레시피(설계도·계획서·기준)는 다 있었다. 그런데 광주 화정은 받침(동바리)을 일찍 뺐고, 인천 검단은 철근을 빠뜨렸고, 안성 교량은 받침 72개를 치웠고, 광주 도서관은 용접을 대충 했다. 계산을 틀린 광명 터널도 「모르는 공학」이 아니라 「아는 계산을 잘못한 것」이었다. <strong>사고조사위가 「기술이 없어서」라고 쓴 건 한 건도 없다.</strong> 다만 이건 국내 최근 9건 이야기다. 더 넓게 보면 어떨까.</p>
+</section>
+
+<section id="s6">
+<h2>5. 800건을 시험지로 보면 — 처음 보는 문제의 배점이 컸다</h2>
+<figure><img src="img/B5_exam_800.png" alt="세 칸 막대 64.5·21.75·13.75%와 손해액 43%" width="1400" height="800"><figcaption><span class="fn">그림 5</span>Matousek·Schneider 1976(스위스, 800건) 원표. 연구비 일부 보험사.</figcaption></figure>
+<p>1976년 스위스 연구가 건물·구조물 손상 800건의 원인을 세 칸으로 나눴다. 시험지로 치면 이렇다. 아는 문제를 틀린 것(기준을 어기거나 빠뜨림) 64.5%, 알면서 넘긴 문제(위험인 줄 알고 받아들임) 21.75%, 처음 보는 문제(원인을 알 수 없음) 13.75%. 처음 보는 문제는 열에 한 번꼴이었는데, 손해액으로는 43%를 차지했다. <strong>대부분은 아는 걸 안 해서였지만, 모르는 데서 온 사고는 오면 컸다.</strong> 그래서 「기술은 상관없다」도 틀린 말이다.</p>
+</section>
+
+<section id="s7">
+<h2>6. 공장은 해마다 빨라졌는데, 집 짓는 손은 덜 변했다</h2>
+<figure><img src="img/B6_factory_vs_site.png" alt="제조업 연 3.6%와 건설업 연 1.0%, 20년 뒤 2.0배와 1.2배" width="1400" height="800"><figcaption><span class="fn">그림 6</span>McKinsey 2017. 「20년 뒤 몇 배」는 직접 계산.</figcaption></figure>
+<p>「기술이 발전했다」는 말도 건설에는 절반만 맞는다. 일하는 사람 한 명이 만들어 내는 양은 지난 20년 동안 제조업에서 한 해 3.6%씩, 건설업에서는 1%씩 늘었다. 20년이면 공장은 두 배가 되고 현장은 1.2배에 그친다. 재료와 계산은 좋아졌지만, 현장에서 용접하고 받침을 세우고 철근을 엮는 건 여전히 사람 손이다. 앞에서 본 9건이 무너진 자리도 거기였다.</p>
+</section>
+
+<section id="s8">
+<h2>7. 소 잃고 외양간 고치기 — 규칙은 사고 뒤에 생긴다</h2>
+<figure><img src="img/B7_barn_holes.png" alt="사고마다 막은 판자와 막지 않은 구멍 하나" width="1400" height="800"><figcaption><span class="fn">그림 7</span>건축물관리법 제30·31조, 건축법 시행령(2024.12.17), 시설물안전법 벌칙(2025.12.4), 대만 개정안(2018).</figcaption></figure>
+<p>사고가 나면 그 자리는 막았다. 학동 해체 공사 사고 뒤엔 해체계획서를 전문가가 쓰고 감리가 상주하게 했고, 검단 뒤엔 기둥만으로 바닥을 받치는 구조(무량판)를 특별 관리 대상으로 넣었고, 정자교 뒤엔 점검을 부실하게 하면 처벌을 세게 했다. 그런데 다음 사고는 아직 막지 않은 구멍에서 났다. 대구의 매단 천장이 그렇다. 사고 뒤라고 늘 막히는 것도 아니다. 대만은 큰 붕괴 뒤 낸 법 개정안이 끝내 법이 되지 못했다.</p>
+</section>
+
+<section id="s9">
+<h2>8. 30년 넘은 건물, 열 채 중 다섯 채 가까이</h2>
+<figure><img src="img/B8_building_age.png" alt="집 10채 중 4.6채 회색, 42.6→44.4→46.3%" width="1400" height="800"><figcaption><span class="fn">그림 8</span>국토부 건축물 통계(2026.9.30). 집 그림은 모식.</figcaption></figure>
+<p>사람에게 나이가 있듯 건물에도 나이가 있다. 지은 지 30년 넘은 건축물이 2023년 말 42.6%, 2024년 말 44.4%, 2025년 말 46.3%로 해마다 늘고 있다. 짓다가 무너지는 사고는 규칙으로 줄일 수 있어도, 쓰다가 생기는 사고는 늘어날 자리가 있다. 대구 관음동 건물도 1994년에 지어진 32년 된 건물이었다.</p>
+</section>
+
+<section id="s10">
+<h2>9. 정리 — 건물을 무너뜨린 건 기술보다 이 셋이었다</h2>
+<figure><img src="img/B9_three_causes.png" alt="건너뛴 단계, 막지 않은 구멍, 쌓인 나이 세 칸" width="1400" height="800"><figcaption><span class="fn">그림 9</span>그림 4·5·7·8을 한 장으로. 공식 분류가 아니라 이 글의 정리.</figcaption></figure>
+<p>건너뛴 단계, 막지 않은 구멍, 쌓인 나이. 「몰랐던 공학」이 무너뜨린 경우는 적었다. 첫 번째는 현장의 몫이지만, 두 번째와 세 번째는 지나가는 우리 눈에도 보인다.</p>
+</section>
+
+<section id="s11">
+<h2>10. 오늘 할 일 하나 — 자주 가는 곳의 천장을 한 번 올려다보기</h2>
+<figure><img src="img/B10_look_up.png" alt="천장의 금·처짐·떨어진 조각 세 가지 신호" width="1400" height="800"><figcaption><span class="fn">그림 10</span>대구시 점검 항목(천장마감재의 균열·변형·탈락), 안전신문고, 건축물대장·FMS. 모식.</figcaption></figure>
+<p>천장을 점검하라는 조항은 없지만, 올려다보지 말라는 법도 없다. 자주 가는 가게나 학원 천장에 금이 갔는지, 가운데가 처졌는지, 조각이 떨어져 있는지 한 번 보자. 대구시도 점검할 때 이 세 가지를 본다. 보이면 건물 관리자에게 알리거나 안전신문고에 신고하면 된다. 건물 나이는 건축물대장에서, 다리나 큰 건물의 안전등급은 시설물 정보공개(FMS)에서 로그인 없이 볼 수 있다.</p>
+</section>
+
+<section id="s12">
+<h2>검토할 것</h2>
+<ul class="plain">
+<li><strong>그림만 보기 / 해설과 같이 보기</strong> 두 번 — 원리가 너무 깊지 않은지(사용자 10/14 지시).</li>
+<li>광주도서관 용접 강도는 원문이 범위(「22~31%」)라 그림에 숫자를 안 넣고 「대충 했다」로만.</li>
+<li>만인율 국제 비교(1.59)는 집계 기준이 나라마다 달라 그림에서 뺐다 — 본문 한 줄로 넣을지.</li>
+<li>입구 「내 장면」 후보(공부노트 §4: 자주 가는 건물 등)는 사용자 확인 필요.</li>
+<li>발행 전: 대구 국과수·공식 원인, 서소문 사조위(11.30까지) 갱신.</li>
+</ul>
+</section>
+
+</main>
+<footer>원자료: 261012_건축물 붕괴 폴더 — 붕괴_공부노트_2026-10-12 · 붕괴_원본확인_국내/해외_2026-10-14 · 붕괴_공부노트_2026-10-14_합본. 그림 make_simple.py.</footer>
+</div>
+</body>
+</html>

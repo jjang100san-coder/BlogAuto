@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>언더독 효과 그림</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#f5f3ee; --paper:#fffdf8; --fg:#1f2320; --muted:#6b7068; --line:#d9d5c9;
+  --ink:#5a2a1e; --accent:#8a5a1e; --gold:#b8891e; --gold-soft:#f3e7c7;
+  --display:"Noto Serif KR",serif; --body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#17181a; --paper:#1f2124; --fg:#e8e6dd; --muted:#a3a79c; --line:#36393d;
+  --ink:#f0c2b0; --accent:#d9a85a; --gold:#d9ab45; --gold-soft:#3a3120; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#17181a; --paper:#1f2124; --fg:#e8e6dd; --muted:#a3a79c; --line:#36393d;
+  --ink:#f0c2b0; --accent:#d9a85a; --gold:#d9ab45; --gold-soft:#3a3120; color-scheme:dark }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.75;padding-inline:16px;padding-block:0 80px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)} nav.toc{display:none}}
+header{grid-column:1/-1;padding-block:48px 24px;border-bottom:1px solid var(--line)}
+header .eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+header h1{font-family:var(--display);font-size:clamp(26px,3.4vw,38px);line-height:1.3;margin:10px 0 6px;text-wrap:balance}
+header p{margin:0;color:var(--muted);font-size:15px}
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;padding-top:28px;font-size:13.5px}
+nav.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+nav.toc a{color:var(--muted);text-decoration:none;display:block;border-left:2px solid var(--line);padding-left:10px;line-height:1.4}
+nav.toc a:hover,nav.toc a:focus{color:var(--fg);border-left-color:var(--gold)}
+main{min-width:0;max-width:720px}
+section{padding-block:28px;border-bottom:1px solid var(--line)}
+section.lead p{font-size:18px}
+section.lead p:first-child{font-family:var(--display);font-size:26px;color:var(--ink)}
+h2{font-family:var(--display);font-size:22px;line-height:1.35;margin:0 0 14px;text-wrap:balance;color:var(--ink)}
+p{margin:0 0 14px;max-width:66ch}
+strong{background:var(--gold-soft);padding:0 3px;font-weight:700}
+figure{margin:18px 0 22px;background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+figure img{display:block;width:100%;max-width:100%;height:auto}
+figcaption{font-size:14px;color:var(--muted);padding:10px 14px;border-top:1px solid var(--line);line-height:1.5}
+figcaption .fn{color:var(--gold);font-weight:700;margin-right:6px;font-variant-numeric:tabular-nums}
+.tbl{overflow-x:auto;margin:10px 0 18px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:13px;letter-spacing:.04em}
+.note{font-size:14px;color:var(--muted)}
+ul.plain{margin:0 0 14px;padding-left:20px}
+ul.plain li{margin-bottom:6px}
+footer{grid-column:1/-1;color:var(--muted);font-size:13px;padding-top:24px}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+</style>
+<style>
+#dohae{margin:24px 0 36px;width:96vw;max-width:1400px;position:relative;left:50%;transform:translateX(-50%)}
+#dohae .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+#dohae table{border-collapse:collapse;width:100%;min-width:980px;font-size:14px;line-height:1.5}
+#dohae th{background:var(--ink,#1e1e1e);color:#fff;text-align:left;padding:8px 10px;font-weight:600;position:sticky;top:0}
+#dohae td{border-bottom:1px solid rgba(128,128,128,.25);padding:10px;vertical-align:top}
+#dohae td.no{white-space:nowrap;color:#888;font-size:12px;text-align:center}
+#dohae td.no b{font-size:20px;color:inherit}
+#dohae td.pic{width:210px}
+#dohae td.pic img{width:200px;height:auto;border-radius:6px;border:1px solid rgba(128,128,128,.3);display:block}
+#dohae td.pic .t{font-weight:600;margin-top:6px;font-size:13px}
+#dohae td.src{color:#777;font-size:13px;width:170px}
+#dohae td.chk{background:rgba(235,150,20,.10);width:190px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">구구절절 · 도해 검토용 (초안 전) · 그림 18장 · 맨 위 도해표</div>
+  <h1>우리는 왜 언더독에 반응할까</h1>
+  <p>「신인감독 김연경2」 2화(10/18)와 세리에A 코모를 입구로, 언더독 효과 논문을 원문까지 대조했다. 숫자는 공부노트 사실표(F1~F23) 확인분만. 기사·추정 숫자는 그림 근거 줄에 따로 밝혔다. 판정 문장은 넣지 않았다.</p>
+</header>
+<nav class="toc"><ol><li><a href="#dohae">도해표</a></li><li><a href="#s1">1. 팀 이름부터 언더독이었다…</a></li><li><a href="#s2">2. 시즌1 일곱 명은 어디서 …</a></li><li><a href="#s3">3. 4번 지면 해체, 이번엔 …</a></li><li><a href="#s4">4. 1년 만의 리벤지, 1세트…</a></li><li><a href="#s5">5. 돈과 확률이 엇갈리면…</a></li><li><a href="#s6">6. 세 나라 모두 돈 적은 쪽…</a></li><li><a href="#s7">7. 언더독 이야기의 두 재료…</a></li><li><a href="#s8">8. 불리함보다 「부당함」…</a></li><li><a href="#s9">9. 언더독이 3연승하면, 절반…</a></li><li><a href="#s10">10. 내 일이 걸리면 사라진다…</a></li><li><a href="#s11">11. 높이 선 사람이 떨어질 때…</a></li><li><a href="#s12">12. 이긴 다음 날의 「우리」…</a></li><li><a href="#s13">13. 「못 할 거야」가 연료가 …</a></li><li><a href="#s14">14. 이변을 보러 오나 — 리그…</a></li><li><a href="#s15">15. 코모는 어느 줄로 재느냐에…</a></li><li><a href="#s16">16. 예상 11위가 4위로, 올…</a></li><li><a href="#s17">17. 방송은 「언더독」을 띄웠고…</a></li><li><a href="#s18">18. 「언더독」 검색은 첫 방송…</a></li><li><a href="#unknown">아직 모르는 것</a></li><li><a href="#check">검토할 것</a></li></ol></nav>
+<main>
+<section id="dohae">
+<h2>도해표 — 그림 18장 한눈에</h2>
+<p class="note">그림마다 「말하는 것 · 숫자 · 출처 · 확인할 점」. 그림을 누르면 본문 그 자리로 간다. 노란 칸이 확인이 필요한 곳. 색: 주황 = 언더독(돈 적은 쪽), 파랑 = 강자(돈 많은 쪽), 빨강 = 해체·위험.</p>
+<div class="scroll"><table><tr><th>번호</th><th>그림</th><th>이 그림이 말하는 것</th><th>숫자·원문</th><th>출처</th><th>확인할 점</th></tr><tr><td class="no">사건<br><b>1</b></td><td class="pic"><a href="#fig1"><img src="img/U01_team_name.png" alt="팀 이름부터 언더독이었다"></a><div class="t">팀 이름부터 언더독이었다</div></td><td>원더독스 = 「언더독 → 원더」. 방송이 스스로 붙인 이름</td><td>MBC 보도자료(2025.8.21) 문장, 23개 매체 같은 문장 · 2화 첫 화면 큰 자막 「언더독」</td><td class="src">MBC 보도자료·2화 두 판독</td><td class="chk">입구 그림으로 괜찮은지</td></tr><tr><td class="no">사건<br><b>2</b></td><td class="pic"><a href="#fig2"><img src="img/U02_seven_jerseys.png" alt="시즌1 일곱 명은 어디서 왔나"></a><div class="t">시즌1 일곱 명은 어디서 왔나</div></td><td>방출·은퇴·실업·대학 — 기회가 적었던 선수들</td><td>방출 2 · 은퇴 절차 1 · 은퇴 뒤 복귀 1 · 한 팀 17년 뒤 실업 1 · 드래프트 탈락 뒤 실업 7년 1 · 대학 리그 1</td><td class="src">뉴스서울 2025.9.10(기자 서술)·MBC 보도자료</td><td class="chk">선수 이름 없이 처지만 둔 것 · 「은퇴 절차」 표현</td></tr><tr><td class="no">사건<br><b>3</b></td><td class="pic"><a href="#fig3"><img src="img/U03_four_losses.png" alt="4번 지면 해체, 이번엔 방출제까지"></a><div class="t">4번 지면 해체, 이번엔 방출제까지</div></td><td>규칙 자체가 언더독 무대 — 질 수 있다는 전제</td><td>7경기 중 4패면 즉시 해체(2화 내레이션) · 시즌1 5승 2패 · 시즌2 방출제&amp;영입제 도입(자막)</td><td class="src">2화 두 판독·보도</td><td class="chk">시즌1 5승 2패는 구단 노트 1-1 숫자</td></tr><tr><td class="no">사건<br><b>4</b></td><td class="pic"><a href="#fig4"><img src="img/U04_revenge_sets.png" alt="1년 만의 리벤지, 1세트는 18 : 25"></a><div class="t">1년 만의 리벤지, 1세트는 18 : 25</div></td><td>시즌1 역전패 상대를 시즌2 첫 경기에서 다시 만남</td><td>시즌1 2세트 먼저 따고 3·4·5세트 내줌 · 시즌2 1세트 18:25 · 공격 성공률 32% vs 30% · 결과 3화(10/25)</td><td class="src">2화 캐스터·스코어 그래픽(두 판독)</td><td class="chk">기사 「14-21」은 중간 점수였음 — 25:18로 확정</td></tr><tr><td class="no">구조<br><b>5</b></td><td class="pic"><a href="#fig5"><img src="img/U05_money_vs_odds.png" alt="돈과 확률이 엇갈리면"></a><div class="t">돈과 확률이 엇갈리면</div></td><td>언더독 = 「질 것 같은 팀」이 아니라 「가진 게 적은 팀」</td><td>A 이길 확률 70%·선수단 돈 3,500만 달러 vs B 30%·1억 달러 → 3분의 2가 A 응원</td><td class="src">Vandello 외(2007) 연구 4 초록 + Slate(2010) 기사</td><td class="chk">「3분의 2」는 기사 숫자(원문 표 미확인) — 그림 근거 줄에 밝힘</td></tr><tr><td class="no">구조<br><b>6</b></td><td class="pic"><a href="#fig6"><img src="img/U06_three_countries.png" alt="세 나라 모두 돈 적은 쪽을 더 응원했다"></a><div class="t">세 나라 모두 돈 적은 쪽을 더 응원했다</div></td><td>같은 실험을 이스라엘·중국·일본에서 다시 — 같은 방향</td><td>응원 점수(0~9) 5.46:4.63 · 6.35:4.96 · 6.10:5.28 · 나라 차이 없음</td><td class="src">Goldschmied 외(2018) Frontiers in Psychology 원문 표</td><td class="chk">한국 표본은 없음(본문에 명시)</td></tr><tr><td class="no">구조<br><b>7</b></td><td class="pic"><a href="#fig7"><img src="img/U07_two_ingredients.png" alt="언더독 이야기의 두 재료"></a><div class="t">언더독 이야기의 두 재료</div></td><td>바깥 불리함 + 열정·끈기 — 둘이 같이 있어야</td><td>Paharia 외(2011) 두 차원 · 효과가 커지는 때: 스스로 언더독이라 느끼는 사람·내가 살 때</td><td class="src">Journal of Consumer Research 초록</td><td class="chk">—</td></tr><tr><td class="no">구조<br><b>8</b></td><td class="pic"><a href="#fig8"><img src="img/U08_unfair.png" alt="불리함보다 「부당함」"></a><div class="t">불리함보다 「부당함」</div></td><td>「부당하게」 불리할 때 매력이 오름</td><td>Michniewicz &amp; Vandello(2013) 78명, 2×2 — 부당하게 불리·공정하게 유리 둘 다 매력↑</td><td class="src">초록</td><td class="chk">공정하게 불리는 오르지 않음 — 표현 확인</td></tr><tr><td class="no">구조<br><b>9</b></td><td class="pic"><a href="#fig9"><img src="img/U09_after_three_wins.png" alt="언더독이 3연승하면, 절반이 강자 쪽으로"></a><div class="t">언더독이 3연승하면, 절반이 강자 쪽으로</div></td><td>응원은 「지금 불리한 쪽」을 따라 움직인다</td><td>81% 언더독 응원 → 3연승 소식 뒤 그중 절반 이동</td><td class="src">Frazier &amp; Snyder(1991)를 소개한 기사(Slate 2010)</td><td class="chk">원문 숫자 미확인 — 「기사에 따르면」으로만</td></tr><tr><td class="no">구조<br><b>10</b></td><td class="pic"><a href="#fig10"><img src="img/U10_my_town.png" alt="내 일이 걸리면 사라진다"></a><div class="t">내 일이 걸리면 사라진다</div></td><td>언더독 응원은 「폭은 넓고 깊이는 얕다」</td><td>먼 도시 수질 검사 → 신생 업체 응원 / 「발암 수은」 → 사라짐 / 내 동네 → 응원 안 함</td><td class="src">Allison 연구실 실험 기사(Slate 2010), Kim 외(2008) 연구 4로 추정</td><td class="chk">논문 연결은 추정 — 근거 줄에 표시</td></tr><tr><td class="no">구조<br><b>11</b></td><td class="pic"><a href="#fig11"><img src="img/U11_tall_poppy.png" alt="높이 선 사람이 떨어질 때"></a><div class="t">높이 선 사람이 떨어질 때</div></td><td>거울상 — 강자의 추락을 반기는 마음</td><td>높은 성취자 추락 &gt; 보통 사람 추락, 「평균까지」 내려올 때 가장 · 531·361·205명</td><td class="src">Feather(1989) 초록</td><td class="chk">—</td></tr><tr><td class="no">구조<br><b>12</b></td><td class="pic"><a href="#fig12"><img src="img/U12_we_won.png" alt="이긴 다음 날의 「우리」"></a><div class="t">이긴 다음 날의 「우리」</div></td><td>이긴 팀에 묻어가는 마음(BIRG)</td><td>이긴 뒤 학교 옷을 더 입고 「우리」를 더 씀</td><td class="src">Cialdini 외(1976) 초록</td><td class="chk">—</td></tr><tr><td class="no">구조<br><b>13</b></td><td class="pic"><a href="#fig13"><img src="img/U13_prove_them_wrong.png" alt="「못 할 거야」가 연료가 될 때"></a><div class="t">「못 할 거야」가 연료가 될 때</div></td><td>선수 쪽 — 무시당한 말이 동기가 되는 조건</td><td>믿지 않으면 성과↑, 믿을 만한 사람이 한 말이면 성과↓</td><td class="src">Nurmohamed(2020) 초록</td><td class="chk">관중이 아니라 선수 본인 이야기 — 본문에서 구분</td></tr><tr><td class="no">구조<br><b>14</b></td><td class="pic"><a href="#fig14"><img src="img/U14_upset_demand.png" alt="이변을 보러 오나 — 리그마다 달랐다"></a><div class="t">이변을 보러 오나 — 리그마다 달랐다</div></td><td>「이변 보려고 본다」는 일반화 금지</td><td>스페인 무료 중계 304경기: 큰 언더독·큰 강자 &gt; 박빙 / EPL·UCL TV: 무관(스타·팀 수준) / K리그 댓글 16,937개: 예상 밖 승리 → 긍정 댓글↑</td><td class="src">Humphreys &amp; Pérez(2019)·Buraimo &amp; Simmons(2015)·Wills 외(2022)·Sung 외(2023)</td><td class="chk">화면 속 선은 모식</td></tr><tr><td class="no">다시 사건<br><b>15</b></td><td class="pic"><a href="#fig15"><img src="img/U15_como_ranks.png" alt="코모는 어느 줄로 재느냐에 따라 1위도 19위도"></a><div class="t">코모는 어느 줄로 재느냐에 따라 1위도 19위도</div></td><td>돈 축은 1위, 연봉·관중 축은 중하위 — 상대에 따라 언더독</td><td>구단주 재산 1 · 순지출 1(2025-26) · 시장가치 3 · 리그 4(10/18) · 연봉 총액 8 · 평균 관중 19 · 연봉 인테르의 43%</td><td class="src">Forbes 인용 보도·Transfermarkt·Calcio e Finanza</td><td class="chk">사용자 관점(구성으로 보면 언더독)과 연구(선수단 돈)를 같이 놓은 것</td></tr><tr><td class="no">다시 사건<br><b>16</b></td><td class="pic"><a href="#fig16"><img src="img/U16_como_climb.png" alt="예상 11위가 4위로, 올해는 우승 후보"></a><div class="t">예상 11위가 4위로, 올해는 우승 후보</div></td><td>언더독 자리에서 강자 자리로 — 3연승 연구와 이어짐</td><td>2024-25 10위 · 2025-26 예상 11위 → 4위(첫 챔스) · 2026-27 예상 우승 2위(Opta 13.6%) · 10/18 4위 / 레스터 연봉 15위·5000 대 1 → 우승</td><td class="src">Opta·세리에A·보도</td><td class="chk">레스터 대조를 넣을지</td></tr><tr><td class="no">다시 사건<br><b>17</b></td><td class="pic"><a href="#fig17"><img src="img/U17_headline_words.png" alt="방송은 「언더독」을 띄웠고, 기사 제목은 「복수」"></a><div class="t">방송은 「언더독」을 띄웠고, 기사 제목은 「복수」</div></td><td>같은 경기를 방송과 기사가 다른 말로 불렀다</td><td>기사 549건 제목: 복수 14 · 리벤지 13 · 설욕 6 · 언더독 2(둘 다 「언더독스」 오기) · 방출 0 · 잡초 0</td><td class="src">네이버 뉴스 API 직접 셈</td><td class="chk">제목만 셈(본문 아님) — 근거 줄에</td></tr><tr><td class="no">다시 사건<br><b>18</b></td><td class="pic"><a href="#fig18"><img src="img/U18_search_pulse.png" alt="「언더독」 검색은 첫 방송 날 뛰었다"></a><div class="t">「언더독」 검색은 첫 방송 날 뛰었다</div></td><td>언더독이라는 말이 방송과 함께 움직임</td><td>시즌1 첫 방송 날 전날의 3.4배 · 시즌2 첫 방송 날 2.3배(높이 시즌1의 28%) · 2025.9~12 「언더독」 기사 41%가 김연경과 함께</td><td class="src">데이터랩(상대값)·빅카인즈</td><td class="chk">10/18(2화) 값은 아직 없음</td></tr></table></div>
+</section>
+<section id="s1"><h2>1. 팀 이름부터 언더독이었다</h2><figure id="fig1"><img src="img/U01_team_name.png" alt="팀 이름부터 언더독이었다" width="1400" height="800"><figcaption><span class="fn">그림 1</span>MBC 보도자료·2화 두 판독</figcaption></figure><p>이름부터 말장난이었다. MBC는 첫 공개 때 「각자의 이유로 언더독이 된 이들이 다시 원더로 나아간다」고 풀었고, 시즌2 2화도 지난 이야기 첫 화면에 「언더독」을 크게 띄웠다.</p></section>
+<section id="s2"><h2>2. 시즌1 일곱 명은 어디서 왔나</h2><figure id="fig2"><img src="img/U02_seven_jerseys.png" alt="시즌1 일곱 명은 어디서 왔나" width="1400" height="800"><figcaption><span class="fn">그림 2</span>뉴스서울 2025.9.10(기자 서술)·MBC 보도자료</figcaption></figure><p>시즌1 일곱 명은 어디서 왔는지가 저마다 달랐다. 프로에서 방출된 선수가 둘, 은퇴했거나 은퇴 뒤 돌아온 선수가 둘, 실업팀 선수가 둘, 대학 리그 선수가 하나였다. 그림엔 이름 없이 처지만 달았다.</p></section>
+<section id="s3"><h2>3. 4번 지면 해체, 이번엔 방출제까지</h2><figure id="fig3"><img src="img/U03_four_losses.png" alt="4번 지면 해체, 이번엔 방출제까지" width="1400" height="800"><figcaption><span class="fn">그림 3</span>2화 두 판독·보도</figcaption></figure><p>원더독스는 7경기 가운데 4번 지면 그 자리에서 해체된다. 2화 내레이션이 그대로 말했다. 시즌1은 5승 2패로 살아남았고, 시즌2에는 방출제와 영입제가 새로 붙었다.</p></section>
+<section id="s4"><h2>4. 1년 만의 리벤지, 1세트는 18 : 25</h2><figure id="fig4"><img src="img/U04_revenge_sets.png" alt="1년 만의 리벤지, 1세트는 18 : 25" width="1400" height="800"><figcaption><span class="fn">그림 4</span>2화 캐스터·스코어 그래픽(두 판독)</figcaption></figure><p>2화 첫 경기 상대는 시즌1에서 두 세트를 먼저 따고도 내리 세 세트를 내준 일본 슈지츠 고교였다. 1세트는 18 대 25로 졌지만 공격 성공률은 원더독스가 32% 대 30%로 앞섰다. 결과는 10월 25일 3화에 나온다.</p></section>
+<section id="s5"><h2>5. 돈과 확률이 엇갈리면</h2><figure id="fig5"><img src="img/U05_money_vs_odds.png" alt="돈과 확률이 엇갈리면" width="1400" height="800"><figcaption><span class="fn">그림 5</span>Vandello 외(2007) 연구 4 초록 + Slate(2010) 기사</figcaption></figure><p>이길 확률과 선수단 돈을 일부러 엇갈려 붙였다. A팀은 이길 확률이 높지만 돈이 적고, B팀은 질 것 같지만 돈이 많다. 이 실험을 소개한 기사에 따르면 3분의 2가 A팀을 응원했다. 사람들이 언더독을 가르는 기준이 확률보다 돈에 가까웠다.</p></section>
+<section id="s6"><h2>6. 세 나라 모두 돈 적은 쪽을 더 응원했다</h2><figure id="fig6"><img src="img/U06_three_countries.png" alt="세 나라 모두 돈 적은 쪽을 더 응원했다" width="1400" height="800"><figcaption><span class="fn">그림 6</span>Goldschmied 외(2018) Frontiers in Psychology 원문 표</figcaption></figure><p>같은 설계를 2018년 이스라엘·중국·일본 대학생 335명에게 다시 했다. 세 나라 모두 돈 적고 이길 확률 높은 팀의 깃발이 더 높았다. 나라끼리의 차이는 통계로 없었다. 한국 표본은 아직 없다.</p></section>
+<section id="s7"><h2>7. 언더독 이야기의 두 재료</h2><figure id="fig7"><img src="img/U07_two_ingredients.png" alt="언더독 이야기의 두 재료" width="1400" height="800"><figcaption><span class="fn">그림 7</span>Journal of Consumer Research 초록</figcaption></figure><p>브랜드 연구가 언더독 이야기를 두 재료로 나눴다. 내 탓이 아닌 불리함, 그리고 그래도 다시 해 보는 끈기다. 원더독스의 방출·은퇴는 앞의 것, 다시 코트에 서는 모습은 뒤의 것이다.</p></section>
+<section id="s8"><h2>8. 불리함보다 「부당함」</h2><figure id="fig8"><img src="img/U08_unfair.png" alt="불리함보다 「부당함」" width="1400" height="800"><figcaption><span class="fn">그림 8</span>초록</figcaption></figure><p>그냥 불리하다고 끌리는 건 아니었다. 출발선에 장애물이 「부당하게」 놓였을 때 그 사람이 더 매력적으로 보였다. 내 탓이 아닌 불리함이라는 첫 재료를 다른 실험이 받쳐 준다.</p></section>
+<section id="s9"><h2>9. 언더독이 3연승하면, 절반이 강자 쪽으로</h2><figure id="fig9"><img src="img/U09_after_three_wins.png" alt="언더독이 3연승하면, 절반이 강자 쪽으로" width="1400" height="800"><figcaption><span class="fn">그림 9</span>Frazier &amp; Snyder(1991)를 소개한 기사(Slate 2010)</figcaption></figure><p>7전 4선승 가상 시리즈에서 처음엔 81%가 언더독을 골랐다. 그런데 언더독이 3연승했다고 알려 주자 그중 절반이 강자 쪽으로 옮겼다고 한다. 언더독이 이기기 시작하면 더는 언더독이 아니라는 뜻이다.</p></section>
+<section id="s10"><h2>10. 내 일이 걸리면 사라진다</h2><figure id="fig10"><img src="img/U10_my_town.png" alt="내 일이 걸리면 사라진다" width="1400" height="800"><figcaption><span class="fn">그림 10</span>Allison 연구실 실험 기사(Slate 2010), Kim 외(2008) 연구 4로 추정</figcaption></figure><p>먼 도시의 수질 검사 계약이라면 사람들은 신생 업체를 응원했다. 결과가 위험해지거나 내 동네 물이 되자 그 응원은 사라졌다. 연구진의 말대로 언더독 응원은 넓게 퍼지지만 깊지 않다.</p></section>
+<section id="s11"><h2>11. 높이 선 사람이 떨어질 때</h2><figure id="fig11"><img src="img/U11_tall_poppy.png" alt="높이 선 사람이 떨어질 때" width="1400" height="800"><figcaption><span class="fn">그림 11</span>Feather(1989) 초록</figcaption></figure><p>언더독을 응원하는 마음 반대편에는 높이 선 사람이 떨어지길 바라는 마음이 있다. 호주 연구에서 사람들은 높은 성취자가 떨어질 때 더 반겼고, 바닥까지보다 평균까지 내려올 때 가장 반겼다.</p></section>
+<section id="s12"><h2>12. 이긴 다음 날의 「우리」</h2><figure id="fig12"><img src="img/U12_we_won.png" alt="이긴 다음 날의 「우리」" width="1400" height="800"><figcaption><span class="fn">그림 12</span>Cialdini 외(1976) 초록</figcaption></figure><p>학교 팀이 이긴 다음 날 학생들은 학교 옷을 더 입었고, 경기 얘기에 「우리」를 더 썼다. 언더독이 이기면 함께 기댈 몫이 가장 커진다.</p></section>
+<section id="s13"><h2>13. 「못 할 거야」가 연료가 될 때</h2><figure id="fig13"><img src="img/U13_prove_them_wrong.png" alt="「못 할 거야」가 연료가 될 때" width="1400" height="800"><figcaption><span class="fn">그림 13</span>Nurmohamed(2020) 초록</figcaption></figure><p>언더독 효과는 보는 쪽에만 있지 않다. 「넌 못 할 거야」라는 말을 믿지 않을 때 사람은 보란 듯이 더 잘했다. 다만 그 말이 믿을 만한 사람에게서 나오면 오히려 성과가 떨어졌다.</p></section>
+<section id="s14"><h2>14. 이변을 보러 오나 — 리그마다 달랐다</h2><figure id="fig14"><img src="img/U14_upset_demand.png" alt="이변을 보러 오나 — 리그마다 달랐다" width="1400" height="800"><figcaption><span class="fn">그림 14</span>Humphreys &amp; Pérez(2019)·Buraimo &amp; Simmons(2015)·Wills 외(2022)·Sung 외(2023)</figcaption></figure><p>이변이 사람을 화면 앞에 부르는지는 리그마다 달랐다. 스페인 무료 중계는 한쪽이 크게 불리한 경기에 시청자가 더 많았고, 잉글랜드와 챔피언스리그는 스타가 더 중요했다. K리그 유튜브 댓글은 예상 밖 승리 뒤 긍정적으로 바뀌었다.</p></section>
+<section id="s15"><h2>15. 코모는 어느 줄로 재느냐에 따라 1위도 19위도</h2><figure id="fig15"><img src="img/U15_como_ranks.png" alt="코모는 어느 줄로 재느냐에 따라 1위도 19위도" width="1400" height="800"><figcaption><span class="fn">그림 15</span>Forbes 인용 보도·Transfermarkt·Calcio e Finanza</figcaption></figure><p>코모를 여섯 줄로 쟀다. 구단주 재산과 이적 순지출은 리그 1위, 연봉 총액은 8위, 관중은 19위다. 연구 기준으로 보면 연봉이 인테르의 43%인 코모는 인테르 앞에서 언더독이고, 돈을 더 쓰는 중하위 팀 앞에서는 아니다.</p></section>
+<section id="s16"><h2>16. 예상 11위가 4위로, 올해는 우승 후보</h2><figure id="fig16"><img src="img/U16_como_climb.png" alt="예상 11위가 4위로, 올해는 우승 후보" width="1400" height="800"><figcaption><span class="fn">그림 16</span>Opta·세리에A·보도</figcaption></figure><p>코모는 2025-26 시즌 전 11위로 예상됐지만 4위로 첫 챔피언스리그에 나갔다. 올해는 우승 후보 2위로 꼽힌다. 언더독이 이기기 시작하면 응원이 옮겨 간다는 실험이 지금 코모 앞에 놓여 있다.</p></section>
+<section id="s17"><h2>17. 방송은 「언더독」을 띄웠고, 기사 제목은 「복수」</h2><figure id="fig17"><img src="img/U17_headline_words.png" alt="방송은 「언더독」을 띄웠고, 기사 제목은 「복수」" width="1400" height="800"><figcaption><span class="fn">그림 17</span>네이버 뉴스 API 직접 셈</figcaption></figure><p>시즌2 기사 549건의 제목을 셌다. 「복수」 14건, 「리벤지」 13건, 「설욕」 6건이었고 「언더독」은 2건뿐이었는데 둘 다 팀 이름을 잘못 쓴 것이었다. 방송은 언더독을 말했지만 기사는 되갚는 이야기를 골랐다.</p></section>
+<section id="s18"><h2>18. 「언더독」 검색은 첫 방송 날 뛰었다</h2><figure id="fig18"><img src="img/U18_search_pulse.png" alt="「언더독」 검색은 첫 방송 날 뛰었다" width="1400" height="800"><figcaption><span class="fn">그림 18</span>데이터랩(상대값)·빅카인즈</figcaption></figure><p>「언더독」 검색은 시즌1 첫 방송 날 전날보다 3.4배 뛰었다. 시즌2 첫 방송 날은 2.3배였지만 높이는 시즌1의 28% 정도였다. 그해 가을 「언더독」 기사 열 건 가운데 네 건은 김연경과 함께 나왔다.</p></section>
+
+<section id="unknown"><h2>아직 모르는 것</h2><ul class="plain">
+<li>2화 시청률(10/19 아침 발표), 슈지츠전 결과(3화 10/25).</li>
+<li>Vandello 2007 연구 4의 원문 표·표본 수(유료) — 「3분의 2」는 기사 숫자.</li>
+<li>Kim 2008 연구 4의 결과 방향, 수은 실험이 이 논문인지(추정).</li>
+<li>Frazier & Snyder 1991 원문(81%·절반은 기사 숫자).</li>
+<li>구단주 개인 재산을 바꾼 실험은 없다 — 「구단주가 부자면 언더독 아님」은 쓰지 않는다.</li>
+<li>한국 표본 언더독 실험, 예능 언더독 서사를 잰 논문은 찾지 못했다.</li>
+<li>슈지츠를 첫 상대로 누가 지목했는지(방송에 주어 없음), 「원더독스」 이름을 누가 지었는지.</li>
+</ul></section>
+<section id="check"><h2>검토할 것</h2><ul class="plain">
+<li><strong>축:</strong> 언더독 = 「가진 게 적은데 맞서는 쪽」(연구) → 코모는 상대에 따라 바뀐다 → 응원은 얕고 옮겨 간다 → 방송은 「언더독」, 기사는 「복수」.</li>
+<li>사용자 관점 「코모는 구성으로 보면 언더독」은 연봉 총액(인테르의 43%)·인테르전으로 받치고, 순지출 1위는 중하위 팀 상대로 따로 보였다.</li>
+<li>그림 13(선수 쪽)은 관중 이야기와 결이 달라 본문에서 「선수 쪽」이라고 구분한다. 빼도 된다.</li>
+<li><strong>10/19 결정:</strong> 그림 14(리그별 이변 수요)·16(레스터 대조) 비교는 <strong>넣는다</strong>(사용자). 그림 13은 본문에서 「선수 쪽」으로 구분해 둔다.</li>
+<li>썸네일(1:1, 글자 없음, 5-4 세 질문)은 초안 때 따로 짓는다 — 이 18장 장면과 겹치지 않게.</li>
+</ul></section>
+</main>
+<footer>원자료: 261019_언더독 효과 폴더 — 언더독_공부노트_2026-10-19.md, base data(논문조사·코모 사실조사·원더독스 한국반응·2화 두판독). 그림 fig\figs.py(장면판).</footer>
+</div>
+</body>
+</html>

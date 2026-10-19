@@ -1,0 +1,29 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'NK';src:url('file:///C:/Windows/Fonts/NotoSansKR-VF.ttf');font-weight:100 900}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#FAF7F2;--card:#FFFFFF;--ink:#1E2330;--ink2:#4A5163;--muted:#8A8F9C;--line:#E7E1D6;
+ --pre:#3D62AE;--pre-l:#E6ECF8;--ons:#D07A22;--ons-l:#FBEBDA;--red:#C8463C;--red-l:#F9E3E0;--ok:#2F8F5B;--ok-l:#E2F1E8;--sand:#F3EBDD}
+html,body{width:1350px;height:1338px}
+body{font-family:'NK',sans-serif;background:var(--bg);color:var(--ink);position:relative;overflow:hidden;-webkit-font-smoothing:antialiased}
+.stage{position:absolute;left:70px;right:70px;top:250px;bottom:263px}
+.card{background:var(--card);border-radius:30px;box-shadow:0 2px 0 rgba(30,35,48,.04),0 16px 40px rgba(30,35,48,.09);border:1px solid #EFE9DF}
+.pill{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:10px 22px;font-weight:800}
+.big{font-weight:900;letter-spacing:-.03em;line-height:1}
+.mut{color:var(--muted)}
+.ab{position:absolute}
+.icon3d{object-fit:contain;filter:drop-shadow(0 14px 18px rgba(30,35,48,.16))}
+svg.i{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dots{background-image:radial-gradient(#E9E2D5 1.6px,transparent 1.6px);background-size:26px 26px}
+body.dots{background:#11131A;background-image:radial-gradient(#1E2230 1.6px,transparent 1.6px);background-size:26px 26px;color:#fff}
+.card{background:#1B1F2A;border:1px solid #2A3040;box-shadow:0 16px 40px rgba(0,0,0,.35)}.qq{font-size:54px;font-weight:900;padding:40px 54px;line-height:1.4;width:1120px}.mk{color:#F5D047;font-size:90px;margin-right:12px;vertical-align:-24px}</style></head><body class="dots"><div class="stage" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px">
+<div class="pill" id="who" style="background:#2E62D9;color:#fff;font-size:38px">이정효 감독 · 경기 뒤 회견</div>
+<div class="card qq" id="q1"><span class="mk">“</span>체력 문제는 아니다</div>
+<div class="card qq" id="q2"><span class="mk">“</span>편한 선택, 실수하지 않기 위한<br>선택 때문에 경기력 떨어진다고<br>생각한다</div></div><script>
+const E=u=>u<=0?0:u>=1?1:u*u*(3-2*u);
+const P=(t,a,b)=>E((t-a)/(b-a));
+const K=u=>u<=0?0:u>=1?1:(u<.6?E(u/.6)*1.12:1.12-.12*E((u-.6)/.4));
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const num=(x,d=0)=>x.toLocaleString('ko-KR',{minimumFractionDigits:d,maximumFractionDigits:d});
+const sgn=(x,d=1)=>(x>0?'+':x<0?'−':'')+Math.abs(x).toFixed(d);
+function F(t){$('#who').style.opacity=P(t,.05,.35);$('#q1').style.opacity=P(t,.3,.7);$('#q1').style.transform=`translateX(${(1-P(t,.3,.8))*-150}px)`;
+$('#q2').style.opacity=P(t,1.4,1.8);$('#q2').style.transform=`translateX(${(1-P(t,1.4,1.9))*150}px)`}</script></body></html>

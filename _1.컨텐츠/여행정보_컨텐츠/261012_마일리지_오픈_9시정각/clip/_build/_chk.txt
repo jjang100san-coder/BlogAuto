@@ -1,0 +1,2 @@
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/여행정보_컨텐츠/261012_마일리지_오픈_9시정각/clip/_build/_beep.wav'
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/여행정보_컨텐츠/261012_마일리지_오픈_9시정각/clip/_build/_chk02.wav'

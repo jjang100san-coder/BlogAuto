@@ -1,0 +1,2 @@
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/구구절절_컨텐츠/261011_도시 야생동물 이입/clip/_build/_beep.wav'
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/구구절절_컨텐츠/261011_도시 야생동물 이입/clip/_build/_chk06.wav'

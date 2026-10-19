@@ -1,0 +1,2 @@
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/정보(move)_컨텐츠/260929_등산스틱/clip2/_build/_beep.wav'
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/정보(move)_컨텐츠/260929_등산스틱/clip2/_build/_chk05.wav'

@@ -1,0 +1,4 @@
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/구구절절_컨텐츠/261011_상표권 박진영/clip/_build/_beep.wav'
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/구구절절_컨텐츠/261011_상표권 박진영/clip/_build/_chk03.wav'
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/구구절절_컨텐츠/261011_상표권 박진영/clip/_build/_beep.wav'
+file 'C:/Users/user/Desktop/Blog/_1.컨텐츠/구구절절_컨텐츠/261011_상표권 박진영/clip/_build/_chk07.wav'

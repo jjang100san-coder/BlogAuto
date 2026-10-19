@@ -1,0 +1,37 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'NK';src:url('file:///C:/Windows/Fonts/NotoSansKR-VF.ttf');font-weight:100 900}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#FAF7F2;--card:#FFFFFF;--ink:#1E2330;--ink2:#4A5163;--muted:#8A8F9C;--line:#E7E1D6;
+ --pre:#3D62AE;--pre-l:#E6ECF8;--ons:#D07A22;--ons-l:#FBEBDA;--red:#C8463C;--red-l:#F9E3E0;--ok:#2F8F5B;--ok-l:#E2F1E8;--sand:#F3EBDD}
+html,body{width:1350px;height:1338px}
+body{font-family:'NK',sans-serif;background:var(--bg);color:var(--ink);position:relative;overflow:hidden;-webkit-font-smoothing:antialiased}
+.stage{position:absolute;left:70px;right:70px;top:250px;bottom:263px}
+.card{background:var(--card);border-radius:30px;box-shadow:0 2px 0 rgba(30,35,48,.04),0 16px 40px rgba(30,35,48,.09);border:1px solid #EFE9DF}
+.pill{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:10px 22px;font-weight:800}
+.big{font-weight:900;letter-spacing:-.03em;line-height:1}
+.mut{color:var(--muted)}
+.ab{position:absolute}
+.icon3d{object-fit:contain;filter:drop-shadow(0 14px 18px rgba(30,35,48,.16))}
+svg.i{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dots{background-image:radial-gradient(#E9E2D5 1.6px,transparent 1.6px);background-size:26px 26px}
+.tag{font-size:42px;font-weight:900;background:#fff;border-radius:18px;padding:14px 22px;box-shadow:0 8px 20px rgba(0,0,0,.08);white-space:nowrap}.lb2{font-size:40px;font-weight:900;color:var(--muted)}</style></head><body class="dots"><div class="stage"><div class="card ab" style="inset:0">
+<svg class="ab" style="inset:0" width="1210" height="825">
+ <g fill="#9AA1AE"><rect x="190" y="90" width="640" height="34" rx="6"/><rect x="190" y="330" width="640" height="34" rx="6"/><rect x="190" y="570" width="640" height="34" rx="6"/>
+ <rect x="200" y="90" width="34" height="514" rx="6"/><rect x="493" y="90" width="34" height="514" rx="6"/><rect x="786" y="90" width="34" height="514" rx="6"/></g>
+ <g id="hang"><g stroke="#5B6276" stroke-width="4"><line x1="300" y1="364" x2="300" y2="410"/><line x1="420" y1="364" x2="420" y2="410"/><line x1="600" y1="364" x2="600" y2="410"/><line x1="720" y1="364" x2="720" y2="410"/></g>
+ <rect id="ceil" x="234" y="408" width="552" height="26" rx="5" fill="#E9C9A0" stroke="#C9A06E" stroke-width="3"/></g>
+ <rect id="ghost" x="234" y="408" width="552" height="26" rx="5" fill="none" stroke="#C8463C" stroke-width="4" stroke-dasharray="12 10" opacity="0"/>
+</svg>
+<div class="ab tag" id="t1" style="left:870px;top:200px"><b style="color:#2F8F5B">✓</b> 뼈대는 그대로</div>
+<div class="ab tag" id="t2" style="left:870px;top:440px"><b style="color:#C8463C">↓</b> 매단 천장만</div>
+<div class="ab lb2" style="left:60px;top:200px">3층</div><div class="ab lb2" style="left:60px;top:440px">2층</div>
+<div class="ab pill" id="ppl" style="left:250px;bottom:40px;background:var(--red-l);color:var(--red);font-size:36px">66명 대피 · 38명 부상</div></div></div><script>
+const E=u=>u<=0?0:u>=1?1:u*u*(3-2*u);
+const P=(t,a,b)=>E((t-a)/(b-a));
+const K=u=>u<=0?0:u>=1?1:(u<.6?E(u/.6)*1.12:1.12-.12*E((u-.6)/.4));
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const num=(x,d=0)=>x.toLocaleString('ko-KR',{minimumFractionDigits:d,maximumFractionDigits:d});
+const sgn=(x,d=1)=>(x>0?'+':x<0?'−':'')+Math.abs(x).toFixed(d);
+function F(t){$('#t1').style.opacity=P(t,.3,.7);const d=P(t,1.4,2.4);
+$('#ceil').setAttribute('transform',`translate(0 ${d*120}) rotate(${d*7} 510 420)`);$('#ceil').style.opacity=1-d*.35;$('#ghost').style.opacity=d;
+$('#t2').style.opacity=P(t,2.0,2.4);$('#ppl').style.opacity=P(t,2.8,3.2)}</script></body></html>
